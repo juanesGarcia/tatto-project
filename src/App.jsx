@@ -6,6 +6,9 @@ import{ BestTattos } from "./Screens/BestTattos"
 import{ Artist } from "./Screens/Artist"
 import{ Blog } from "./Screens/Blog"
 import{ Register } from "./Screens/Register"
+import{ Footer } from "./Components/Footer"
+import{ ChooseRegister } from "./Screens/ChooseRegister"
+import{ RegisterTatto } from "./Screens/RegisterTatto"
 
 
 function App() {
@@ -21,7 +24,10 @@ function App() {
           <Route exact path="/Artist" element={<Artist />}></Route>
           <Route exact path="/Blog" element={<Blog />}></Route>
           <Route exact path="/Register" element={<Register/>}></Route>
+          <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
+          <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
         </Routes>
+        <Footer></Footer>
       </Router>
       
     </div>

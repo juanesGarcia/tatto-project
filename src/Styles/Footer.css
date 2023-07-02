@@ -1,0 +1,30 @@
+.containerFooter {
+    width: 100%;
+    background-color: rgb(228, 224, 177);
+    padding: 20px;
+    font-family: 'Rock Salt', cursive !important;
+
+  }
+.footer{
+    margin-left: 10%;
+}
+  .footer-contact {
+    margin-right: 20px;
+  }
+.contact{
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+
+.container-social{
+    display: flex;
+    padding-bottom: 1%;
+}
+.container-icons{
+    margin-left: 2% !important;
+}
+.icons{
+    color: black !important;
+  
+}

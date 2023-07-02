@@ -14,7 +14,7 @@ body, html {
 }
   
   
-.login-box {
+.login-boxLogin {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,14 +30,15 @@ body, html {
   }
   
   @media (max-width: 470px) {
-    .login-box{
+    .login-boxLogin{
         width: 80%; 
+        margin-top: 10% !important;
     }
-    .login-box p:last-child {
+    .login-boxLogin p:last-child {
        margin-top: 10%;
       }
   }
-  .login-box p:first-child {
+  .login-boxLogin p:first-child {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
@@ -47,23 +48,24 @@ body, html {
     letter-spacing: 1px;
   }
   
-  .login-box .user-box {
+  .login-boxLogin .user-boxLogin {
     position: relative;
   }
   
-  .login-box .user-box input {
+  .login-boxLogin .user-boxLogin input {
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
-    margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #917E41;
     outline: none;
-    background: transparent;
+    background: transparent !important; 
+    margin-bottom: 5%;
+    margin-top: 5%;
+    
   }
   
-  .login-box .user-box label {
+  .login-boxLogin .user-boxLogin label {
     position: absolute;
     top: 0;
     left: 0;
@@ -72,17 +74,19 @@ body, html {
     color: #fff;
     pointer-events: none;
     transition: .5s;
+    padding-bottom: 5%;
+   
   }
   
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
+  .login-boxLogin .user-boxLogin input:focus ~ label,
+  .login-boxLogin .user-boxLogin input:valid ~ label {
     top: -20px;
     left: 0;
     color: #fff;
     font-size: 12px;
   }
   
-  .login-box form a {
+  .login-boxLogin form a {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -98,18 +102,18 @@ body, html {
     margin-bottom: 6%;
   }
   
-  .login-box a:hover {
+  .login-boxLogin a:hover {
     background: #917E41 ;
     color: aliceblue;
     border-radius: 5px;
   }
   
-  .login-box a span {
+  .login-boxLogin a span {
     position: absolute;
     display: block;
   }
   
-  .login-box a span:nth-child(1) {
+  .login-boxLogin a span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -128,7 +132,7 @@ body, html {
     }
   }
   
-  .login-box a span:nth-child(2) {
+  .login-boxLogin a span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -148,7 +152,7 @@ body, html {
     }
   }
   
-  .login-box a span:nth-child(3) {
+  .login-boxLogin a span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -168,7 +172,7 @@ body, html {
     }
   }
   
-  .login-box a span:nth-child(4) {
+  .login-boxLogin a span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -188,7 +192,7 @@ body, html {
     }
   }
   
-  .login-box p:last-child {
+  .login-boxLogin p:last-child {
     color: #aaa;
     font-size: 14px;
   }
