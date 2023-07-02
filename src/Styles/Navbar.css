@@ -1,0 +1,22 @@
+
+.words{
+    font-family: 'Rock Salt', cursive !important;
+    color: aliceblue !important;
+    
+}
+.icon{
+   color: aliceblue !important;
+}
+
+.icon:hover{
+    color: #917E41 !important;
+}
+.login{
+    font-family: 'Rock Salt', cursive !important;
+    color: aliceblue !important;
+    margin-right: 5%;
+
+}
+.login:hover{
+    color: #917E41;
+}
