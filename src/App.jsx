@@ -5,6 +5,7 @@ import{ Login } from "./Screens/Login"
 import{ BestTattos } from "./Screens/BestTattos"
 import{ Artist } from "./Screens/Artist"
 import{ Blog } from "./Screens/Blog"
+import{ Register } from "./Screens/Register"
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/BestTattos" element={<BestTattos />}></Route>
           <Route exact path="/Artist" element={<Artist />}></Route>
           <Route exact path="/Blog" element={<Blog />}></Route>
+          <Route exact path="/Register" element={<Register/>}></Route>
         </Routes>
       </Router>
       

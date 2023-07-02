@@ -62,11 +62,11 @@ function Navbar() {
             color="inherit"
             size="large"
             onClick={() => setOpen(true)}
-            sx={{display:{xs:"flex", sm:"none"}}}
+            sx={{display:{xs:"flex", md:"none"}}}
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{display:{xs:"none", sm:"block"},  flexGrow: 1}}>
+          <Box sx={{display:{xs:"none", md:"block"},  flexGrow: 1}}>
           <CustomButton component={NavLink} to="/"> <HomeIcon className="icon" ></HomeIcon></CustomButton>
             {navlinks.map((items) => (
               <CustomButton key={items.title} className="words" component={NavLink} to={items.path}>
@@ -84,7 +84,7 @@ function Navbar() {
         </Toolbar>
       </StyledAppBar>
 
-      <Drawer open={open} anchor="left" onClose={() => setOpen(false)}  sx={{display:{xs:"flex", sm:"none"}}}>
+      <Drawer open={open} anchor="left" onClose={() => setOpen(false)}  sx={{display:{xs:"flex", md:"none"}}}>
         <NavbarList navlinks={navlinks} setOpen={setOpen}/>
       </Drawer>
     </>
