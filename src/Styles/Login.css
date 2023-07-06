@@ -57,11 +57,12 @@ body, html {
     padding: 10px 0;
     font-size: 16px;
     border: none;
-    border-bottom: 1px solid #917E41;
+    border-bottom: 1px solid black;
     outline: none;
     background: transparent !important; 
     margin-bottom: 5%;
     margin-top: 5%;
+    color: #fff;
     
   }
   
@@ -86,11 +87,12 @@ body, html {
     font-size: 12px;
   }
   
-  .login-boxLogin form a {
+  .login-boxLogin form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
     font-weight: bold;
+    background-color: black;
     color: #fff;
     font-size: 80%;
     text-decoration: none;
@@ -102,18 +104,18 @@ body, html {
     margin-bottom: 6%;
   }
   
-  .login-boxLogin a:hover {
-    background: #917E41 ;
+  .login-boxLogin form button:hover {
+    background: black ;
     color: aliceblue;
     border-radius: 5px;
   }
   
-  .login-boxLogin a span {
+  .login-boxLogin button span {
     position: absolute;
     display: block;
   }
   
-  .login-boxLogin a span:nth-child(1) {
+  .login-boxLogin button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -132,7 +134,7 @@ body, html {
     }
   }
   
-  .login-boxLogin a span:nth-child(2) {
+  .login-boxLogin button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -152,7 +154,7 @@ body, html {
     }
   }
   
-  .login-boxLogin a span:nth-child(3) {
+  .login-boxLogin button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -172,7 +174,7 @@ body, html {
     }
   }
   
-  .login-boxLogin a span:nth-child(4) {
+  .login-boxLogin button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -204,6 +206,6 @@ body, html {
   
   .a2:hover {
     background: transparent;
-    color: #917E41;
+    color: black;
     border-radius: 5px;
   }

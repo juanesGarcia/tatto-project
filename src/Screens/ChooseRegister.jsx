@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import "../Styles/Chooseregister.css"
 import { NavLink } from "react-router-dom";
 export const ChooseRegister = () => {

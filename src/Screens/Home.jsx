@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { SearchP} from './SearchP';
 import "../Styles/Home.css"
 export const Home = () => {
   return (
-    <div className='container'>
-
-        <h1>Home</h1>
+    <div class="search">
+       <SearchP></SearchP>
     </div>
+   
   )
 }

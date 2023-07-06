@@ -14,9 +14,51 @@
 .login{
     font-family: 'Rock Salt', cursive !important;
     color: aliceblue !important;
-    margin-right: 5%;
+    margin-right: 2%;
 
 }
+.signup{
+    font-family: 'Rock Salt', cursive !important;
+    color: aliceblue !important;
+    margin-right: 2%;
+    width: 20vh;
+}
+@media (max-width: 470px) {
+    .signup{
+         width: 14.5vh;
+    }
+   
+  }
+
+
 .login:hover{
     color: #917E41;
 }
+
+.profile-info {
+    background-color: black;
+    border: 1px solid #ddd;
+    padding: 10px;
+    position: absolute;
+    top: 55px;
+    right: 55px;
+    z-index: 999;
+    text-align: center;
+  }
+  
+  .profile-name {
+    font-family: 'Rock Salt', cursive !important;
+    margin-top:5%;
+    margin-bottom: 8%;
+  }
+  .profile-name:hover {
+    font-family: 'Rock Salt', cursive !important;
+    margin-top:5%;
+    margin-bottom: 8%;
+    color: #917E41 !important;
+  }
+  
+  .profile-email {
+    color: #777;
+  }
+  

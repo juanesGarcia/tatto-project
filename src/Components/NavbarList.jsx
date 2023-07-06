@@ -16,31 +16,30 @@ const CustomList = styled(ListItemButton)(({ theme }) => ({
   },
 }));
 
-export const NavbarList = ({ navlinks ,setOpen}) => {
+export const NavbarList = ({ navlinks, setOpen }) => {
   return (
     <>
-      <Box sx={{ width: "100%", backgroundColor: '#171717', height:"100%"}} >
+      <Box sx={{ width: "100%", backgroundColor: '#171717', height: "100%" }} >
         <nav aria-label="main mailbox folders">
           <List>
             <ListItem>
-              <img src={logo} alt="" className='img'/>
+              <img src={logo} alt="" className='img' />
             </ListItem>
             <ListItem >
-              <CustomList component={NavLink} to="/" onClick={()=>setOpen(false)}  className="words">
+              <CustomList component={NavLink} to="/" onClick={() => setOpen(false)} className="words">
                 <ListItemText sx={{
-                      marginTop:"8%",
-                      borderBottom: '1px solid #917E41',
-                      marginLeft:"4%"
-                    }}><HomeIcon sx={{
-                      color: "white"
-                    }}></HomeIcon ><a className='words'>Home</a></ListItemText>
+                  marginTop: "8%",
+                  borderBottom: '1px solid #917E41',
+                  marginLeft: "4%"
+                }}><HomeIcon sx={{
+                  color: "white"
+                }}></HomeIcon ><a className='words'>Home</a></ListItemText>
               </CustomList>
             </ListItem>
             {
               navlinks.map(item => (
                 <ListItem disablePadding key={item.title} >
-                  <CustomList component={NavLink} to={item.path} onClick={()=>setOpen(false)}  className="words">
-
+                  <CustomList component={NavLink} to={item.path} onClick={() => setOpen(false)} className="words">
                     <ListItemText sx={{
                       marginLeft: '7%', borderBottom: '1px solid #917E41',
                       paddingBottom: '2%'

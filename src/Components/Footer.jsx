@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import "../Styles/Footer.css"
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -12,8 +12,8 @@ export const Footer = () => {
                     <h1>Contact us</h1>
                 </div>
                 <div className="footer-contact">
-                    <p>Correo: correo@example.com</p>
-                    <p>Teléfono: (123) 456-7890</p>
+                    <p>Correo: juanesgym2018@gmail.com</p>
+                    <p>Teléfono: +57 3186699925 </p>
                 </div>
                 <div className='container-social'>
                     <a className="container-icons" href="https://web.facebook.com/juanesteban.cubillosgarcia.7/"> <FacebookRoundedIcon className='icons' sx={{ marginLeft: "5% !important" }}></FacebookRoundedIcon></a>

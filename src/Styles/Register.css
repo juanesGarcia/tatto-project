@@ -4,6 +4,29 @@
     height: 130vh;
     padding: 0;
 }
+.custom-swal-popup {
+  background-color: black;
+  color: white;
+  font-family: 'Rock Salt', cursive !important;
+}
+
+.custom-swal-title {
+  color: white;
+  font-family: 'Rock Salt', cursive !important;
+}
+
+.custom-swal-confirm-button {
+  background-color: white;
+  color: black;
+  font-family: 'Rock Salt', cursive !important;
+  padding: 13% 80%;
+}
+
+.custom-swal-confirm-button:hover{
+  background-color: #917E41;
+}
+
+
 
 .login-box {
     position: absolute;
@@ -75,11 +98,12 @@
     font-size: 12px;
   }
   
-  .login-box form a {
+  .login-box form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
     font-weight: bold;
+    background-color: black ;
     color: #fff;
     font-size: 80%;
     text-decoration: none;
@@ -91,18 +115,18 @@
     margin-bottom: 6%;
   }
   
-  .login-box a:hover {
+  .login-box button:hover {
     background: #917E41 ;
     color: aliceblue;
     border-radius: 5px;
   }
   
-  .login-box a span {
+  .login-box button span {
     position: absolute;
     display: block;
   }
   
-  .login-box a span:nth-child(1) {
+  .login-box button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -121,7 +145,7 @@
     }
   }
   
-  .login-box a span:nth-child(2) {
+  .login-box button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -141,7 +165,7 @@
     }
   }
   
-  .login-box a span:nth-child(3) {
+  .login-box button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -161,7 +185,7 @@
     }
   }
   
-  .login-box a span:nth-child(4) {
+  .login-box button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
