@@ -43,7 +43,7 @@ function App() {
           <Route exact path="/Register" element={<Register/>}></Route>
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
-          <Route exact path="/profile/:value" element={<UserProfile></UserProfile>} />
+          <Route path="/profile/:id/:name" element={<UserProfile />} />
         </Routes>
         <Footer></Footer>
       </Router>

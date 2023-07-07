@@ -15,11 +15,10 @@ import Drawer from "@mui/material/Drawer";
 import { NavbarList } from "./NavbarList";
 import { styled } from "@mui/material/styles";
 import ArticleIcon from '@mui/icons-material/Article';
-import { useSelector } from "react-redux";
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
+import { useDispatch, useSelector } from "react-redux";
+import { onLogout } from "../api/auth";
+import { unauthenticateUser } from "../redux/slices/authSlice";
+
 
 const navlinks = [
 
@@ -56,6 +55,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 function Navbar() {
+  const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.auth);
 
   const [open, setOpen] = useState(false);
@@ -64,10 +64,21 @@ function Navbar() {
   const handleAvatarClick = () => {
     setShowInfo(prevShowInfo => !prevShowInfo);
   };
-
-  const style = {
-    backgroundColor: "black",
+  const handleInfoClose = () => {
+    setShowInfo(false);
   };
+  
+  const logout = async()=>{
+    try {
+      await onLogout();
+      dispatch(unauthenticateUser())
+      localStorage.removeItem('isAuth');
+      
+    } catch (error) {
+      console.log(error.reponse)
+    }
+  }
+
   return (
     <>
       <StyledAppBar position="static">
@@ -90,20 +101,19 @@ function Navbar() {
             ))}
           </Box>
           {isAuth ? (
-            <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: "2%" }}>
-              <Avatar
-                alt="User Avatar"
-                onClick={handleAvatarClick}
-              >NO </Avatar>
-              {showInfo && (
-                <div className="profile-info">
-                  <div className="profile-name">nicolas</div>
-                  <div className="profile-name">nicolas@gmail.com</div>
-                  <div className="profile-name">nicolas</div>
-                </div>
-              )}
-            </Box>
-          ) : (
+        <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: "2%" }}>
+          <Avatar
+            alt="User Avatar"
+            onClick={handleAvatarClick}
+          >NO </Avatar>
+          {showInfo && (
+            <div className="profile-info" onClick={handleInfoClose}>
+              <div className="profile-name">nicolas</div>
+              <div className="profile-name" onClick={()=>logout()}>logout</div>
+            </div>
+          )}
+        </Box>
+      ) : (
             <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: "2%" }} >
               <CustomButton sx={{ marginRight: "10%", borderBottom: "1px solid #917E41" }} component={NavLink} to="/login" className="login">
                 login

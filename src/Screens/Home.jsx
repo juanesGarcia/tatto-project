@@ -3,7 +3,7 @@ import { SearchP} from './SearchP';
 import "../Styles/Home.css"
 export const Home = () => {
   return (
-    <div class="search">
+    <div className="search">
        <SearchP></SearchP>
     </div>
    

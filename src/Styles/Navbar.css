@@ -1,6 +1,6 @@
 
 .words{
-    font-family: 'Rock Salt', cursive !important;
+  font-family: 'Sacramento', cursive !important;
     color: aliceblue !important;
     
 }
@@ -12,13 +12,13 @@
     color: #917E41 !important;
 }
 .login{
-    font-family: 'Rock Salt', cursive !important;
+    font-family: 'Sacramento', cursive !important;
     color: aliceblue !important;
     margin-right: 2%;
 
 }
 .signup{
-    font-family: 'Rock Salt', cursive !important;
+    font-family: 'Sacramento', cursive !important;
     color: aliceblue !important;
     margin-right: 2%;
     width: 20vh;
@@ -36,26 +36,27 @@
 }
 
 .profile-info {
-    background-color: black;
-    border: 1px solid #ddd;
+    background-color: rgb(32, 32, 29);
+    border-radius: 5%;
     padding: 10px;
     position: absolute;
     top: 55px;
     right: 55px;
     z-index: 999;
     text-align: center;
+    width: 20%;
   }
   
   .profile-name {
-    font-family: 'Rock Salt', cursive !important;
-    margin-top:5%;
-    margin-bottom: 8%;
+    font-family: 'Sacramento', cursive !important;
+    padding-top:4%;
+    padding-bottom: 6%;
+    color: aliceblue;
+    border-radius: 15%;
+
   }
   .profile-name:hover {
-    font-family: 'Rock Salt', cursive !important;
-    margin-top:5%;
-    margin-bottom: 8%;
-    color: #917E41 !important;
+    background-color: #917E41 !important;
   }
   
   .profile-email {

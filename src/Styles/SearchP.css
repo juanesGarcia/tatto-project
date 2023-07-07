@@ -1,21 +1,21 @@
-/* SearchP.css */
-.my-select {
-  margin-left: 5%;
-  border: solid 1px black !important;
-}
-
-
-.my-select__control {
-  font-family: 'Rock Salt', cursive !important;
-
-  /* Estilos para el control del Select */
-}
-.my-select__option{
+.option-container {
+  display: flex;
+  align-items: center;
   font-family: 'Rock Salt', cursive !important;
 }
 
-.my-select__option:hover{
-  font-family: 'Rock Salt', cursive !important;
-    background-color: rgb(228, 224, 177);
-  /* Estilos para cada opción del Select */
+.label-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.value-container {
+  margin-left: 10px;
+}
+.label{
+  margin-left: 2%;
+}
+.values{
+  font-size: 0.6rem;
 }
