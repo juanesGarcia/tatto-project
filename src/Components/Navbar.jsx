@@ -105,14 +105,14 @@ function Navbar() {
               <Avatar
                 alt="User Avatar"
                 onClick={handleAvatarClick}
-              >NO </Avatar>
+              >{info.name[0]} </Avatar>
               {showInfo && (
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}>{info.name[0]}</Avatar></div>
                   <div className="right-div">
                   <div className="profile-name">{info.name}</div>
                   <div className="profile-email">{info.email}</div>
-                  <div className="administrar">administrar cuenta </div>
+                  <div className="administrar"><NavLink to="/Admin" className="adminCount"> administrar cuenta </NavLink> </div>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
               
@@ -129,7 +129,19 @@ function Navbar() {
               <CustomButton sx={{ borderBottom: "1px solid #917E41", marginRight: "10%" }} component={NavLink} to="/ChooseRegister" className="signup">
                 Sign up
               </CustomButton>
-              <Avatar>N</Avatar>
+              <Avatar onClick={handleAvatarClick}>U</Avatar>
+              {showInfo && (
+                <div className="profile-info" onClick={handleInfoClose}>
+                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}>U</Avatar></div>
+                  <div className="right-div">
+                  <div className="profile-nameNo">Creat a count</div>
+                  <div className="profile-No"><NavLink className="profile-login" to='/login'>Login</NavLink>  </div>
+                  </div>
+              
+
+                </div>
+  
+              )}
             </Box>
           )
 

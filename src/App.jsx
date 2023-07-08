@@ -12,6 +12,7 @@ import{ RegisterTatto } from "./Screens/RegisterTatto"
 import { useSelector } from "react-redux";
 import { HomeAuth } from "./Screens/HomeAuth";
 import { UserProfile } from "./Screens/UserProfile";
+import { AdminCount } from "./Screens/AdminCount";
 
 const PrivateRoutes =()=>{
   const {isAuth}= useSelector((state)=>state.auth);
@@ -20,7 +21,7 @@ const PrivateRoutes =()=>{
 }
 const RestrictedRoutes =()=>{
   const {isAuth}= useSelector((state)=>state.auth);
-  return <>{!isAuth?<Outlet/>: <Navigate to="/HomeAuth"/>}</>
+  return <>{!isAuth?<Outlet/>: <Navigate to="/"/>}</>
 }
 
 function App() {
@@ -32,18 +33,23 @@ function App() {
         <Routes>
           <Route element={<RestrictedRoutes></RestrictedRoutes>}>
             <Route exact path="/login" element={<Login />}></Route>
+            
+          </Route>
+         
+          <Route element={<PrivateRoutes></PrivateRoutes>}>
+            <Route exact path="/HomeAuth" element={<HomeAuth></HomeAuth>}></Route> 
+            
+            
           </Route>
           <Route exact path="/" element={<Home />}></Route>
-          <Route element={<PrivateRoutes></PrivateRoutes>}>
-            <Route exact path="/HomeAuth" element={<HomeAuth></HomeAuth>}></Route>
-          </Route>
           <Route exact path="/BestTattos" element={<BestTattos />}></Route>
           <Route exact path="/Artist" element={<Artist />}></Route>
           <Route exact path="/Blog" element={<Blog />}></Route>
           <Route exact path="/Register" element={<Register/>}></Route>
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
-          <Route path="/profile/:id/:name" element={<UserProfile />} />
+          <Route exact path="/profile/:id/:name" element={<UserProfile />} />
+          <Route exact path="/Admin" element={<AdminCount />} />
         </Routes>
         <Footer></Footer>
       </Router>

@@ -26,22 +26,43 @@
   width: 20vh;
 }
 
-@media (max-width: 470px) {
-  .signup {
-    width: 14.5vh;
+@media (min-width: 300px) and (max-width: 360px){
+  .profile-info{
+    width: 75% !important;
   }
+}
+@media (min-width: 360px) and (max-width: 469px){
   .profile-info{
     width: 65% !important;
   }
-
+}
+@media (min-width: 470px) and (max-width: 590px){
+  .profile-info{
+    width: 50% !important;
+  }
 }
 
-@media (min-width: 471px) and (max-width: 996px){
+@media (min-width: 590px) and (max-width: 700px){
   .profile-info{
-    width: 70% !important;
+    width: 40% !important;
   }
 
 }
+@media (min-width: 701px) and (max-width: 900px){
+  .profile-info{
+    width: 33% !important;
+    right: 6% !important;
+  }
+
+}
+@media (min-width: 900px) and (max-width: 1000px){
+  .profile-info{
+    width: 33% !important;
+    right: 5% !important;
+  }
+
+}
+
 
 .login:hover {
   color: #917E41;
@@ -51,8 +72,8 @@
   background-color: rgb(32, 32, 29);
   border-radius: 5%;
   position: absolute;
-  top: 55px;
-  right: 55px;
+  top: 90%;
+  right: 8%;
   z-index: 999;
   text-align: center;
   width: 25%; 
@@ -93,3 +114,26 @@ width: 100%;
   width: 100%;
   
 }
+.profile-No{
+  margin-left: 10%;
+  font-size: 80%;
+  width: 100%;
+  margin-bottom: 20%;
+  }
+  .profile-nameNo{
+    margin-left: 0%;
+    font-size: 120%;
+    width: 100%;
+  }
+  .profile-login{
+    color: #917E41 !important;
+  }
+  .profile-login:hover{
+    color: #3d361d !important;
+  }
+  .adminCount{
+    color: #917E41 !important;
+  }
+  .adminCount:hover{
+    color: #3d361d !important;
+  }
