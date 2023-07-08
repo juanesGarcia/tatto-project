@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/SearchP.css";
-import { getUser } from '../api/auth';
+import { getUsers } from '../api/auth';
 import Select from 'react-select';
 import { Avatar } from '@mui/material';
 
@@ -11,14 +11,15 @@ export const SearchP = () => {
   const [search, setSearch] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [filteredOptions, setFilteredOptions] = useState([]);
+ 
 
   const showData = async () => {
     try {
-      const response = await getUser();
+      const response = await getUsers();
       const data = response.data;
       const parsedUsers = parseUserData(data);
       setUsers(parsedUsers);
-      console.log(parsedUsers);
+      setOptionsCount(parsedUsers.length)
     } catch (error) {
       console.log(error);
     }
@@ -30,11 +31,17 @@ export const SearchP = () => {
 
   useEffect(() => {
     // Filtra las opciones según el texto de búsqueda
-    const filtered = users.filter(user => user.name.toLowerCase().includes(search.toLowerCase()));
-    setFilteredOptions(filtered.map(user => ({ value: user.id, label: user.name, avatar: user.avatar })));
+    const filtered = users.filter((user) =>{
+      if(user.name.toLowerCase().includes(search.toLowerCase()) || user.id.toLowerCase().includes(search.toLowerCase()) ){
+        return user
+      }
+    });
+    setFilteredOptions(filtered.slice(0, 3).map(user => ({ value: user.id, label: user.name, avatar: user.avatar })));
+
   }, [search, users]);
 
   const handleSelectChange = selectedOption => {
+   
     setSelectedOption(selectedOption);
     setSearch(selectedOption ? selectedOption.label : "");
     // Redirigir a la página de perfil con los datos en la URL
@@ -76,6 +83,7 @@ export const SearchP = () => {
       onChange={handleSelectChange}
       placeholder="Select an option"
       formatOptionLabel={formatOptionLabel}
+       
     />
   );
 };

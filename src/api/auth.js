@@ -26,8 +26,13 @@ export async function fechProtectedInfo(){
         'http://localhost:4000/protected'
     );
 }
-export async function getUser(){
+export async function getUsers(){
     return await axios.get(
         'http://localhost:4000/user'
+    );
+}
+export async function getUser(id){
+    return await axios.get(
+        'http://localhost:4000/user/{id}'
     );
 }

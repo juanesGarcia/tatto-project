@@ -1,33 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-
-const LocalStorage =() =>{
-  const isAuth = localStorage.getItem('isAuth')
-
-  if(isAuth && JSON.parse(isAuth)===true){
-    return true
-  }
-  
-  return false
-}
 const initialState = {
-    isAuth: LocalStorage(),
-  }
+  isAuth: false,
+  info: null, // Agrega el campo user para almacenar los datos del usuario
+};
 
-export const authSlice = createSlice({
-  name: 'auth',
+const authSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
-   authenticateUser:(state)=>{
-    state.isAuth=true
-   },
-   unauthenticateUser:(state)=>{
-    state.isAuth=false
-   }
-  }
-})
+    authenticateUser: (state) => {
+      state.isAuth = true;
+    },
+    unauthenticateUser: (state) => {
+      state.isAuth = false;
+      state.info = null; // Reinicia los datos del usuario al cerrar sesión
+    },
+    setInfo: (state, action) => {
+      state.info = action.payload; // Almacena los datos del usuario en el estado
+    },
+  },
+});
 
-// Action creators are generated for each case reducer function
-export const {authenticateUser,unauthenticateUser} = authSlice.actions
+export const { authenticateUser, unauthenticateUser, setInfo } = authSlice.actions;
 
-export default authSlice.reducer
+export default authSlice.reducer;

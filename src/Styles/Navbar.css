@@ -1,65 +1,95 @@
-
-.words{
+.words {
   font-family: 'Sacramento', cursive !important;
-    color: aliceblue !important;
-    
-}
-.icon{
-   color: aliceblue !important;
-}
-
-.icon:hover{
-    color: #917E41 !important;
-}
-.login{
-    font-family: 'Sacramento', cursive !important;
-    color: aliceblue !important;
-    margin-right: 2%;
+  color: aliceblue !important;
 
 }
-.signup{
-    font-family: 'Sacramento', cursive !important;
-    color: aliceblue !important;
-    margin-right: 2%;
-    width: 20vh;
+
+.icon {
+  color: aliceblue !important;
 }
+
+.icon:hover {
+  color: #917E41 !important;
+}
+
+.login {
+  font-family: 'Sacramento', cursive !important;
+  color: aliceblue !important;
+  margin-right: 2%;
+
+}
+
+.signup {
+  font-family: 'Sacramento', cursive !important;
+  color: aliceblue !important;
+  margin-right: 2%;
+  width: 20vh;
+}
+
 @media (max-width: 470px) {
-    .signup{
-         width: 14.5vh;
-    }
-   
+  .signup {
+    width: 14.5vh;
+  }
+  .profile-info{
+    width: 65% !important;
   }
 
+}
 
-.login:hover{
-    color: #917E41;
+@media (min-width: 471px) and (max-width: 996px){
+  .profile-info{
+    width: 70% !important;
+  }
+
+}
+
+.login:hover {
+  color: #917E41;
 }
 
 .profile-info {
-    background-color: rgb(32, 32, 29);
-    border-radius: 5%;
-    padding: 10px;
-    position: absolute;
-    top: 55px;
-    right: 55px;
-    z-index: 999;
-    text-align: center;
-    width: 20%;
-  }
-  
-  .profile-name {
-    font-family: 'Sacramento', cursive !important;
-    padding-top:4%;
-    padding-bottom: 6%;
-    color: aliceblue;
-    border-radius: 15%;
+  background-color: rgb(32, 32, 29);
+  border-radius: 5%;
+  position: absolute;
+  top: 55px;
+  right: 55px;
+  z-index: 999;
+  text-align: center;
+  width: 25%; 
+  display: flex;
+}
 
-  }
-  .profile-name:hover {
-    background-color: #917E41 !important;
-  }
+
+.left-div{
+  margin-left: 10%;
+  margin-top: 5%;
+}
+.right-div{
+  margin-top: 5%;
+  margin-left: 6%
+}
+.profile-name{
+      margin-left: 0%;
+      font-size: 140%;
+      width: 100%;
+}
+.profile-email{
+margin-left: 10%;
+font-size: 80%;
+width: 100%;
+}
+.bottom-component{
+  background-color: #917E41;
+  margin-top:20%;
+  margin-bottom: 20%;
+  border-radius: 5%;
+}
+.bottom-component:hover{
+  background-color: #3d361d;
+}
+.administrar{
+  font-size: 80%;
+  margin-left: 10%;
+  width: 100%;
   
-  .profile-email {
-    color: #777;
-  }
-  
+}

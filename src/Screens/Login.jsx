@@ -3,8 +3,7 @@ import "../Styles/Login.css"
 import { NavLink } from "react-router-dom";
 import { onLogin } from '../api/auth';
 import { useDispatch } from 'react-redux';
-import { authenticateUser } from '../redux/slices/authSlice';
-import { colors } from '@mui/material';
+import { authenticateUser, setInfo } from '../redux/slices/authSlice';
 
 export const Login = () => {
   const [errores, setErrores] = useState(false)
@@ -17,10 +16,14 @@ export const Login = () => {
   const handleSummit =async(e)=>{
     e.preventDefault();
     try {
-       await onLogin(user) ;
+       const infoUser = await onLogin(user) ;
+       console.log(infoUser); 
+       console.log(infoUser.data.info); 
+       
        dispatch(authenticateUser());
+       dispatch(setInfo(infoUser.data.info));
        localStorage.setItem('isAuth','true');
-      
+       
     } catch (error) {
       setErrores(error.response.data.errors[0]);
       console.log(error.response.data.errors[0]);
