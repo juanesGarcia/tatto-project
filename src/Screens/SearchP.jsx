@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/SearchP.css";
 import { getUsers } from '../api/auth';
@@ -10,13 +10,15 @@ export const SearchP = () => {
   const [search, setSearch] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
   const [filteredUsers, setFilteredUsers] = useState([]);
-  const [showAllUsers, setShowAllUsers] = useState(false);
+  const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const searchRef = useRef(null);
 
   const showData = async () => {
     try {
       const response = await getUsers();
       const data = response.data;
       const parsedUsers = parseUserData(data);
+      console.log(parsedUsers);
       setUsers(parsedUsers);
     } catch (error) {
       console.log(error);
@@ -27,37 +29,50 @@ export const SearchP = () => {
     showData();
   }, []);
 
-  useEffect(() => {
-    // Filtra los usuarios según el texto de búsqueda en todos los usuarios
-    const filtered = users.filter((user) =>
-      user.name.toLowerCase().includes(search.toLowerCase())
+  const filterUsers = (allUsers, searchText) => {
+    return allUsers.filter((user) =>
+      user.name.toLowerCase().includes(searchText.toLowerCase().trim()) ||
+      user.id.toLowerCase().includes(searchText.toLowerCase().trim())
     );
-    setFilteredUsers(filtered.slice(0, 3)); // Mostrar solo los primeros 3 usuarios filtrados
-    setShowAllUsers(filtered.length > 3); // Mostrar la opción "Ver más" si hay más de 3 resultados
-  }, [search, users]);
+  };
+
+  useEffect(() => {
+    if (isSearchClicked) {
+      const filtered = filterUsers(users, search);
+      setSelectedOption(null);
+      setFilteredUsers(filtered.slice(0, 3));
+    }
+  }, [isSearchClicked, search, users]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearch("");
+        setSelectedOption(null);
+        setFilteredUsers([]);
+        setIsSearchClicked(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   const handleSelectUser = (user) => {
     setSelectedOption(user);
     setSearch(user.name);
-    // Redirigir a la página de perfil con los datos en la URL
     navigate(`/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}`);
   };
 
-  const handleViewMore = () => {
-    setFilteredUsers(users.filter((user) =>
-    
-      user.name.toLowerCase().includes(search.toLowerCase())
-    ));
-    setShowAllUsers(false);
-  };
-
   const parseUserData = (data) => {
-    return data.map(item => {
+    return data.map((item) => {
       const match = item.row.match(/\((.*?),(.*?)\)/);
       return {
         id: match[1],
         name: match[2],
-        avatar: "/images/fondo.jpg" // Reemplaza con la ruta real de la imagen de cada usuario
+        avatar: "/images/fondo.jpg"
       };
     });
   };
@@ -67,28 +82,37 @@ export const SearchP = () => {
       <input
         type="text"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="BUSCAR TATUADOR O ESTILO"
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setIsSearchClicked(true);
+        }}
+        placeholder="Search"
+        ref={searchRef}
+        className='input'
       />
-      {filteredUsers.map((user) => (
-        <div
-          key={user.id}
-          className={`user-item ${selectedOption && selectedOption.id === user.id ? 'selected' : ''}`}
-          onClick={() => handleSelectUser(user)}
-        >
-          <Avatar src={user.avatar} alt={user.name} />
-          <div className="user-details">
-            <div className="user-name">{user.name}</div>
-            <div className="user-location">Colombia, Bogotá</div>
-          </div>
-        </div>
-      ))}
-      {showAllUsers && (
-        <button className="view-more-btn" onClick={handleViewMore}>
-          Ver más
-        </button>
+      {isSearchClicked && filteredUsers.length === 0 && (
+        <div className="no-results">No se encontró</div>
       )}
+      {isSearchClicked &&
+        filteredUsers.map((user) => (
+          <div
+            key={user.id}
+            className={`user-item ${selectedOption && selectedOption.id === user.id ? 'selected' : ''}`}
+            onClick={() => handleSelectUser(user)}
+          >
+            <div className='userDetails'>
+              <div className='avatar' ><Avatar sx={{ width:60, height:60}} src={user.avatar} alt={user.name} /></div>
+               
+            <div className="user-info">
+              <div className="user-name">{user.name}</div>
+              <div className="user-location">Colombia</div>
+              <div className="user-location">Bogota</div>
+            </div>|                                 
+            <div className='stars'>*******</div>
+            </div>
+           
+          </div>
+        ))}
     </div>
   );
 };
-

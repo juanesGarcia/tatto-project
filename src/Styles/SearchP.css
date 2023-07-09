@@ -19,3 +19,38 @@
 .values{
   font-size: 0.6rem;
 }
+
+.input{
+  width: 90%;
+  border-radius: 2%;
+  border: 1px solid #917E41 !important;
+  margin-left: 5%;
+}
+.userDetails{
+  display:flex;
+  width: 90%;
+  padding-top: 3%;
+  padding-bottom: 2%;
+  margin-left: 5%;
+}
+.user-info{
+  margin-left: 5%;
+  display: block
+}
+.avatar{
+  margin-left: 5%;
+}
+.userDetails:hover{
+  background-color: #917E41;
+}
+.user-name{
+  font-size: 140%;
+  font-weight: bold;
+}
+.user-location{
+  font-size: 75%;
+}
+.stars{
+margin-left: auto;
+margin-right: 7%;
+}
