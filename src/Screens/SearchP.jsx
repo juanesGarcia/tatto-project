@@ -107,7 +107,7 @@ export const SearchP = () => {
               <div className="user-name">{user.name}</div>
               <div className="user-location">Colombia</div>
               <div className="user-location">Bogota</div>
-            </div>|                                 
+            </div>                             
             <div className='stars'>*******</div>
             </div>
            
