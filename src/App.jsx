@@ -13,6 +13,10 @@ import { useSelector } from "react-redux";
 import { HomeAuth } from "./Screens/HomeAuth";
 import { UserProfile } from "./Screens/UserProfile";
 import { AdminCount } from "./Screens/AdminCount";
+import { checkSession } from "./api/session";
+import { useEffect, useRef } from "react";
+import { useDispatch } from 'react-redux';
+import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
 
 const PrivateRoutes =()=>{
   const {isAuth}= useSelector((state)=>state.auth);
@@ -22,10 +26,56 @@ const PrivateRoutes =()=>{
 const RestrictedRoutes =()=>{
   const {isAuth}= useSelector((state)=>state.auth);
   return <>{!isAuth?<Outlet/>: <Navigate to="/"/>}</>
+  
 }
 
 function App() {
- 
+
+  const dispatch = useDispatch();
+  const { isAuth, info } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [isAuth, info]);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      const authData = localStorage.getItem('authData');
+      if (authData) {
+        const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
+        if (storedIsAuth) {
+          dispatch(authenticateUser());
+          dispatch(setInfo(storedInfo));
+        } else {
+          dispatch(unauthenticateUser());
+        }
+      }
+    };
+
+    handleLoad(); // Invocar handleLoad inmediatamente
+
+    window.addEventListener('load', handleLoad);
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+    };
+  }, [dispatch]);
+
+
+  useEffect(() => {
+    checkSession(dispatch);
+  }, [dispatch]);
+
+
+
   return (
     <div >
       <Router>
