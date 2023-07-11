@@ -3,6 +3,7 @@ import "../Styles/Register.css"
 import { NavLink } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { onRegistration } from '../api/auth';
+import { useNavigate } from 'react-router-dom';
 
 export const Register = () => {
   const [errores, setErrores] = useState(false)
@@ -11,18 +12,21 @@ export const Register = () => {
     email:'',
     password:'',
   });
+  const navigate = useNavigate();
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
-  const handleSummit =async(e)=>{
+  const handleSummit = async (e) => {
     e.preventDefault();
     try {
-   
-        const response = await onRegistration(user) 
-        console.log(response)
-  
-      
+      const response = await onRegistration(user);
+      console.log(response);
+      if (response.data.success) {
+        setRegistrationSuccess(true);
+        navigate('/login'); // Redirigir al inicio de sesión
+      }
     } catch (error) {
       setErrores(error.response.data.errors[0]);
-      console.log(error.response.data.errors[0])
+      console.log(error.response.data.errors[0]);
       Swal.fire({
         title: 'Error',
         text: errores,
@@ -32,11 +36,11 @@ export const Register = () => {
           title: 'custom-swal-title',
           confirmButton: 'custom-swal-confirm-button',
         },
-        buttonsStyling: false
+        buttonsStyling: false,
       });
     }
+  };
 
-  }
   const handleOnchange =(e)=>{
     setUser({...user,[e.target.name]:e.target.value})
 
@@ -70,7 +74,6 @@ export const Register = () => {
             <span></span>
             <span></span>
             <span></span>
-
             Summit
           </button>
         </form>
