@@ -70,7 +70,8 @@ export const Register = () => {
             <span></span>
             <span></span>
             <span></span>
-            <NavLink className="a2" to="/login">Summit</NavLink>
+
+            Summit
           </button>
         </form>
       </div>
