@@ -130,12 +130,12 @@ function Navbar() {
               <CustomButton sx={{ borderBottom: "1px solid #917E41", marginRight: "10%" }} component={NavLink} to="/ChooseRegister" className="signup">
                 Sign up
               </CustomButton>
-              <Avatar onClick={handleAvatarClick}>U</Avatar>
+              <Avatar onClick={handleAvatarClick}></Avatar>
               {showInfo && (
                 <div className="profile-info" onClick={handleInfoClose}>
-                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}>U</Avatar></div>
+                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}></Avatar></div>
                   <div className="right-div">
-                  <div className="profile-nameNo">Creat a count</div>
+                  <div className="profile-nameNo">Create an account</div>
                   <div className="profile-No"><NavLink className="profile-login" to='/login'>Login</NavLink>  </div>
                   </div>
               
