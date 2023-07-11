@@ -22,7 +22,7 @@ export const Login = () => {
        
        dispatch(authenticateUser());
        dispatch(setInfo(infoUser.data.info));
-       localStorage.setItem('isAuth','true');
+       localStorage.setItem('token', JSON.stringify(infoUser.data));
        
     } catch (error) {
       setErrores(error.response.data.errors[0]);

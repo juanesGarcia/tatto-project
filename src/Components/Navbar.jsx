@@ -72,7 +72,8 @@ function Navbar() {
     try {
       await onLogout();
       dispatch(unauthenticateUser())
-      localStorage.removeItem('isAuth');
+      localStorage.removeItem('token');
+      localStorage.removeItem('authData');
 
     } catch (error) {
       console.log(error.reponse)
