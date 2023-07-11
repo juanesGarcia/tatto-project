@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // Función para verificar la validez del token en el backend
 export const verifyToken = async (token) => {
   try {
-    const response = await axios.post('http://localhost:4000/verify-token', { token });
+    const response = await axios.post('https://tatto-backend.onrender.com/verify-token', { token });
     const { isValid } = response.data;
     return isValid;
   } catch (error) {
