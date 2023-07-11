@@ -13,10 +13,12 @@ import { useSelector } from "react-redux";
 import { HomeAuth } from "./Screens/HomeAuth";
 import { UserProfile } from "./Screens/UserProfile";
 import { AdminCount } from "./Screens/AdminCount";
+import { Error } from "./Screens/Error";
 import { checkSession } from "./api/session";
 import { useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
+
 
 const PrivateRoutes =()=>{
   const {isAuth}= useSelector((state)=>state.auth);
@@ -87,8 +89,7 @@ function App() {
          
           <Route element={<PrivateRoutes></PrivateRoutes>}>
             <Route exact path="/HomeAuth" element={<HomeAuth></HomeAuth>}></Route> 
-            
-            
+            <Route exact path="/AdminAccount" element={<AdminCount />} />
           </Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/BestTattos" element={<BestTattos />}></Route>
@@ -98,7 +99,7 @@ function App() {
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
           <Route exact path="/profile/:id/:name" element={<UserProfile />} />
-          <Route exact path="/Admin" element={<AdminCount />} />
+          <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>
       </Router>

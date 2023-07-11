@@ -113,7 +113,7 @@ function Navbar() {
                   <div className="right-div">
                   <div className="profile-name">{info.name}</div>
                   <div className="profile-email">{info.email}</div>
-                  <div className="administrar"><NavLink to="/Admin" className="adminCount"> administrar cuenta </NavLink> </div>
+                  <div className="administrar"><NavLink to="/AdminAccount" className="adminCount"> administrar cuenta </NavLink> </div>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
               

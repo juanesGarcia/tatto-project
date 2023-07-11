@@ -79,6 +79,7 @@ export const SearchP = () => {
 
   return (
     <div className="search-container">
+      <div className='titleinput'>busca los tatuadores </div>
       <input
         type="text"
         value={search}

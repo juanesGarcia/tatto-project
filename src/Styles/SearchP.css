@@ -9,7 +9,11 @@
   align-items: center;
   flex-grow: 1;
 }
-
+.titleinput{
+  font-family: 'Rock Salt', cursive !important;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
 .value-container {
   margin-left: 10px;
 }
