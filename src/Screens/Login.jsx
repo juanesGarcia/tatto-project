@@ -13,6 +13,7 @@ export const Login = () => {
   });
 
   const dispatch=useDispatch();
+  
   const handleSummit =async(e)=>{
     e.preventDefault();
     try {
@@ -23,6 +24,9 @@ export const Login = () => {
        dispatch(authenticateUser());
        dispatch(setInfo(infoUser.data.info));
        localStorage.setItem('isAuth','true');
+       localStorage.setItem('token',JSON.stringify(infoUser) );
+       localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+
        
     } catch (error) {
       setErrores(error.response.data.errors[0]);

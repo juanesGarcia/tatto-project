@@ -69,7 +69,6 @@ function App() {
     };
   }, [dispatch]);
 
-
   useEffect(() => {
     checkSession(dispatch);
   }, [dispatch]);

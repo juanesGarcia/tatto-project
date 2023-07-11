@@ -31,11 +31,14 @@ export const checkSession = async (dispatch) => {
       await onLogout();
       dispatch(unauthenticateUser());
       localStorage.removeItem('token');
+      localStorage.removeItem('authData');
     }
   } else {
     // No hay token en el almacenamiento local, cerrar la sesión en el frontend
     await onLogout();
     dispatch(unauthenticateUser());
+    localStorage.removeItem('token');
+    localStorage.removeItem('authData');
   }
   };
   
