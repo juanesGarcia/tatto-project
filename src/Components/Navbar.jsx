@@ -84,7 +84,7 @@ function Navbar() {
     <>
       <StyledAppBar position="static">
         <Toolbar>
-          <Avatar src={logo}></Avatar>
+          <Avatar src={logo}>U</Avatar>
           <IconButton
             color="inherit"
             size="large"
