@@ -140,7 +140,7 @@ function Navbar() {
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}></Avatar></div>
                   <div className="right-div">
-                  <div className="profile-nameNo">Create an account merge </div>
+                  <div className="profile-nameNo">Create an account</div>
                   <div className="profile-No"><NavLink className="profile-login" to='/login'>Login</NavLink>  </div>
                   </div>
               
