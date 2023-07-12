@@ -18,6 +18,7 @@ import ArticleIcon from '@mui/icons-material/Article';
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, onLogout } from "../api/auth";
 import { unauthenticateUser } from "../redux/slices/authSlice";
+import { useNavigate } from 'react-router-dom';
 
 const navlinks = [
 
@@ -54,6 +55,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 function Navbar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.auth);
   const { info } = useSelector((state) => state.auth);
@@ -61,6 +63,9 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
 
+  const perfilClick = () => {
+    navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
+  };
   const handleAvatarClick = () => {
     setShowInfo(prevShowInfo => !prevShowInfo);
   };
@@ -113,7 +118,7 @@ function Navbar() {
                   <div className="right-div">
                   <div className="profile-name">{info.name}</div>
                   <div className="profile-email">{info.email}</div>
-                  <div className="administrar"><NavLink to="/AdminAccount" className="adminCount"> administrar cuenta </NavLink> </div>
+                  <div className="administrar" onClick={perfilClick}> administrar cuenta </div>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
               

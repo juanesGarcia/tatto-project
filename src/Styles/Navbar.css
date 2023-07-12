@@ -114,6 +114,9 @@ width: 100%;
   width: 100%;
   
 }
+.administrar:hover{
+   color: #917E41;
+}
 .profile-No{
   margin-left: 10%;
   font-size: 80%;
