@@ -63,7 +63,8 @@ export const SearchP = () => {
   const handleSelectUser = (user) => {
     setSelectedOption(user);
     setSearch(user.name);
-    navigate(`/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}`);
+    localStorage.setItem("userId", user.id); // Almacena el userId en el almacenamiento local del navegador
+    navigate(`/profile/${encodeURIComponent(user.name)}`);
   };
 
   const parseUserData = (data) => {

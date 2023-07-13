@@ -1,40 +1,44 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { NavLink } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { authenticateUser, setInfo ,unauthenticateUser} from '../redux/slices/authSlice';
+import React, { useEffect, useState } from 'react';
+import { useParams, useSearchParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setInfo } from '../redux/slices/authSlice';
 
-import { useSelector } from "react-redux";
 export const UserProfile = () => {
-  const {id,name} = useParams();
+  const { name } = useParams();
   const dispatch = useDispatch();
-  const { isAuth } = useSelector((state) => state.auth);
-  const { info } = useSelector((state) => state.auth);
+  const { isAuth, info } = useSelector((state) => state.auth);
+  const userId = localStorage.getItem('userId');
+  const [isOwnProfile, setIsOwnProfile] = useState(false);
 
-
-  console.log(name)
-
+  useEffect(() => {
+    if (isAuth && name === info.name) {
+      setIsOwnProfile(true);
+    } else {
+      setIsOwnProfile(false);
+    }
+  }, [isAuth, name, info]);
 
   return (
     <div>
-
       <h1>User Profile</h1>
-      <h1>Value: {name}
-</h1>
-<h2>id: {id}</h2>
+      <h1>Value: {name}</h1>
 
       {isAuth ? (
         <div>
-          <button><NavLink to="/AdminAccount">tocar</NavLink></button>
+          {isOwnProfile && (
+            <button>
+              <NavLink to="/AdminAccount">editar perfil</NavLink>
+            </button>
+          )}
+          <h2>id: {info.id}</h2>
         </div>
-
-
-
-      ):(
-<div>no logeado </div>
-
+      ) : (
+        <div>
+          <h2>id: {userId}</h2>
+          <h1>no logeado </h1>
+        </div>
       )}
-
     </div>
   );
 };
