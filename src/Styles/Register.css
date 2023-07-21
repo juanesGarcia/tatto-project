@@ -220,3 +220,10 @@
     color: #917E41;
     border-radius: 5px;
   }
+
+  .containerbut{
+    display: flex;
+  }
+  .deletebut{
+    margin-left: 10%;
+  }

@@ -6,7 +6,7 @@ import { onUpdate, getUser } from '../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setInfo } from '../redux/slices/authSlice';
-export const AdminCount = () => {
+export const AdminAccount = () => {
   const dispatch = useDispatch();
   const { isAuth } = useSelector((state) => state.auth);
   const { info } = useSelector((state) => state.auth);
@@ -76,7 +76,7 @@ export const AdminCount = () => {
   return (
     <div className="containerRegister">
       <div className="login-box">
-        <p>Register</p>
+        <p>Update info</p>
         <form onSubmit={handleSummit}>
           <div className="user-box">
             <input
@@ -113,13 +113,24 @@ export const AdminCount = () => {
             <label>Confirm Password</label>
           </div>
 
-          <button type="submit">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </button>
+          <div className='containerbut'>
+            <button type="submit">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              update
+            </button>
+            <button className='deletebut'>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              delete 
+            </button>
+
+          </div>
+
         </form>
       </div>
     </div>

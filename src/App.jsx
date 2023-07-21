@@ -12,7 +12,7 @@ import{ RegisterTatto } from "./Screens/RegisterTatto"
 import { useSelector } from "react-redux";
 import { HomeAuth } from "./Screens/HomeAuth";
 import { UserProfile } from "./Screens/UserProfile";
-import { AdminCount } from "./Screens/AdminCount";
+import { AdminAccount } from "./Screens/AdminAccount";
 import { Error } from "./Screens/Error";
 import { checkSession } from "./api/session";
 import { useEffect, useRef } from "react";
@@ -89,7 +89,7 @@ function App() {
          
           <Route element={<PrivateRoutes></PrivateRoutes>}>
             <Route exact path="/HomeAuth" element={<HomeAuth></HomeAuth>}></Route> 
-            <Route exact path="/AdminAccount" element={<AdminCount />} />
+            <Route exact path="/AdminAccount" element={<AdminAccount />} />
           </Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/BestTattos" element={<BestTattos />}></Route>
