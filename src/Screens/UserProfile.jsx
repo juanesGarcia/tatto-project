@@ -3,12 +3,13 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setInfo } from '../redux/slices/authSlice';
-
+import logo from "/images/logofinal.jpg";
+import Avatar from "@mui/material/Avatar";
+import "../Styles/UserProfile.css";
 export const UserProfile = () => {
   const { name } = useParams();
   const dispatch = useDispatch();
   const { isAuth, info } = useSelector((state) => state.auth);
-  const userId = localStorage.getItem('userId');
   const [isOwnProfile, setIsOwnProfile] = useState(false);
 
   useEffect(() => {
@@ -20,25 +21,36 @@ export const UserProfile = () => {
   }, [isAuth, name, info]);
 
   return (
-    <div>
-      <h1>User Profile</h1>
-      <h1>Value: {name}</h1>
-
-      {isAuth ? (
+    <>
+      <div className='containerProfile'>
+      <Avatar src={logo} sx={{ width: 140, height: 140 }}></Avatar>
+      <div className='containerInfo'>
+      <h4>{name}                           ********</h4>
+      <h4> bogota</h4>
+      <h4> calle 48csur #25-94</h4>
+      </div>
+    
+      
+    </div>  
+    <div className='buttonPerfil'>
+        <button className='button'>
+          seguir
+        </button>
+        <button className='button'>
+          <a href="https://www.instagram.com/juanestebancubillos/" className='insta'>instagram</a>
+         
+        </button>
+        {isAuth ? (
         <div>
           {isOwnProfile && (
-            <button>
-              <NavLink to="/AdminAccount">editar perfil</NavLink>
-            </button>
+              <NavLink to="/AdminAccount"className='button'><h5 className='editar'>editar</h5></NavLink>
           )}
-          <h2>id: {info.id}</h2>
+          
         </div>
-      ) : (
-        <div>
-          <h2>id: {userId}</h2>
-          <h1>no logeado </h1>
-        </div>
-      )}
-    </div>
+      ) :null}
+        
+      </div>
+    </>
+    
   );
 };
