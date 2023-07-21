@@ -29,8 +29,10 @@ export const UserProfile = () => {
       <h4> bogota</h4>
       <h4> calle 48csur #25-94</h4>
       </div>
-    
-      
+    </div>
+    <div className='followInfo'> 
+      <h6>publicaciones 16</h6>
+      <h6 className='follow'>  seguidores 5</h6>
     </div>  
     <div className='buttonPerfil'>
         <button className='button'>
@@ -40,6 +42,7 @@ export const UserProfile = () => {
           <a href="https://www.instagram.com/juanestebancubillos/" className='insta'>instagram</a>
          
         </button>
+
         {isAuth ? (
         <div>
           {isOwnProfile && (
