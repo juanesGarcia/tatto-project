@@ -1,6 +1,19 @@
 
 import axios from 'axios';
 axios.defaults.withCredentials = true
+
+export async function onUpdate(updateData) {
+    try {
+      const response = await axios.put(
+        `https://tatto-backend.onrender.com/user/${updateData.id}`,
+        updateData
+      );
+  
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
 export async function onRegistration(registrationData){
     return await axios.post(
         'https://tatto-backend.onrender.com/register',
