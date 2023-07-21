@@ -80,10 +80,12 @@ function Navbar() {
       localStorage.removeItem('token');
       localStorage.removeItem('authData');
 
+
     } catch (error) {
       console.log(error.reponse)
     }
   }
+  
 
   return (
     <>
