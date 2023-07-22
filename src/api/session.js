@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 export const verifyToken = async (token) => {
   console.log(token)
   try {
-    const response = await axios.post('https://tattopro.vercel.app/verify-token', { token });
+    const response = await axios.post('https://tatto-backend.onrender.com/verify-token', { token });
     const { isValid } = response.data;
     return isValid;
   } catch (error) {
