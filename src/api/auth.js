@@ -6,7 +6,7 @@ export async function onUpdate(updateData) {
     console.log(updateData.user)
     try {
       const response = await axios.put(
-        `http://localhost:4000/user/${updateData.id}`,
+        `https://tattopro.vercel.app/user/${updateData.id}`,
         updateData.user
       );
   
@@ -17,42 +17,42 @@ export async function onUpdate(updateData) {
   }
 export async function onRegistration(registrationData){
     return await axios.post(
-        'http://localhost:4000/register',
+        'https://tattopro.vercel.app/register',
         registrationData
     );
 }
 
 export async function onLogin(loginData){
     return await axios.post(
-        'http://localhost:4000/login',
+        'https://tattopro.vercel.app/login',
         loginData
     );
 }
 
 export async function onLogout(){
     return await axios.get(
-        'http://localhost:4000/logout'
+        'https://tattopro.vercel.app/logout'
     );
 }
 
 export async function fechProtectedInfo(){
     return await axios.get(
-        'http://localhost:4000/protected'
+        'https://tattopro.vercel.app/protected'
     );
 }
 export async function getUsers(){
     return await axios.get(
-        'http://localhost:4000/user'
+        'https://tattopro.vercel.app/user'
     );
 }
 export async function getUser(id){
     return await axios.get(
-        `http://localhost:4000/user/${id}`
+        `https://tattopro.vercel.app/user/${id}`
     );
 }
 
 export async function onDelete(id){
     return await axios.delete(
-        `http://localhost:4000/user/${id}`
+        `https://tattopro.vercel.app/user/${id}`
     );
 }
