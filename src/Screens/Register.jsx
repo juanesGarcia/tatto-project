@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import "../Styles/Register.css"
-import { NavLink } from "react-router-dom";
 import Swal from 'sweetalert2'
 import { onRegistration } from '../api/auth';
 import { useNavigate } from 'react-router-dom';
