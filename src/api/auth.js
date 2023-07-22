@@ -50,3 +50,9 @@ export async function getUser(id){
         `http://localhost:4000/user/${id}`
     );
 }
+
+export async function onDelete(id){
+    return await axios.delete(
+        `http://localhost:4000/user/${id}`
+    );
+}
