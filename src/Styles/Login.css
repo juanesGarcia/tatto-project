@@ -53,7 +53,7 @@ body, html {
   }
   
   .login-boxLogin .user-boxLogin input {
-    width: 100%;
+    width: 90%;
     padding: 10px 0;
     font-size: 16px;
     border: none;
@@ -61,13 +61,18 @@ body, html {
     outline: none;
     background: transparent !important; 
     margin-bottom: 5%;
-    margin-top: 5%;
+    margin-top: 15%;
     color: #fff;
+    
+  }
+  .login-boxLogin .user-boxLogin input.email{
+   margin-top: 10%;
     
   }
   
   .login-boxLogin .user-boxLogin label {
     position: absolute;
+  
     top: 0;
     left: 0;
     padding: 10px 0;
@@ -75,7 +80,7 @@ body, html {
     color: #fff;
     pointer-events: none;
     transition: .5s;
-    padding-bottom: 5%;
+    
    
   }
   
@@ -106,7 +111,7 @@ body, html {
   
   .login-boxLogin form button:hover {
     background: black ;
-    color: aliceblue;
+    color: aliceblue !important;
     border-radius: 5px;
   }
   
@@ -209,3 +214,26 @@ body, html {
     color: black;
     border-radius: 5px;
   }
+
+/* Estilo personalizado para el campo de entrada cuando se completa automáticamente */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px rgb(1,1,1) inset !important; /* Establecer el color de fondo cuando se completa automáticamente */
+  background-color: transparent !important;
+  -webkit-text-fill-color: white !important; 
+  width: 60%;
+}
+  
+/* Estilo para el color del texto en el campo completado automáticamente */
+input:-webkit-autofill::first-line {
+  color: aliceblue; /* Establecer el color de texto para el campo completado automáticamente */
+}
+.password-container{
+  display: flex;
+}
+.visibility{
+  margin-top: 18%;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}

@@ -16,7 +16,7 @@ import { NavbarList } from "./NavbarList";
 import { styled } from "@mui/material/styles";
 import ArticleIcon from '@mui/icons-material/Article';
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, onLogout } from "../api/auth";
+import { onLogout } from "../api/auth";
 import { unauthenticateUser } from "../redux/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
 

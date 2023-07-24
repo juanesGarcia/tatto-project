@@ -142,19 +142,18 @@ export const AdminAccount = () => {
   
  }
   return (
-    <div className="containerRegister">
+    <div className="containerUpdate">
       <div className="login-box">
         <p>Update info</p>
         <form onSubmit={handleSummit}>
           <div className="user-box">
             <input
-              required=""
               name="name"
               type="text"
               onChange={handleOnchange}
               value={user.name}
             />
-            <label>User Name</label>
+
           </div>
           <div className="user-box">
             <input
