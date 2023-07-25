@@ -16,7 +16,7 @@ import { NavbarList } from "./NavbarList";
 import { styled } from "@mui/material/styles";
 import ArticleIcon from '@mui/icons-material/Article';
 import { useDispatch, useSelector } from "react-redux";
-import { getUser, onLogout } from "../api/auth";
+import { onLogout } from "../api/auth";
 import { unauthenticateUser } from "../redux/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
 
@@ -115,6 +115,7 @@ function Navbar() {
                 onClick={handleAvatarClick}
               >{info.name[0]} </Avatar>
               {showInfo && (
+                
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}>{info.name[0]}</Avatar></div>
                   <div className="right-div">
@@ -123,8 +124,6 @@ function Navbar() {
                   <div className="administrar" onClick={perfilClick}> administrar cuenta </div>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
-              
-
                 </div>
   
               )}

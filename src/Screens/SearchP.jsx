@@ -12,6 +12,24 @@ export const SearchP = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const searchRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
+  const handleArrowKeyPress = (event) => {
+    if (filteredUsers.length === 0) return;
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setSelectedIndex((prevIndex) => Math.max(prevIndex - 1, -1));
+    } else if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setSelectedIndex((prevIndex) => Math.min(prevIndex + 1, filteredUsers.length - 1));
+    } else if (event.key === 'Enter') {
+      event.preventDefault();
+      if (selectedIndex >= 0 && selectedIndex < filteredUsers.length) {
+        handleSelectUser(filteredUsers[selectedIndex]);
+      }
+    }
+  };
 
   const showData = async () => {
     try {
@@ -80,7 +98,7 @@ export const SearchP = () => {
   };
 
   return (
-    <div className="search-container">
+    <div className="search-container" onKeyDown={handleArrowKeyPress}>
       <div className='titleinput'>busca los tatuadores </div>
       <input
         type="text"
@@ -97,12 +115,16 @@ export const SearchP = () => {
         <div className="no-results">No se encontró</div>
       )}
       {isSearchClicked &&
-        filteredUsers.map((user) => (
+        filteredUsers.map((user,i) => (
           <div
-            key={user.id}
-            className={`user-item ${selectedOption && selectedOption.id === user.id ? 'selected' : ''}`}
-            onClick={() => handleSelectUser(user)}
-          >
+          key={user.id}
+          className={`user-item ${selectedOption && selectedOption.id === user.id ? 'selected' : ''} ${
+            i === selectedIndex ? 'highlighted' : ''
+          }`}
+          onClick={() => handleSelectUser(user)}
+          onMouseEnter={() => setSelectedIndex(i)} // Cambiar el índice al pasar el ratón por encima
+          onMouseLeave={() => setSelectedIndex(-1)} 
+        >
             <div className='userDetails'>
               <div className='avatar' ><Avatar sx={{ width:60, height:60}} src={user.avatar} alt={user.name} /></div>
                
