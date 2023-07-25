@@ -115,6 +115,7 @@ function Navbar() {
                 onClick={handleAvatarClick}
               >{info.name[0]} </Avatar>
               {showInfo && (
+                
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}>{info.name[0]}</Avatar></div>
                   <div className="right-div">
@@ -123,8 +124,6 @@ function Navbar() {
                   <div className="administrar" onClick={perfilClick}> administrar cuenta </div>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
-              
-
                 </div>
   
               )}

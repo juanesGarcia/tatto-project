@@ -20,6 +20,7 @@ export const UserProfile = () => {
       setIsOwnProfile(false);
     }
   }, [isAuth, name, info]);
+
   const showData = async () => {
     try {
       const response = await getUsers();
@@ -28,12 +29,13 @@ export const UserProfile = () => {
       console.log(parsedUsers);
       setUsers(parsedUsers);
       console.log(name)
-      const filtered= parsedUsers.filter((num) => num.name===name);
-    console.log(filtered)
-    if(filtered.length==0){
-      navigate("/");
-    }
-      
+      const nameExists = parsedUsers.some(user => user.name === name);
+      if (nameExists) {
+        console.log(`El nombre ${name} está en la lista.`);
+      } else {
+        navigate("/")
+      }
+
     } catch (error) {
       console.log(error);
     }
@@ -59,37 +61,37 @@ export const UserProfile = () => {
   return (
     <>
       <div className='containerProfile'>
-      <Avatar src={logo} sx={{ width: 140, height: 140 }}></Avatar>
-      <div className='containerInfo'>
-      <h4>{name}                           ********</h4>
-      <h4> bogota</h4>
-      <h4> calle 48csur #25-94</h4>
+        <Avatar src={logo} sx={{ width: 140, height: 140 }}></Avatar>
+        <div className='containerInfo'>
+          <h4>{name}                           ********</h4>
+          <h4> bogota</h4>
+          <h4> calle 48csur #25-94</h4>
+        </div>
       </div>
-    </div>
-    <div className='followInfo'> 
-      <h6>publicaciones 16</h6>
-      <h6 className='follow'>  seguidores 5</h6>
-    </div>  
-    <div className='buttonPerfil'>
+      <div className='followInfo'>
+        <h6>publicaciones 16</h6>
+        <h6 className='follow'>  seguidores 5</h6>
+      </div>
+      <div className='buttonPerfil'>
         <button className='button'>
           seguir
         </button>
         <button className='button'>
           <a href="https://www.instagram.com/juanestebancubillos/" className='insta'>instagram</a>
-         
+
         </button>
 
         {isAuth ? (
-        <div>
-          {isOwnProfile && (
-              <NavLink to="/AdminAccount"className='button'><h5 className='editar'>editar</h5></NavLink>
-          )}
-          
-        </div>
-      ) :null}
-        
+          <div>
+            {isOwnProfile && (
+              <NavLink to="/AdminAccount" className='button'><h5 className='editar'>editar</h5></NavLink>
+            )}
+
+          </div>
+        ) : null}
+
       </div>
     </>
-    
+
   );
 };
