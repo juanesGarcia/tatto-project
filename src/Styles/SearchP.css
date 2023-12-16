@@ -45,8 +45,7 @@
   width: 90%;
   padding-top: 3%;
   padding-bottom: 2%;
-  padding-left: 5%;
-  border-bottom: 1px solid black;
+  padding-left: 10%;
   border-radius: 4%;
 }
 .user-info{
@@ -76,6 +75,6 @@ margin-right: 7%;
 .user-item{
   width: 85%;
   margin-left: 7%;
-
+  border-bottom: 1px solid black;
 
 }
