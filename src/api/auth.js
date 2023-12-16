@@ -6,7 +6,7 @@ export async function onUpdate(updateData) {
     console.log(updateData.user)
     try {
       const response = await axios.put(
-        `http://localhost:4000/user/${updateData.id}`,
+        `https://tattopro.com/user/${updateData.id}`,
         updateData.user
       );
   
@@ -17,42 +17,42 @@ export async function onUpdate(updateData) {
   }
 export async function onRegistration(registrationData){
     return await axios.post(
-        'http://localhost:4000/register',
+        'https://tattopro.com/register',
         registrationData
     );
 }
 
 export async function onLogin(loginData){
     return await axios.post(
-        'http://localhost:4000/login',
+        'https://tattopro.com/login',
         loginData
     );
 }
 
 export async function onLogout(){
     return await axios.get(
-        'http://localhost:4000/logout'
+        'https://tattopro.com/logout'
     );
 }
 
 export async function fechProtectedInfo(){
     return await axios.get(
-        'http://localhost:4000/protected'
+        'https://tattopro.com/protected'
     );
 }
 export async function getUsers(){
     return await axios.get(
-        'http://localhost:4000/user'
+        'https://tattopro.com/user'
     );
 }
 export async function getUser(id){
     return await axios.get(
-        `http://localhost:4000/user/${id}`
+        `https://tattopro.com/user/${id}`
     );
 }
 
 export async function onDelete(id){
     return await axios.delete(
-        `http://localhost:4000/user/${id}`
+        `https://tattopro.com/user/${id}`
     );
 }

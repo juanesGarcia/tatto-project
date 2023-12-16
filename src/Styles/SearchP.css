@@ -45,7 +45,7 @@
   width: 90%;
   padding-top: 3%;
   padding-bottom: 2%;
-  margin-left: 5%;
+  padding-left: 5%;
   border-bottom: 1px solid black;
   border-radius: 4%;
 }
@@ -71,7 +71,11 @@ margin-right: 7%;
 /* Estilo para el cambio de fondo cuando navegas con las teclas de flecha */
 .user-item.highlighted {
   background-color: rgb(228, 224, 177);
-  margin-left: 5%;
-  margin-right: 5%;
   border-radius: 8%;
+}
+.user-item{
+  width: 85%;
+  margin-left: 7%;
+
+
 }
