@@ -93,28 +93,27 @@
       margin-left: 0%;
       font-size: 140%;
       width: 100%;
+      font-family: 'Rock Salt', cursive !important;
+
 }
 .profile-email{
 margin-left: 10%;
 font-size: 80%;
 width: 100%;
+font-family: 'Rock Salt', cursive !important;
 }
 .bottom-component{
   background-color: #917E41;
-  margin-top:20%;
+  margin-top: 8%;
   margin-bottom: 20%;
   border-radius: 5%;
+  margin-left: 20%;
 }
 .bottom-component:hover{
   background-color: #3d361d;
 }
-.administrar{
-  font-size: 80%;
-  margin-left: 10%;
-  width: 100%;
-  
-}
-.administrar:hover{
+
+.profile-name:hover{
    color: #917E41;
 }
 .profile-No{
@@ -139,4 +138,16 @@ width: 100%;
   }
   .adminCount:hover{
     color: #3d361d !important;
+  }
+
+  .editarNav:hover{
+    color: #3d361d !important;
+  }
+
+  .editarNav{
+    color: aliceblue;
+    font-size: 80%;
+    margin-left: 10%;
+    text-decoration: none;
+    font-family: 'Rock Salt', cursive !important;
   }

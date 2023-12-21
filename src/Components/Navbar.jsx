@@ -119,9 +119,9 @@ function Navbar() {
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}>{info.name[0]}</Avatar></div>
                   <div className="right-div">
-                  <div className="profile-name">{info.name}</div>
+                  <div className="profile-name" onClick={perfilClick}>{info.name}</div>
                   <div className="profile-email">{info.email}</div>
-                  <div className="administrar" onClick={perfilClick}> administrar cuenta </div>
+                  <NavLink to="/AdminAccount" className='editarNav'>editar perfil</NavLink>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
                 </div>

@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useSearchParams, useNavigate } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
 import { getUsers } from '../api/auth';
 import "../Styles/UserProfile.css";
+import UploadImagesPage from './UploadImagePage';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
+
 export const UserProfile = () => {
+  console.log(useParams())
   const { name } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuth, info } = useSelector((state) => state.auth);
   const [isOwnProfile, setIsOwnProfile] = useState(false);
   const [users, setUsers] = useState([]);
+  const [showUploadPage, setShowUploadPage] = useState(false);
+
+
+  
+
   useEffect(() => {
     if (isAuth && name === info.name) {
       setIsOwnProfile(true);
@@ -22,6 +32,7 @@ export const UserProfile = () => {
   }, [isAuth, name, info]);
 
   const showData = async () => {
+    console.log(info)
     try {
       const response = await getUsers();
       const data = response.data;
@@ -29,9 +40,10 @@ export const UserProfile = () => {
       console.log(parsedUsers);
       setUsers(parsedUsers);
       console.log(name)
-      const nameExists = parsedUsers.some(user => user.name === name);
+      const nameExists = parsedUsers.some(user => user.name === name) ;
+      console.log(nameExists)
       if (nameExists) {
-        console.log(`El nombre ${name} está en la lista.`);
+        console.log(`El nombre ${name} está en la lista`);
       } else {
         navigate("/")
       }
@@ -57,6 +69,24 @@ export const UserProfile = () => {
     });
   };
 
+  const updatePhoto = () => {
+    if (showUploadPage) {
+      setShowUploadPage(false);
+    } else {
+      setShowUploadPage(true);
+    }
+  };
+
+  const handleUploadSuccess = () => {
+    // Puedes hacer algo después de que se completen con éxito las cargas de imágenes
+    console.log('Imágenes subidas con éxito desde ImageUploader');
+    setShowUploadPage(false);
+    
+  };
+
+  const handleCloseUploadPage = () => {
+    setShowUploadPage(false);
+  };
 
   return (
     <>
@@ -74,23 +104,28 @@ export const UserProfile = () => {
       </div>
       <div className='buttonPerfil'>
         <button className='button'>
-          seguir
+          follow
         </button>
         <button className='button'>
-          <a href="https://www.instagram.com/juanestebancubillos/" className='insta'>instagram</a>
-
+          <a href="https://www.instagram.com/juanestebancubillos/" className='insta'>whatsaap</a>
         </button>
 
         {isAuth ? (
           <div>
             {isOwnProfile && (
-              <NavLink to="/AdminAccount" className='button'><h5 className='editar'>editar</h5></NavLink>
+                  <button className='button' onClick={() => updatePhoto()}>
+                  <a className='insta'>subir foto</a>
+                </button>
             )}
 
           </div>
         ) : null}
+    
 
       </div>
+      {showUploadPage && (
+        <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage} />
+      )}
     </>
 
   );

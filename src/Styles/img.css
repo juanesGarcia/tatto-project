@@ -1,0 +1,104 @@
+/* img.css */
+/* img.css */
+.image-gallery-thumbnail img {
+    width: 100px; /* ajusta el ancho según tus necesidades */
+    height: 75px; /* ajusta la altura según tus necesidades */
+  }
+  
+  .image-gallery-image img {
+    width: 500px; /* ajusta el ancho según tus necesidades */
+    height: 375px; /* ajusta la altura según tus necesidades */
+    object-fit: contain; /* mantiene la relación de aspecto de la imagen y la coloca dentro del contenedor */
+  }
+  
+  /* Estilos normales para la galería */
+  .custom-image-gallery {
+    max-width: 400px; /* Ajusta el ancho máximo según tus preferencias */
+    width: 100%;
+    margin: 0 auto; /* Centra la galería horizontalmente */
+    margin-right: 5%;
+  }
+  .imges{
+    height: 200px;
+  }
+  .container-img {
+    display: flex;
+    
+   /* Cambia la dirección del eje principal para que los elementos estén uno encima del otro en dispositivos pequeños */
+  
+  }
+  
+  /* Estilos específicos para la imagen ampliada en pantalla completa */
+  .react-image-gallery-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .comments-container{
+    flex-grow: 1;
+    padding-left: 0%;
+    padding-top: 5%;
+    
+  }
+
+  .but-upload{
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .but-up{
+    margin-left: 2%;
+  }
+  .but-close{
+    margin-left: 2%;
+  }
+.container-img{
+    display: block;
+    padding-left: 5%;
+    margin-top: 5%;
+    padding-right: 5%;
+}
+
+.description{
+    font-size: 100%;
+    margin-left: 20%;
+}
+.icon-upload{
+    margin-left: 50%;
+}
+
+.prue{
+    display: flex;
+}
+
+.prue2{
+    display: block;
+    background-color: black;
+    border-radius: 5%;
+
+}
+.img-comment{
+    display: flex;
+}
+.containerall{
+    width: 87%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+}
+.textarea{
+    width: 200px;
+}
+  /* Estilos adicionales para mejorar la visualización en responsive */
+  @media (max-width: 767px) {
+    .react-image-gallery {
+      max-height: 80vh; /* Limita la altura de la imagen en responsive */
+    }
+  
+    .fullscreen {
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Ajusta la altura al 100% de la pantalla en vista responsive */
+      margin-top: 10%;
+    }
+  }
+  
