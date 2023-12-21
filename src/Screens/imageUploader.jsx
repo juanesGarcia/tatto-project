@@ -143,7 +143,13 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
               {isDragActive ? (
                 <p>Drop the files here ...</p>
               ) : (
-                <BsFillFileImageFill className="icon-upload"></BsFillFileImageFill>
+                <div>
+                  <h3 className="text-img">arrastre o click para subir imagenes</h3>
+                  <BsFillFileImageFill className="icon-img" style={{ fontSize: "200px" }}></BsFillFileImageFill>
+                </div>
+                  
+                
+                
               )}
             </div>
           )}

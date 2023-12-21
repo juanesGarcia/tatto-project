@@ -63,8 +63,9 @@
     font-size: 100%;
     margin-left: 20%;
 }
-.icon-upload{
-    margin-left: 50%;
+
+.icon-img{
+  margin-left: 25%;
 }
 
 .prue{
@@ -87,6 +88,12 @@
 }
 .textarea{
     width: 200px;
+}
+
+.text-img{
+  font-size: 15px;
+  margin-left: 16%;
+  margin-bottom: 5%;
 }
   /* Estilos adicionales para mejorar la visualización en responsive */
   @media (max-width: 767px) {
