@@ -38,7 +38,9 @@ function App() {
 
   useEffect(() => {
     const handleBeforeUnload = () => {
-      localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+      if (isAuth) {
+        localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+      }
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -54,7 +56,7 @@ function App() {
       if (authData) {
         const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
         if (storedIsAuth) {
-          dispatch(authenticateUser());
+          dispatch(authenticateUser());  // Sin argumentos para que el slice use el estado almacenado
           dispatch(setInfo(storedInfo));
         } else {
           dispatch(unauthenticateUser());
@@ -62,7 +64,7 @@ function App() {
       }
     };
 
-    handleLoad(); // Invocar handleLoad inmediatamente
+    handleLoad();
 
     window.addEventListener('load', handleLoad);
 
@@ -74,8 +76,6 @@ function App() {
   useEffect(() => {
     checkSession(dispatch);
   }, [dispatch]);
-
-
 
   return (
     <div >

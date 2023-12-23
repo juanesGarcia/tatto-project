@@ -6,12 +6,11 @@ import Avatar from "@mui/material/Avatar";
 import { getUsers } from '../api/auth';
 import "../Styles/UserProfile.css";
 import UploadImagesPage from './UploadImagePage';
-import Modal from 'react-modal';
+import 'react-image-gallery/styles/css/image-gallery.css';
+import OpenModal  from './OpenModal';
 
-Modal.setAppElement('#root');
 
 export const UserProfile = () => {
-  console.log(useParams())
   const { name } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,7 +20,8 @@ export const UserProfile = () => {
   const [showUploadPage, setShowUploadPage] = useState(false);
 
 
-  
+
+
 
   useEffect(() => {
     if (isAuth && name === info.name) {
@@ -31,15 +31,17 @@ export const UserProfile = () => {
     }
   }, [isAuth, name, info]);
 
+
+
+
+
   const showData = async () => {
-    console.log(info)
     try {
       const response = await getUsers();
       const data = response.data;
       const parsedUsers = parseUserData(data);
       console.log(parsedUsers);
       setUsers(parsedUsers);
-      console.log(name)
       const nameExists = parsedUsers.some(user => user.name === name) ;
       console.log(nameExists)
       if (nameExists) {
@@ -53,10 +55,15 @@ export const UserProfile = () => {
     }
   };
 
+
+
   useEffect(() => {
     showData();
 
+
   }, []);
+
+
 
   const parseUserData = (data) => {
     return data.map((item) => {
@@ -69,12 +76,16 @@ export const UserProfile = () => {
     });
   };
 
+
+
   const updatePhoto = () => {
     if (showUploadPage) {
       setShowUploadPage(false);
     } else {
       setShowUploadPage(true);
     }
+
+
   };
 
   const handleUploadSuccess = () => {
@@ -84,9 +95,13 @@ export const UserProfile = () => {
     
   };
 
+
+
   const handleCloseUploadPage = () => {
     setShowUploadPage(false);
   };
+
+
 
   return (
     <>
@@ -126,6 +141,8 @@ export const UserProfile = () => {
       {showUploadPage && (
         <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage} />
       )}
+      <OpenModal></OpenModal>
+
     </>
 
   );

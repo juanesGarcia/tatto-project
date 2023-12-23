@@ -3,12 +3,14 @@ import '../Styles/Login.css';
 import { NavLink } from 'react-router-dom';
 import { onLogin } from '../api/auth';
 import { useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
 import { authenticateUser, setInfo } from '../redux/slices/authSlice';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export const Login = () => {
   const [errores, setErrores] = useState(false);
+  const { isAuth, info } = useSelector((state) => state.auth);
   const [user, setUser] = useState({
     email: '',
     password: '',

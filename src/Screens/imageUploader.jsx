@@ -5,7 +5,9 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de importar los estilos de la galería
 import "../Styles/img.css";
 import { BsFillFileImageFill } from "react-icons/bs";
+import { useSelector } from 'react-redux';
 import TextareaAutosize from "react-textarea-autosize";
+import { Info } from "@mui/icons-material";
 
 const resizeImage = async (
   file,
@@ -60,6 +62,7 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
   const [showUploadSection, setShowUploadSection] = useState(true);
+  const { isAuth, info } = useSelector((state) => state.auth);
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
@@ -89,13 +92,13 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    const id = "d2488b70-889e-4275-a144-e1c66bd7989f";
+
 
     acceptedFiles.forEach((file, index) => {
       formData.append("photo", file);
     });
-
-    console.log(description.length);
+    
+    const id = info.id
     if (description.length <= 400) {
       formData.append("description", description);
       try {
