@@ -122,7 +122,7 @@ export const UserProfile = () => {
           follow
         </button>
         <button className='button'>
-          <a href="https://wa.me/573227879774?text=Hola%20quiero%20averiguar%20acerca%20de%20precios%20de%20los%20tatuajes%20y%20cuando%20podemos%20cuadrar%20una%20cita" className='insta'>whatsaap</a>
+          <a href="https://wa.me/573227879774?text=Hola%20quiero%20averiguar%20acerca%20de%20precios%20de%20los%20tatuajes%20y%20cuando%20podemos%20cuadrar%20una%20cita"  target="_blank" rel="noopener noreferrer" className='whatsapp'>Whatsapp</a>
         </button>
 
         {isAuth ? (
