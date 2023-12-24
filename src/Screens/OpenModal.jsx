@@ -60,7 +60,8 @@ const OpenModal = ({isAuthp, isOwnProfilep}) => {
     const showData = async () => {
       const id = 'ea278841-098c-44bc-a81c-bd5bbf52fe87';
       try {
-        const response = await axios.get(`http://localhost:4000/getimages/${id}`);
+        const response = await axios.get(`https://tatto-backend.onrender.com/getimages/${id}`);
+        
         const data = response.data.info;
         console.log(data)
         setPosts(parseImageData(data));
