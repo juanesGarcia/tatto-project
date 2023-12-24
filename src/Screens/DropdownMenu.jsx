@@ -32,7 +32,7 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
     });
 
     try {
-      const response = await axios.put(`http://localhost:4000/editar/${post_id}`, {
+      const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {
         newDescription: newText,
       });
       console.log(response);
@@ -51,7 +51,7 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
 
   const handleEliminar = async () => {
     try {
-      const response = await axios.delete(`http://localhost:4000/deleteimages/${post_id}`);
+      const response = await axios.delete(`https://tatto-backend.onrender.com/deleteimages/${post_id}`);
       console.log(response);
       Swal.fire({
         icon: 'success',

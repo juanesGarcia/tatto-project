@@ -85,11 +85,12 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
     console.log(acceptedFiles.length)
     
     const id = info.id
+    console.log(description.length)
     if (description.length <= 400) {
       formData.append("description", description);
       try {
         const response = await axios.post(
-          `http://localhost:4000/upload/${id}`,
+          `https://tatto-backend.onrender.com/upload/${id}`,
           formData,
           {
             headers: {
