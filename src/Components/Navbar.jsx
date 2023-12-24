@@ -64,8 +64,11 @@ function Navbar() {
   const [showInfo, setShowInfo] = useState(false);
 
   const perfilClick = () => {
-    navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
-    window.location.reload();
+    const {id,name} = info
+    console.log(id , name )
+    navigate(`/profile/${encodeURIComponent(id)}/${encodeURIComponent(name)}`);
+    window.location.reload(); 
+    
   };
   const handleAvatarClick = () => {
     setShowInfo(prevShowInfo => !prevShowInfo);
