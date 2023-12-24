@@ -18,6 +18,7 @@ import { checkSession } from "./api/session";
 import { useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
+import Cookies from 'js-cookie';
 
 
 const PrivateRoutes =()=>{
@@ -36,10 +37,13 @@ function App() {
   const dispatch = useDispatch();
   const { isAuth, info } = useSelector((state) => state.auth);
 
+  
   useEffect(() => {
     const handleBeforeUnload = () => {
       if (isAuth) {
         localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+
+
       }
     };
 
@@ -53,10 +57,11 @@ function App() {
   useEffect(() => {
     const handleLoad = () => {
       const authData = localStorage.getItem('authData');
+      console.log(authData)
       if (authData) {
         const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
         if (storedIsAuth) {
-          dispatch(authenticateUser());  // Sin argumentos para que el slice use el estado almacenado
+          dispatch(authenticateUser(storedIsAuth));  // Sin argumentos para que el slice use el estado almacenado
           dispatch(setInfo(storedInfo));
         } else {
           dispatch(unauthenticateUser());

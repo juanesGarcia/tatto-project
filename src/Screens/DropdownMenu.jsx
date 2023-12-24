@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Dropdown, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import '../Styles/Drop.css'
+import '../Styles/Drop.css';
+import CustomDropdownToggle from './CustomDropdownToggle';  // Ajusta la ruta según tu estructura de carpetas
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
+
+
+
+
+
   const handleEditar = async () => {
     const { value: newText } = await Swal.fire({
       title: 'Editar Texto',
@@ -29,7 +37,6 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
       });
       console.log(response);
       Swal.fire({
-        position: 'top-end',
         icon: 'success',
         title: response.data.message,
         showConfirmButton: false,
@@ -47,7 +54,6 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
       const response = await axios.delete(`http://localhost:4000/deleteimages/${post_id}`);
       console.log(response);
       Swal.fire({
-        position: 'top-end',
         icon: 'success',
         title: response.data.message,
         showConfirmButton: false,
@@ -62,14 +68,16 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
   };
 
   return (
-    <Dropdown >
-      <Dropdown.Toggle id="dropdown-custom-1" style={{ backgroundColor: 'transparent', border: 'none' }} className='drop'>
-      </Dropdown.Toggle>
-      <Dropdown.Menu>
-        <Dropdown.Item onClick={handleEditar} className='editardrop'>Editar</Dropdown.Item>
-        <Dropdown.Item onClick={handleEliminar} className='eliminar'>Eliminar</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    <Dropdown>
+      <div className='drop' >
+            <Dropdown.Toggle as={CustomDropdownToggle} style={{ backgroundColor: 'transparent', border: 'none' }} />
+      </div>
+
+    <Dropdown.Menu>
+      <Dropdown.Item onClick={handleEditar} className='editardrop'>Editar</Dropdown.Item>
+      <Dropdown.Item onClick={handleEliminar} className='eliminar'>Eliminar</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown>
   );
 };
 

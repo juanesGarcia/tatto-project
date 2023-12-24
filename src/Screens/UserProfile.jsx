@@ -139,9 +139,9 @@ export const UserProfile = () => {
 
       </div>
       {showUploadPage && (
-        <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage} />
+        <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage}  />
       )}
-      <OpenModal></OpenModal>
+      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile}></OpenModal>
 
     </>
 

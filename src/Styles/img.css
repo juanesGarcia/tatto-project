@@ -1,19 +1,6 @@
-/* img.css */
-/* img.css */
-.image-gallery-thumbnail img {
-    width: 100px; /* ajusta el ancho según tus necesidades */
-    height: 75px; /* ajusta la altura según tus necesidades */
-  }
-  
-  .image-gallery-image img {
-    width: 500px; /* ajusta el ancho según tus necesidades */
-    height: 375px; /* ajusta la altura según tus necesidades */
-    object-fit: contain; /* mantiene la relación de aspecto de la imagen y la coloca dentro del contenedor */
-  }
-  
+
   /* Estilos normales para la galería */
   .custom-image-gallery {
-    max-width: 400px; /* Ajusta el ancho máximo según tus preferencias */
     width: 100%;
     margin: 0 auto; /* Centra la galería horizontalmente */
     margin-right: 5%;
@@ -23,8 +10,6 @@
   }
   .container-img {
     display: flex;
-    
-   /* Cambia la dirección del eje principal para que los elementos estén uno encima del otro en dispositivos pequeños */
   
   }
   
@@ -44,6 +29,7 @@
   .but-upload{
     display: flex;
     margin-top: 10px;
+    margin-left: 20%;
   }
 
   .but-up{
@@ -65,7 +51,8 @@
 }
 
 .icon-img{
-  margin-left: 25%;
+  margin-left: 24%;
+  font-size: 1200%;
 }
 
 .prue{
@@ -82,9 +69,9 @@
     display: flex;
 }
 .containerall{
-    width: 87%;
-    margin: 0 auto;
+    width: 90%;
     margin-bottom: 10%;
+
 }
 .textarea{
     width: 200px;
@@ -95,6 +82,31 @@
   margin-left: 16%;
   margin-bottom: 5%;
 }
+
+.boxUpdate{
+  background: #917E41;
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  margin-left:22% ;
+}
+.textArea{
+  font-size: 11px;
+  resize: "none";
+  width: 100%;
+  max-width:600px ;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.containerall.with-images {
+  /* Establece los márgenes que desees cuando hay imágenes */
+  margin-left: 20% !important; /* Ejemplo: márgenes de 10px */
+}
+
+
+
   /* Estilos adicionales para mejorar la visualización en responsive */
   @media (max-width: 767px) {
     .react-image-gallery {
@@ -107,5 +119,57 @@
       height: 100vh; /* Ajusta la altura al 100% de la pantalla en vista responsive */
       margin-top: 10%;
     }
+    .boxUpdate{
+      width: 50%;
+      height: 180px;
+      margin-left:25% ;
+    }
+    .text-img{
+      font-size: 16px;
+      margin-left:4%;
+      margin-bottom: 7%;
+    }
+    .icon-img{
+      margin-left: 20%;
+      font-size: 600% !important;
+    }
+    .textArea{
+      font-size: 15px;
+      resize: "none";
+      width: 100%;
+      max-width:600px ;
+      border: 1px solid #ccc;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .img-comment{
+      display: block;
+  }
+  .containerall.with-images {
+    /* Establece los márgenes que desees cuando hay imágenes */
+    margin-left: 0% !important; /* Ejemplo: márgenes de 10px */
+  }
+  
+.fullscreen {
+  align-items: center;
+  justify-content: center;
+  margin-top: 50%;
+}
+
+.custom-image-gallery {
+  width: 65%;
+  margin: 0 auto; /* Centra la galería horizontalmente */
+  margin-right: 18%;
+}
+
+
+.but-upload{
+  margin-left: 16%;
+  margin-bottom: 5%;
+}
+
+
+
+  
   }
   

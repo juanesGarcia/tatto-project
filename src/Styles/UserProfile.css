@@ -81,5 +81,23 @@
     margin-left: 5%;
   }
 
-
+  @media (max-width: 800px) {
+    .containerProfile{
+  
+      margin-top: 5%;
+      margin-left: 5%;
+   
+  }
+  .buttonPerfil{
+    margin-left: 5%;
+  }
+  .button {
+    width: 8em;
+    height: 2.6em;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 500;
+   }
+  }
 

@@ -6,8 +6,8 @@ import '../Styles/UploadImg.css';
 const UploadImagesPage = ({ onUploadSuccess, onClose }) => {
   return (
     <div className="upload-page">
-      <h1 className='upload-mesage'>Subir Imágenes</h1>
-      <ImageUploader onUploadSuccess={onUploadSuccess} onClose={onClose} />
+      <div className='upload-mesage'>Subir Imágenes</div>
+      <ImageUploader onUploadSuccess={onUploadSuccess} onClose={onClose}  />
     </div>
   );
 };

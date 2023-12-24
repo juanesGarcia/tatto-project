@@ -20,7 +20,7 @@ const resizeImage = async (
     img.src = URL.createObjectURL(file);
 
     img.onload = () => {
-      // Aumentar la resolución original
+      // Aumentar la resolución original sin reducir nuevamente
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
       const increasedWidth = img.width * resolutionMultiplier;
@@ -31,37 +31,20 @@ const resizeImage = async (
 
       ctx.drawImage(img, 0, 0, increasedWidth, increasedHeight);
 
-      // Redimensionar la imagen aumentada
-      const resizedCanvas = document.createElement("canvas");
-      const resizedCtx = resizedCanvas.getContext("2d");
-
-      resizedCanvas.width = targetWidth;
-      resizedCanvas.height = targetHeight;
-
-      resizedCtx.drawImage(
-        canvas,
-        0,
-        0,
-        increasedWidth,
-        increasedHeight,
-        0,
-        0,
-        targetWidth,
-        targetHeight
-      );
-
       // Convierte el lienzo redimensionado a Blob para su posterior uso
-      resizedCanvas.toBlob((blob) => {
+      canvas.toBlob((blob) => {
         resolve(blob);
       });
     };
   });
 };
 
+
 const ImageUploader = ({ onUploadSuccess, onClose }) => {
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
   const [showUploadSection, setShowUploadSection] = useState(true);
+  const [imageCount, setImageCount] = useState(0);
   const { isAuth, info } = useSelector((state) => state.auth);
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
@@ -97,6 +80,9 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
     acceptedFiles.forEach((file, index) => {
       formData.append("photo", file);
     });
+
+    setImageCount(acceptedFiles.length);
+    console.log(acceptedFiles.length)
     
     const id = info.id
     if (description.length <= 400) {
@@ -117,6 +103,8 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
 
         if (onUploadSuccess) {
           onUploadSuccess();
+          window.location.reload();
+
         }
       } catch (error) {
         console.error("Error en la carga:", error);
@@ -127,20 +115,13 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
   };
 
   return (
-    <div className="containerall">
+    <div  style={{ marginLeft: imageCount > 4 ? '1%' : '0%' }}>
       <form action="" onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="prue">
           {showUploadSection && (
             <div
               {...getRootProps()}
-              style={{
-                background: "#917E41",
-                padding: "20px",
-                width: "400px",
-                height: "300px",
-                marginLeft: "15%",
-                marginBottom:"10%"
-              }}
+              className="boxUpdate"
             >
               <input {...getInputProps()} />
               {isDragActive ? (
@@ -148,7 +129,7 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
               ) : (
                 <div>
                   <h3 className="text-img">arrastre o click para subir imagenes</h3>
-                  <BsFillFileImageFill className="icon-img" style={{ fontSize: "200px" }}></BsFillFileImageFill>
+                  <BsFillFileImageFill className="icon-img"></BsFillFileImageFill>
                 </div>
                   
                 
@@ -170,31 +151,26 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
                       onChange={(e) => setDescription(e.target.value)}
                       minRows={3} // Número mínimo de filas
                       maxRows={10} // Número máximo de filas
-                      cols={70}
-                      style={{
-                        fontSize: "11px",
-                        resize: "none",
-                        width: "100%",
-                        maxWidth: "600px", // Ancho máximo permitido
-                        border: "1px solid #ccc",
-                        padding: "8px",
-                        borderRadius: "4px",
-                      }}
+                      cols={75}
+                      className="textArea"
                       placeholder="Ingresa una descripción para tu post"
                     />
                   </div>
                 </div>
-
                 <div className="but-upload">
                   <button className="button">Subir</button>
                   <button className="button" onClick={onClose}>
                     Cerrar
                   </button>
                 </div>
+              
               </div>
             </div>
+            
           )}
+          
         </div>
+        
       </form>
     </div>
   );

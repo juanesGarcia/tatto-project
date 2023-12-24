@@ -12,11 +12,12 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 
 
+const OpenModal = ({isAuthp, isOwnProfilep}) => {
 
-const OpenModal = () => {
     const [posts, setPosts] = useState([]);
     const [selectedPost, setSelectedPost] = useState(null);
-  
+
+
   
     
   
@@ -119,12 +120,26 @@ const OpenModal = () => {
               x
             </div>
             <div>
-              <DropdownMenu
+            {isAuthp ? (
+          <div>
+            {isOwnProfilep && (
+                    <DropdownMenu
                 post_id={selectedPost.post_id}
                 onDeleted={handleDeleted}
                 onUpdate={handleUpdate}
                 onToggleMenu={onToggleMenu}
               />
+    
+            )}
+
+          </div>
+        ) : null}
+    
+
+             
+         
+       
+              
             </div>
             <div className="info">{selectedPost.title}</div>
             <div className="custom-gallery">

@@ -3,17 +3,15 @@
     grid-template-columns: repeat(3, 1fr); /* Ajusta la cuadrícula según sea necesario */
     gap: 0.5em; /* Elimina el espacio entre las columnas y filas */
     margin-left: 1%;
-    margin-top:5%;
+    margin-top:3%;
     z-index: 1;
     margin-bottom: 5%;
     margin-left: 8%;
     margin-right: 8%;
   
   }
-  
   .post-item {
-    width: 350px; /* Ancho deseado */
-    height: 350px; /* Alto deseado */
+    width: 100%; /* Ancho deseado */
     overflow: hidden; /* Para asegurarte de que las imágenes no se desborden */
     display: flex; /* Usa flexbox para alinear elementos en el eje horizontal */ 
     border-radius: 2%;
@@ -42,8 +40,8 @@
   }
   
   .custom-modal {
-    width: 600px;
-    height: 600px;
+    width: 50%;
+    height: 98%;
     background: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -97,4 +95,27 @@
     margin-bottom:auto;
     margin-top: auto;
 
+  }
+
+  @media (max-width: 800px) {
+    .custom-modal {
+      width: 90%;
+      height: 55%;
+    }
+    .close-button {
+      top: 18%;
+  right: 6%;
+    }
+
+    .post-grid {
+      margin-right: 1%;
+      margin-left: 1%;
+      margin-top:8%;
+  
+    
+    }
+    .post-item {
+      width: 100%; /* Ancho deseado */
+
+    }
   }
