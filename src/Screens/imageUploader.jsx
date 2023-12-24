@@ -40,7 +40,7 @@ const resizeImage = async (
 };
 
 
-const ImageUploader = ({ onUploadSuccess, onClose }) => {
+const ImageUploader = ({ onUploadSuccess, onClose, id }) => {
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
   const [showUploadSection, setShowUploadSection] = useState(true);
@@ -84,7 +84,6 @@ const ImageUploader = ({ onUploadSuccess, onClose }) => {
     setImageCount(acceptedFiles.length);
     console.log(acceptedFiles.length)
     
-    const id = info.id
     console.log(description.length)
     if (description.length <= 400) {
       formData.append("description", description);

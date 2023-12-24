@@ -55,7 +55,7 @@
   display: flex;
   position: absolute;
   top: 1%;
-  right: 25%;
+  right: 23%;
   font-size: 40px;
   cursor: pointer;
   background: none;
@@ -103,8 +103,8 @@
       height: auto;
     }
     .close-button {
-      top: 18%;
-  right: 6%;
+      top: 17%;
+      right: 2%;
     }
 
     .post-grid {
