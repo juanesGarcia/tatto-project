@@ -61,7 +61,7 @@ function App() {
       if (authData) {
         const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
         if (storedIsAuth) {
-          dispatch(authenticateUser(storedIsAuth));  // Sin argumentos para que el slice use el estado almacenado
+          dispatch(authenticateUser());  // Sin argumentos para que el slice use el estado almacenado
           dispatch(setInfo(storedInfo));
         } else {
           dispatch(unauthenticateUser());
