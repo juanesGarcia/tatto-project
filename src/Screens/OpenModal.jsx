@@ -12,7 +12,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 
 
 
-const OpenModal = ({isAuthp, isOwnProfilep}) => {
+const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
 
     const [posts, setPosts] = useState([]);
     const [selectedPost, setSelectedPost] = useState(null);
@@ -58,7 +58,6 @@ const OpenModal = ({isAuthp, isOwnProfilep}) => {
     };
   
     const showData = async () => {
-      const id = 'ea278841-098c-44bc-a81c-bd5bbf52fe87';
       try {
         const response = await axios.get(`https://tatto-backend.onrender.com/getimages/${id}`);
         

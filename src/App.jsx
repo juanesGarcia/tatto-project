@@ -103,7 +103,7 @@ function App() {
           <Route exact path="/Register" element={<Register/>}></Route>
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
-          <Route exact path="/profile/:name" element={<UserProfile />} />
+          <Route exact path="/profile/:id/:name" element={<UserProfile />} />
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>

@@ -11,7 +11,7 @@ import OpenModal  from './OpenModal';
 
 
 export const UserProfile = () => {
-  const { name } = useParams();
+  const { name,id  } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuth, info } = useSelector((state) => state.auth);
@@ -141,7 +141,7 @@ export const UserProfile = () => {
       {showUploadPage && (
         <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage}  />
       )}
-      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile}></OpenModal>
+      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile} id={id}></OpenModal>
 
     </>
 

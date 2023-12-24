@@ -82,7 +82,7 @@ export const SearchP = () => {
     setSelectedOption(user);
     setSearch(user.name);
     localStorage.setItem("userId", user.id); // Almacena el userId en el almacenamiento local del navegador
-    navigate(`/profile/${encodeURIComponent(user.name)}`);
+    navigate(`/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}`);
   }; 
   
 
