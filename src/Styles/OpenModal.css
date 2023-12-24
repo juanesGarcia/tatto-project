@@ -41,7 +41,7 @@
   
   .custom-modal {
     width: 50%;
-    height: 98%;
+    height: auto;
     background: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -86,12 +86,12 @@
     margin-left: 5%;
     margin-right: 2%;
     margin-top: 5%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
   }
   
   .custom-gallery{
-    width: 70%; /* Ajusta el ancho de la imagen al 70% del contenedor */
-    margin-left: 15%;
+    width: 50%; /* Ajusta el ancho de la imagen al 70% del contenedor */
+    margin-left: 25%;
     margin-bottom:auto;
     margin-top: auto;
 
@@ -100,7 +100,7 @@
   @media (max-width: 800px) {
     .custom-modal {
       width: 90%;
-      height: 55%;
+      height: auto;
     }
     .close-button {
       top: 18%;
@@ -117,5 +117,13 @@
     .post-item {
       width: 100%; /* Ancho deseado */
 
+    }
+    .custom-gallery{
+      width: 70%;
+      margin-left: 15%;
+    }
+
+    .info{
+      margin-bottom: 8%;
     }
   }
