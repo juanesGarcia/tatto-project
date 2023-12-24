@@ -68,6 +68,7 @@
   }
   .whatsapp{
     color:  #917E41;
+    text-decoration: none;
   }
   .whatsapp:hover{
     color: aliceblue;
@@ -79,6 +80,14 @@
   }
   .follow{
     margin-left: 5%;
+  }
+
+  .uploadphoto-but{
+     color:  #917E41;
+    text-decoration: none;
+  }
+  .uploadphoto-but:hover{
+    color: aliceblue;
   }
 
   @media (max-width: 800px) {

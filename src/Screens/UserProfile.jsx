@@ -129,7 +129,7 @@ export const UserProfile = () => {
           <div>
             {isOwnProfile && (
                   <button className='button' onClick={() => updatePhoto()}>
-                  <a className='insta'>subir foto</a>
+                  <a className='uploadphoto-but'>subir foto</a>
                 </button>
             )}
 
