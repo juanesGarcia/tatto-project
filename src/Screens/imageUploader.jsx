@@ -103,6 +103,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id }) => {
 
         if (onUploadSuccess) {
           onUploadSuccess();
+          window.location.reload();
 
         }
       } catch (error) {
