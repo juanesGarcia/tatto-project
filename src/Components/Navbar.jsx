@@ -67,7 +67,6 @@ function Navbar() {
     const {id,name} = info
     console.log(id , name )
     navigate(`/profile/${encodeURIComponent(id)}/${encodeURIComponent(name)}`);
-    window.location.reload(); 
     
   };
   const handleAvatarClick = () => {
