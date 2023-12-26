@@ -1,9 +1,10 @@
 
   /* Estilos normales para la galería */
   .custom-image-gallery {
-    width: 100%;
+    width: 400px;
     margin: 0 auto; /* Centra la galería horizontalmente */
     margin-right: 5%;
+    height: auto;
   }
   .imges{
     height: 200px;
@@ -61,7 +62,7 @@
 
 .prue2{
     display: block;
-    background-color: black;
+  background-color: #191919;
     border-radius: 5%;
 
 }
@@ -73,8 +74,10 @@
     margin-bottom: 10%;
 
 }
-.textarea{
+.textArea{
     width: 200px;
+    background-color: black;
+    color: #917E41;
 }
 
 .text-img{

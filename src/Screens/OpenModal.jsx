@@ -63,7 +63,11 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
         
         const data = response.data.info;
         console.log(data)
-        setPosts(parseImageData(data));
+        const sortedPosts = parseImageData(data).sort((a, b) => {
+          return new Date(b.created_at) - new Date(a.created_at);
+        });
+    
+        setPosts(sortedPosts);
       } catch (error) {
         console.log(error);
       }
