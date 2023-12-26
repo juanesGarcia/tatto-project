@@ -97,6 +97,22 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
       // Prevenir la propagación del evento click para evitar cerrar el modal
       e.stopPropagation();
     };
+
+    const calcularDiferenciaEnDias = (fecha) => {
+      const fechaActual = new Date();  // Obtiene la fecha actual
+      const fechaDada = new Date(fecha);  // Tu fecha dada
+    
+      // Calcula la diferencia en milisegundos
+      const diferenciaMilisegundos = fechaActual - fechaDada;
+    
+      // Convierte la diferencia a días
+      const diferenciaDias = diferenciaMilisegundos / (1000 * 60 * 60 * 24);
+    
+      const diasRedondeados= Math.round(diferenciaDias);  // Redondea el resultado a días enteros
+      return diasRedondeados === 1
+      ? `${diasRedondeados} día`
+      : `${diasRedondeados} días`;
+    };
   
   return (
     <>
@@ -145,7 +161,8 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
             <div className="custom-gallery">
               <Gallery items={selectedPost.photos} />
             </div>
-            <div className="info">{selectedPost.created_at}</div>
+            <div className="info">Creado hace {
+            calcularDiferenciaEnDias(selectedPost.created_at)}</div>
           </div>
         </div>
       )}

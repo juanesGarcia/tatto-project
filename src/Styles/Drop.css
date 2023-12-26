@@ -1,7 +1,7 @@
 .drop{
   display: flex;
   position: absolute;
-  top: 20%;
+  top: 0%;
   right: 0%;
   font-size: 30px;
   cursor: pointer;
@@ -10,11 +10,29 @@
   padding: 5px;
 }
 
+
+.eliminar{
+  font-family: 'Rock Salt', cursive !important;
+}
+
+.editardrop{
+  font-family: 'Rock Salt', cursive !important;
+  padding-top: 5%;
+  margin-top: 0% !important;
+}
+
+
 .editardrop:hover{
-  background-color: beige;
+  background-color: #917E41;
+  color: beige;
 }
 
 
 .eliminar:hover{
-  background-color: beige;
+  background-color: #917E41;
+  color: beige;
+}
+
+.dropdown-menu{
+  height: auto;
 }

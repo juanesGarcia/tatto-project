@@ -47,7 +47,7 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background-color: black;
+    background-color: #191919;
     z-index: 3; /* Asegúrate de que el z-index sea mayor que el de .custom-modal-overlay */
   }
   /* Ajusta la posición del botón de cierre */
@@ -61,6 +61,7 @@
   background: none;
   border: none;
   padding: 5px;
+  color: #fff;
 
   /* Añade margen para aumentar el área de clic */
   margin: -15px; /* Experimenta con el valor según sea necesario */
@@ -87,6 +88,7 @@
     margin-right: 2%;
     margin-top: 5%;
     margin-bottom: 5%;
+    color:#917E41 ;
   }
   
   .custom-gallery{
@@ -125,5 +127,6 @@
 
     .info{
       margin-bottom: 8%;
+      color:#917E41 ;
     }
   }
