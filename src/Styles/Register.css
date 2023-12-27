@@ -30,7 +30,13 @@
   background-color: #917E41;
 }
 
-
+.user-box{
+  display:flex;
+}
+.flag{
+  margin-top: 35%;
+  margin-right: 25px;
+}
 
 .login-box {
     position: absolute;

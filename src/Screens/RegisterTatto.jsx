@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import "../Styles/Register.css"
-import Swal from 'sweetalert2'
+import React, { useState, useEffect } from 'react';
+import "../Styles/Register.css";
+import Swal from 'sweetalert2';
 import { onRegistration } from '../api/auth';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const RegisterTatto = () => {
-  const [errores, setErrores] = useState(false)
+  const [errores, setErrores] = useState(false);
   const navigate = useNavigate();
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [user, setUser] = useState({
-    name:'',
-    email:'',
-    password:'',
-    rol:'tatuador',
-    lon:null,
-    lat:null,
+    name: '',
+    email: '',
+    password: '',
+    rol: 'tatuador',
+    lon: null,
+    lat: null,
+    phone: ''
   });
 
   useEffect(() => {
@@ -36,12 +38,36 @@ export const RegisterTatto = () => {
     }
   }, []);
 
+  const handleCountryCodeChange = async (e) => {
+    const countryName = e.target.value;
+    setUser({ ...user, countryName });
+
+    try {
+      // Obtener información del país desde REST Countries
+      const response = await axios.get(`https://restcountries.com/v2/name/${countryName}`);
+      const countryData = response.data[0]; // Tomar el primer resultado
+
+      setUser({
+        ...user,
+        countryFlag: countryData?.flags?.svg || '',
+        countryCode: countryData?.alpha2Code || '',
+        phone: `+${countryData?.callingCodes[0]}` || '',
+      });
+    } catch (error) {
+      console.error('Error fetching country information:', error);
+      setUser({ ...user, countryFlag: '', phone: '', countryCode: '' });
+    }
+  };
+
   const handleSummit = async (e) => {
     e.preventDefault();
+
+
     const userData = {
       ...user,
       lon: longitude,
       lat: latitude,
+      phone: `${user.phone}${user.numberphone}`,
     };
     try {
       const response = await onRegistration(userData);
@@ -67,19 +93,17 @@ export const RegisterTatto = () => {
     }
   };
 
-  const handleOnchange =(e)=>{
-    setUser({...user,[e.target.name]:e.target.value})
+  const handleOnchange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
 
-  }
-  
-  
-    return (
-        <div className='containerRegister'>
-            <div className="login-box">
+  return (
+    <div className='containerRegister'>
+      <div className="login-box">
         <p>Register</p>
         <form onSubmit={handleSummit}>
           <div className="user-box">
-            <input required="" name="name" type="text" onChange={handleOnchange}/>
+            <input required="" name="name" type="text" onChange={handleOnchange} />
             <label>User Name</label>
           </div>
           <div className="user-box">
@@ -87,29 +111,42 @@ export const RegisterTatto = () => {
             <label>Email</label>
           </div>
           <div className="user-box">
-            <input required="" name="password" type="password" onChange={handleOnchange}/>
+            <input required="" name="password" type="password" onChange={handleOnchange} />
             <label>Password</label>
           </div>
           <div className="user-box">
-            <input required="" name="passwordConfirm" type="password" onChange={handleOnchange}/>
-            <label>Comfirm Password</label>
+            <input required="" name="passwordConfirm" type="password" onChange={handleOnchange} />
+            <label>Confirm Password</label>
           </div>
           <div className="user-box">
-            <input required="" name="phone" type="text" onChange={handleOnchange}/>
-            <label>Phone</label>
+            {/* Nuevo campo para el nombre del país */}
+            {user.countryFlag && (
+            <div>
+              {/* Mostrar la bandera del país */}
+              <img src={user.countryFlag} alt="Country Flag" style={{ width: '50px', height: 'auto' }} className='flag'/>
+            </div>
+          )} 
+            <input required="" name="countryName" type="text" placeholder="Country Name" onChange={handleCountryCodeChange} />
           </div>
-          
+          <div className="user-box">
+            {/* Campo de teléfono */}
+            <input required="" name="phone" type="text" placeholder="code" value={user.phone} onChange={handleOnchange} />
+               <input required="" name="numberphone" type="text" placeholder="Phone Number" onChange={handleOnchange} />
+
+           
+          </div>
+       
+
           <button type='submit'>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            Summit
+            Submit
           </button>
         </form>
       </div>
+    </div>
+  );
+};
 
-        </div>
-
-    )
-}

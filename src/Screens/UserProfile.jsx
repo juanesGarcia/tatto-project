@@ -43,7 +43,6 @@ export const UserProfile = () => {
       const parsedUsers = parseUserData(data.info);
       console.log(parsedUsers);
       setUser(parsedUsers);
-      console.log(user)
       const nameExists = parsedUsers.some(user => user.name === name) ;
       console.log(nameExists)
       if (nameExists) {
@@ -67,11 +66,12 @@ export const UserProfile = () => {
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?),(.*?)\)/);
+      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?)\)/);
       return {
         name: match[1],
         email:match[2],
         rol:match[3],
+        phone:match[4],
         avatar: "/images/fondo.jpg"
       };
     });
@@ -126,7 +126,7 @@ export const UserProfile = () => {
         {
   user.length > 0 && user[0].rol === 'tatuador' && (
     <button className='button'>
-      <a href={`https://wa.me/573227879774?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}  target="_blank" rel="noopener noreferrer" className='whatsapp'>Whatsapp</a>
+      <a href={`https://wa.me/${user[0].phone}?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}  target="_blank" rel="noopener noreferrer" className='whatsapp'>Whatsapp</a>
     </button>
   )
 }  
