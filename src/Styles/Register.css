@@ -37,7 +37,17 @@
   margin-top: 35%;
   margin-right: 25px;
 }
-
+.phone{
+  padding-left: 50px;
+  margin-left: 5%;
+  width: auto;
+}
+.code{
+  width: 40%;
+  justify-content: center;
+  margin-right: 5%;
+  margin-top: 5%;
+}
 .login-box {
     position: absolute;
     top: 50%;

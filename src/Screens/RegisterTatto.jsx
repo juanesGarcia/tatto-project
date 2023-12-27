@@ -130,8 +130,11 @@ export const RegisterTatto = () => {
           </div>
           <div className="user-box">
             {/* Campo de teléfono */}
-            <input required="" name="phone" type="text" placeholder="code" value={user.phone} onChange={handleOnchange} />
-               <input required="" name="numberphone" type="text" placeholder="Phone Number" onChange={handleOnchange} />
+            <div className='code'>
+                  <input required="" name="phone" type="text" placeholder="code" value={user.phone} onChange={handleOnchange} />
+            </div>
+        
+               <input required="" name="numberphone" type="text" placeholder="Phone Number" onChange={handleOnchange}  className='phone'/>
 
            
           </div>
