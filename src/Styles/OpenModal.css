@@ -83,13 +83,14 @@
     margin-top: auto;
   }
   .info{
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 5%;
     margin-right: 2%;
     margin-top: 5%;
     margin-bottom: 5%;
-    color:#917E41 ;
+    color:beige ;
     font-family: 'Shadows Into Light', sans-serif;
+
   }
   
   .custom-gallery{
@@ -128,6 +129,8 @@
 
     .info{
       margin-bottom: 8%;
-      color:#917E41 ;
+      color:beige ;
+      font-size: 18px;
+
     }
   }

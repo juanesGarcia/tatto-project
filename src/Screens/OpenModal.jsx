@@ -157,7 +157,7 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
     
 
              
-         
+  
        
               
             </div>
