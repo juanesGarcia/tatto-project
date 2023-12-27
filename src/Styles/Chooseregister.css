@@ -1,9 +1,14 @@
 .containerChoose {
-    background-image: url("/images/choose.jpg");
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    font-family: 'Rock Salt', cursive !important;
+  background-image: url("/images/choose.jpg");
+  width: 100%;
+  height: 90vh;
+  padding: 0;
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed;
+  font-family: 'Rock Salt', cursive !important;
+
 }
 .btnUser{
     padding-top: 15%;

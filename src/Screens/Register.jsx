@@ -10,6 +10,7 @@ export const Register = () => {
     name:'',
     email:'',
     password:'',
+    rol:'usuario'
   });
   const navigate = useNavigate();
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
