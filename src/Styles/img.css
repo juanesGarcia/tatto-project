@@ -1,7 +1,7 @@
 
   /* Estilos normales para la galería */
   .custom-image-gallery {
-    width: 400px;
+    width: 100%;
     margin: 0 auto; /* Centra la galería horizontalmente */
     margin-right: 5%;
     height: auto;
@@ -13,12 +13,15 @@
     display: flex;
   
   }
-  
   /* Estilos específicos para la imagen ampliada en pantalla completa */
   .react-image-gallery-fullscreen {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .image-gallery-thumbnail img {
+    width: 100px; /* ajusta el ancho según tus necesidades */
+    height: 80px; /* ajusta la altura según tus necesidades */
   }
   .comments-container{
     flex-grow: 1;
@@ -107,6 +110,7 @@
   /* Establece los márgenes que desees cuando hay imágenes */
   margin-left: 20% !important; /* Ejemplo: márgenes de 10px */
 }
+
 
 
 

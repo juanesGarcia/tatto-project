@@ -9,35 +9,27 @@ import { useSelector } from 'react-redux';
 import TextareaAutosize from "react-textarea-autosize";
 import { Info } from "@mui/icons-material";
 
-const resizeImage = async (
-  file,
-  targetWidth,
-  targetHeight,
-  resolutionMultiplier
-) => {
+const resizeImage = async (file, targetWidth, targetHeight) => {
   return new Promise((resolve) => {
     const img = new Image();
     img.src = URL.createObjectURL(file);
 
     img.onload = () => {
-      // Aumentar la resolución original sin reducir nuevamente
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
-      const increasedWidth = img.width * resolutionMultiplier;
-      const increasedHeight = img.height * resolutionMultiplier;
 
-      canvas.width = increasedWidth;
-      canvas.height = increasedHeight;
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
 
-      ctx.drawImage(img, 0, 0, increasedWidth, increasedHeight);
+      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
 
-      // Convierte el lienzo redimensionado a Blob para su posterior uso
       canvas.toBlob((blob) => {
         resolve(blob);
       });
     };
   });
 };
+
 
 
 const ImageUploader = ({ onUploadSuccess, onClose, id }) => {
