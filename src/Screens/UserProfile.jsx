@@ -3,7 +3,7 @@ import { useParams,useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
-import { getUsers } from '../api/auth';
+import { getUser } from '../api/auth';
 import "../Styles/UserProfile.css";
 import UploadImagesPage from './UploadImagePage';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -12,13 +12,11 @@ import OpenModal  from './OpenModal';
 
 export const UserProfile = () => {
   const { name,id  } = useParams();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isAuth, info } = useSelector((state) => state.auth);
   const [isOwnProfile, setIsOwnProfile] = useState(false);
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState([]);
   const [showUploadPage, setShowUploadPage] = useState(false);
-
 
 
 
@@ -29,6 +27,7 @@ export const UserProfile = () => {
     } else {
       setIsOwnProfile(false);
     }
+   
   }, [isAuth, name, info]);
 
 
@@ -36,12 +35,15 @@ export const UserProfile = () => {
 
 
   const showData = async () => {
+  
     try {
-      const response = await getUsers();
+      const response = await getUser(id);
       const data = response.data;
-      const parsedUsers = parseUserData(data);
+      console.log(data.info)
+      const parsedUsers = parseUserData(data.info);
       console.log(parsedUsers);
-      setUsers(parsedUsers);
+      setUser(parsedUsers);
+      console.log(user)
       const nameExists = parsedUsers.some(user => user.name === name) ;
       console.log(nameExists)
       if (nameExists) {
@@ -59,18 +61,17 @@ export const UserProfile = () => {
 
   useEffect(() => {
     showData();
-
-
   }, []);
 
 
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?)\)/);
+      const match = item.row.match(/\((.*?),(.*?),(.*?)\)/);
       return {
-        id: match[1],
-        name: match[2],
+        name: match[1],
+        email:match[2],
+        rol:match[3],
         avatar: "/images/fondo.jpg"
       };
     });
@@ -102,6 +103,7 @@ export const UserProfile = () => {
   };
 
 
+  
 
   return (
     <>
@@ -121,9 +123,13 @@ export const UserProfile = () => {
         <button className='button'>
           follow
         </button>
-        <button className='button'>
-          <a href={`https://wa.me/573227879774?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}  target="_blank" rel="noopener noreferrer" className='whatsapp'>Whatsapp</a>
-        </button>
+        {
+  user.length > 0 && user[0].rol === 'tatuador' && (
+    <button className='button'>
+      <a href={`https://wa.me/573227879774?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}  target="_blank" rel="noopener noreferrer" className='whatsapp'>Whatsapp</a>
+    </button>
+  )
+}  
 
         {isAuth ? (
           <div>

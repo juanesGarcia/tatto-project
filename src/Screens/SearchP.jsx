@@ -88,10 +88,12 @@ export const SearchP = () => {
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?)\)/);
+      const match = item.row.match(/\((.*?),(.*?),(.*?)\)/);
+      console.log(match)
       return {
         id: match[1],
         name: match[2],
+        rol:match[3],
         avatar: "/images/fondo.jpg"
       };
     });
