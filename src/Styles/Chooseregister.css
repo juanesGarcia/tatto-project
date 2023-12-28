@@ -12,9 +12,11 @@
 }
 .btnUser{
     padding-top: 15%;
+    text-decoration: none;
 }
 .btnTatto{
     padding-top: 5%;
+    text-decoration: none;
 }
 .buttonC {
   display: block;
@@ -36,6 +38,7 @@
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   margin-left: 33%;
+  text-decoration: none;
 }
 @media (max-width: 1000px){
   .btnUser{

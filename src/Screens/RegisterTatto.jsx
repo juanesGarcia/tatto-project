@@ -69,19 +69,36 @@ export const RegisterTatto = () => {
       lat: latitude,
       phone: `${user.phone}${user.numberphone}`,
     };
-    try {
-      const response = await onRegistration(userData);
-      console.log(response);
-      if (response.data.success) {
-        setRegistrationSuccess(true);
-        navigate('/login'); // Redirigir al inicio de sesión
+
+    if(user.password === user.passwordConfirm){
+      try {
+        const response = await onRegistration(userData);
+        console.log(response);
+        if (response.data.success) {
+          setRegistrationSuccess(true);
+          navigate('/login'); // Redirigir al inicio de sesión
+        }
+      } catch (error) {
+        setErrores(error.response.data.errors[0]);
+        console.log(error.response.data.errors[0]);
+        Swal.fire({
+          title: 'Error',
+          text: errores,
+          icon: 'error',
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+            confirmButton: 'custom-swal-confirm-button',
+          },
+          buttonsStyling: false,
+        });
       }
-    } catch (error) {
-      setErrores(error.response.data.errors[0]);
-      console.log(error.response.data.errors[0]);
+
+    }else{
+
       Swal.fire({
         title: 'Error',
-        text: errores,
+        text: 'las contraseñas no coinciden ',
         icon: 'error',
         customClass: {
           popup: 'custom-swal-popup',
@@ -90,7 +107,9 @@ export const RegisterTatto = () => {
         },
         buttonsStyling: false,
       });
+      
     }
+ 
   };
 
   const handleOnchange = (e) => {

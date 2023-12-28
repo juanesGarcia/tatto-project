@@ -23,28 +23,40 @@
   font-family: 'Rock Salt', cursive !important;
   color: aliceblue !important;
   margin-right: 2%;
-  width: 20vh;
+  width: 30vh;
 }
 
 @media (min-width: 300px) and (max-width: 360px){
   .profile-info{
     width: 75% !important;
   }
+  .signup {
+    width: 20vh;
+  }
 }
 @media (min-width: 360px) and (max-width: 469px){
   .profile-info{
     width: 65% !important;
+  }
+  .signup {
+    width: 20vh;
   }
 }
 @media (min-width: 470px) and (max-width: 590px){
   .profile-info{
     width: 50% !important;
   }
+  .signup {
+    width: 20vh;
+  }
 }
 
 @media (min-width: 590px) and (max-width: 700px){
   .profile-info{
     width: 40% !important;
+  }
+  .signup {
+    width: 20vh;
   }
 
 }
@@ -53,12 +65,18 @@
     width: 33% !important;
     right: 6% !important;
   }
+  .signup {
+    width: 23vh;
+  }
 
 }
 @media (min-width: 900px) and (max-width: 1000px){
   .profile-info{
     width: 33% !important;
     right: 5% !important;
+  }
+  .signup {
+    width: 25vh;
   }
 
 }
@@ -73,10 +91,10 @@
   border-radius: 5%;
   position: absolute;
   top: 90%;
-  right: 8%;
+  right: 6%;
   z-index: 999;
   text-align: center;
-  width: 25%; 
+  width: 26%; 
   display: flex;
 }
 
@@ -98,7 +116,7 @@
 }
 .profile-email{
 margin-left: 10%;
-font-size: 80%;
+font-size: 60%;
 width: 100%;
 font-family: 'Rock Salt', cursive !important;
 }
