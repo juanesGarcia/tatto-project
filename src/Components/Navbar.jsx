@@ -62,9 +62,10 @@ function Navbar() {
 
   const [open, setOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [tempUserInfo, setTempUserInfo] = useState(null);  // Nuevo estado para almacenar temporalmente la información del usuario
 
   const perfilClick = () => {
-    const {id,name} = info
+    const { id, name } = tempUserInfo || info;  // Utiliza la información temporal si está disponible, de lo contrario, usa la información actual
     navigate(`/profile/${encodeURIComponent(id)}/${encodeURIComponent(name)}`);
   };
   const handleAvatarClick = () => {
