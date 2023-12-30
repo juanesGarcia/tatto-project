@@ -3,11 +3,12 @@ import { useParams,useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
-import { getUser , onFollow} from '../api/auth';
+import { getUser , onFollow ,getFollowed, getFollower,getStatusFollow } from '../api/auth';
 import "../Styles/UserProfile.css";
 import UploadImagesPage from './UploadImagePage';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import OpenModal  from './OpenModal';
+import FollowerModal from './FollowerModal';
 
 
 export const UserProfile = () => {
@@ -18,9 +19,64 @@ export const UserProfile = () => {
   const [user, setUser] = useState([]);
   const [showUploadPage, setShowUploadPage] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [followers, setFollowers] = useState([]); 
+  const [isFollowing, setIsFollowing] = useState(false);  
+  const [followerLength,setFollowerLength]= useState();
+  const [isFollowed, setIsFollowed] = useState(false);
+  
+  const [showFollowerModal, setShowFollowerModal] = useState(false);
+
+  const toggleFollowerModal = () => {
+    setShowFollowerModal(!showFollowerModal);
+  };
+
+const getFollowersf = async () => {
+
+  try {
+    const response = await getFollower(id)
+    const followersArray = response.data.info;
+    console.log(followersArray)
+    // Guardar el array de seguidores en el estado local
+    setFollowers(followersArray);
+    setFollowerLength(followersArray.length)
+
+  } catch (error) {
+    console.log(error)
+  }
+ 
+};
 
 
+const getFollowershow = async () => {
+  toggleFollowerModal();
+};
 
+const checkFollowingStatus = async () => {
+    console.log(info.id)
+    const infoid = info.id
+  const data = {
+    follower_id:infoid,
+    followed_id: id
+  }
+
+  try {
+    const response = await getStatusFollow(data)
+    const followersArray = response.data.info;
+    const isFollowingValue = followersArray.length > 0 ? followersArray[0].sigue_al_usuario : false;
+
+    setIsFollowing(isFollowingValue);
+
+  } catch (error) {
+    console.log(error)
+  }
+
+};
+
+
+useEffect(() => {
+  checkFollowingStatus();
+  getFollowersf();
+}, []);
 
   useEffect(() => {
     if (isAuth && name === info.name) {
@@ -69,7 +125,7 @@ export const UserProfile = () => {
     try {
       const response = await onFollow(data)
       console.log(response)
-
+      setIsFollowed(true);
     } catch (error) {
       console.log(error)
     }
@@ -140,9 +196,13 @@ export const UserProfile = () => {
       </div>
       <div className='followInfo'>
         <h6>publicaciones {postsLength}</h6>
-        <h6 className='follow'>  seguidores 5</h6>
-        <h6 className='follow'>  seguidos 10</h6>
+        <h6 className='follow' onClick={() => getFollowershow()}>  seguidores {followerLength}</h6>
+        <h6 className='follow'>  seguido 10</h6>
       </div>
+       {/* Renderizar el modal de seguidores */}
+       {showFollowerModal && (
+        <FollowerModal followers={followers} onClose={toggleFollowerModal} />
+      )}
         </div>
     
 
@@ -159,12 +219,17 @@ export const UserProfile = () => {
     
   )
 }  
-{! isOwnProfile &&(
-  <button className='button' onClick={() => follow()}>
-  follow
-</button>
-)
-}
+{!isOwnProfile && (
+  <>
+    {!isFollowing ? (
+      <button className='button' onClick={() => follow()}>
+        Follow
+      </button>
+    ) : (
+      <p>siguiendo</p>
+    )}
+  </>
+)}
 
         {isAuth ? (
           <div>
