@@ -36,3 +36,27 @@
 .dropdown-menu{
   height: auto;
 }
+.custom-swal-popup {
+  background-color: black;
+  color: white;
+  font-family: 'Rock Salt', cursive !important;
+}
+.input-editar{
+  font-family: 'Shadows Into Light', sans-serif;
+}
+.custom-swal-title {
+  color: #917E41 !important
+}
+.custom-swal-confirm{
+  background-color:  #917E41 !important;
+  
+}
+.custom-swal-cancel{
+  background-color:  #917E41 !important;
+}
+.custom-swal-confirm:hover{
+  background-color:  #372c06 !important;
+}
+.custom-swal-cancel:hover{
+  background-color:  #372c06 !important;
+}

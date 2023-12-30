@@ -18,10 +18,13 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
     const { value: newText } = await Swal.fire({
       title: 'Editar Texto',
       input: 'textarea',
-      inputLabel: 'Nuevo Texto',
       inputPlaceholder: 'Ingresa el nuevo texto...',
-      inputAttributes: {
-        'aria-label': 'Nuevo Texto',
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+        confirmButton: 'custom-swal-confirm', // Clase personalizada para el botón de confirmar
+        cancelButton: 'custom-swal-cancel', 
+        input: 'input-editar'  // Clase personalizada para el botón de cancelar
       },
       showCancelButton: true,
       confirmButtonText: 'Guardar',
@@ -41,6 +44,10 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
         title: response.data.message,
         showConfirmButton: false,
         timer: 1500,
+        customClass: {
+          popup: 'custom-swal-popup',
+          title: 'custom-swal-title',
+        },
       });
 
       onUpdate();
@@ -58,6 +65,10 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
         title: response.data.message,
         showConfirmButton: false,
         timer: 1500,
+        customClass: {
+          popup: 'custom-swal-popup',
+          title: 'custom-swal-title',
+        },
       });
 
       // Llamar a la función proporcionada desde el padre para volver a cargar los datos

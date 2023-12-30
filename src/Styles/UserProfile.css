@@ -1,17 +1,26 @@
 .containerProfile{
     display: flex;
-    margin-top: 5%;
+    margin-top: 3%;
     margin-left: 20%;
     font-family: 'Rock Salt', cursive !important;
+    min-height: 20vh;
+
+    
 }
+
+.img-avatar{
+  margin-top: 3%;
+}
+
 .containerInfo{
     display: block;
     margin-left: 12%;
     margin-top: 2%;
 }
-.buttonPerfil{
-    display: flex;
-    margin-left: 30%;
+.buttonPerfil {
+  display: flex;
+  justify-content: center; /* Esto centrará horizontalmente los elementos en el contenedor */
+  width: 100%; /* O el ancho deseado para el contenedor */
 }
 .button {
     --color: #917E41;
@@ -77,6 +86,7 @@
     display: flex;
     font-family: 'Rock Salt', cursive !important;
     margin-left: 38%;
+    margin-top: 1%;
   }
   .follow{
     margin-left: 5%;

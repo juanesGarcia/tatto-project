@@ -3,6 +3,10 @@
   align-items: center;
   font-family: 'Rock Salt', cursive !important;
 }
+.search-container{
+  min-height: 40vh;
+  margin-top: 8%;
+}
 
 .label-container {
   display: flex;
@@ -77,4 +81,10 @@ margin-right: 7%;
   margin-left: 7%;
   border-bottom: 1px solid black;
 
+}
+@media (max-width: 800px) {
+  .search-container{
+  min-height: 60vh;
+  margin-top: 20%;
+}
 }

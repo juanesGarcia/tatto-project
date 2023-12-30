@@ -108,6 +108,7 @@ export const AdminAccount = () => {
     background: '#000',
   }).then(async (result) => {
     if (result.isConfirmed) {
+      console.log(userId)
       try {
         await onDelete(userId);
   

@@ -6,6 +6,8 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import '../Styles/OpenModal.css';
 import DropdownMenu from './DropdownMenu'; 
 import 'react-image-gallery/styles/css/image-gallery.css';
+import { useDispatch } from 'react-redux';
+import { setPostsLength } from '../redux/slices/authSlice';
 
 
 
@@ -16,7 +18,7 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
 
     const [posts, setPosts] = useState([]);
     const [selectedPost, setSelectedPost] = useState(null);
-
+    const dispatch = useDispatch();
 
   
     
@@ -68,6 +70,8 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
         });
     
         setPosts(sortedPosts);
+        dispatch(setPostsLength(sortedPosts.length));
+         console.log(posts.length)
       } catch (error) {
         console.log(error);
       }
@@ -130,7 +134,7 @@ const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
       </div>
     ))
   ) : (
-    <p>No hay posts disponibles.</p>
+    <div className='no-post'>No hay posts disponibles.</div>
   )}
 </div>
 {selectedPost && (
