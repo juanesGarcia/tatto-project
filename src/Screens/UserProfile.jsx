@@ -17,6 +17,7 @@ export const UserProfile = () => {
   const [isOwnProfile, setIsOwnProfile] = useState(false);
   const [user, setUser] = useState([]);
   const [showUploadPage, setShowUploadPage] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
 
 
@@ -32,27 +33,28 @@ export const UserProfile = () => {
 
 
 
-
-
   const showData = async () => {
-  
     try {
       const response = await getUser(id);
       const data = response.data;
-      console.log(data.info)
+      console.log(data.info);
+
       const parsedUsers = parseUserData(data.info);
       console.log(parsedUsers);
+
       setUser(parsedUsers);
-      const nameExists = parsedUsers.some(user => user.name === name) ;
-      console.log(nameExists)
+      const nameExists = parsedUsers.some((user) => user.name === name);
+      console.log(nameExists);
+
       if (nameExists) {
         console.log(`El nombre ${name} está en la lista`);
       } else {
-        navigate("/")
+        navigate("/");
       }
-
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);  // Marcar que la carga ha finalizado
     }
   };
 
@@ -118,7 +120,9 @@ export const UserProfile = () => {
   const handleCloseUploadPage = () => {
     setShowUploadPage(false);
   };
-
+  if (isLoading) {
+    return <div>Cargando...</div>;
+  }
   
 
   return (
