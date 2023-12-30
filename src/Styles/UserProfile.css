@@ -99,7 +99,13 @@
   .uploadphoto-but:hover{
     color: aliceblue;
   }
-
+  .follow-mesage{
+    font-family: 'Rock Salt', cursive !important;
+    margin-top: 2%;
+    font-size: 140%;
+    margin-left: 5%;
+  }
+  
   @media (max-width: 800px) {
     .containerProfile{
   
