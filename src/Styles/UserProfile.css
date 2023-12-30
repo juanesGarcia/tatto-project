@@ -85,7 +85,7 @@
   .followInfo{
     display: flex;
     font-family: 'Rock Salt', cursive !important;
-    margin-left: 38%;
+    margin-left: 30%;
     margin-top: 1%;
   }
   .follow{
@@ -108,7 +108,7 @@
    
   }
   .buttonPerfil{
-    margin-left: 5%;
+    margin-top: 3%;
   }
   .button {
     width: 8em;
@@ -118,5 +118,9 @@
     border-radius: 6px;
     font-weight: 500;
    }
+   .followInfo{
+    margin-left: 5%;
+    margin-top: 1%;
+  }
   }
 
