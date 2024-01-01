@@ -10,6 +10,7 @@
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Asegúrate de que el z-index sea mayor que el z-index de tus otros elementos */
+    font-family: 'Rock Salt', cursive !important;
   }
   
   .modal-content {

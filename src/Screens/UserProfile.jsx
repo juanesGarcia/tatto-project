@@ -9,6 +9,7 @@ import UploadImagesPage from './UploadImagePage';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import OpenModal  from './OpenModal';
 import FollowerModal from './FollowerModal';
+import FollowedModal from './FollowedModal';
 
 
 export const UserProfile = () => {
@@ -22,19 +23,25 @@ export const UserProfile = () => {
   const [followers, setFollowers] = useState([]); 
   const [isFollowing, setIsFollowing] = useState(false);  
   const [followerLength,setFollowerLength]= useState();
-  const [isFollowed, setIsFollowed] = useState(false);
-  
+  const [followed, setFollowed] = useState([]);
+  const [followedLength,setFollowedLength]= useState();
+  const [showFollowedModal, setShowFollowedModal] = useState(false);
   const [showFollowerModal, setShowFollowerModal] = useState(false);
 
   const toggleFollowerModal = () => {
+    
     setShowFollowerModal(!showFollowerModal);
+  };
+  
+  const toggleFollowedModal = () => {
+    setShowFollowedModal(!showFollowedModal);
   };
 
 const getFollowersf = async () => {
 
   try {
     const response = await getFollower(id)
-    const followersArray = response.data.info;
+    const followersArray = response.data.info || [];
     console.log(followersArray)
     // Guardar el array de seguidores en el estado local
     setFollowers(followersArray);
@@ -46,13 +53,42 @@ const getFollowersf = async () => {
  
 };
 
+const getFollowedf = async () => {
+
+  try {
+    const response = await getFollowed(id)
+    const followedArray = response.data.info || [];
+    console.log('siguiendo a',followedArray)
+    // Guardar el array de seguidores en el estado local
+    setFollowed(followedArray);
+    setFollowedLength(followedArray.length)
+
+  } catch (error) {
+    console.log(error)
+  }
+ 
+};
+
+
 
 const getFollowershow = async () => {
-  toggleFollowerModal();
+  if (followerLength > 0) {
+    toggleFollowerModal();
+  }
+};
+
+const getFollowedshow = async () => {
+  if (followedLength > 0) {
+    toggleFollowedModal();
+  }
 };
 
 const checkFollowingStatus = async () => {
-    console.log(info.id)
+  if (!info.id) {
+    // El usuario no está autenticado, puedes manejar esto según tus necesidades
+    console.log('Usuario no autenticado');
+    return;
+  }
     const infoid = info.id
   const data = {
     follower_id:infoid,
@@ -76,6 +112,7 @@ const checkFollowingStatus = async () => {
 useEffect(() => {
   checkFollowingStatus();
   getFollowersf();
+  getFollowedf();
 }, []);
 
   useEffect(() => {
@@ -197,17 +234,24 @@ useEffect(() => {
       <div className='followInfo'>
         <h6>publicaciones {postsLength}</h6>
         <h6 className='follow' onClick={() => getFollowershow()}>  seguidores {followerLength}</h6>
-        <h6 className='follow'>  seguido 10</h6>
+        <h6 className='follow' onClick={() => getFollowedshow()}>  seguidos {followedLength}</h6>
       </div>
        {/* Renderizar el modal de seguidores */}
        {showFollowerModal && (
         <FollowerModal followers={followers} onClose={toggleFollowerModal} />
       )}
+        {showFollowedModal && (
+        <FollowedModal followed={followed} onClose={toggleFollowedModal} />
+      )}
+
+
+
         </div>
     
 
       )
     }
+    
      
       <div className='buttonPerfil'>
   
