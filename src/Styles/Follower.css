@@ -14,10 +14,51 @@
   }
   
   .modal-content {
-    background: #fff;
+    background: black;
     padding: 20px;
     border-radius: 5px;
     width: 50%;
     height: auto;
+
+  }
+  .follower-list {
+    max-height: 400px; /* Establece la altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
+    margin-left: 50px;
+    margin-top: 2%;
   }
   
+  #cerrar{
+    margin-left: 40%;
+  }
+
+.showmore{
+  margin-left: 10%;
+  margin-top: 3%;
+}
+.showless{
+  margin-left: 10%;
+}
+.showmore:hover{
+  color: #917E41;
+}
+.showless:hover{
+  color: #917E41;
+}
+.namefollow{
+  margin-bottom: 3%;
+  display: flex;
+}
+.name{
+  margin-top: 3%;
+  margin-left: 5%;
+}
+.name:hover{
+  color: #917E41;
+}
+@media (max-width: 800px){
+    
+  #cerrar{
+    margin-left: 18%;
+  }
+}

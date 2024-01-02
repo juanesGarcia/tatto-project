@@ -269,7 +269,7 @@ useEffect(() => {
         Follow
       </button>
     ) : (
-      <div className='follow-mesage'>siguiendo✔️</div>
+      <div className='follow-mesage'>siguiendo✔️✔️</div>
     )}
   </>
 )}
