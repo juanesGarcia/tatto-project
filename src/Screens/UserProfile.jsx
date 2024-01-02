@@ -45,6 +45,7 @@ const getFollowersf = async () => {
     console.log(followersArray)
     // Guardar el array de seguidores en el estado local
     setFollowers(followersArray);
+    console.log(followersArray)
     setFollowerLength(followersArray.length)
 
   } catch (error) {
@@ -84,36 +85,34 @@ const getFollowedshow = async () => {
 };
 
 const checkFollowingStatus = async () => {
-  if (!info.id) {
-    // El usuario no está autenticado, puedes manejar esto según tus necesidades
-    console.log('Usuario no autenticado');
-    return;
-  }
-    const infoid = info.id
-  const data = {
-    follower_id:infoid,
-    followed_id: id
-  }
+  console.log('Llamada a checkFollowingStatus');
+  console.log(info.id);
+  console.log(id);
 
   try {
-    const response = await getStatusFollow(data)
-    const followersArray = response.data.info;
-    const isFollowingValue = followersArray.length > 0 ? followersArray[0].sigue_al_usuario : false;
+    const response = await getStatusFollow({
+      follower_id: info.id,
+      followed_id: id
+    });
 
-    setIsFollowing(isFollowingValue);
+    console.log(response.data.info[0]);
+    const {sigue_al_usuario} = response.data.info[0]
+    console.log(sigue_al_usuario)
 
+    setIsFollowing(sigue_al_usuario)
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-
 };
 
 
 useEffect(() => {
-  checkFollowingStatus();
+  if (isAuth) {
+    checkFollowingStatus();
+  }
   getFollowersf();
   getFollowedf();
-}, []);
+}, [isAuth]);
 
   useEffect(() => {
     if (isAuth && name === info.name) {
@@ -265,7 +264,7 @@ useEffect(() => {
 }  
 {!isOwnProfile && (
   <>
-    {!isFollowing ? (
+    {!isFollowing ? isAuth &&(
       <button className='button' onClick={() => follow()}>
         Follow
       </button>
