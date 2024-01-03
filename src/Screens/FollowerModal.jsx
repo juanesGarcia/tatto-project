@@ -16,7 +16,6 @@ const FollowerModal = ({ followers, onClose }) => {
   const handlemove = (follower_id,follower_name) =>{
     navigate(`/profile/${encodeURIComponent(follower_id)}/${encodeURIComponent(follower_name)}`);
     onClose()
-    window.location.reload()
   }
 
   return (

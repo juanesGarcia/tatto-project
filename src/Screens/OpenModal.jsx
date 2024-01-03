@@ -58,29 +58,34 @@
           };
         });
       };
-    
       const showData = async () => {
         try {
           const response = await axios.get(`https://tatto-backend.onrender.com/getimages/${id}`);
           
           const data = response.data.info;
-          console.log(data)
-          const sortedPosts = parseImageData(data).sort((a, b) => {
-            return new Date(b.created_at) - new Date(a.created_at);
-          });
+          console.log(data);
+      
+          // Establecer posts a un array vacío y post.length a 0 si data.posts no es un array o está vacío
+          const sortedPosts = Array.isArray(data.posts) && data.posts.length > 0
+            ? parseImageData(data).sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+            : [];
       
           setPosts(sortedPosts);
-          console.log(sortedPosts.length)
-          dispatch(setPostsLength(sortedPosts.length));
-          console.log(posts.length)
+          console.log(sortedPosts.length);
+      
+          // Establecer post.length a 0 si data.posts no es un array o está vacío
+          dispatch(setPostsLength(Array.isArray(data.posts) ? data.posts.length : 0));
+      
+          console.log(posts.length);
         } catch (error) {
           console.log(error);
         }
       };
+      
     
       useEffect(() => {
         showData();
-      }, [id]);
+      }, [id,posts.length]);
     
       const openModal = (post) => {
           console.log('was open')

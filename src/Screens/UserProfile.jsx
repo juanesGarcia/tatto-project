@@ -110,16 +110,13 @@ useEffect(() => {
   if (isAuth) {
     checkFollowingStatus();
   }
-  getFollowersf();
-  getFollowedf();
-  localStorage.setItem("userId", id);
-
   // Espera a obtener los seguidores antes de llamar a showData
   const fetchData = async () => {
     await getFollowersf();
     await getFollowedf();
     showData();
   };
+  console.log("ID actualizado:", id);
 
   fetchData();
 }, [isAuth, id, name, info, postsLength]);
@@ -132,7 +129,7 @@ useEffect(() => {
       setIsOwnProfile(false);
     }
    
-  }, [isAuth, name, info,id,postsLength]);
+  }, []);
 
 
 
