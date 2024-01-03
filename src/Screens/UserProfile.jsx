@@ -14,7 +14,6 @@ import FollowedModal from './FollowedModal';
 
 export const UserProfile = () => {
   const { name,id  } = useParams();
-  const navigate = useNavigate();
   const { isAuth, info,postsLength } = useSelector((state) => state.auth);
   const [isOwnProfile, setIsOwnProfile] = useState(false);
   const [user, setUser] = useState([]);
@@ -27,6 +26,7 @@ export const UserProfile = () => {
   const [followedLength,setFollowedLength]= useState();
   const [showFollowedModal, setShowFollowedModal] = useState(false);
   const [showFollowerModal, setShowFollowerModal] = useState(false);
+  const navigate = useNavigate();
 
   const toggleFollowerModal = () => {
     
