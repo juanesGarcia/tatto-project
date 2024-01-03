@@ -1,16 +1,17 @@
 
   /* Estilos normales para la galería */
   .custom-image-gallery {
-    width: 100%;
+    width: 120%;
     margin: 0 auto; /* Centra la galería horizontalmente */
-    margin-right: 5%;
+    margin-right: 3%;
     height: auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
   }
-  .imges{
-    height: 200px;
-  }
+
   .container-img {
     display: flex;
+    
   
   }
   /* Estilos específicos para la imagen ampliada en pantalla completa */
@@ -60,13 +61,15 @@
 }
 
 .prue{
-    display: flex;
+    display: block
 }
 
 .prue2{
     display: block;
   background-color: #191919;
     border-radius: 5%;
+    width: 100%;
+    margin-bottom: 5%;
 
 }
 .img-comment{
@@ -77,11 +80,7 @@
     margin-bottom: 10%;
 
 }
-.textArea{
-    width: 200px;
-    background-color: black;
-    color: white;
-}
+
 
 .text-img{
   font-size: 15px;
@@ -92,18 +91,21 @@
 .boxUpdate{
   background: #917E41;
   padding: 20px;
-  width: 400px;
-  height: 300px;
-  margin-left:22% ;
+  width: 60%;
+  height: 60%;
+  margin-left: 20% ;
+  margin-bottom: 8%;
 }
 .textArea{
-  font-size: 11px;
+  font-size: 10px;
   resize: "none";
-  width: 100%;
-  max-width:600px ;
+  width: 110%;
+  max-width:700px ;
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 4px;
+  background-color: black;
+  color: white;
 }
 
 .containerall.with-images {
@@ -117,7 +119,11 @@
   /* Estilos adicionales para mejorar la visualización en responsive */
   @media (max-width: 767px) {
     .react-image-gallery {
-      max-height: 80vh; /* Limita la altura de la imagen en responsive */
+      max-height: 100vh; /* Limita la altura de la imagen en responsive */
+    }
+    .image-gallery-thumbnail img {
+      width: 50%; /* ajusta el ancho según tus necesidades */
+      height: 50%; /* ajusta la altura según tus necesidades */
     }
   
     .fullscreen {
@@ -127,24 +133,26 @@
       margin-top: 10%;
     }
     .boxUpdate{
-      width: 50%;
-      height: 180px;
-      margin-left:25% ;
+      width: 100%;
+      height: auto;
+      margin-left:2% ;
     }
     .text-img{
-      font-size: 16px;
+      font-size: 12px;
       margin-left:4%;
       margin-bottom: 7%;
+      width: 100%;
     }
     .icon-img{
-      margin-left: 20%;
-      font-size: 600% !important;
+      margin-left: 27%;
+      font-size: 700% !important;
     }
     .textArea{
-      font-size: 15px;
+      font-size: 11px;
       resize: "none";
       width: 100%;
-      max-width:600px ;
+      max-width:400px ; 
+      max-height: 90px;
       border: 1px solid #ccc;
       padding: 8px;
       border-radius: 4px;
@@ -164,17 +172,16 @@
 }
 
 .custom-image-gallery {
-  width: 65%;
+  width: 100%;
   margin: 0 auto; /* Centra la galería horizontalmente */
   margin-right: 18%;
 }
 
 
 .but-upload{
-  margin-left: 16%;
+  margin-left: 0%;
   margin-bottom: 5%;
 }
-
 
 
   

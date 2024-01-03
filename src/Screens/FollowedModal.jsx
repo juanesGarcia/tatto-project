@@ -15,10 +15,7 @@ const FollowedModal = ({ followed, onClose }) => {
     onClose();
   };
   
-  const handlemove = () =>{
-    console.log(followed)
-    const {followed_id,followed_name}=followed[0];
-    console.log(followed_id,followed_name)
+  const handlemove = (followed_id,followed_name) =>{
     navigate(`/profile/${encodeURIComponent(followed_id)}/${encodeURIComponent(followed_name)}`);
     window.location.reload();
   }
@@ -32,7 +29,7 @@ const FollowedModal = ({ followed, onClose }) => {
         <div className="follower-list">
           <div className='followitems'>
             {visibleFollowed.map((followed) => (
-              <div className='namefollow' key={followed.followed_name}><Avatar sx={{ width: 60, height: 60 }}>{followed.followed_name[0].toUpperCase()}</Avatar><div className='name' onClick={handlemove}>{followed.followed_name}</div></div>
+              <div className='namefollow' key={followed.followed_name}><Avatar sx={{ width: 60, height: 60 }}>{followed.followed_name[0].toUpperCase()}</Avatar><div className='name'  onClick={() => handlemove(followed.followed_id, followed.followed_name)}>{followed.followed_name}</div></div>
             ))}
           </div>
         </div>

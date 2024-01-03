@@ -162,6 +162,7 @@ useEffect(() => {
       const response = await onFollow(data)
       console.log(response)
       setIsFollowed(true);
+      window.location.reload();
     } catch (error) {
       console.log(error)
     }
