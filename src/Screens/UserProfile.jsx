@@ -105,6 +105,7 @@ const checkFollowingStatus = async () => {
   }
 };
 
+
 useEffect(() => {
   if (isAuth) {
     checkFollowingStatus();
@@ -122,6 +123,16 @@ useEffect(() => {
 
   fetchData();
 }, [isAuth, id, name, info, postsLength]);
+
+
+  useEffect(() => {
+    if (isAuth && name === info.name) {
+      setIsOwnProfile(true);
+    } else {
+      setIsOwnProfile(false);
+    }
+   
+  }, [isAuth, name, info,id,postsLength]);
 
 
 
