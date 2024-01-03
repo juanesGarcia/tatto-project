@@ -225,9 +225,7 @@ useEffect(() => {
               <div className='containerProfile'>
         <Avatar src={logo} sx={{ width: 140, height: 140, }} className='img-avatar'></Avatar>
         <div className='containerInfo'>
-          <h4> {user[0].name}                     ********</h4>
-          <h4> bogota</h4>
-          <h4> calle 48csur #25-94</h4>
+          <h4> {user[0].name}          ********</h4>
           <h4>{user[0].rol}</h4>
         </div>
       </div>
