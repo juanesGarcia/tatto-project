@@ -122,7 +122,7 @@ useEffect(() => {
       setIsOwnProfile(false);
     }
    
-  }, [isAuth, name, info,id]);
+  }, [isAuth, name, info,id,postsLength]);
 
 
 
@@ -151,43 +151,63 @@ useEffect(() => {
     }
   };
 
-  const follow = async () =>{
-    console.log(id,name)
-    console.log(info.id,info.name)
-    const data = {
-      follower_id:info.id,
-      followed_id:id
+  const follow = async () => {
+    if (!isFollowing) {
+      // Solo seguir si no se está siguiendo ya
+      setFollowers([...followers, { follower_id: info.id, follower_name: info.name }]);
+      setIsFollowing(true);
+      
+      const data = {
+        follower_id: info.id,
+        followed_id: id
+      };
+  
+      try {
+        // Hacer la solicitud al servidor para seguir al usuario
+        const response = await onFollow(data);
+        console.log(response);
+        getFollowersf();
+      } catch (error) {
+        console.log(error);
+        // En caso de error en la solicitud, revertir los cambios locales
+        setFollowers(followers.filter((follower) => follower.follower_id !== info.id));
+        setIsFollowing(false);
+      }
     }
-
-    try {
-      const response = await onFollow(data)
-      console.log(response)
-      window.location.reload();
-    } catch (error) {
-      console.log(error)
+  };
+  
+  const unfollow = async () => {
+    if (isFollowing) {
+      // Solo dejar de seguir si se está siguiendo
+      const updatedFollowers = followers.filter((follower) => follower.follower_id !== info.id);
+      setFollowers(updatedFollowers);
+      setIsFollowing(false);
+  
+      const data = {
+        follower_id: info.id,
+        followed_id: id
+      };
+  
+      try {
+        // Hacer la solicitud al servidor para dejar de seguir al usuario
+        const response = await onUnFollow(data);
+        console.log(response);
+        getFollowersf();
+      } catch (error) {
+        console.log(error);
+        // En caso de error en la solicitud, revertir los cambios locales
+        setFollowers([...followers, { follower_id: info.id, follower_name: info.name }]);
+        setIsFollowing(true);
+      }
     }
-  }
-  const unfollow = async () =>{
-
-    const data = {
-      follower_id:info.id,
-      followed_id:id
-    }
-
-    try {
-      const response = await onUnFollow(data)
-      console.log(response)
-      window.location.reload();
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  };
+  
 
 
 
   useEffect(() => {
     showData();
-  }, []);
+  }, [id]);
 
 
 

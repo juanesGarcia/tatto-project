@@ -70,6 +70,7 @@
           });
       
           setPosts(sortedPosts);
+          console.log(sortedPosts.length)
           dispatch(setPostsLength(sortedPosts.length));
           console.log(posts.length)
         } catch (error) {
@@ -79,7 +80,7 @@
     
       useEffect(() => {
         showData();
-      }, []);
+      }, [id]);
     
       const openModal = (post) => {
           console.log('was open')
