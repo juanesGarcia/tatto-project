@@ -105,24 +105,23 @@ const checkFollowingStatus = async () => {
   }
 };
 
-
 useEffect(() => {
   if (isAuth) {
     checkFollowingStatus();
   }
   getFollowersf();
   getFollowedf();
-  localStorage.setItem("userId",id); // Almacena el userId en el almacenamiento local del navegador
-}, [isAuth,id]);
+  localStorage.setItem("userId", id);
 
-  useEffect(() => {
-    if (isAuth && name === info.name) {
-      setIsOwnProfile(true);
-    } else {
-      setIsOwnProfile(false);
-    }
-   
-  }, [isAuth, name, info,id,postsLength]);
+  // Espera a obtener los seguidores antes de llamar a showData
+  const fetchData = async () => {
+    await getFollowersf();
+    await getFollowedf();
+    showData();
+  };
+
+  fetchData();
+}, [isAuth, id, name, info, postsLength]);
 
 
 
