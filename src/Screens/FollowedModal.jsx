@@ -17,6 +17,7 @@ const FollowedModal = ({ followed, onClose }) => {
   
   const handlemove = (followed_id,followed_name) =>{
     navigate(`/profile/${encodeURIComponent(followed_id)}/${encodeURIComponent(followed_name)}`);
+    onClose();
   }
 
 
