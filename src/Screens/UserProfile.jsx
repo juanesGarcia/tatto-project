@@ -112,6 +112,7 @@ useEffect(() => {
   }
   getFollowersf();
   getFollowedf();
+  localStorage.setItem("userId",id); // Almacena el userId en el almacenamiento local del navegador
 }, [isAuth]);
 
   useEffect(() => {
