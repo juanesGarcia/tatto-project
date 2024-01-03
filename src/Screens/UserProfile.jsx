@@ -3,7 +3,7 @@ import { useParams,useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
-import { getUser , onFollow ,getFollowed, getFollower,getStatusFollow } from '../api/auth';
+import { getUser , onFollow ,getFollowed, getFollower,getStatusFollow , onUnFollow} from '../api/auth';
 import "../Styles/UserProfile.css";
 import UploadImagesPage from './UploadImagePage';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -121,7 +121,7 @@ useEffect(() => {
       setIsOwnProfile(false);
     }
    
-  }, [isAuth, name, info]);
+  }, [isAuth, name, info,id]);
 
 
 
@@ -161,7 +161,21 @@ useEffect(() => {
     try {
       const response = await onFollow(data)
       console.log(response)
-      setIsFollowed(true);
+      window.location.reload();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  const unfollow = async () =>{
+
+    const data = {
+      follower_id:info.id,
+      followed_id:id
+    }
+
+    try {
+      const response = await onUnFollow(data)
+      console.log(response)
       window.location.reload();
     } catch (error) {
       console.log(error)
@@ -268,7 +282,7 @@ useEffect(() => {
         Follow
       </button>
     ) : (
-      <div className='follow-mesage'>siguiendo✔️✔️</div>
+      <button className='button' onClick={() => unfollow()}>siguiendo✔️</button>
     )}
   </>
 )}

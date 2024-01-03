@@ -151,6 +151,7 @@
                   post_id={selectedPost.post_id}
                   onDeleted={handleDeleted}
                   onUpdate={handleUpdate}
+                  title={selectedPost.title}
                   onToggleMenu={onToggleMenu}
                 />
       
@@ -168,6 +169,7 @@
               <div className="info">{selectedPost.title}</div>
               <div className="custom-gallery">
                 <Gallery items={selectedPost.photos} />
+                <div> ❤️ </div>
               </div>
               <div className="info">Creado hace {
               calcularDiferenciaEnDias(selectedPost.created_at)}</div>

@@ -67,7 +67,6 @@ function Navbar() {
   const perfilClick = () => {
     const { id, name } = tempUserInfo || info;  // Utiliza la información temporal si está disponible, de lo contrario, usa la información actual
     navigate(`/profile/${encodeURIComponent(id)}/${encodeURIComponent(name)}`);
-    window.location.reload();
   };
   const handleAvatarClick = () => {
     setShowInfo(prevShowInfo => !prevShowInfo);

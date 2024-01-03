@@ -8,7 +8,7 @@ import CustomDropdownToggle from './CustomDropdownToggle';  // Ajusta la ruta se
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
+const DropdownMenu = ({ post_id, onDeleted, onUpdate ,title}) => {
 
 
 
@@ -18,7 +18,7 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate }) => {
     const { value: newText } = await Swal.fire({
       title: 'Editar Texto',
       input: 'textarea',
-      inputPlaceholder: 'Ingresa el nuevo texto...',
+      inputValue: title,
       customClass: {
         popup: 'custom-swal-popup',
         title: 'custom-swal-title',

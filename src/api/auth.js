@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-//https://tatto-backend.onrender.com
+//http://localhost:4000
 
 
 export async function onUpdate(updateData) {
@@ -65,6 +65,14 @@ export async function onFollow(data) {
          data
     );
 }
+export async function onUnFollow(data) {
+    return await axios.post(
+        'https://tatto-backend.onrender.com/unFollowUser',
+         data
+    );
+}
+
+
 
 export async function getFollower(id){
     return await axios.get(
