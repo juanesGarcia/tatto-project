@@ -8,21 +8,75 @@
   import 'react-image-gallery/styles/css/image-gallery.css';
   import { useDispatch } from 'react-redux';
   import { setPostsLength } from '../redux/slices/authSlice';
+  import { FaStar, FaRegStar } from 'react-icons/fa';
+  import { onReaction , getStatusReactions} from '../api/auth';
 
 
 
-
-
-
-  const OpenModal = ({isAuthp, isOwnProfilep, id}) => {
+  const OpenModal = ({isAuthp, isOwnProfilep, id,info}) => {
 
       const [posts, setPosts] = useState([]);
       const [selectedPost, setSelectedPost] = useState(null);
+      const [isStarred, setIsStarred] = useState(false);
+      const [likeAnimation, setLikeAnimation] = useState(false);
+      const [reactionsMap, setReactionsMap] = useState({});
+
       const dispatch = useDispatch();
 
-    
+      const checkreactions = async () => {
+        console.log(info);
+        console.log(selectedPost)
+
       
-    
+        try {
+          const response = await getStatusReactions({
+            reactor_id: info,
+            post_id:selectedPost.post_id
+          });
+      
+          console.log(response);
+          const {reaction_count} = response.data.info[0]
+          console.log(reaction_count)
+          setReactionsMap((prevReactionsMap) => ({
+            ...prevReactionsMap,
+            [selectedPost.post_id]: reaction_count > 0,
+          }));
+      
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      
+      
+      const handleStarClick = async(post_id) => {
+   
+        try {
+          const response = await onReaction({
+            reactor_id:info,
+            reacted_to_user_id:id,
+            post_id,
+            reaction_type:'start'
+          })
+          checkreactions(selectedPost.post_id);
+          console.log(response)
+        } catch (error) {
+          
+        }
+   
+      };
+
+      const handleStarClickPhoto = () => {
+
+
+        setIsStarred((prevIsStarred) => !prevIsStarred);
+        setLikeAnimation(true);
+      
+        // Desactivar la animación después de un tiempo (puedes ajustar el tiempo según tus necesidades)
+        setTimeout(() => {
+          setLikeAnimation(false);
+        }, 1000);
+      };
+
       const parseImageData = (data) => {
         if (!data || typeof data !== 'object' || !data.posts) {
           console.error('La respuesta del servidor no tiene la estructura esperada:', data);
@@ -84,8 +138,11 @@
       
     
       useEffect(() => {
+        if (selectedPost) {
+          checkreactions();
+        }
         showData();
-      }, [id,posts.length]);
+      }, [id,posts.length,selectedPost]);
     
       const openModal = (post) => {
           console.log('was open')
@@ -165,17 +222,15 @@
 
             </div>
           ) : null}
-      
 
-              
-    
-        
                 
               </div>
               <div className="info">{selectedPost.title}</div>
-              <div className="custom-gallery">
-                <Gallery items={selectedPost.photos} />
-                <div> ❤️ </div>
+              <div className={`custom-gallery ${likeAnimation ? 'like-animation' : ''}`} >
+                <Gallery className={`${likeAnimation ? 'like-animation' : ''}`} items={selectedPost.photos} />
+                <div onClick={() => handleStarClick(selectedPost.post_id)}  style={{ fontSize: '24px' }}>
+                {reactionsMap[selectedPost.post_id] ? <FaStar color="gold" /> : <FaRegStar />}
+        </div>
               </div>
               <div className="info">Creado hace {
               calcularDiferenciaEnDias(selectedPost.created_at)}</div>

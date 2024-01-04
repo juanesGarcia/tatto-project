@@ -108,6 +108,24 @@
     margin-top: 30%;
   }
 
+  /* Agregar esto a tu archivo de estilos CSS o en línea si estás utilizando styled-components */
+.like-animation {
+  animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
+}
+
+@keyframes likeAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
   @media (max-width: 800px) {
     .custom-modal {
       width: 90%;
