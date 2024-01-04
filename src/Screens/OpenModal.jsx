@@ -266,9 +266,13 @@
                 {reactionsMap[selectedPost.post_id] ? <FaStar color="gold" /> : <FaRegStar />}
         </div>
               </div>
-              {userReactions.map((user) => (
+
+              <div className='info-users-reactions'>
+                    {userReactions.map((user) => (
               <div className='user-reactions'  key={user.id}><Avatar sx={{ width: 25, height: 25 }}>{user.name[0].toUpperCase()}</Avatar><div className='nameuser'>{user.name}</div></div>
             ))}
+              </div>
+          
 
               
       
