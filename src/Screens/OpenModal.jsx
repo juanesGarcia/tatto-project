@@ -9,7 +9,8 @@
   import { useDispatch } from 'react-redux';
   import { setPostsLength } from '../redux/slices/authSlice';
   import { FaStar, FaRegStar } from 'react-icons/fa';
-  import { onReaction , getStatusReactions} from '../api/auth';
+  import { onReaction , getStatusReactions, unReaction, getReactions} from '../api/auth';
+  import Avatar from "@mui/material/Avatar";
 
 
 
@@ -20,17 +21,36 @@
       const [isStarred, setIsStarred] = useState(false);
       const [likeAnimation, setLikeAnimation] = useState(false);
       const [reactionsMap, setReactionsMap] = useState({});
+      const [userReactions, setuserReactions] = useState([])
 
       const dispatch = useDispatch();
 
-      const checkreactions = async () => {
-        console.log(info);
-        console.log(selectedPost)
 
+      const getReactionsp = async(post_id)=>{
+        console.log(post_id)
+
+        try {
+          const response = await getReactions(post_id)
+          const followersArray = response.data.info || [];
+          console.log(followersArray)
+          setuserReactions(followersArray)
+
+          
+        } catch (error) {
+          
+        }
+      }
+
+      const checkreactions = async () => {
+        if (!isAuthp) {
+          // Si el usuario no está autenticado, muestra un mensaje o realiza alguna acción
+          console.log('Usuario no autenticado. No se puede dar like.');
+          return;
+        }
       
         try {
           const response = await getStatusReactions({
-            reactor_id: info,
+            reactor_id: info.id,
             post_id:selectedPost.post_id
           });
       
@@ -46,26 +66,39 @@
           console.log(error);
         }
       };
-      
-      
-      const handleStarClick = async(post_id) => {
-   
+
+      const handleStarClick = async (post_id) => {
         try {
-          const response = await onReaction({
-            reactor_id:info,
-            reacted_to_user_id:id,
-            post_id,
-            reaction_type:'start'
-          })
-          checkreactions(selectedPost.post_id);
-          console.log(response)
+          if (!isAuthp) {
+            // Si el usuario no está autenticado, muestra un mensaje o realiza alguna acción
+            console.log('Usuario no autenticado. No se puede dar like.');
+            return;
+          }
+          if (reactionsMap[post_id]) {
+            // Si ya hay una reacción, realiza la acción de "unReaction"
+            await unReaction({
+              reactor_id: info.id,
+              post_id,
+            });
+          } else {
+            // Si no hay una reacción, realiza la acción de "onReaction"
+            await onReaction({
+              reactor_id: info.id,
+              reacted_to_user_id: id,
+              post_id,
+              reaction_type: 'start',
+            });
+          }
+    
+          // Actualiza el estado de las reacciones después de realizar la acción
+          checkreactions();
+          getReactionsp(post_id);
         } catch (error) {
-          
+          console.error(error);
         }
-   
       };
 
-      const handleStarClickPhoto = () => {
+      /*const handleStarClickPhoto = () => {
 
 
         setIsStarred((prevIsStarred) => !prevIsStarred);
@@ -75,7 +108,7 @@
         setTimeout(() => {
           setLikeAnimation(false);
         }, 1000);
-      };
+      };*/
 
       const parseImageData = (data) => {
         if (!data || typeof data !== 'object' || !data.posts) {
@@ -140,6 +173,7 @@
       useEffect(() => {
         if (selectedPost) {
           checkreactions();
+          getReactionsp(selectedPost.post_id);
         }
         showData();
       }, [id,posts.length,selectedPost]);
@@ -232,6 +266,12 @@
                 {reactionsMap[selectedPost.post_id] ? <FaStar color="gold" /> : <FaRegStar />}
         </div>
               </div>
+              {userReactions.map((user) => (
+              <div className='user-reactions'  key={user.id}><Avatar sx={{ width: 25, height: 25 }}>{user.name[0].toUpperCase()}</Avatar><div className='nameuser'>{user.name}</div></div>
+            ))}
+
+              
+      
               <div className="info">Creado hace {
               calcularDiferenciaEnDias(selectedPost.created_at)}</div>
             </div>

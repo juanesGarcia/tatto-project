@@ -106,4 +106,16 @@ export async function getStatusReactions(data){
     );
 }
 
+export async function unReaction(data){
+    return await axios.post(
+        `http://localhost:4000/unreaction`,
+        data
+    );
+}
+
+export async function getReactions(post_id){
+    return await axios.get(
+        `http://localhost:4000/getreactions/${post_id}`
+    );
+}
 

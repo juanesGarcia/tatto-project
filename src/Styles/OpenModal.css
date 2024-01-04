@@ -112,6 +112,14 @@
 .like-animation {
   animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
 }
+.user-reactions{
+  margin-left: 10%; 
+  display: flex;
+}
+.nameuser{
+  color: aliceblue;
+  margin-left: 2%;
+}
 
 @keyframes likeAnimation {
   0% {

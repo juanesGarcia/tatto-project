@@ -327,7 +327,7 @@ useEffect(() => {
       {showUploadPage && (
         <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage}  id={id} />
       )}
-      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile} id={id} info={info.id}></OpenModal>
+      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile} id={id} info={info}></OpenModal>
 
     </>
 
