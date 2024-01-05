@@ -10,6 +10,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import OpenModal  from './OpenModal';
 import FollowerModal from './FollowerModal';
 import FollowedModal from './FollowedModal';
+import Preloader from './PreLoader';
 
 
 export const UserProfile = () => {
@@ -70,6 +71,15 @@ const getFollowedf = async () => {
   }
  
 };
+
+useEffect(() => {
+  // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
+  setTimeout(() => {
+    setIsLoading(false);
+  }, 10000); 
+}, []);
+
+
 
 
 
@@ -257,14 +267,15 @@ useEffect(() => {
   const handleCloseUploadPage = () => {
     setShowUploadPage(false);
   };
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
   
+
   
 
   return (
-    <>{
+    <>
+    
+    
+    {
       user.length > 0 &&(
         <div>
               <div className='containerProfile'>
@@ -294,6 +305,7 @@ useEffect(() => {
 
       )
     }
+ 
     
      
       <div className='buttonPerfil'>
