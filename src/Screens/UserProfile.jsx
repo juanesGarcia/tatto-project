@@ -75,7 +75,7 @@ const getFollowedf = async () => {
 useEffect(() => {
   // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
   setTimeout(() => {
-    setIsLoading(false);
+      setIsLoading(false);
   }, 10000); 
 
 }, []);

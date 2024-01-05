@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { fechProtectedInfo, onLogout } from '../api/auth';
-import { Loaders } from "./Loaders";
 import "../Styles/HomeAuth.css";
 
 export const HomeAuth = () => {

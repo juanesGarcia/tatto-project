@@ -1,6 +1,6 @@
 import React from 'react'
 import "../Styles/Loaders.css";
-export const Loaders = () => {
+const Loaders = () => {
     return (
         <div className="loader">
         <div className="loader-square"></div>
@@ -13,3 +13,6 @@ export const Loaders = () => {
         </div>
     )
 }
+
+export default Loaders;
+
