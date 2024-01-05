@@ -77,6 +77,7 @@ useEffect(() => {
   setTimeout(() => {
     setIsLoading(false);
   }, 10000); 
+
 }, []);
 
 
@@ -305,7 +306,11 @@ useEffect(() => {
 
       )
     }
- 
+    {
+      isLoading &&(
+        <Preloader />
+      )
+    }
     
      
       <div className='buttonPerfil'>
