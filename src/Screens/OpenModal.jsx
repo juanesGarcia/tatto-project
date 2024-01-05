@@ -97,6 +97,12 @@
               post_id,
               reaction_type: 'start',
             });
+            setLikeAnimation(true);
+      
+            // Desactivar la animación después de un tiempo (puedes ajustar el tiempo según tus necesidades)
+            setTimeout(() => {
+              setLikeAnimation(false);
+            }, 1000);
           }
     
           // Actualiza el estado de las reacciones después de realizar la acción
