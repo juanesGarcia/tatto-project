@@ -26,6 +26,7 @@ export const UserProfile = () => {
   const [followedLength,setFollowedLength]= useState();
   const [showFollowedModal, setShowFollowedModal] = useState(false);
   const [showFollowerModal, setShowFollowerModal] = useState(false);
+  const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const navigate = useNavigate();
 
   const toggleFollowerModal = () => {
@@ -240,13 +241,17 @@ useEffect(() => {
 
   };
 
-  const handleUploadSuccess = () => {
-    // Puedes hacer algo después de que se completen con éxito las cargas de imágenes
-    console.log('Imágenes subidas con éxito desde ImageUploader');
-    setShowUploadPage(false);
-    
-  };
+  const handleUploadSuccess = async () => {
+    try {
+      console.log('Imágenes subidas con éxito desde ImageUploader');
+      setShowUploadPage(false);
 
+      // Realiza una actualización más eficiente utilizando el estado local
+      setUploadedPhoto(true);
+    } catch (error) {
+      console.error('Error al procesar la carga de imágenes:', error);
+    }
+  };
 
 
   const handleCloseUploadPage = () => {
@@ -255,6 +260,7 @@ useEffect(() => {
   if (isLoading) {
     return <div>Cargando...</div>;
   }
+  
   
 
   return (
@@ -327,7 +333,7 @@ useEffect(() => {
       {showUploadPage && (
         <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage}  id={id} />
       )}
-      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile} id={id} info={info}></OpenModal>
+      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile} id={id} info={info} uploadedPhoto={uploadedPhoto} setUploadedPhoto={setUploadedPhoto} ></OpenModal>
 
     </>
 

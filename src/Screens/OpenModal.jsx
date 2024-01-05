@@ -14,7 +14,7 @@
 
 
 
-  const OpenModal = ({isAuthp, isOwnProfilep, id,info}) => {
+  const OpenModal = ({isAuthp, isOwnProfilep, id,info,  uploadedPhoto,setUploadedPhoto}) => {
 
       const [posts, setPosts] = useState([]);
       const [selectedPost, setSelectedPost] = useState(null);
@@ -22,8 +22,17 @@
       const [likeAnimation, setLikeAnimation] = useState(false);
       const [reactionsMap, setReactionsMap] = useState({});
       const [userReactions, setuserReactions] = useState([])
+      
 
       const dispatch = useDispatch();
+      useEffect(() => {
+        if (uploadedPhoto) {
+          showData();
+    
+          // Restablece uploadedPhoto a false después de mostrar los datos
+          setUploadedPhoto(false);
+        }
+      }, [uploadedPhoto]);
 
 
       const getReactionsp = async(post_id)=>{
@@ -174,7 +183,7 @@
         if (selectedPost) {
           checkreactions();
           getReactionsp(selectedPost.post_id);
-        }
+        }       
         showData();
       }, [id,posts.length,selectedPost]);
     

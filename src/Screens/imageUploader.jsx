@@ -32,7 +32,7 @@ const resizeImage = async (file, targetWidth, targetHeight) => {
 
 
 
-const ImageUploader = ({ onUploadSuccess, onClose, id }) => {
+const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState("");
   const [showUploadSection, setShowUploadSection] = useState(true);
@@ -95,8 +95,6 @@ const ImageUploader = ({ onUploadSuccess, onClose, id }) => {
 
         if (onUploadSuccess) {
           onUploadSuccess();
-          window.location.reload();
-
         }
       } catch (error) {
         console.error("Error en la carga:", error);
