@@ -10,7 +10,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import OpenModal  from './OpenModal';
 import FollowerModal from './FollowerModal';
 import FollowedModal from './FollowedModal';
-import Preloader from './PreLoader';
+
 
 
 export const UserProfile = () => {
@@ -71,15 +71,12 @@ const getFollowedf = async () => {
   }
  
 };
-
 useEffect(() => {
   // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
   setTimeout(() => {
-      setIsLoading(false);
-  }, 10000); 
-
+    setIsLoading(false);
+  }, 2000); // Tiempo de simulación de carga: 2 segundos
 }, []);
-
 
 
 
@@ -269,14 +266,14 @@ useEffect(() => {
     setShowUploadPage(false);
   };
   
-
+  if (isLoading) {
+    return <div>Cargando...</div>;
+  }
+  
   
 
   return (
-    <>
-    
-    
-    {
+    <>{
       user.length > 0 &&(
         <div>
               <div className='containerProfile'>
@@ -304,11 +301,6 @@ useEffect(() => {
         </div>
     
 
-      )
-    }
-    {
-      isLoading &&(
-        <Preloader />
       )
     }
     

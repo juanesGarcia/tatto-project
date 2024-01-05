@@ -1,7 +1,8 @@
 import React from 'react';
 import '../Styles/Preloader.css'; // Archivo CSS para estilos
 import logo from "/images/logofinal.jpg";
-const Preloader = () => {
+
+export const Preloader = () => {
   return (
     <div className="preloader-container">
     <img src={logo} alt="Logo" className="preloader-logo" />
@@ -10,4 +11,3 @@ const Preloader = () => {
   );
 };
 
-export default Preloader;
