@@ -106,6 +106,7 @@
     margin-left: 115%;
     width: 100%;
     margin-top: 30%;
+    margin-bottom: 35%;
   }
 
   /* Agregar esto a tu archivo de estilos CSS o en línea si estás utilizando styled-components */
@@ -171,4 +172,9 @@
       font-size: 18px;
 
     }
+    .no-post{
+      margin-top: 40%;
+      margin-bottom: 5%;
+    }
+  
   }

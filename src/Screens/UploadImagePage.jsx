@@ -3,6 +3,7 @@ import ImageUploader from './imageUploader';
 import '../Styles/UploadImg.css';
 
 const UploadImagesPage = ({ onUploadSuccess, onClose ,id}) => {
+  
 
   return (
     <div className="modal-overlay" onClick={onClose}>
