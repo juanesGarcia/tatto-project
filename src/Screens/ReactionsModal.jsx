@@ -26,7 +26,7 @@ export const ReactionsModal = ({userReactions, onClose,setSelectedPost}) => {
       <div className="modal-overlay" onClick={handleClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           {/* Contenido del modal */}
-          <h2 className='count-likes'>{userReactions.length}  Starts</h2>
+          <h2 className='count-likes'>{userReactions.length}  likes</h2>
           <div className="reactions-list">
             <div className='reactionsitems'>
               {visibleReactions.map((user) => (
