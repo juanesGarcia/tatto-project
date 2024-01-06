@@ -6,17 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 export const ReactionsModal = ({userReactions, onClose,setSelectedPost}) => {
     const navigate = useNavigate();
-    const [showAllFollowed, setShowAllFollowed] = useState(false);
+    const [showAllReactions, setShowAllReactions] = useState(false);
   
-    const visibleFollowed = showAllFollowed ? userReactions : userReactions.slice(0, 3);
+    const visibleReactions = showAllReactions? userReactions : userReactions.slice(0, 3);
   
     const handleClose = () => {
-      setShowAllFollowed(false);  
+      setShowAllReactions(false);  
       onClose()
     };
     
-    const handlemove = (followed_id,followed_name) =>{
-      navigate(`/profile/${encodeURIComponent(followed_id)}/${encodeURIComponent(followed_name)}`);
+    const handlemove = (Reactions_id,Reactions_name) =>{
+      navigate(`/profile/${encodeURIComponent(Reactions_id)}/${encodeURIComponent(Reactions_name)}`);
       setSelectedPost(null)
       onClose()
     }
@@ -27,18 +27,18 @@ export const ReactionsModal = ({userReactions, onClose,setSelectedPost}) => {
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
           {/* Contenido del modal */}
           <h2 className='count-likes'>{userReactions.length}  Starts</h2>
-          <div className="follower-list">
-            <div className='followitems'>
-              {visibleFollowed.map((user) => (
-                <div className='namefollow' key={user.id}><Avatar sx={{ width: 30, height: 30 }}>{user.name[0].toUpperCase()}</Avatar><div className='name'  onClick={() => handlemove(user.id, user.name)}>{user.name}</div></div>
+          <div className="reactions-list">
+            <div className='reactionsitems'>
+              {visibleReactions.map((user) => (
+                <div className='namereactions' key={user.id}><Avatar sx={{ width: 30, height: 30 }}>{user.name[0].toUpperCase()}</Avatar><div className='name'  onClick={() => handlemove(user.id, user.name)}>{user.name}</div></div>
               ))}
             </div>
           </div>
-          {userReactions.length > 3 && !showAllFollowed && (
-            <div className='showmore' onClick={() => setShowAllFollowed(true)}>Ver más</div>
+          {userReactions.length > 3 && !showAllReactions && (
+            <div className='showmore' onClick={() => setShowAllReactions(true)}>Ver más</div>
           )}
-          {showAllFollowed && (
-            <div className='showless' onClick={() => setShowAllFollowed(false)}>Ver menos</div>
+          {showAllReactions && (
+            <div className='showless' onClick={() => setShowAllReactions(false)}>Ver menos</div>
           )}
         </div>
       </div>

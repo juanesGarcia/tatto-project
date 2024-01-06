@@ -22,7 +22,7 @@
     color: aliceblue;
 
   }
-  .follower-list {
+  .reactions-list {
     max-height: 378px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
     margin-left: 50px;
@@ -52,7 +52,7 @@
 .showless:hover{
   color: #917E41;
 }
-.namefollow{
+.namereactions{
   margin-bottom: 3%;
   display: flex;
 }
