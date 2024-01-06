@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { authenticateUser, setInfo } from "../redux/slices/authSlice";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import LoaderLogo from "./LoaderLogo";
 
 export const Login = () => {
   const [errores, setErrores] = useState(false);
@@ -17,15 +16,8 @@ export const Login = () => {
     password: "",
     showPassword: false, // Estado para alternar la visibilidad de la contraseña
   });
-  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Tiempo de simulación de carga: 2 segundos
-  }, []);
 
   const handleSummit = async (e) => {
     e.preventDefault();
@@ -56,7 +48,6 @@ export const Login = () => {
 
   return (
     <>
-      {isLoading && <LoaderLogo></LoaderLogo>}
       <div className="containerLogin">
         <div className="login-boxLogin">
           <p>Login</p>

@@ -16,14 +16,7 @@ export const Register = () => {
   });
   const navigate = useNavigate();
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Tiempo de simulación de carga: 2 segundos
-  }, []);
 
   const handleSummit = async (e) => {
     e.preventDefault();
@@ -86,7 +79,6 @@ export const Register = () => {
 
   return (
     <>
-      {isLoading && <LoaderLogo></LoaderLogo>}
       <div className="containerRegister">
         <div className="login-box">
           <p>Register</p>

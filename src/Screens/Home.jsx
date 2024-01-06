@@ -9,7 +9,7 @@ export const Home = () => {
     // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Tiempo de simulación de carga: 2 segundos
+    }, 1000); // Tiempo de simulación de carga: 2 segundos
   }, []);
 
   return (
