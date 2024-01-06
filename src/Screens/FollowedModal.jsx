@@ -25,7 +25,7 @@ const FollowedModal = ({ followed, onClose }) => {
     <div className="modal-overlay" onClick={handleClose}>
       <div className="modal-contentf" onClick={(e) => e.stopPropagation()}>
         {/* Contenido del modal */}
-        <h2>Seguidos</h2>
+        <h2>{followed.length} Seguidos</h2>
         <div className="follower-list">
           <div className='followitems'>
             {visibleFollowed.map((followed) => (
