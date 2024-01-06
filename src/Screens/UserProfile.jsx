@@ -10,7 +10,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import OpenModal  from './OpenModal';
 import FollowerModal from './FollowerModal';
 import FollowedModal from './FollowedModal';
-
+import LoaderLogo from './LoaderLogo';
 
 
 export const UserProfile = () => {
@@ -75,7 +75,7 @@ useEffect(() => {
   // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
   setTimeout(() => {
     setIsLoading(false);
-  }, 2000); // Tiempo de simulación de carga: 2 segundos
+  }, 3000); // Tiempo de simulación de carga: 2 segundos
 }, []);
 
 
@@ -265,15 +265,16 @@ useEffect(() => {
   const handleCloseUploadPage = () => {
     setShowUploadPage(false);
   };
-  
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
-  
-  
 
   return (
-    <>{
+    <>
+    {isLoading &&(
+
+      <LoaderLogo></LoaderLogo>
+    )
+
+    }
+    {
       user.length > 0 &&(
         <div>
               <div className='containerProfile'>

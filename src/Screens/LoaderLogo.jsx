@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styles/Preloader.css'; // Archivo CSS para estilos
 import logo from "/images/logofinal.jpg";
 
-export const Preloader = () => {
+const LoaderLogo = () => {
   return (
     <div className="preloader-container">
     <img src={logo} alt="Logo" className="preloader-logo" />
@@ -11,3 +11,4 @@ export const Preloader = () => {
   );
 };
 
+export default LoaderLogo;
