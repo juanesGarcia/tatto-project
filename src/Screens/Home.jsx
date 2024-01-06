@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { SearchP} from './SearchP';
-import "../Styles/Home.css"
-import LoaderLogo from './LoaderLogo';
+import React, { useEffect, useState } from "react";
+import { SearchP } from "./SearchP";
+import "../Styles/Home.css";
+import LoaderLogo from "./LoaderLogo";
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,16 +13,9 @@ export const Home = () => {
   }, []);
 
   return (
-
     <div className="search">
-          {isLoading &&(
-
-<LoaderLogo></LoaderLogo>
-)
-
-}
-       <SearchP></SearchP>
+      {isLoading && <LoaderLogo></LoaderLogo>}
+      <SearchP></SearchP>
     </div>
-   
-  )
-}
+  );
+};
