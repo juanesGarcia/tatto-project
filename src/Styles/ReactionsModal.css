@@ -1,0 +1,84 @@
+/* Agrega estos estilos a tu archivo de estilos global o componente CSS */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que el z-index sea mayor que el z-index de tus otros elementos */
+    font-family: 'Rock Salt', cursive !important;
+  }
+  
+  .modal-content {
+    background: black;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    height: auto;
+    color: aliceblue;
+
+  }
+  .follower-list {
+    max-height: 378px; /* Establece la altura máxima según tus necesidades */
+    overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
+    margin-left: 50px;
+    margin-top: 3%;
+  }
+
+  
+  #cerrar{
+    margin-left: 40%;
+    margin-top: 5%;
+  }
+  .count-likes{
+    margin-left: 5%;
+  }
+
+.showmore{
+  margin-left: 10%;
+  margin-top: 3%;
+}
+.showless{
+  margin-left: 10%;
+  margin-top: 3%;
+}
+.showmore:hover{
+  color: #917E41;
+}
+.showless:hover{
+  color: #917E41;
+}
+.namefollow{
+  margin-bottom: 3%;
+  display: flex;
+}
+.name{
+  margin-top: 3%;
+  margin-left: 5%;
+}
+.name:hover{
+  color: #917E41;
+}
+@media (max-width: 800px){
+    
+  #cerrar{
+    margin-left: 32%;
+  }
+  .showmore{
+    margin-top: 5%;
+    margin-bottom: 3%;
+  }
+  .showless{
+    margin-top: 5%;
+    margin-bottom: 3%;
+  }
+  .name{
+    margin-top: 7%;
+    margin-left: 5%;
+  }
+
+}

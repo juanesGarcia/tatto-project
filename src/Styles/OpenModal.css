@@ -125,6 +125,14 @@
   display: flex;
   margin-left: 5%;
 }
+.user-reactions-more{
+  margin-left: 2%;
+  color: aliceblue;
+}
+.user-reactions-more:hover{
+  color:#917E41;
+}
+
 
 @keyframes likeAnimation {
   0% {
