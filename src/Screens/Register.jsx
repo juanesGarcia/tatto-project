@@ -17,7 +17,6 @@ export const Register = () => {
   const navigate = useNavigate();
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
-
   const handleSummit = async (e) => {
     e.preventDefault();
     console.log(user);

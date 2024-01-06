@@ -19,6 +19,7 @@ export const AdminAccount = () => {
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const data = localStorage.getItem('token');
   const parsedData = JSON.parse(data);
+  
 
   // Obtener el ID del usuario autenticado desde el token almacenado en localStorage
   const userId = parsedData?.info?.id || '';

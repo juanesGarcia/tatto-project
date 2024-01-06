@@ -33,7 +33,6 @@ const OpenModal = ({
   const [userReactions, setuserReactions] = useState([]);
   const [showReactionsModal, setShowReactionsModal] = useState(false);
 
-
   const dispatch = useDispatch();
   useEffect(() => {
     if (uploadedPhoto) {
@@ -300,28 +299,30 @@ const OpenModal = ({
               </div>
             </div>
             <div className="info-users-reactions">
-  {userReactions.length > 0 && (
-    <div className="user-reactions" key={userReactions[0].id}>
-      <Avatar sx={{ width: 25, height: 25 }}>
-        {userReactions[0].name[0].toUpperCase()}
-      </Avatar>
-      <div className="nameuser">{userReactions[0].name}</div>
-    </div>
-  )}
-  {userReactions.length > 1 && (
-    <div className="user-reactions-more" onClick={() => setShowReactionsModal(true)}>
+              {userReactions.length > 0 && (
+                <div className="user-reactions" key={userReactions[0].id}>
+                  <Avatar sx={{ width: 25, height: 25 }}>
+                    {userReactions[0].name[0]}
+                  </Avatar>
+                  <div className="nameuser">{userReactions[0].name}</div>
+                </div>
+              )}
+              {userReactions.length > 1 && (
+                <div
+                  className="user-reactions-more"
+                  onClick={() => setShowReactionsModal(true)}
+                >
                   y {userReactions.length - 1} personas más
-    </div>
-  )}
-</div>
-{showReactionsModal && (
-  <ReactionsModal
-    userReactions={userReactions} // Excluimos el primer usuario ya mostrado
-    onClose={() => setShowReactionsModal(false)}
-    setSelectedPost={setSelectedPost}
-  />
-)}
-
+                </div>
+              )}
+            </div>
+            {showReactionsModal && (
+              <ReactionsModal
+                userReactions={userReactions} // Excluimos el primer usuario ya mostrado
+                onClose={() => setShowReactionsModal(false)}
+                setSelectedPost={setSelectedPost}
+              />
+            )}
 
             <div className="info">
               Creado hace {calcularDiferenciaEnDias(selectedPost.created_at)}

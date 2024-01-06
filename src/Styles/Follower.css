@@ -13,8 +13,8 @@
     font-family: 'Rock Salt', cursive !important;
   }
   
-  .modal-content {
-    background: black;
+  .modal-contentf{
+    background:  #111010 !important;
     padding: 20px;
     border-radius: 5px;
     width: 50%;
@@ -52,7 +52,7 @@
   margin-bottom: 3%;
   display: flex;
 }
-.name{
+.namef{
   margin-top: 3%;
   margin-left: 5%;
 }

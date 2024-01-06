@@ -47,7 +47,7 @@
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    background-color: #191919;
+    background-color: #111010;
     z-index: 3; /* Asegúrate de que el z-index sea mayor que el de .custom-modal-overlay */
   }
   /* Ajusta la posición del botón de cierre */
@@ -119,14 +119,14 @@
 }
 .nameuser{
   color: aliceblue;
-  margin-left: 2%;
+  margin-left: 10%;
 }
 .info-users-reactions{
   display: flex;
   margin-left: 5%;
 }
 .user-reactions-more{
-  margin-left: 2%;
+  margin-left: 3%;
   color: aliceblue;
 }
 .user-reactions-more:hover{

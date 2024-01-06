@@ -20,13 +20,13 @@ const FollowerModal = ({ followers, onClose }) => {
 
   return (
     <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-contentf" onClick={(e) => e.stopPropagation()}>
         {/* Contenido del modal */}
         <h2>Seguidores</h2>
         <div className="follower-list">
           <div className='followitems'>
             {visibleFollowed.map((followers) => (
-              <div className='namefollow' key={followers.follower_name}><Avatar sx={{ width: 60, height: 60 }}>{followers.follower_name[0].toUpperCase()}</Avatar><div className='name' onClick={() => handlemove(followers.follower_id, followers.follower_name)}>{followers.follower_name}</div></div>
+              <div className='namefollow' key={followers.follower_name}><Avatar sx={{ width: 60, height: 60 }}>{followers.follower_name[0].toUpperCase()}</Avatar><div className='namef' onClick={() => handlemove(followers.follower_id, followers.follower_name)}>{followers.follower_name}</div></div>
             ))}
           </div>
         </div>

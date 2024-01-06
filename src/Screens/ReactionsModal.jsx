@@ -30,7 +30,7 @@ export const ReactionsModal = ({userReactions, onClose,setSelectedPost}) => {
           <div className="reactions-list">
             <div className='reactionsitems'>
               {visibleReactions.map((user) => (
-                <div className='namereactions' key={user.id}><Avatar sx={{ width: 30, height: 30 }}>{user.name[0].toUpperCase()}</Avatar><div className='name'  onClick={() => handlemove(user.id, user.name)}>{user.name}</div></div>
+                <div className='namereactions' key={user.id}><Avatar sx={{ width: 30, height: 30 }}>{user.name[0]}</Avatar><div className='name'  onClick={() => handlemove(user.id, user.name)}>{user.name}</div></div>
               ))}
             </div>
           </div>

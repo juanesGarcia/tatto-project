@@ -1,143 +1,134 @@
-import React, { useEffect, useState } from 'react';
-import { useParams,useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
-import { getUser , onFollow ,getFollowed, getFollower,getStatusFollow , onUnFollow} from '../api/auth';
+import {
+  getUser,
+  onFollow,
+  getFollowed,
+  getFollower,
+  getStatusFollow,
+  onUnFollow,
+} from "../api/auth";
 import "../Styles/UserProfile.css";
-import UploadImagesPage from './UploadImagePage';
-import 'react-image-gallery/styles/css/image-gallery.css';
-import OpenModal  from './OpenModal';
-import FollowerModal from './FollowerModal';
-import FollowedModal from './FollowedModal';
-import LoaderLogo from './LoaderLogo';
-
+import UploadImagesPage from "./UploadImagePage";
+import "react-image-gallery/styles/css/image-gallery.css";
+import OpenModal from "./OpenModal";
+import FollowerModal from "./FollowerModal";
+import FollowedModal from "./FollowedModal";
+import LoaderLogo from "./LoaderLogo";
 
 export const UserProfile = () => {
-  const { name,id  } = useParams();
-  const { isAuth, info,postsLength } = useSelector((state) => state.auth);
+  const { name, id } = useParams();
+  const { isAuth, info, postsLength } = useSelector((state) => state.auth);
   const [isOwnProfile, setIsOwnProfile] = useState(false);
   const [user, setUser] = useState([]);
   const [showUploadPage, setShowUploadPage] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [followers, setFollowers] = useState([]); 
-  const [isFollowing, setIsFollowing] = useState(false);  
-  const [followerLength,setFollowerLength]= useState();
+  const [followers, setFollowers] = useState([]);
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [followerLength, setFollowerLength] = useState();
   const [followed, setFollowed] = useState([]);
-  const [followedLength,setFollowedLength]= useState();
+  const [followedLength, setFollowedLength] = useState();
   const [showFollowedModal, setShowFollowedModal] = useState(false);
   const [showFollowerModal, setShowFollowerModal] = useState(false);
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const navigate = useNavigate();
 
   const toggleFollowerModal = () => {
-    
     setShowFollowerModal(!showFollowerModal);
   };
-  
+
   const toggleFollowedModal = () => {
     setShowFollowedModal(!showFollowedModal);
   };
 
-const getFollowersf = async () => {
-
-  try {
-    const response = await getFollower(id)
-    const followersArray = response.data.info || [];
-    console.log(followersArray)
-    // Guardar el array de seguidores en el estado local
-    setFollowers(followersArray);
-    console.log(followersArray)
-    setFollowerLength(followersArray.length)
-
-  } catch (error) {
-    console.log(error)
-  }
- 
-};
-
-const getFollowedf = async () => {
-
-  try {
-    const response = await getFollowed(id)
-    const followedArray = response.data.info || [];
-    console.log('siguiendo a',followedArray)
-    // Guardar el array de seguidores en el estado local
-    setFollowed(followedArray);
-    setFollowedLength(followedArray.length)
-
-  } catch (error) {
-    console.log(error)
-  }
- 
-};
-useEffect(() => {
-  // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 3000); // Tiempo de simulación de carga: 2 segundos
-}, []);
-
-
-
-
-const getFollowershow = async () => {
-  if (followerLength > 0) {
-    toggleFollowerModal();
-  }
-};
-
-const getFollowedshow = async () => {
-  if (followedLength > 0) {
-    toggleFollowedModal();
-  }
-};
-
-const checkFollowingStatus = async () => {
-  console.log('Llamada a checkFollowingStatus');
-  console.log(info.id);
-  console.log(id);
-
-  try {
-    const response = await getStatusFollow({
-      follower_id: info.id,
-      followed_id: id
-    });
-
-    console.log(response.data.info[0]);
-    const {sigue_al_usuario} = response.data.info[0]
-    console.log(sigue_al_usuario)
-
-    setIsFollowing(sigue_al_usuario)
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-
-useEffect(() => {
-  if (isAuth && name === info.name) {
-    setIsOwnProfile(true);
-  } else {
-    setIsOwnProfile(false);
-  }
-  if (isAuth) {
-    checkFollowingStatus();
-  }
-  // Espera a obtener los seguidores antes de llamar a showData
-  const fetchData = async () => {
-    await getFollowersf();
-    await getFollowedf();
-    showData();
+  const getFollowersf = async () => {
+    try {
+      const response = await getFollower(id);
+      const followersArray = response.data.info || [];
+      console.log(followersArray);
+      // Guardar el array de seguidores en el estado local
+      setFollowers(followersArray);
+      console.log(followersArray);
+      setFollowerLength(followersArray.length);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  console.log("ID actualizado:", id);
 
-  fetchData();
-}, [isAuth, id, name, info, postsLength]);
+  const getFollowedf = async () => {
+    try {
+      const response = await getFollowed(id);
+      const followedArray = response.data.info || [];
+      console.log("siguiendo a", followedArray);
+      // Guardar el array de seguidores en el estado local
+      setFollowed(followedArray);
+      setFollowedLength(followedArray.length);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    // Simula una carga asíncrona (puedes reemplazar esto con tu lógica de carga real)
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Tiempo de simulación de carga: 2 segundos
+  }, []);
 
+  const getFollowershow = async () => {
+    if (followerLength > 0) {
+      toggleFollowerModal();
+    }
+  };
 
+  const getFollowedshow = async () => {
+    if (followedLength > 0) {
+      toggleFollowedModal();
+    }
+  };
 
+  const checkFollowingStatus = async () => {
+    console.log("Llamada a checkFollowingStatus");
+    console.log(info.id);
+    console.log(id);
 
+    try {
+      const response = await getStatusFollow({
+        follower_id: info.id,
+        followed_id: id,
+      });
+
+      console.log(response.data.info[0]);
+      const { sigue_al_usuario } = response.data.info[0];
+      console.log(sigue_al_usuario);
+
+      setIsFollowing(sigue_al_usuario);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    if (isAuth && name === info.name) {
+      setIsOwnProfile(true);
+    } else {
+      setIsOwnProfile(false);
+    }
+    if (isAuth) {
+      checkFollowingStatus();
+    }
+    // Espera a obtener los seguidores antes de llamar a showData
+    const fetchData = async () => {
+      await getFollowersf();
+      await getFollowedf();
+      showData();
+    };
+    console.log("ID actualizado:", id);
+
+    fetchData();
+  }, [isAuth, id, name, info, postsLength]);
 
   const showData = async () => {
     try {
@@ -160,21 +151,24 @@ useEffect(() => {
     } catch (error) {
       console.log(error);
     } finally {
-      setIsLoading(false);  // Marcar que la carga ha finalizado
+      setIsLoading(false); // Marcar que la carga ha finalizado
     }
   };
 
   const follow = async () => {
     if (!isFollowing) {
       // Solo seguir si no se está siguiendo ya
-      setFollowers([...followers, { follower_id: info.id, follower_name: info.name }]);
+      setFollowers([
+        ...followers,
+        { follower_id: info.id, follower_name: info.name },
+      ]);
       setIsFollowing(true);
-      
+
       const data = {
         follower_id: info.id,
-        followed_id: id
+        followed_id: id,
       };
-  
+
       try {
         // Hacer la solicitud al servidor para seguir al usuario
         const response = await onFollow(data);
@@ -183,24 +177,28 @@ useEffect(() => {
       } catch (error) {
         console.log(error);
         // En caso de error en la solicitud, revertir los cambios locales
-        setFollowers(followers.filter((follower) => follower.follower_id !== info.id));
+        setFollowers(
+          followers.filter((follower) => follower.follower_id !== info.id)
+        );
         setIsFollowing(false);
       }
     }
   };
-  
+
   const unfollow = async () => {
     if (isFollowing) {
       // Solo dejar de seguir si se está siguiendo
-      const updatedFollowers = followers.filter((follower) => follower.follower_id !== info.id);
+      const updatedFollowers = followers.filter(
+        (follower) => follower.follower_id !== info.id
+      );
       setFollowers(updatedFollowers);
       setIsFollowing(false);
-  
+
       const data = {
         follower_id: info.id,
-        followed_id: id
+        followed_id: id,
       };
-  
+
       try {
         // Hacer la solicitud al servidor para dejar de seguir al usuario
         const response = await onUnFollow(data);
@@ -209,35 +207,31 @@ useEffect(() => {
       } catch (error) {
         console.log(error);
         // En caso de error en la solicitud, revertir los cambios locales
-        setFollowers([...followers, { follower_id: info.id, follower_name: info.name }]);
+        setFollowers([
+          ...followers,
+          { follower_id: info.id, follower_name: info.name },
+        ]);
         setIsFollowing(true);
       }
     }
   };
-  
-
-
 
   useEffect(() => {
     showData();
   }, [id]);
-
-
 
   const parseUserData = (data) => {
     return data.map((item) => {
       const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?)\)/);
       return {
         name: match[1],
-        email:match[2],
-        rol:match[3],
-        phone:match[4],
-        avatar: "/images/fondo.jpg"
+        email: match[2],
+        rol: match[3],
+        phone: match[4],
+        avatar: "/images/fondo.jpg",
       };
     });
   };
-
-
 
   const updatePhoto = () => {
     if (showUploadPage) {
@@ -245,22 +239,19 @@ useEffect(() => {
     } else {
       setShowUploadPage(true);
     }
-
-
   };
 
   const handleUploadSuccess = async () => {
     try {
-      console.log('Imágenes subidas con éxito desde ImageUploader');
+      console.log("Imágenes subidas con éxito desde ImageUploader");
       setShowUploadPage(false);
 
       // Realiza una actualización más eficiente utilizando el estado local
       setUploadedPhoto(true);
     } catch (error) {
-      console.error('Error al procesar la carga de imágenes:', error);
+      console.error("Error al procesar la carga de imágenes:", error);
     }
   };
-
 
   const handleCloseUploadPage = () => {
     setShowUploadPage(false);
@@ -268,84 +259,98 @@ useEffect(() => {
 
   return (
     <>
-    {isLoading &&(
-
-      <LoaderLogo></LoaderLogo>
-    )
-
-    }
-    {
-      user.length > 0 &&(
+      {isLoading && <LoaderLogo></LoaderLogo>}
+      {user.length > 0 && (
         <div>
-              <div className='containerProfile'>
-        <Avatar src={logo} sx={{ width: 140, height: 140, }} className='img-avatar'></Avatar>
-        <div className='containerInfo'>
-          <h4> {user[0].name}          ********</h4>
-          <h4>{user[0].rol}</h4>
+          <div className="containerProfile">
+            <Avatar
+              src={logo}
+              sx={{ width: 140, height: 140 }}
+              className="img-avatar"
+            ></Avatar>
+            <div className="containerInfo">
+              <h4> {user[0].name} ********</h4>
+              <h4>{user[0].rol}</h4>
+            </div>
+          </div>
+          <div className="followInfo">
+            <h6>publicaciones {postsLength}</h6>
+            <h6 className="follow" onClick={() => getFollowershow()}>
+              {" "}
+              seguidores {followerLength}
+            </h6>
+            <h6 className="follow" onClick={() => getFollowedshow()}>
+              {" "}
+              seguidos {followedLength}
+            </h6>
+          </div>
+          {/* Renderizar el modal de seguidores */}
+          {showFollowerModal && (
+            <FollowerModal
+              followers={followers}
+              onClose={toggleFollowerModal}
+            />
+          )}
+          {showFollowedModal && (
+            <FollowedModal followed={followed} onClose={toggleFollowedModal} />
+          )}
         </div>
-      </div>
-      <div className='followInfo'>
-        <h6>publicaciones {postsLength}</h6>
-        <h6 className='follow' onClick={() => getFollowershow()}>  seguidores {followerLength}</h6>
-        <h6 className='follow' onClick={() => getFollowedshow()}>  seguidos {followedLength}</h6>
-      </div>
-       {/* Renderizar el modal de seguidores */}
-       {showFollowerModal && (
-        <FollowerModal followers={followers} onClose={toggleFollowerModal} />
-      )}
-        {showFollowedModal && (
-        <FollowedModal followed={followed} onClose={toggleFollowedModal} />
       )}
 
-
-
-        </div>
-    
-
-      )
-    }
-    
-     
-      <div className='buttonPerfil'>
-  
-      {
-  user.length > 0 && user[0].rol === 'tatuador' && !isOwnProfile && (
-    <button className='button'>
-      <a href={`https://wa.me/${user[0].phone}?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}  target="_blank" rel="noopener noreferrer" className='whatsapp'>Whatsapp</a>
-    </button>
-    
-  )
-}  
-{!isOwnProfile && (
-  <>
-    {!isFollowing ? isAuth &&(
-      <button className='button' onClick={() => follow()}>
-        Follow
-      </button>
-    ) : (
-      <button className='button' onClick={() => unfollow()}>siguiendo✔️</button>
-    )}
-  </>
-)}
+      <div className="buttonPerfil">
+        {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && (
+          <button className="button">
+            <a
+              href={`https://wa.me/${user[0].phone}?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatsapp"
+            >
+              Whatsapp
+            </a>
+          </button>
+        )}
+        {!isOwnProfile && (
+          <>
+            {!isFollowing ? (
+              isAuth && (
+                <button className="button" onClick={() => follow()}>
+                  Follow
+                </button>
+              )
+            ) : (
+              <button className="button" onClick={() => unfollow()}>
+                siguiendo✔️
+              </button>
+            )}
+          </>
+        )}
 
         {isAuth ? (
           <div>
             {isOwnProfile && (
-                  <button className='button' onClick={() => updatePhoto()}>
-                  <a className='uploadphoto-but'>subir foto</a>
-                </button>
+              <button className="button" onClick={() => updatePhoto()}>
+                <a className="uploadphoto-but">subir foto</a>
+              </button>
             )}
-
           </div>
-        ) :null
- }
+        ) : null}
       </div>
       {showUploadPage && (
-        <UploadImagesPage onUploadSuccess={handleUploadSuccess} onClose={handleCloseUploadPage}  id={id} />
+        <UploadImagesPage
+          onUploadSuccess={handleUploadSuccess}
+          onClose={handleCloseUploadPage}
+          id={id}
+        />
       )}
-      <OpenModal isAuthp={isAuth} isOwnProfilep={isOwnProfile} id={id} info={info} uploadedPhoto={uploadedPhoto} setUploadedPhoto={setUploadedPhoto} ></OpenModal>
-
+      <OpenModal
+        isAuthp={isAuth}
+        isOwnProfilep={isOwnProfile}
+        id={id}
+        info={info}
+        uploadedPhoto={uploadedPhoto}
+        setUploadedPhoto={setUploadedPhoto}
+      ></OpenModal>
     </>
-
   );
 };
