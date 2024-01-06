@@ -23,10 +23,10 @@
 
   }
   .follower-list {
-    max-height: 410px; /* Establece la altura máxima según tus necesidades */
+    max-height: 380px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
     margin-left: 50px;
-    margin-top: 3%;
+    margin-top: 7%;
   }
   
   #cerrar{
@@ -53,8 +53,9 @@
   display: flex;
 }
 .namef{
-  margin-top: 3%;
-  margin-left: 5%;
+  margin-top: 1.5%;
+  margin-left: 3%;
+  font-size: 20px;
 }
 .name:hover{
   color: #917E41;
@@ -66,15 +67,15 @@
     margin-left: 32%;
   }
   .showmore{
-    margin-top: 5%;
-    margin-bottom: 3%;
+    margin-top: 10%;
+    margin-bottom: 5%;
   }
   .showless{
-    margin-top: 5%;
-    margin-bottom: 3%;
+    margin-top: 10%;
+    margin-bottom: 5%;
   }
   .namef{
-    margin-top: 7%;
+    margin-top: 3%;
     margin-left: 5%;
   }
   .modal-contentf{
@@ -82,6 +83,10 @@
   }
 
   .follower-list{
-    max-height: 350px;
+    max-height: 330px;
+    margin-top: 12%;
+  }
+  .namefollow{
+    margin-bottom: 8%;
   }
 }

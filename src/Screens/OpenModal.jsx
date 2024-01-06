@@ -199,6 +199,7 @@ const OpenModal = ({
   const openModal = (post) => {
     console.log("was open");
     setSelectedPost(post);
+    setuserReactions([]);
   };
 
   const closeModal = () => {

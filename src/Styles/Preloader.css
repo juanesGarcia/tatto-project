@@ -56,3 +56,9 @@
     animation: none;
   }
 }
+
+@media (max-width: 800px){
+  .message {
+    font-size: 12px !important;
+  }
+}

@@ -29,7 +29,7 @@ const FollowedModal = ({ followed, onClose }) => {
         <div className="follower-list">
           <div className='followitems'>
             {visibleFollowed.map((followed) => (
-              <div className='namefollow' key={followed.followed_name}><Avatar sx={{ width: 60, height: 60 }}>{followed.followed_name[0].toUpperCase()}</Avatar><div className='namef'  onClick={() => handlemove(followed.followed_id, followed.followed_name)}>{followed.followed_name}</div></div>
+              <div className='namefollow' key={followed.followed_name}><Avatar sx={{ width: 50, height: 50 }}>{followed.followed_name[0].toUpperCase()}</Avatar><div className='namef'  onClick={() => handlemove(followed.followed_id, followed.followed_name)}>{followed.followed_name}</div></div>
             ))}
           </div>
         </div>
@@ -39,7 +39,6 @@ const FollowedModal = ({ followed, onClose }) => {
         {showAllFollowed && (
           <div className='showless' onClick={() => setShowAllFollowed(false)}>Ver menos</div>
         )}
-        <button className="button"  id='cerrar' onClick={onClose}>Cerrar</button>
       </div>
     </div>
   );
