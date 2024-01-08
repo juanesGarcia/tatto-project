@@ -37,9 +37,13 @@ export const AdminAccount = () => {
 
   const handleSummit = async (e) => {
     e.preventDefault();
+    
+
     const dataToSend = {
       user,
       id: userId,
+
+
     };
     try {
       const response = await onUpdate(dataToSend); // Aquí accedemos a la respuesta del backend

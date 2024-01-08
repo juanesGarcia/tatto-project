@@ -33,10 +33,14 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate ,title}) => {
         return text.trim() !== '' ? text : null;
       },
     });
+      
+const now= new Date();
+console.log('La fecha actual es',now);
 
     try {
       const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {
         newDescription: newText,
+        currentTime: now,
       });
       console.log(response);
       Swal.fire({
