@@ -356,7 +356,7 @@ export const UserProfile = () => {
               className="img-avatar"
             ></Avatar>
             <div className="containerInfo">
-              <h6> {user[0].name} </h6>
+              <h6 className="nameinfo"> {user[0].name} </h6>
               <h6>{user[0].rol}</h6>
               <h6>{user[0].city}</h6>
 
