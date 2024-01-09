@@ -35,6 +35,7 @@ export const SearchP = () => {
     try {
       const response = await getUsers();
       const data = response.data;
+      console.log(data)
       const parsedUsers = parseUserData(data);
       console.log(parsedUsers);
       setUsers(parsedUsers);
@@ -87,12 +88,14 @@ export const SearchP = () => {
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?),(.*?)\)/);
+      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?),(.*?)\)/);
       console.log(match)
       return {
         id: match[1],
         name: match[2],
         rol:match[3],
+        lon:match[4],
+        lat:match[5],
         avatar: "/images/fondo.jpg"
       };
     });
@@ -131,7 +134,7 @@ export const SearchP = () => {
                
             <div className="user-info">
               <div className="user-name">{user.name}</div>
-              <div>{user.rol}</div>
+              <div>{user.rol}{user.lon}{user.lat}</div>
               <div className="user-location">Colombia</div>
               <div className="user-location">Bogota</div>
             </div>                             
