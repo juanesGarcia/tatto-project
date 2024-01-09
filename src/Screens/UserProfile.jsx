@@ -292,7 +292,7 @@ export const UserProfile = () => {
 
   useEffect(() => {
     showData();
-  }, [id]);
+  }, [id,user]);
 
   const parseUserData = (data) => {
     return data.map((item) => {
