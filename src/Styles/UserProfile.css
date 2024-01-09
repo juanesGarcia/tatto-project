@@ -7,6 +7,7 @@
 
     
 }
+
 .location:hover{
   color: #917E41;
 
@@ -131,6 +132,14 @@
    .followInfo{
     margin-left: 5%;
     margin-top: 1%;
+  }
+
+  .location{
+  font-size: 75%;
+  }
+  .iconmap{
+    margin-left: 40%;
+    margin-bottom: 5%;
   }
   }
 

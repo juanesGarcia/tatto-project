@@ -353,7 +353,7 @@ export const UserProfile = () => {
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
       <div className="location" onClick={() => getUserLocation()}>
-      agregar ubicacion actual <FaMapMarkerAlt size={30} color="red" style={{marginBottom:"4px"}}></FaMapMarkerAlt>
+      agregar ubicacion actual <FaMapMarkerAlt  className="iconmap" size={30} color="red" style={{marginBottom:"4px"}}></FaMapMarkerAlt>
      </div>
 
         )}
