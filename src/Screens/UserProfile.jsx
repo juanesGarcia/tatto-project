@@ -79,7 +79,7 @@ export const UserProfile = () => {
       if (responselo) {
         Swal.fire({
           icon: 'success',
-          title: `agregando tu localizacion que esta en la cuidad de ${cityUser}`,
+          title: `localizacion de la cuidad de ${cityUser}`,
           showConfirmButton: false,
           timer: 1500,
           customClass: {
