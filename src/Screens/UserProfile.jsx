@@ -90,6 +90,8 @@ export const UserProfile = () => {
   
       }
 
+      showData();
+
     } catch (error) {
       console.error('Error al obtener la ciudad:', error);
       setcityUser(''); // Establece un valor predeterminado o maneja el error según sea necesario
@@ -292,7 +294,7 @@ export const UserProfile = () => {
 
   useEffect(() => {
     showData();
-  }, [id,user]);
+  }, [id]);
 
   const parseUserData = (data) => {
     return data.map((item) => {
