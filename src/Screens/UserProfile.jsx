@@ -66,20 +66,27 @@ export const UserProfile = () => {
   
       const data = await response.json();
       const cityUser = data.address.city;
+      const townUser = data.address.town; // Nueva línea para obtener el pueblo
       console.log(cityUser);
-      setcityUser(cityUser);
+      console.log(townUser);
+  
+      // Utiliza el pueblo si está presente, de lo contrario, utiliza la ciudad
+      const locationInfo = townUser || cityUser;
+  
+      setcityUser(locationInfo);
+      
       const datalo = {
         id,
         lon: longitude,
         lat: latitude,
-        cityUser
-        
+        cityUser: locationInfo // Actualiza el objeto de datos con el pueblo o la ciudad
       };
+  
       const responselo = await updateLocationf(datalo);
       if (responselo) {
         Swal.fire({
           icon: 'success',
-          title: `localizacion de la cuidad de ${cityUser}`,
+          title: `Localización de ${locationInfo}`,
           showConfirmButton: false,
           timer: 1500,
           customClass: {
@@ -88,15 +95,15 @@ export const UserProfile = () => {
           },
         });
   
+        // Llama a showData para actualizar la información del usuario después de actualizar la ubicación
+        showData();
       }
-
-      showData();
-
     } catch (error) {
-      console.error('Error al obtener la ciudad:', error);
+      console.error('Error al obtener la ubicación:', error);
       setcityUser(''); // Establece un valor predeterminado o maneja el error según sea necesario
     }
   };
+  
   
 
   const getUserLocation = async () => {
