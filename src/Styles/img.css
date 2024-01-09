@@ -57,7 +57,7 @@
 }
 
 .icon-img{
-  margin-left: 8%;
+  margin-left: 20%;
   font-size: 1200%;
 }
 
@@ -68,7 +68,6 @@
 
 .prue2{
     display: block;
-  background-color: #363535;
     width: 95%;
     margin-bottom: 5%;
     margin-left: 2%;
@@ -92,9 +91,9 @@
 .boxUpdate{
   background: #917E41;
   padding: 20px;
-  width: 80%;
+  width: 60%;
   height: 60%;
-  margin-left: 10% ;
+  margin-left: 20% ;
   margin-bottom: 8%;
 }
 .textArea{
@@ -136,9 +135,9 @@
       margin-top: 10%;
     }
     .boxUpdate{
-      width: 100%;
+      width: 80%;
       height: auto;
-      margin-left:0% ;
+      margin-left:10% ;
     }
     .text-img{
       font-size: 12px;
@@ -147,7 +146,7 @@
       width: 100%;
     }
     .icon-img{
-      margin-left: 27%;
+      margin-left: 25%;
       font-size: 700% !important;
     }
     .textArea{
@@ -198,7 +197,7 @@
 
 
 .but-upload{
-  margin-left: 7%;
+  margin-left: 8%;
   padding-bottom: 5%;
 }
 .prue2{
