@@ -1,7 +1,7 @@
 
   /* Estilos normales para la galería */
   .custom-image-gallery {
-    width: 120%;
+    width: 350px;
     margin: 0 auto; /* Centra la galería horizontalmente */
     margin-right: 3%;
     height: auto;
@@ -25,9 +25,10 @@
     height: 80px; /* ajusta la altura según tus necesidades */
   }
   .comments-container{
-    flex-grow: 1;
     padding-left: 0%;
     padding-top: 5%;
+    margin-right: 5%;
+    width: 200px;
     
   }
 
@@ -56,20 +57,21 @@
 }
 
 .icon-img{
-  margin-left: 24%;
+  margin-left: 8%;
   font-size: 1200%;
 }
 
 .prue{
-    display: block
+    display: block;
+    width: 100%;
 }
 
 .prue2{
     display: block;
-  background-color: #191919;
-    border-radius: 5%;
-    width: 100%;
+  background-color: #363535;
+    width: 95%;
     margin-bottom: 5%;
+    margin-left: 2%;
 
 }
 .img-comment{
@@ -78,34 +80,35 @@
 .containerall{
     width: 90%;
     margin-bottom: 10%;
-
 }
 
 
 .text-img{
   font-size: 15px;
-  margin-left: 16%;
+  margin-left: 10%;
   margin-bottom: 5%;
 }
 
 .boxUpdate{
   background: #917E41;
   padding: 20px;
-  width: 60%;
+  width: 80%;
   height: 60%;
-  margin-left: 20% ;
+  margin-left: 10% ;
   margin-bottom: 8%;
 }
 .textArea{
   font-size: 10px;
   resize: "none";
-  width: 110%;
-  max-width:700px ;
+  width: 100%;
+  max-width: 700px ;
+  min-height: 200px;
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 4px;
   background-color: black;
   color: white;
+  margin-left:10%;
 }
 
 .containerall.with-images {
@@ -117,7 +120,7 @@
 
 
   /* Estilos adicionales para mejorar la visualización en responsive */
-  @media (max-width: 767px) {
+  @media (max-width: 480px) {
     .react-image-gallery {
       max-height: 100vh; /* Limita la altura de la imagen en responsive */
     }
@@ -148,14 +151,28 @@
       font-size: 700% !important;
     }
     .textArea{
-      font-size: 11px;
+      font-size: 10px;
       resize: "none";
-      width: 100%;
-      max-width:400px ; 
-      max-height: 90px;
+      width: 110%;
+      max-width:100%; 
+      max-height: 100px ;
+      min-height: 80px;
       border: 1px solid #ccc;
-      padding: 8px;
+      padding: 0px;
       border-radius: 4px;
+  
+      &::placeholder {
+        text-align: left; /* Alinea el texto del placeholder a la izquierda */
+        padding-left: 7%; /* Ajusta el espacio entre el borde izquierdo y el texto del placeholder */
+        padding-right: 7%; /* Ajusta el espacio entre el borde derecho y el texto del placeholder */
+        padding-top: 5%;
+      }
+    
+      &:not(:placeholder-shown) {
+        padding-left: 7%; /* Ajusta el espacio entre el borde izquierdo y el texto cuando hay contenido */
+        padding-right: 7%; /* Ajusta el espacio entre el borde derecho y el texto cuando hay contenido */
+        padding-top: 5%;
+      }
     }
     .img-comment{
       display: block;
@@ -172,16 +189,29 @@
 }
 
 .custom-image-gallery {
-  width: 100%;
-  margin: 0 auto; /* Centra la galería horizontalmente */
-  margin-right: 18%;
+  width: 90%;
+  padding-top: 10%;
+  margin-right: 5%;
+
 }
+
 
 
 .but-upload{
-  margin-left: 0%;
-  margin-bottom: 5%;
+  margin-left: 7%;
+  padding-bottom: 5%;
 }
+.prue2{
+  margin-top: 3%;
+  border-radius: 2%;
+}
+.comments-container{
+  padding-left: 0% !important;
+  padding-top: 5%;
+  width: 83%;
+  
+}
+
 
 
   

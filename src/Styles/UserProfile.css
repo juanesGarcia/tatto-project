@@ -18,6 +18,9 @@
   color: #917E41;
 
 }
+.nameinfo{
+  font-size: 150%;
+}
 
 .img-avatar{
   margin-top: 3%;
@@ -111,12 +114,6 @@
     font-size: 130%;
     margin-left: 5%;
   }
-
-  .nameinfo{
-    font-size: 150%;
-    font-weight: bold;
-    }
-
   
   @media (max-width: 800px) {
     .containerProfile{
@@ -155,6 +152,9 @@
   .iconmap{
     margin-top: 2%;
     margin-left: 35%;
+  }
+  .nameinfo{
+    font-size: 100%;
   }
   }
 
