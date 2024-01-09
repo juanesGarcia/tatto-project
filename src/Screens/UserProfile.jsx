@@ -356,9 +356,9 @@ export const UserProfile = () => {
               className="img-avatar"
             ></Avatar>
             <div className="containerInfo">
-              <h4> {user[0].name} </h4>
-              <h4>{user[0].rol}</h4>
-              <h4>{user[0].city}</h4>
+              <h6> {user[0].name} </h6>
+              <h6>{user[0].rol}</h6>
+              <h6>{user[0].city}</h6>
 
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
@@ -373,11 +373,9 @@ export const UserProfile = () => {
           <div className="followInfo">
             <h6>publicaciones {postsLength}</h6>
             <h6 className="follow" onClick={() => getFollowershow()}>
-              {" "}
               seguidores {followerLength}
             </h6>
             <h6 className="follow" onClick={() => getFollowedshow()}>
-              {" "}
               seguidos {followedLength}
             </h6>
           </div>

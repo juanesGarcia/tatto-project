@@ -93,7 +93,7 @@ function Navbar() {
   return (
     <>
       <StyledAppBar position="static">
-        <Toolbar>
+        <Toolbar className="toolbar-container">
           <Avatar src={logo}></Avatar>
           <IconButton
             color="inherit"
@@ -103,7 +103,7 @@ function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Box sx={{ display: { xs: "none", md: "block" }, flexGrow: 1 }}>
+          <Box className="nav-links"   sx={{ display: { xs: "none", md: "block" }, flexGrow: 1 }}>
             <CustomButton component={NavLink} to="/"> <HomeIcon className="icon" ></HomeIcon></CustomButton>
             {navlinks.map((items) => (
               <CustomButton key={items.title} className="words" component={NavLink} to={items.path}>

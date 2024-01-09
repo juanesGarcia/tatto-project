@@ -3,6 +3,16 @@
   color: aliceblue !important;
 
 }
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
 
 .icon {
   color: aliceblue !important;

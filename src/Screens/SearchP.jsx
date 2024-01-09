@@ -135,10 +135,10 @@ export const SearchP = () => {
                
             <div className="user-info">
               <div className="user-name">{user.name}</div>
-              <div>{user.rol}{user.lon}{user.lat}</div>
+              <div className='stars'>*******</div>
+              <div className="user-rol">{user.rol}</div>
               <div className="user-location">{user.city}</div>
-            </div>                             
-            <div className='stars'>*******</div>
+            </div>                            
             </div>
            
           </div>

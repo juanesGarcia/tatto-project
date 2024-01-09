@@ -1,13 +1,16 @@
-.containerProfile{
-    display: flex;
-    margin-top: 3%;
-    margin-left: 20%;
-    font-family: 'Rock Salt', cursive !important;
-    min-height: 20vh;
-
-    
+.containerProfile {
+  display: flex;
+  margin-top: 3%;
+  margin-left: 20%;
+  font-family: 'Rock Salt', cursive !important;
+  min-height: 20vh;
 }
 
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem; /* Ajusta el margen izquierdo según sea necesario */
+}
 .location:hover{
   color: #917E41;
 
@@ -17,11 +20,6 @@
   margin-top: 3%;
 }
 
-.containerInfo{
-    display: block;
-    margin-left: 12%;
-    margin-top: 5%;
-}
 .buttonPerfil {
   display: flex;
   justify-content: center; /* Esto centrará horizontalmente los elementos en el contenedor */
@@ -140,6 +138,13 @@
   .iconmap{
     margin-left: 40%;
     margin-bottom: 5%;
+  }
+  .containerInfo {
+    margin-top: 7%;
+  }
+  .iconmap{
+    margin-top: 2%;
+    margin-left: 35%;
   }
   }
 

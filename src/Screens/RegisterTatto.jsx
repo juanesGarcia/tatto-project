@@ -17,27 +17,10 @@ export const RegisterTatto = () => {
     email: "",
     password: "",
     rol: "tatuador",
-    lon: null,
-    lat: null,
     phone: "",
   });
 
-  useEffect(() => {
-    // Verificar si el navegador admite la geolocalización
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setLatitude(position.coords.latitude);
-          setLongitude(position.coords.longitude);
-        },
-        (error) => {
-          console.error("Error getting location:", error.message);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by your browser");
-    }
-  }, []);
+
 
   const handleCountryCodeChange = async (e) => {
     const countryName = e.target.value;
@@ -67,8 +50,6 @@ export const RegisterTatto = () => {
 
     const userData = {
       ...user,
-      lon: longitude,
-      lat: latitude,
       phone: `${user.phone}${user.numberphone}`,
     };
 
