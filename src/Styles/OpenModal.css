@@ -162,12 +162,13 @@
       margin-left: 1%;
       margin-top:8%;
       padding-bottom: 34%;
-      min-height: 54vh;
+      min-height: 33vh;
   
     
     }
     .post-item {
       width: 100%; /* Ancho deseado */
+      height: auto;
 
     }
     .custom-gallery{
