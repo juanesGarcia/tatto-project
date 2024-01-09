@@ -25,7 +25,7 @@
   .follower-list {
     max-height: 380px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
-    margin-left: 50px;
+    margin-left: 5%;
     margin-top: 7%;
   }
   
