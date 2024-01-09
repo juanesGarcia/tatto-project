@@ -296,12 +296,13 @@ export const UserProfile = () => {
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?)\)/);
+      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?),(.*?)\)/);
       return {
         name: match[1],
         email: match[2],
         rol: match[3],
         phone: match[4],
+        city: match[5],
         avatar: "/images/fondo.jpg",
       };
     });
@@ -348,7 +349,7 @@ export const UserProfile = () => {
             <div className="containerInfo">
               <h4> {user[0].name} </h4>
               <h4>{user[0].rol}</h4>
-              <h4>{cityUser}</h4>
+              <h4>{user[0].city}</h4>
 
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
