@@ -8,6 +8,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { useDispatch } from "react-redux";
 import { setPostsLength } from "../redux/slices/authSlice";
 import { FaStar, FaRegStar } from "react-icons/fa";
+
 import {
   onReaction,
   getStatusReactions,

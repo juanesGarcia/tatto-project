@@ -134,6 +134,8 @@
 }
 
 
+
+
 @keyframes likeAnimation {
   0% {
     transform: scale(1);
@@ -185,6 +187,14 @@
     .no-post{
       margin-top: 100%;
       margin-bottom: 5%;
+    }
+    .nameuser{
+      width: 80%;
+      margin-right: 4%;
+    }
+
+    .user-reactions-more{
+      margin-left: 5%
     }
   
   }
