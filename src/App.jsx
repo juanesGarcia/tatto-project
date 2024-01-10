@@ -18,7 +18,7 @@ import { checkSession } from "./api/session";
 import { useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
-import { MapaUser } from "./Screens/MapaUser";
+import { MapaUsers } from "./Screens/MapaUsers";
 
 
 
@@ -107,7 +107,7 @@ function App() {
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
           <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
-          <Route exact path="/MapaUser" element={<MapaUser/>}></Route>
+          <Route exact path="/MapaUser" element={<MapaUsers/>}></Route>
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>
