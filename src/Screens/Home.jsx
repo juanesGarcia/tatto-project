@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SearchP } from "./SearchP";
 import "../Styles/Home.css";
 import LoaderLogo from "./LoaderLogo";
+import { Mapa } from "./Mapa";
+
 
 export const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,6 +18,8 @@ export const Home = () => {
     <div className="search">
       {isLoading && <LoaderLogo></LoaderLogo>}
       <SearchP></SearchP>
+      <Mapa></Mapa>
+
     </div>
   );
 };

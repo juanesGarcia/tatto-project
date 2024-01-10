@@ -11,7 +11,6 @@ import {
   getFollower,
   getStatusFollow,
   onUnFollow,
-  updatelocation,
 } from "../api/auth";
 import "../Styles/UserProfile.css";
 import UploadImagesPage from "./UploadImagePage";
@@ -20,7 +19,7 @@ import OpenModal from "./OpenModal";
 import FollowerModal from "./FollowerModal";
 import FollowedModal from "./FollowedModal";
 import LoaderLogo from "./LoaderLogo";
-import Swal from 'sweetalert2';
+
 
 export const UserProfile = () => {
   const { name, id } = useParams();
@@ -38,7 +37,6 @@ export const UserProfile = () => {
   const [showFollowerModal, setShowFollowerModal] = useState(false);
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const [userLocation, setuserLocation] = useState([]);
-  const [cityUser, setcityUser] = useState('')
   const navigate = useNavigate();
 
   const toggleFollowerModal = () => {
@@ -49,81 +47,11 @@ export const UserProfile = () => {
     setShowFollowedModal(!showFollowedModal);
   };
 
-  const updateLocationf = async(data)=>{
-    try {
-      const response= await updatelocation(data);
-      console,log(response.data.success)
-      return response.data.success
-    } catch (error) {
-      return error 
-    }
-  }
-  const getCityFromCoordinates = async (longitude, latitude) => {
-    try {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
-      );
-  
-      const data = await response.json();
-      const cityUser = data.address.city;
-      const townUser = data.address.town; // Nueva línea para obtener el pueblo
-      console.log(cityUser);
-      console.log(townUser);
-  
-      // Utiliza el pueblo si está presente, de lo contrario, utiliza la ciudad
-      const locationInfo = townUser || cityUser;
-  
-      setcityUser(locationInfo);
-      
-      const datalo = {
-        id,
-        lon: longitude,
-        lat: latitude,
-        cityUser: locationInfo // Actualiza el objeto de datos con el pueblo o la ciudad
-      };
-  
-      const responselo = await updateLocationf(datalo);
-      if (responselo) {
-        Swal.fire({
-          icon: 'success',
-          title: `Localización de ${locationInfo}`,
-          showConfirmButton: false,
-          timer: 1500,
-          customClass: {
-            popup: 'custom-swal-popup',
-            title: 'custom-swal-title',
-          },
-        });
-  
-        // Llama a showData para actualizar la información del usuario después de actualizar la ubicación
-        showData();
-      }
-    } catch (error) {
-      console.error('Error al obtener la ubicación:', error);
-      setcityUser(''); // Establece un valor predeterminado o maneja el error según sea necesario
-    }
-  };
-  
-  
 
-  const getUserLocation = async () => {
-    if (navigator.geolocation) {
-      try {
-        const position = await new Promise((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition(resolve, reject);
-        });
-  
-        const { latitude, longitude } = position.coords;
-        setuserLocation([longitude, latitude]);
-        await getCityFromCoordinates(longitude, latitude);
-      } catch (error) {
-        console.error('Error al obtener la ubicación:', error);
-      }
-    } else {
-      console.error('La geolocalización no está soportada por tu navegador.');
-    }
-  };
-  
+  const moveToMap = () =>{
+    navigate('/MapaUser')
+  }
+
 
 
 
@@ -362,7 +290,7 @@ export const UserProfile = () => {
 
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
-      <div className="location" onClick={() => getUserLocation()}>
+      <div className="location" onClick={() => moveToMap()}>
       agregar ubicacion actual <FaMapMarkerAlt  className="iconmap" size={30} color="red" style={{marginBottom:"4px"}}></FaMapMarkerAlt>
      </div>
 
@@ -446,6 +374,7 @@ export const UserProfile = () => {
         uploadedPhoto={uploadedPhoto}
         setUploadedPhoto={setUploadedPhoto}
       ></OpenModal>
+      <h6>{userLocation[0]}</h6>
     </>
   );
 };

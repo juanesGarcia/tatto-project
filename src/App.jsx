@@ -18,7 +18,9 @@ import { checkSession } from "./api/session";
 import { useEffect, useRef } from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
-import Cookies from 'js-cookie';
+import { MapaUser } from "./Screens/MapaUser";
+
+
 
 
 const PrivateRoutes =()=>{
@@ -105,6 +107,7 @@ function App() {
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
           <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
+          <Route exact path="/MapaUser" element={<MapaUser/>}></Route>
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>

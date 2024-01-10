@@ -1,0 +1,16 @@
+.containermap{
+    margin-top: 10%;
+    padding-right: 2%;
+}
+.mapt{
+    height: 400px;
+}
+
+  
+@media (max-width: 800px) {
+    .containermap{
+        margin-left: 1%;
+        margin-top: 10%;
+    }
+
+}
