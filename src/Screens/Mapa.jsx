@@ -212,7 +212,7 @@ export const Mapa = () => {
       <div className="mapt" ref={mapContainerRef} style={{ width: '100%'}}>
         {isLoading && <p>Cargando mapa...</p>}
       </div>
-      <p>City: {city}</p>
+      <p>City: {cityUser}</p>
     </div>
   );
 };
