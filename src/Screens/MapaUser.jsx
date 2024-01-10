@@ -19,7 +19,8 @@ export const MapaUser = () => {
   const navigate = useNavigate();
   const [address, setAddress] = useState('');
 
-  const handleSelect = async (selectedAddress) => {
+  
+  const handleSelect = async (selectedAddress) => { 
     try {
       const results = await geocodeByAddress(selectedAddress);
       const latLng = await getLatLng(results[0]);
