@@ -140,7 +140,7 @@ export const SearchP = () => {
               <div className="user-name">{user.name}</div>
               <div className='stars'>*******</div>
               <div className="user-rol">{user.rol}</div>
-              <div className="user-location">{user.city}</div>
+              <div className="user-location">{user.city.replace(/['"]/g, '')}</div>
             </div>                            
             </div>
            

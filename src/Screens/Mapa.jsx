@@ -78,10 +78,10 @@ export const Mapa = ({users}) => {
           setCity(selectedCity);
           if (selectedCity !== cityUser) {
             map.setCenter(event.result.center);
-            updateMarkers(map, selectedCity);
+            updateMarkers(map, selectedCity,users);
           } else {
             map.setCenter(userLocation);
-            updateMarkers(map, selectedCity);
+            updateMarkers(map, selectedCity,users);
           }
         });
         
@@ -90,7 +90,21 @@ export const Mapa = ({users}) => {
         );
 
         userCityLocations.forEach((user) => {
-          const popup = new mapboxgl.Popup().setHTML(`<h3>${user.name}</h3>`);
+          const popupContent = `
+  <div class="popup-content">
+  <div class="popup-info">
+  <img src="${user.avatar}" alt="Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 8px;">
+    <h3 style="margin-bottom: 8px;">${user.name}</h3>
+    </div>
+    <p style="margin-bottom: 4px;">Ver perfil: 
+      <a href="/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}"
+         style="color: #007BFF; text-decoration: underline;">Ir al perfil</a>
+    </p>
+  </div>
+`;
+
+
+          const popup = new mapboxgl.Popup().setHTML(popupContent);
           new mapboxgl.Marker({ color: 'red' }).setLngLat([user.lon, user.lat]).setPopup(popup).addTo(map);
         });
 
@@ -103,28 +117,42 @@ export const Mapa = ({users}) => {
   }, [userLocation, cityUser,users]);
 
   const updateMarkers = (map, selectedCity, users) => {
+
+    console.log(selectedCity)
     // Limpiar los marcadores existentes
     map
       .querySourceFeatures('users')
       .forEach((feature) => map.removeFeatureState({ source: 'users', id: feature.id }));
   
     // Filtrar y mostrar solo las ubicaciones de la ciudad seleccionada
-    const userCityLocations = users.filter(
-      (user) => user.city.toLowerCase() === selectedCity.toLowerCase()
-    );
+     // Filtrar y mostrar solo las ubicaciones de la ciudad seleccionada
+  const userCityLocations = users.filter(
+    (user) => user.city.replace(/['"]/g, '').toLowerCase() === selectedCity.toLowerCase() && user.lon !== '' && user.lat !== ''
+  );
+  
+
+    console.log(userCityLocations)
   
     userCityLocations.forEach((user) => {
-      const popup = new mapboxgl.Popup().setHTML(`<h3>${user.name}</h3>`);
+      const popupContent = `
+      <div class="popup-content">
+      <div class="popup-info">
+      <img src="${user.avatar}" alt="Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 8px;">
+        <h3 style="margin-bottom: 8px;">${user.name}</h3>
+        </div>
+        <p style="margin-bottom: 4px;">Ver perfil: 
+          <a href="/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}"
+             style="color: #007BFF; text-decoration: underline;">Ir al perfil</a>
+        </p>
+      </div>
+    `;
+    
+  
+    const popup = new mapboxgl.Popup().setHTML(popupContent);
       const marker = new mapboxgl.Marker({ color: 'red' })
         .setLngLat([user.lon, user.lat])
         .setPopup(popup)
         .addTo(map);
-  
-      // Guardar el estado del marcador para futuras referencias
-      map.setFeatureState(
-        { source: 'users', id: marker._elementId },
-        { city: user.city, coordinates: [user.lon, user.lat] }
-      );
     });
   };
 

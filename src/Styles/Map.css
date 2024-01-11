@@ -7,7 +7,27 @@
     height: 400px;
     margin-right: 0%;
 }
+/* styles.css */
+.popup-content {
+    font-size: 16px;
 
+  }
+
+  .popup-info{
+    display: flex;
+
+  }
+  
+  .popup-content a {
+    color: black;
+    text-decoration: none;
+  
+  }
+  
+.popup-content a:hover {
+    color: #917E41; /* Cambia el color al hacer hover */
+  }
+  
 
 
   
