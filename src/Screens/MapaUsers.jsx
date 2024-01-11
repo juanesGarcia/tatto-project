@@ -161,7 +161,7 @@ export const MapaUsers = () => {
 
   return (
     <div className="contmap">
-        <h2 className='confirmubi'>confirma tu ubicacion </h2>
+        <h2 className='confirmubi'>agrega la ubicacion de tu local </h2>
       <div className="map" ref={mapContainerRef} style={{ width: '100%'}}>
         {isLoading && <p>Cargando mapa...</p>}
       </div>

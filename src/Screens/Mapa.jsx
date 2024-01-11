@@ -138,7 +138,7 @@ export const Mapa = ({users}) => {
       <div class="popup-content">
       <div class="popup-info">
       <img src="${user.avatar}" alt="Avatar" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 8px;">
-        <h3 style="margin-bottom: 8px;">${user.name}</h3>
+        <h3 style="margin-top: 7px;">${user.name}</h3>
         </div>
         <p style="margin-bottom: 4px;">Ver perfil: 
           <a href="/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}"
