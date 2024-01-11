@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "../Styles/SearchP.css";
 import { getUsers } from '../api/auth';
 import { Avatar } from '@mui/material';
+import { Mapa } from "./Mapa";
 
 export const SearchP = () => {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export const SearchP = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const searchRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  
 
   const handleArrowKeyPress = (event) => {
     if (filteredUsers.length === 0) return;
@@ -33,12 +35,13 @@ export const SearchP = () => {
 
   const showData = async () => {
     try {
-      const response = await getUsers();
-      const data = response.data;
-      console.log(data)
-      const parsedUsers = parseUserData(data);
-      console.log(parsedUsers);
-      setUsers(parsedUsers);
+      // Llamar a la API solo si la lista de usuarios está vacía
+      if (users.length === 0) {
+        const response = await getUsers();
+        const data = response.data;
+        const parsedUsers = parseUserData(data);
+        setUsers(parsedUsers);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +49,7 @@ export const SearchP = () => {
 
   useEffect(() => {
     showData();
-  }, []);
+  }, [users]); // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
 
   const filterUsers = (allUsers, searchText) => {
     return allUsers.filter((user) =>
@@ -143,6 +146,7 @@ export const SearchP = () => {
            
           </div>
         ))}
+        <Mapa users={users}></Mapa>
     </div>
   );
 };
