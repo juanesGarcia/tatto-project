@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmVzLTEyMyIsImEiOiJjbHExM2E4ZzAwMXRxMmlueHA5ZnB4dXU4In0.KQFMVdrDUldzkKwXUIJP-w';
+const googleMapsApiKey = 'AIzaSyA-BAdaQ7CAlBniXGzQTmAfMbbwqYiWkkQ';
 
 export const MapaUsers = () => {
   const mapContainerRef = useRef(null);
@@ -73,22 +74,31 @@ export const MapaUsers = () => {
     }
   }, [userLocation, cityUser]);
 
-  
   const getCityFromCoordinates = async (userLocation) => {
     try {
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${userLocation[1]}&lon=${userLocation[0]}`
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${userLocation[1]},${userLocation[0]}&key=${googleMapsApiKey}`
       );
-
+  
       const data = await response.json();
-      const cityUser = data.address.city;
-
-      return cityUser;
+  
+      if (data.results && data.results.length > 0) {
+        for (const component of data.results[0].address_components) {
+          if (component.types.includes('locality')) {
+            const cityUser = component.long_name;
+            return cityUser;
+          }
+        }
+      }
+  
+      console.error('No se pudo obtener la información de la ciudad.');
+      return null;
     } catch (error) {
       console.error('Error al obtener la ciudad:', error);
       return null;
     }
   };
+
 
   const updateLocation = async () => {
     const id = info.id;
