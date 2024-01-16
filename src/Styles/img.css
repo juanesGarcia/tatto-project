@@ -124,8 +124,8 @@
       max-height: 100vh; /* Limita la altura de la imagen en responsive */
     }
     .image-gallery-thumbnail img {
-      width: 50%; /* ajusta el ancho según tus necesidades */
-      height: 50%; /* ajusta la altura según tus necesidades */
+      width: 80%; /* ajusta el ancho según tus necesidades */
+      height: 80%; /* ajusta la altura según tus necesidades */
     }
   
     .fullscreen {
@@ -152,13 +152,14 @@
     .textArea{
       font-size: 10px;
       resize: "none";
-      width: 110%;
+      width: 140%;
       max-width:100%; 
       max-height: 100px ;
       min-height: 80px;
       border: 1px solid #ccc;
       padding: 0px;
       border-radius: 4px;
+      margin-left: 1%;
   
       &::placeholder {
         text-align: left; /* Alinea el texto del placeholder a la izquierda */
@@ -184,13 +185,15 @@
 .fullscreen {
   align-items: center;
   justify-content: center;
-  margin-top: 50%;
+  margin-top: 70%;
 }
 
 .custom-image-gallery {
-  width: 90%;
+  width: 100%;
+  height: 100%;
   padding-top: 10%;
-  margin-right: 5%;
+  margin-left: 1%;
+
 
 }
 
@@ -207,7 +210,7 @@
 .comments-container{
   padding-left: 0% !important;
   padding-top: 5%;
-  width: 83%;
+  width: 100%;
   
 }
 
