@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa";
 import {
   getUser,
   onFollow,
@@ -11,6 +12,7 @@ import {
   getFollower,
   getStatusFollow,
   onUnFollow,
+  getRatingp,
 } from "../api/auth";
 import "../Styles/UserProfile.css";
 import UploadImagesPage from "./UploadImagePage";
@@ -19,6 +21,9 @@ import OpenModal from "./OpenModal";
 import FollowerModal from "./FollowerModal";
 import FollowedModal from "./FollowedModal";
 import LoaderLogo from "./LoaderLogo";
+import RatingModal from "./RatingModal";
+import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
+
 
 
 export const UserProfile = () => {
@@ -35,8 +40,11 @@ export const UserProfile = () => {
   const [followedLength, setFollowedLength] = useState();
   const [showFollowedModal, setShowFollowedModal] = useState(false);
   const [showFollowerModal, setShowFollowerModal] = useState(false);
+  const [showRatingModal, setShowRatingModal] = useState(false);
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const [userLocation, setuserLocation] = useState([]);
+  const [avarage, setAvarage] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
   const navigate = useNavigate();
 
   const toggleFollowerModal = () => {
@@ -47,9 +55,33 @@ export const UserProfile = () => {
     setShowFollowedModal(!showFollowedModal);
   };
 
+  const toggleRatingModal = () => {
+    setShowRatingModal(!showRatingModal);
+  };
+
+
 
   const moveToMap = () =>{
     navigate('/MapaUser')
+  }
+
+
+
+const getRatingf = async() =>{
+    try {
+      const response = await getRatingp(id);
+      const ratings = response.data.info;
+
+      if (ratings.length > 0) {
+        const averageRating = parseFloat(ratings[0].average_rating).toFixed(1);
+        console.log('Average Rating:', averageRating);
+        setAvarage(averageRating)
+      } else {
+        console.log('No ratings found');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 
@@ -94,6 +126,10 @@ export const UserProfile = () => {
     }
   };
 
+  const getRating = async () => {
+      toggleRatingModal();
+  };
+
   const getFollowedshow = async () => {
     if (followedLength > 0) {
       toggleFollowedModal();
@@ -131,14 +167,17 @@ export const UserProfile = () => {
       checkFollowingStatus();
     }
     // Espera a obtener los seguidores antes de llamar a showData
-    const fetchData = async () => {
-      await getFollowersf();
-      await getFollowedf();
-      showData();
-    };
-    console.log("ID actualizado:", id);
 
-    fetchData();
+      const fetchData = async () => {
+        await getFollowersf();
+        await getFollowedf();
+        await getRatingf();
+        showData();
+        setDataFetched(true);
+      };
+
+      fetchData();
+    
   }, [isAuth, id, name, info, postsLength]);
 
   const showData = async () => {
@@ -288,6 +327,16 @@ export const UserProfile = () => {
               <h6>{user[0].rol}</h6>
               <h6>{user[0].city}</h6>
 
+              {user.length > 0 && user[0].rol === "tatuador" && (
+                 <h6><StarRating rating={avarage} /> {avarage}</h6>
+              )
+             
+              }
+              
+              
+
+
+  
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
       <div className="location" onClick={() => moveToMap()}>
@@ -295,6 +344,16 @@ export const UserProfile = () => {
      </div>
 
         )}
+                  {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && isAuth && (
+ 
+  <h6 className="rating" onClick={() => getRating()}>califica al tatuador</h6>
+
+        )}
+        {user.length>0 && showRatingModal &&(
+          <RatingModal onClose={toggleRatingModal} id={id} info={info.id}/>
+        )
+
+        }
       
             </div>
           </div>
@@ -322,6 +381,7 @@ export const UserProfile = () => {
 
       <div className="buttonPerfil">
         {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && (
+          
           <button className="button">
             <a
               href={`https://wa.me/${user[0].phone}?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}
@@ -332,6 +392,7 @@ export const UserProfile = () => {
               Whatsapp
             </a>
           </button>
+
         )}
         {!isOwnProfile && (
           <>

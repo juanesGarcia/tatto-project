@@ -127,3 +127,15 @@ export async function updatelocation(data){
     );
 }
 
+export async function rating2(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/rating`,
+        data
+    );
+}
+
+export async function getRatingp(id){
+    return await axios.get(
+        `https://tatto-backend.onrender.com/getRating/${id}`
+    );
+}
