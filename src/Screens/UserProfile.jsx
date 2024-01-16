@@ -13,6 +13,7 @@ import {
   getStatusFollow,
   onUnFollow,
   getRatingp,
+  yetRating,
 } from "../api/auth";
 import "../Styles/UserProfile.css";
 import UploadImagesPage from "./UploadImagePage";
@@ -44,6 +45,7 @@ export const UserProfile = () => {
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const [userLocation, setuserLocation] = useState([]);
   const [avarage, setAvarage] = useState([]);
+  const [yet, setYet] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   const navigate = useNavigate();
 
@@ -65,12 +67,34 @@ export const UserProfile = () => {
     navigate('/MapaUser')
   }
 
+  const yetRatingf = async () =>{
+
+
+    const data = {
+      rater_user: info.id,
+      tatuador_user: id,
+    };
+    console.log(info.id,id)
+    try {
+      const response = await yetRating(data);
+      const yet = response.data.info || [];
+  
+      console.log(yet[0].rating_yet)
+      setYet(yet[0].rating_yet)
+      
+  
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
 
 
 const getRatingf = async() =>{
     try {
       const response = await getRatingp(id);
-      const ratings = response.data.info;
+      const ratings = response.data.info || [];
 
       if (ratings.length > 0) {
         const averageRating = parseFloat(ratings[0].average_rating).toFixed(1);
@@ -172,13 +196,17 @@ const getRatingf = async() =>{
         await getFollowersf();
         await getFollowedf();
         await getRatingf();
+        if(isAuth){
+           await yetRatingf();
+        }
+       
         showData();
         setDataFetched(true);
       };
 
       fetchData();
     
-  }, [isAuth, id, name, info, postsLength]);
+  }, [isAuth, id, name, info, postsLength,avarage]);
 
   const showData = async () => {
     try {
@@ -344,13 +372,13 @@ const getRatingf = async() =>{
      </div>
 
         )}
-                  {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && isAuth && (
+                  {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && isAuth && !yet && (
  
   <h6 className="rating" onClick={() => getRating()}>califica al tatuador</h6>
 
         )}
         {user.length>0 && showRatingModal &&(
-          <RatingModal onClose={toggleRatingModal} id={id} info={info.id}/>
+          <RatingModal onClose={toggleRatingModal} id={id} info={info.id} getRatingf={getRatingf}/>
         )
 
         }

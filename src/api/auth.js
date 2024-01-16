@@ -47,11 +47,17 @@ export async function getUsers(){
         'https://tatto-backend.onrender.com/user'
     );
 }
+export async function getUsersWithRating(){
+    return await axios.get(
+        'https://tatto-backend.onrender.com/userwithrating'
+    );
+}
 export async function getUser(id){
     return await axios.get(
         `https://tatto-backend.onrender.com/user/${id}`
     );
 }
+
 
 export async function onDelete(id){
     return await axios.delete(
@@ -137,5 +143,12 @@ export async function rating2(data){
 export async function getRatingp(id){
     return await axios.get(
         `https://tatto-backend.onrender.com/getRating/${id}`
+    );
+}
+
+export async function yetRating(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/yetrating`,
+        data
     );
 }

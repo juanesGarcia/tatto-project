@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/SearchP.css";
-import { getUsers } from '../api/auth';
+import { getUsers,getUsersWithRating} from '../api/auth';
 import { Avatar } from '@mui/material';
 import { Mapa } from "./Mapa";
+import StarRating from "./StarRating";
 
 export const SearchP = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export const SearchP = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const searchRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  
+
 
   const handleArrowKeyPress = (event) => {
     if (filteredUsers.length === 0) return;
@@ -32,15 +33,20 @@ export const SearchP = () => {
       }
     }
   };
+ 
 
+  
   const showData = async () => {
     try {
       // Llamar a la API solo si la lista de usuarios está vacía
       if (users.length === 0) {
-        const response = await getUsers();
+        const response = await getUsersWithRating();
         const data = response.data;
+        console.log(data)
         const parsedUsers = parseUserData(data);
+        console.log(parsedUsers)
         setUsers(parsedUsers);
+        console.log(parsedUsers);
       }
     } catch (error) {
       console.log(error);
@@ -49,7 +55,7 @@ export const SearchP = () => {
 
   useEffect(() => {
     showData();
-  }, [users]); // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
+  }, []); // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
 
   const filterUsers = (allUsers, searchText) => {
     return allUsers.filter((user) =>
@@ -91,20 +97,19 @@ export const SearchP = () => {
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?),(.*?),(.*?)\)/);
-      console.log(match)
       return {
-        id: match[1],
-        name: match[2],
-        rol:match[3],
-        lon:match[4],
-        lat:match[5],
-        city:match[6],
+        id: item.id,
+        name: item.name,
+        rol: item.rol,
+        lon: item.lon,
+        lat: item.lat,
+        city: item.city,
+        average_rating: parseFloat(item.average_rating).toFixed(1) || 0,
         avatar: "/images/fondo.jpg"
       };
     });
   };
-
+  
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
       <div className='titleinput'>busca los tatuadores </div>
@@ -138,9 +143,9 @@ export const SearchP = () => {
                
             <div className="user-info">
               <div className="user-name">{user.name}</div>
-              <div className='stars'>*******</div>
               <div className="user-rol">{user.rol}</div>
-              <div className="user-location">{user.city.replace(/['"]/g, '')}</div>
+              <div className="user-location">{user.city ? user.city.replace(/['"]/g, '') : ''}</div>
+              <div><StarRating rating={user.average_rating} />{user.average_rating}</div>
             </div>                            
             </div>
            

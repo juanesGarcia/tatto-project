@@ -52,15 +52,16 @@
         width: 80% !important;
       }
       .clasification{
-        margin-left: 16%;
+        margin-left: 20%;
         margin-bottom: 8%;
       }
       .allStart{
         margin-bottom: 8%;
-        margin-left: 22%;
+        margin-left: 24%;
       }
       #confirm{
-        margin-left: 20%;
+        margin-left: 30%;
+        margin-bottom: 3%;
       }
     
   }

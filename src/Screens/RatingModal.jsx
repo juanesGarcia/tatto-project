@@ -4,7 +4,7 @@ import "../Styles/Rating.css";
 import { rating2 } from "../api/auth";
 import Swal from "sweetalert2";
 
-const RatingModal = ({ onClose, id, info }) => {
+const RatingModal = ({ onClose, id, info , getRatingf}) => {
   const [showRating, setShowRating] = useState(false);
   const [rating, setRating] = useState(0);
 
@@ -49,6 +49,7 @@ const RatingModal = ({ onClose, id, info }) => {
           title: "custom-swal-title",
         },
       });
+      getRatingf();
     } catch (error) {
       Swal.fire({
         icon: "error",

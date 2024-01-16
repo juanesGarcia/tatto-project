@@ -84,10 +84,11 @@ export const Mapa = ({users}) => {
             updateMarkers(map, selectedCity,users);
           }
         });
-        
+
         const userCityLocations = users.filter(
-          (user) => user.city.toLowerCase() === cityUser.toLowerCase()
+          (user) => user.city && user.city.toLowerCase() === cityUser?.toLowerCase()
         );
+        
 
         userCityLocations.forEach((user) => {
           const popupContent = `
@@ -126,10 +127,10 @@ export const Mapa = ({users}) => {
   
     // Filtrar y mostrar solo las ubicaciones de la ciudad seleccionada
      // Filtrar y mostrar solo las ubicaciones de la ciudad seleccionada
-  const userCityLocations = users.filter(
-    (user) => user.city.replace(/['"]/g, '').toLowerCase() === selectedCity.toLowerCase() && user.lon !== '' && user.lat !== ''
-  );
-  
+     const userCityLocations = users.filter(
+      (user) => user.city && user.city.replace(/['"]/g, '').toLowerCase() === selectedCity.toLowerCase() && user.lon !== '' && user.lat !== ''
+    );
+    
 
     console.log(userCityLocations)
   
