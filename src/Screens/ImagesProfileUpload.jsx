@@ -75,7 +75,7 @@ const ImagesProfileUpload = ({ onClose, id}) => {
     if(acceptedFiles.length==1){
       try {
         const response = await axios.post(
-          `http://localhost:4000/uploadimg/${id}`,
+          `https://tatto-backend.onrender.com/uploadimg/${id}`,
           formData,
         );
         Swal.fire({

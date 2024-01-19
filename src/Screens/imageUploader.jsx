@@ -7,7 +7,6 @@ import "../Styles/img.css";
 import { BsFillFileImageFill } from "react-icons/bs";
 import { useSelector } from 'react-redux';
 import TextareaAutosize from "react-textarea-autosize";
-import { Info } from "@mui/icons-material";
 
 const resizeImage = async (file, targetWidth, targetHeight) => {
   return new Promise((resolve) => {
