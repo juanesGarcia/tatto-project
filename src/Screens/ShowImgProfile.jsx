@@ -9,7 +9,7 @@ const ShowImgProfile = ({onClose,avatar}) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-contentshow" onClick={(e) => e.stopPropagation()}>
       <div className="image-avatar">
-        <Avatar src={avatar}   sx={{ width: 350, height: 350, border: '2px solid black' }}></Avatar>
+        <Avatar src={avatar}   sx={{ width: 350, height: 350, border: '1px solid black' }}></Avatar>
 
     </div>
       </div>

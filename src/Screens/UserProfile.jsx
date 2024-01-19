@@ -380,6 +380,11 @@ const getRatingf = async() =>{
     <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
   )
 )}
+{
+  showImages && !isAuth &&(
+    <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
+  )
+}
 
        
             <div className="containerInfo">
