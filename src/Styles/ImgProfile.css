@@ -1,0 +1,18 @@
+.icon-imgP{
+    margin-left: -1%;
+  font-size: 1200%;
+}
+
+
+
+
+  /* Estilos adicionales para mejorar la visualización en responsive */
+  @media (max-width: 480px) {
+  
+    .icon-imgP{
+      margin-left: 10%;
+    }
+
+  
+  }
+  

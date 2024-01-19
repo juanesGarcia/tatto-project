@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de importar los estilos de la galería
-import "../Styles/img.css";
+import "../Styles/ImgProfile.css";
 import { BsFillFileImageFill } from "react-icons/bs";
 
 
@@ -138,7 +138,7 @@ const ImagesProfileUpload = ({ onClose, id}) => {
               ) : (
                 <div>
                   <h3 className="text-img">arrastre o click para subir imagenes</h3>
-                  <BsFillFileImageFill className="icon-img"></BsFillFileImageFill>
+                  <BsFillFileImageFill className="icon-imgP"></BsFillFileImageFill>
                 </div>
                   
                 

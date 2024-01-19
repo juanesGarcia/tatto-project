@@ -9,7 +9,7 @@ const UploadImgProfile = ({ onClose,id}) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-contentimg" onClick={(e) => e.stopPropagation()}>
       <div className="upload-page">
-      <div className='upload-mesage'>Subir Imágenes</div>
+      <div className='upload-mesageimg'>Sube una imagen de perfil</div>
        <ImagesProfileUpload id={id} onClose={onClose}></ImagesProfileUpload>
     </div>
       </div>

@@ -140,7 +140,7 @@ export const SearchP = () => {
           onMouseLeave={() => setSelectedIndex(-1)} 
         >
             <div className='userDetails'>
-              <div className='avatar' ><Avatar sx={{ width:60, height:60}} src={user.avatar} alt={user.name} /></div>
+              <div className='avatar' ><Avatar sx={{ width:60, height:60,border: '1px solid black'}} src={user.avatar} alt={user.name} /></div>
                
             <div className="user-info">
               <div className="user-name">{user.name}</div>

@@ -24,7 +24,9 @@ import FollowedModal from "./FollowedModal";
 import LoaderLogo from "./LoaderLogo";
 import RatingModal from "./RatingModal";
 import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
-import UploadImgProfile  from "./UploadImgProfile"
+import UploadImgProfile  from "./UploadImgProfile";
+import ShowImgProfile from "./ShowImgProfile";
+ 
 
 
 export const UserProfile = () => {
@@ -46,6 +48,7 @@ export const UserProfile = () => {
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const [userLocation, setuserLocation] = useState([]);
   const [avarage, setAvarage] = useState([]);
+  const [countAvarage, setCountAvarage] = useState([]);
   const [yet, setYet] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   const navigate = useNavigate();
@@ -66,6 +69,8 @@ export const UserProfile = () => {
     setShowImages(!showImages);
     showData();
   };
+
+  
 
 
   const moveToMap = () =>{
@@ -105,8 +110,11 @@ const getRatingf = async() =>{
 
       if (ratings.length > 0) {
         const averageRating = parseFloat(ratings[0].average_rating).toFixed(1) || 0;
+
         console.log('Average Rating:', averageRating);
         setAvarage(averageRating)
+        console.log(ratings[0].rating_count)
+        setCountAvarage(ratings[0].rating_count)
       } else {
         
           setAvarage(0.0.toFixed(1))
@@ -361,20 +369,26 @@ const getRatingf = async() =>{
           <div className="containerProfile">
             <Avatar
               src={user[0].avatar}
-              sx={{ width: 140, height: 140 }}
+              sx={{ width: 140, height: 140, border: '1px solid black'}}
               className="img-avatar"
               onClick={() => getuploadImage()}
             ></Avatar>
-               {showImages && isAuth && isOwnProfile &&(
-                <UploadImgProfile onClose={toggleImages} id={id}></UploadImgProfile>
-          )}
+            {showImages && isAuth && (
+  isOwnProfile ? (
+    <UploadImgProfile onClose={toggleImages} id={id}></UploadImgProfile>
+  ) : (
+    <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
+  )
+)}
+
+       
             <div className="containerInfo">
               <h6 className="nameinfo"> {user[0].name} </h6>
               <h6>{user[0].rol}</h6>
               <h6>{user[0].city}</h6>
           
               {user.length > 0 && user[0].rol === "tatuador" && (
-                 <h6><StarRating rating={avarage} /> {avarage}</h6>
+                 <h6><StarRating rating={avarage} /> {avarage} </h6>
               )
              
               }
