@@ -101,12 +101,16 @@ const getRatingf = async() =>{
       const response = await getRatingp(id);
       const ratings = response.data.info || [];
 
+  
+
       if (ratings.length > 0) {
-        const averageRating = parseFloat(ratings[0].average_rating).toFixed(1);
+        const averageRating = parseFloat(ratings[0].average_rating).toFixed(1) || 0;
         console.log('Average Rating:', averageRating);
         setAvarage(averageRating)
       } else {
-        console.log('No ratings found');
+        
+          setAvarage(0.0.toFixed(1))
+        
       }
     } catch (error) {
       console.log(error);

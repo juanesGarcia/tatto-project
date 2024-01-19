@@ -1,13 +1,23 @@
-// StarRating.jsx
-
 import React from "react";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import '../Styles/StarRating.css'; // Ajusta la ruta según la ubicación de tu archivo de estilo
 
 const StarRating = ({ rating }) => {
-  console.log(rating)
+  console.log(rating);
+
+  // Check if rating is an empty array
+  if (Array.isArray(rating) && rating.length === 0) {
+    // Render 5 empty stars
+    const emptyStars = Array.from({ length: 5 }, (_, index) => (
+      <FaStar key={index} className="star2" style={{ color: "#fff" }} />
+    ));
+    
+    return <div className="star2-container">{emptyStars}</div>;
+  }
+
+  // Proceed with the regular rating rendering logic
   const stars = [];
-  const roundedRating = Math.floor(rating); // Cambiado a Math.floor para redondear hacia abajo
+  const roundedRating = Math.floor(rating);
 
   for (let i = 0; i < 5; i++) {
     if (i < roundedRating) {
@@ -23,5 +33,4 @@ const StarRating = ({ rating }) => {
 };
 
 export default StarRating;
-
 
