@@ -1,0 +1,177 @@
+import axios from "axios";
+import React, { useState, useCallback, useEffect } from "react";
+import { useDropzone } from "react-dropzone";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de importar los estilos de la galería
+import "../Styles/img.css";
+import { BsFillFileImageFill } from "react-icons/bs";
+
+
+const resizeImage = async (file, targetWidth, targetHeight) => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = URL.createObjectURL(file);
+
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+
+      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+
+      canvas.toBlob((blob) => {
+        resolve(blob);
+      });
+    };
+  });
+};
+
+
+
+const ImagesProfileUpload = ({ onClose, id}) => {
+  const [images, setImages] = useState([]);
+  const [showUploadSection, setShowUploadSection] = useState(true);
+  const [imageCount, setImageCount] = useState(0);
+
+  const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
+    useDropzone({
+      onDrop: useCallback(async (acceptedFiles) => {
+        const resolutionMultiplier = 2;
+        const resizedImages = await Promise.all(
+          acceptedFiles.map(async (file) => {
+            const resizedBlob = await resizeImage(
+              file,
+              800,
+              600,
+              resolutionMultiplier
+            );
+            return {
+              original: URL.createObjectURL(resizedBlob),
+              thumbnail: URL.createObjectURL(resizedBlob),
+            };
+          })
+        );
+
+        setImages(resizedImages);
+        // Ocultar la sección de carga después de seleccionar imágenes
+        setShowUploadSection(false);
+      }, []),
+    });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+
+
+    acceptedFiles.forEach((file, index) => {
+      formData.append("photo", file);
+    });
+
+    setImageCount(acceptedFiles.length);
+    console.log(acceptedFiles.length)
+
+    if(acceptedFiles.length==1){
+      try {
+        const response = await axios.post(
+          `http://localhost:4000/uploadimg/${id}`,
+          formData,
+        );
+        Swal.fire({
+          icon: 'success',
+          title: response.data.message,
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
+  
+        onClose();
+
+      } catch (error) {
+        console.error("Error en la carga:", error);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
+    
+      }
+
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'solo se puede subir una foto ',
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'custom-swal-popup',
+          title: 'custom-swal-title',
+        },
+      });
+    }
+    onClose();
+   
+
+  };
+
+  return (
+    <div  style={{ marginLeft: imageCount > 4 ? '1%' : '0%' }}>
+      <form action="" onSubmit={handleSubmit} encType="multipart/form-data">
+        <div className="prue">
+          {showUploadSection && (
+            <div
+              {...getRootProps()}
+              className="boxUpdate"
+            >
+              <input {...getInputProps()} />
+              {isDragActive ? (
+                <p>Drop the files here ...</p>
+              ) : (
+                <div>
+                  <h3 className="text-img">arrastre o click para subir imagenes</h3>
+                  <BsFillFileImageFill className="icon-img"></BsFillFileImageFill>
+                </div>
+                  
+                
+                
+              )}
+            </div>
+          )}
+
+          {!showUploadSection && (
+            <div className="prue2">
+              <div className="container-img">
+                <div className="img-comment">
+                  <div className="custom-image-gallery">
+                    <ImageGallery items={images} />
+                  </div>
+                </div>
+                <div className="but-upload">
+                  <button className="button">Subir</button>
+                  <button className="button" onClick={onClose}>
+                    Cerrar
+                  </button>
+                </div>
+              
+              </div>
+            </div>
+            
+          )}
+          
+        </div>
+        
+      </form>
+    </div>
+  );
+};
+
+export default ImagesProfileUpload;

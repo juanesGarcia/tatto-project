@@ -24,7 +24,7 @@ import FollowedModal from "./FollowedModal";
 import LoaderLogo from "./LoaderLogo";
 import RatingModal from "./RatingModal";
 import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
-
+import UploadImgProfile  from "./UploadImgProfile"
 
 
 export const UserProfile = () => {
@@ -42,6 +42,7 @@ export const UserProfile = () => {
   const [showFollowedModal, setShowFollowedModal] = useState(false);
   const [showFollowerModal, setShowFollowerModal] = useState(false);
   const [showRatingModal, setShowRatingModal] = useState(false);
+  const [showImages, setShowImages] = useState(false);
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
   const [userLocation, setuserLocation] = useState([]);
   const [avarage, setAvarage] = useState([]);
@@ -61,6 +62,10 @@ export const UserProfile = () => {
     setShowRatingModal(!showRatingModal);
   };
 
+  const toggleImages = () => {
+    setShowImages(!showImages);
+    showData();
+  };
 
 
   const moveToMap = () =>{
@@ -149,6 +154,8 @@ const getRatingf = async() =>{
       toggleFollowerModal();
     }
   };
+
+  
 
   const getRating = async () => {
       toggleRatingModal();
@@ -300,14 +307,15 @@ const getRatingf = async() =>{
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?),(.*?)\)/);
+      const match = item.row.match(/\((.*?),(.*?),(.*?),(.*?),(.*?),(.*?)\)/);
+      const avatar = match[6] || "/images/fondo.jpg";
       return {
         name: match[1],
         email: match[2],
         rol: match[3],
         phone: match[4],
         city: match[5],
-        avatar: "/images/fondo.jpg",
+        avatar: avatar ,
       };
     });
   };
@@ -336,7 +344,9 @@ const getRatingf = async() =>{
     setShowUploadPage(false);
   };
 
-    
+ const getuploadImage =()=>{
+  toggleImages()
+ }
   
   
   return (
@@ -346,25 +356,25 @@ const getRatingf = async() =>{
         <div>
           <div className="containerProfile">
             <Avatar
-              src={logo}
+              src={user[0].avatar}
               sx={{ width: 140, height: 140 }}
               className="img-avatar"
+              onClick={() => getuploadImage()}
             ></Avatar>
+               {showImages && isAuth && isOwnProfile &&(
+                <UploadImgProfile onClose={toggleImages} id={id}></UploadImgProfile>
+          )}
             <div className="containerInfo">
               <h6 className="nameinfo"> {user[0].name} </h6>
               <h6>{user[0].rol}</h6>
               <h6>{user[0].city}</h6>
-
+          
               {user.length > 0 && user[0].rol === "tatuador" && (
                  <h6><StarRating rating={avarage} /> {avarage}</h6>
               )
              
               }
-              
-              
-
-
-  
+        
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
       <div className="location" onClick={() => moveToMap()}>

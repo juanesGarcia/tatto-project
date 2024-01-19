@@ -1,14 +1,14 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-//https://tatto-backend.onrender.com
+//http://localhost:4000
 
 
 export async function onUpdate(updateData) {
     console.log(updateData.user)
     try {
       const response = await axios.put(
-        `https://tatto-backend.onrender.com/user/${updateData.id}`,
+        `http://localhost:4000/user/${updateData.id}`,
         updateData.user
       );
   
@@ -19,61 +19,61 @@ export async function onUpdate(updateData) {
   }
 export async function onRegistration(registrationData){
     return await axios.post(
-        'https://tatto-backend.onrender.com/register',
+        'http://localhost:4000/register',
         registrationData
     );
 }
 
 export async function onLogin(loginData){
     return await axios.post(
-        'https://tatto-backend.onrender.com/login',
+        'http://localhost:4000/login',
         loginData
     );
 }
 
 export async function onLogout(){
     return await axios.get(
-        'https://tatto-backend.onrender.com/logout'
+        'http://localhost:4000/logout'
     );
 }
 
 export async function fechProtectedInfo(){
     return await axios.get(
-        'https://tatto-backend.onrender.com/protected'
+        'http://localhost:4000/protected'
     );
 }
 export async function getUsers(){
     return await axios.get(
-        'https://tatto-backend.onrender.com/user'
+        'http://localhost:4000/user'
     );
 }
 export async function getUsersWithRating(){
     return await axios.get(
-        'https://tatto-backend.onrender.com/userwithrating'
+        'http://localhost:4000/userwithrating'
     );
 }
 export async function getUser(id){
     return await axios.get(
-        `https://tatto-backend.onrender.com/user/${id}`
+        `http://localhost:4000/user/${id}`
     );
 }
 
 
 export async function onDelete(id){
     return await axios.delete(
-        `https://tatto-backend.onrender.com/user/${id}`
+        `http://localhost:4000/user/${id}`
     );
 }
 
 export async function onFollow(data) {
     return await axios.post(
-        'https://tatto-backend.onrender.com/followUser',
+        'http://localhost:4000/followUser',
          data
     );
 }
 export async function onUnFollow(data) {
     return await axios.post(
-        'https://tatto-backend.onrender.com/unFollowUser',
+        'http://localhost:4000/unFollowUser',
          data
     );
 }
@@ -82,73 +82,73 @@ export async function onUnFollow(data) {
 
 export async function getFollower(id){
     return await axios.get(
-        `https://tatto-backend.onrender.com/follower/${id}`
+        `http://localhost:4000/follower/${id}`
     );
 }
 export async function getFollowed(id){
     return await axios.get(
-        `https://tatto-backend.onrender.com/followed/${id}`
+        `http://localhost:4000/followed/${id}`
     );
 }
 
 export async function getStatusFollow(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/checkfollowing`,
+        `http://localhost:4000/checkfollowing`,
         data
     );
 }
 
 export async function onReaction(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/reactions`,
+        `http://localhost:4000/reactions`,
         data
     );
 }
 
 export async function getStatusReactions(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/checkreactions`,
+        `http://localhost:4000/checkreactions`,
         data
     );
 }
 
 export async function unReaction(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/unreaction`,
+        `http://localhost:4000/unreaction`,
         data
     );
 }
 
 export async function getReactions(post_id){
     return await axios.get(
-        `https://tatto-backend.onrender.com/getreactions/${post_id}`
+        `http://localhost:4000/getreactions/${post_id}`
     );
 }
 
 
 export async function updatelocation(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/updatelocation`,
+        `http://localhost:4000/updatelocation`,
         data
     );
 }
 
 export async function rating2(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/rating`,
+        `http://localhost:4000/rating`,
         data
     );
 }
 
 export async function getRatingp(id){
     return await axios.get(
-        `https://tatto-backend.onrender.com/getRating/${id}`
+        `http://localhost:4000/getRating/${id}`
     );
 }
 
 export async function yetRating(data){
     return await axios.post(
-        `https://tatto-backend.onrender.com/yetrating`,
+        `http://localhost:4000/yetrating`,
         data
     );
 }

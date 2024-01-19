@@ -1,0 +1,37 @@
+.upload-mesage{
+    margin-left: 25%;
+    font-family: 'Rock Salt', cursive !important;
+    margin-top: 4%;
+    margin-bottom: 3%;
+    font-size: 30px;
+    width: 100%;
+    color: aliceblue;
+
+}
+
+.modal-contentimg{
+    width: 30% !important;
+    background-color: rgb(24, 23, 23);
+    border-radius: 2%;
+}
+
+
+@media (max-width: 800px) {
+    .upload-mesage{
+        margin-left: 20%;
+        font-family: 'Rock Salt', cursive !important;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        font-size: 130%;
+        width: 100%;
+    }
+    .upload-page{
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .modal-contentimg{
+        width: 80% !important;
+        height: auto;
+    }
+
+  }

@@ -97,6 +97,7 @@ export const SearchP = () => {
 
   const parseUserData = (data) => {
     return data.map((item) => {
+      const avatar = item.media_url || "/images/fondo.jpg";
       return {
         id: item.id,
         name: item.name,
@@ -105,7 +106,7 @@ export const SearchP = () => {
         lat: item.lat,
         city: item.city,
         average_rating: parseFloat(item.average_rating).toFixed(1) || 0,
-        avatar: "/images/fondo.jpg"
+        avatar: avatar
       };
     });
   };
