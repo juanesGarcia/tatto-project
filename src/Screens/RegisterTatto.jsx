@@ -122,7 +122,7 @@ export const RegisterTatto = () => {
               type="text"
               onChange={handleOnchange}
             />
-            <label>User Name</label>
+            <label className="label">User Name</label>
           </div>
           <div className="user-box">
             <input
@@ -131,7 +131,7 @@ export const RegisterTatto = () => {
               type="text"
               onChange={handleOnchange}
             />
-            <label>Email</label>
+            <label className="label">Email</label>
           </div>
           <div className="user-box">
               <input
@@ -141,7 +141,7 @@ export const RegisterTatto = () => {
                 type={user.showPassword ? "text" : "password"}
                 autoComplete="off"
               />
-              <label>Password</label>
+              <label className="label">Password</label>
               {user.showPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowPassword}
@@ -162,7 +162,7 @@ export const RegisterTatto = () => {
                 onChange={handleOnchange}
                 autoComplete="off"
               />
-              <label>Comfirm Password</label>
+              <label className="label">Comfirm Password</label>
               {user.showConfirmPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowConfirmPassword}
@@ -174,6 +174,7 @@ export const RegisterTatto = () => {
                   className="visibility-right"
                 ></VisibilityOffIcon>
               )}
+                
             </div>
           <div className="user-box">
             {/* Nuevo campo para el nombre del país */}
@@ -195,6 +196,7 @@ export const RegisterTatto = () => {
               placeholder="Country Name"
               onChange={handleCountryCodeChange}
             />
+            <label className="label">Phone</label>
           </div>
           <div className="user-box">
             {/* Campo de teléfono */}

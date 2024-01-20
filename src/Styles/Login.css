@@ -18,6 +18,10 @@ body, html {
 .user-boxLogin{
   font-family: 'Shadows Into Light', sans-serif;
 }
+
+.label{
+  font-family: 'Rock Salt', cursive !important;
+}
   
   
 .login-boxLogin {

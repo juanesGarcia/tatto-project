@@ -1,7 +1,7 @@
 .containerRegister {
   background-image: url("/images/Default_I_am_looking_to_create_a_background_which_is_focused_o_2.jpg");
   width: 100%;
-  height: 130vh;
+  height: 140vh;
   padding: 0;
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
   background-position: center; /* Centra la imagen dentro del contenedor */
@@ -70,17 +70,18 @@
 
   }
   
-  @media (max-width: 470px) {
+  @media (max-width: 800px) {
     .login-box{
         width: 80%; 
-        margin-top: 40% !important;
+        top: 38% !important;
+        margin-top: 0% !important;
     }
     .login-box p:last-child {
        margin-top: 10%;
       }
       .containerRegister {
 
-        height: 110vh;
+        height: 93vh;
 
       }
   }

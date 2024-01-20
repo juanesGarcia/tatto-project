@@ -89,7 +89,7 @@ export const Register = () => {
                 type="text"
                 onChange={handleOnchange}
               />
-              <label>User Name</label>
+              <label className="label">User Name</label>
             </div>
             <div className="user-box">
               <input
@@ -98,7 +98,7 @@ export const Register = () => {
                 type="text"
                 onChange={handleOnchange}
               />
-              <label>Email</label>
+              <label className="label">Email</label>
             </div>
             <div className="user-box">
               <input
@@ -108,7 +108,7 @@ export const Register = () => {
                 type={user.showPassword ? "text" : "password"}
                 autoComplete="off"
               />
-              <label>Password</label>
+              <label className="label">Password</label>
               {user.showPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowPassword}
@@ -129,7 +129,7 @@ export const Register = () => {
                 onChange={handleOnchange}
                 autoComplete="off"
               />
-              <label>Comfirm Password</label>
+              <label className="label">Comfirm Password</label>
               {user.showConfirmPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowConfirmPassword}
