@@ -50,54 +50,14 @@
 }
 @media (max-width: 800px){
   .btnUser{
-    padding-top: 30%;
+    padding-top: 60%;
 }
 .btnTatto{
-    padding-top: 8%;
+    padding-top: 20%;
 }
-}
-@media (max-width: 650px){
-  .buttonC {
-    width: 50%;
-    margin-left: 5%;
-    padding: 2% 4%;
-  }
-  .btnUser{
-    padding-top: 40%;
-}
-.btnTatto{
-    padding-top: 8%;
-}
-}
-@media (max-width: 650px){
-  .buttonC {
-    width: 50% !important;
-    margin-left: 25% !important;
-    padding: 2% 4%;
-  }
-  .btnUser{
-    padding-top: 40%;
-}
-.btnTatto{
-    padding-top: 8%;
-}
-}
-
-@media (max-width: 460px){
-
-  .buttonC {
-    width: 60% !important;
-    height: 5% !important;
-    margin-left: 25% !important;
-    margin-top: 5% !important;
-    padding: 0%;
-    position: absolute;
-  }
-  .btnUser{
-    padding-top: 50%;
-}
-.btnTatto{
-    padding-top: 30%;
+.buttonC {
+  width: 50%;
+  margin-left: 25%;
 }
 }
   
