@@ -181,8 +181,12 @@
       font-size: 160% !important;
       width: 100%;
       font-family: 'Shadows Into Light', sans-serif !important;
-
 }
+.signup {
+  width: 16vh;
+  margin-left: 5%;
+}
+
 
 .profile-email {
   margin-left: 10%;
