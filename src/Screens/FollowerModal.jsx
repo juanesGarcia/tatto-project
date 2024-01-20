@@ -26,7 +26,7 @@ const FollowerModal = ({ followers, onClose }) => {
         <div className="follower-list">
           <div className='followitems'>
             {visibleFollowed.map((followers) => (
-              <div className='namefollow' key={followers.follower_name}><Avatar sx={{ width: 50, height: 50 }}>{followers.follower_name[0].toUpperCase()}</Avatar><div className='namef' onClick={() => handlemove(followers.follower_id, followers.follower_name)}>{followers.follower_name}</div></div>
+              <div className='namefollow' key={followers.follower_name}><Avatar sx={{ width: 50, height: 50 }} src={followers.media_url}>{followers.follower_name[0].toUpperCase()}</Avatar><div className='namef' onClick={() => handlemove(followers.follower_id, followers.follower_name)}>{followers.follower_name}</div></div>
             ))}
           </div>
         </div>

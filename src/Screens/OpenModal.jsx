@@ -84,7 +84,17 @@ const OpenModal = ({
     try {
       if (!isAuthp) {
         // Si el usuario no está autenticado, muestra un mensaje o realiza alguna acción
-        console.log("Usuario no autenticado. No se puede dar like.");
+        
+    Swal.fire({
+      icon: 'error',
+      title: `no se puede reaccionar sin cuenta `,
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+      },
+    });
         return;
       }
       if (reactionsMap[post_id]) {
@@ -303,7 +313,7 @@ const OpenModal = ({
             <div className="info-users-reactions">
               {userReactions.length > 0 && (
                 <div className="user-reactions" key={userReactions[0].id}>
-                  <Avatar sx={{ width: 25, height: 25 }}>
+                  <Avatar sx={{ width: 25, height: 25 }} src={userReactions[0].media_url}>
                     {userReactions[0].name[0]}
                   </Avatar>
                   <div className="nameuser">{userReactions[0].name}</div>

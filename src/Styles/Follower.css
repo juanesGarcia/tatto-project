@@ -55,9 +55,10 @@
 .namef{
   margin-top: 1.5%;
   margin-left: 3%;
-  font-size: 20px;
+  font-family: 'Shadows Into Light', sans-serif;
+  font-size: 160%;
 }
-.name:hover{
+.namef:hover{
   color: #917E41;
 }
 

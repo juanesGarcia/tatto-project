@@ -465,7 +465,7 @@ const getRatingf = async() =>{
               )
             ) : (
               <button className="button" onClick={() => unfollow()}>
-                siguiendo✔️
+                 unFollow
               </button>
             )}
           </>
