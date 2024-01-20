@@ -15,10 +15,11 @@ import { UserProfile } from "./Screens/UserProfile";
 import { AdminAccount } from "./Screens/AdminAccount";
 import { Error } from "./Screens/Error";
 import { checkSession } from "./api/session";
-import { useEffect, useRef } from "react";
+import { useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
 import { MapaUsers } from "./Screens/MapaUsers";
+
 
 
 
@@ -59,7 +60,7 @@ function App() {
   useEffect(() => {
     const handleLoad = () => {
       const authData = localStorage.getItem('authData');
-      console.log(authData)
+
       if (authData) {
         const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
         if (storedIsAuth) {
@@ -68,6 +69,8 @@ function App() {
         } else {
           dispatch(unauthenticateUser());
         }
+
+   
       }
     };
 

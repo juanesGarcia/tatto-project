@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
-import { FaMapMarkerAlt } from 'react-icons/fa';
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import {
   getUser,
@@ -24,10 +24,8 @@ import FollowedModal from "./FollowedModal";
 import LoaderLogo from "./LoaderLogo";
 import RatingModal from "./RatingModal";
 import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
-import UploadImgProfile  from "./UploadImgProfile";
+import UploadImgProfile from "./UploadImgProfile";
 import ShowImgProfile from "./ShowImgProfile";
- 
-
 
 export const UserProfile = () => {
   const { name, id } = useParams();
@@ -67,66 +65,49 @@ export const UserProfile = () => {
 
   const toggleImages = () => {
     setShowImages(!showImages);
-    showData();
   };
 
-  
+  const moveToMap = () => {
+    navigate("/MapaUser");
+  };
 
-
-  const moveToMap = () =>{
-    navigate('/MapaUser')
-  }
-
-  const yetRatingf = async () =>{
-
-
+  const yetRatingf = async () => {
     const data = {
       rater_user: info.id,
       tatuador_user: id,
     };
-    console.log(info.id,id)
+    console.log(info.id, id);
     try {
       const response = await yetRating(data);
       const yet = response.data.info || [];
-  
-      console.log(yet[0].rating_yet)
-      setYet(yet[0].rating_yet)
-      
-  
-      
+
+      console.log(yet[0].rating_yet);
+      setYet(yet[0].rating_yet);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-  
+  };
 
-
-const getRatingf = async() =>{
+  const getRatingf = async () => {
     try {
       const response = await getRatingp(id);
       const ratings = response.data.info || [];
 
-  
-
       if (ratings.length > 0) {
-        const averageRating = parseFloat(ratings[0].average_rating).toFixed(1) || 0;
+        const averageRating =
+          parseFloat(ratings[0].average_rating).toFixed(1) || 0;
 
-        console.log('Average Rating:', averageRating);
-        setAvarage(averageRating)
-        console.log(ratings[0].rating_count)
-        setCountAvarage(ratings[0].rating_count)
+        console.log("Average Rating:", averageRating);
+        setAvarage(averageRating);
+        console.log(ratings[0].rating_count);
+        setCountAvarage(ratings[0].rating_count);
       } else {
-        
-          setAvarage(0.0.toFixed(1))
-        
+        setAvarage((0.0).toFixed(1));
       }
     } catch (error) {
       console.log(error);
     }
-  }
-
-
-
+  };
 
   const getFollowersf = async () => {
     try {
@@ -167,10 +148,8 @@ const getRatingf = async() =>{
     }
   };
 
-  
-
   const getRating = async () => {
-      toggleRatingModal();
+    toggleRatingModal();
   };
 
   const getFollowedshow = async () => {
@@ -199,6 +178,31 @@ const getRatingf = async() =>{
       console.log(error);
     }
   };
+  const fetchData = async () => {
+    try {
+      await getFollowersf();
+      await getFollowedf();
+      await getRatingf();
+
+      if (isAuth) {
+        await yetRatingf();
+        checkFollowingStatus();
+      }
+
+      if (!dataFetched) {
+        await showData();
+        setDataFetched(true);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [isAuth, id, name, info, postsLength, avarage, dataFetched]);
 
   useEffect(() => {
     if (isAuth && name === info.name) {
@@ -206,36 +210,21 @@ const getRatingf = async() =>{
     } else {
       setIsOwnProfile(false);
     }
-    if (isAuth) {
-      checkFollowingStatus();
-    }
-    // Espera a obtener los seguidores antes de llamar a showData
+  }, [isAuth, name, info]);
 
-      const fetchData = async () => {
-        await getFollowersf();
-        await getFollowedf();
-        await getRatingf();
-        if(isAuth){
-           await yetRatingf();
-        }
-       
-        showData();
-        setDataFetched(true);
-      };
+  useEffect(() => {
+    showData();
+  }, [isAuth, id, name, info, postsLength, avarage, showImages, uploadedPhoto, dataFetched]);
 
-      fetchData();
-    
-  }, [isAuth, id, name, info, postsLength,avarage]);
+  
+
 
   const showData = async () => {
     try {
       const response = await getUser(id);
       const data = response.data;
       console.log(data.info);
-
       const parsedUsers = parseUserData(data.info);
-      console.log(parsedUsers);
-
       setUser(parsedUsers);
       const nameExists = parsedUsers.some((user) => user.name === name);
       console.log(nameExists);
@@ -313,9 +302,7 @@ const getRatingf = async() =>{
     }
   };
 
-  useEffect(() => {
-    showData();
-  }, [id]);
+
 
   const parseUserData = (data) => {
     return data.map((item) => {
@@ -327,7 +314,7 @@ const getRatingf = async() =>{
         rol: match[3],
         phone: match[4],
         city: match[5],
-        avatar: avatar ,
+        avatar: avatar,
       };
     });
   };
@@ -356,11 +343,10 @@ const getRatingf = async() =>{
     setShowUploadPage(false);
   };
 
- const getuploadImage =()=>{
-  toggleImages()
- }
-  
-  
+  const getuploadImage = () => {
+    toggleImages();
+  };
+
   return (
     <>
       {isLoading && <LoaderLogo></LoaderLogo>}
@@ -369,53 +355,71 @@ const getRatingf = async() =>{
           <div className="containerProfile">
             <Avatar
               src={user[0].avatar}
-              sx={{ width: 140, height: 140, border: '1px solid black'}}
+              sx={{ width: 140, height: 140, border: "1px solid black" }}
               className="img-avatar"
               onClick={() => getuploadImage()}
             ></Avatar>
-            {showImages && isAuth && (
-  isOwnProfile ? (
-    <UploadImgProfile onClose={toggleImages} id={id}></UploadImgProfile>
-  ) : (
-    <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
-  )
-)}
-{
-  showImages && !isAuth &&(
-    <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
-  )
-}
+            {showImages &&
+              isAuth &&
+              (isOwnProfile ? (
+                <UploadImgProfile
+                  onClose={toggleImages}
+                  id={id}
+                ></UploadImgProfile>
+              ) : (
+                <ShowImgProfile
+                  onClose={toggleImages}
+                  avatar={user[0].avatar}
+                ></ShowImgProfile>
+              ))}
+            {showImages && !isAuth && (
+              <ShowImgProfile
+                onClose={toggleImages}
+                avatar={user[0].avatar}
+              ></ShowImgProfile>
+            )}
 
-       
             <div className="containerInfo">
               <div className="nameinfo"> {user[0].name} </div>
               <h6>{user[0].rol}</h6>
               <h6>{user[0].city}</h6>
-          
+
               {user.length > 0 && user[0].rol === "tatuador" && (
-                 <h6><StarRating rating={avarage} /> {avarage} </h6>
-              )
-             
-              }
-        
-              {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
-      
-      <div className="location" onClick={() => moveToMap()}>
-      agregar ubicacion de tu local<FaMapMarkerAlt  className="iconmap" size={30} color="red" style={{marginBottom:"4px"}}></FaMapMarkerAlt>
-     </div>
+                <h6>
+                  <StarRating rating={avarage} /> {avarage}{" "}
+                </h6>
+              )}
 
-        )}
-                  {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && isAuth && !yet && (
- 
-  <h6 className="rating" onClick={() => getRating()}>califica al tatuador</h6>
-
-        )}
-        {user.length>0 && showRatingModal &&(
-          <RatingModal onClose={toggleRatingModal} id={id} info={info.id} getRatingf={getRatingf}/>
-        )
-
-        }
-      
+              {user.length > 0 &&
+                user[0].rol === "tatuador" &&
+                isOwnProfile && (
+                  <div className="location" onClick={() => moveToMap()}>
+                    agregar ubicacion de tu local
+                    <FaMapMarkerAlt
+                      className="iconmap"
+                      size={30}
+                      color="red"
+                      style={{ marginBottom: "4px" }}
+                    ></FaMapMarkerAlt>
+                  </div>
+                )}
+              {user.length > 0 &&
+                user[0].rol === "tatuador" &&
+                !isOwnProfile &&
+                isAuth &&
+                !yet && (
+                  <h6 className="rating" onClick={() => getRating()}>
+                    califica al tatuador
+                  </h6>
+                )}
+              {user.length > 0 && showRatingModal && (
+                <RatingModal
+                  onClose={toggleRatingModal}
+                  id={id}
+                  info={info.id}
+                  getRatingf={getRatingf}
+                />
+              )}
             </div>
           </div>
           <div className="followInfo">
@@ -442,7 +446,6 @@ const getRatingf = async() =>{
 
       <div className="buttonPerfil">
         {user.length > 0 && user[0].rol === "tatuador" && !isOwnProfile && (
-          
           <button className="button">
             <a
               href={`https://wa.me/${user[0].phone}?text=Hola%20${name},%0A%0AEstoy%20interesado%20en%20obtener%20información%20sobre%20los%20precios%20de%20los%20tatuajes%20y%20discutir%20la%20posibilidad%20de%20programar%20una%20cita%20contigo.%20¿Podrías%20proporcionarme%20más%20detalles%20sobre%20tus%20servicios%20y%20disponibilidad?%0A%0AGracias`}
@@ -453,7 +456,6 @@ const getRatingf = async() =>{
               Whatsapp
             </a>
           </button>
-
         )}
         {!isOwnProfile && (
           <>
@@ -465,7 +467,7 @@ const getRatingf = async() =>{
               )
             ) : (
               <button className="button" onClick={() => unfollow()}>
-                 unFollow
+                unFollow
               </button>
             )}
           </>

@@ -36,27 +36,25 @@ export const SearchP = () => {
   };
  
 
-  
-  const showData = async () => {
-    try {
-      // Llamar a la API solo si la lista de usuarios está vacía
-      if (users.length === 0) {
+  useEffect(() => {
+    const showData = async () => {
+      try {
         const response = await getUsersWithRating();
         const data = response.data;
         console.log(data)
         const parsedUsers = parseUserData(data);
-        console.log(parsedUsers)
         setUsers(parsedUsers);
-        console.log(parsedUsers);
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
 
-  useEffect(() => {
-    showData();
-  }, []); // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
+    if (users.length === 0) {
+      showData();
+    }
+
+  }, [users]);
+  // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
 
   const filterUsers = (allUsers, searchText) => {
     return allUsers.filter((user) =>

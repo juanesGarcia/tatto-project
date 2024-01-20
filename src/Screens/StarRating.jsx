@@ -3,7 +3,6 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import '../Styles/StarRating.css'; // Ajusta la ruta según la ubicación de tu archivo de estilo
 
 const StarRating = ({ rating }) => {
-  console.log(rating);
 
   // Check if rating is an empty array
   if (Array.isArray(rating) && rating.length === 0) {

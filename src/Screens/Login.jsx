@@ -10,7 +10,6 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export const Login = () => {
   const [errores, setErrores] = useState(false);
-  const { isAuth, info } = useSelector((state) => state.auth);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -22,9 +21,6 @@ export const Login = () => {
     e.preventDefault();
     try {
       const infoUser = await onLogin(user);
-      console.log(infoUser);
-      console.log(infoUser.data.info);
-
       dispatch(authenticateUser());
       dispatch(setInfo(infoUser.data.info));
       localStorage.setItem("token", JSON.stringify(infoUser.data));

@@ -186,9 +186,8 @@ export const Mapa = ({users,setcityUserM}) => {
 
   return (
     <div className="containermap">
-      <div className="mapt" ref={mapContainerRef} style={{ width: '100%' }}>
-        {isLoading && <p>Cargando mapa...</p>}
-      </div>
-    </div>
+    {isLoading && <p>Cargando mapa...</p>}
+    <div className="mapt" ref={mapContainerRef} style={{ width: '100%' }} />
+  </div>
   );
 };
