@@ -178,7 +178,7 @@
   @media (max-width: 800px) {
     .profile-name{
       margin-left: 5%;
-      font-size: 100%;
+      font-size: 160% !important;
       width: 100%;
       font-family: 'Shadows Into Light', sans-serif !important;
 
