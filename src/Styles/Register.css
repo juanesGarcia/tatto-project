@@ -73,7 +73,7 @@
   @media (max-width: 800px) {
     .login-box{
         width: 80%; 
-        top: 38% !important;
+        top: 42% !important;
         margin-top: 0% !important;
     }
     .login-box p:last-child {
@@ -81,7 +81,7 @@
       }
       .containerRegister {
 
-        height: 93vh;
+        height: 100vh;
 
       }
   }
