@@ -121,6 +121,7 @@ export const RegisterTatto = () => {
               name="name"
               type="text"
               onChange={handleOnchange}
+              className="info-input"
             />
             <label className="label">User Name</label>
           </div>
@@ -130,6 +131,7 @@ export const RegisterTatto = () => {
               name="email"
               type="text"
               onChange={handleOnchange}
+              className="info-input"
             />
             <label className="label">Email</label>
           </div>
@@ -140,6 +142,7 @@ export const RegisterTatto = () => {
                 onChange={handleOnchange}
                 type={user.showPassword ? "text" : "password"}
                 autoComplete="off"
+                className="info-input"
               />
               <label className="label">Password</label>
               {user.showPassword ? (
@@ -161,6 +164,7 @@ export const RegisterTatto = () => {
                 type={user.showConfirmPassword ? "text" : "password"}
                 onChange={handleOnchange}
                 autoComplete="off"
+                className="info-input"
               />
               <label className="label">Comfirm Password</label>
               {user.showConfirmPassword ? (
@@ -195,6 +199,7 @@ export const RegisterTatto = () => {
               type="text"
               placeholder="Country Name"
               onChange={handleCountryCodeChange}
+              className="phone"
             />
             <label className="label">Phone</label>
           </div>
@@ -208,6 +213,7 @@ export const RegisterTatto = () => {
                 placeholder="code"
                 value={user.phone}
                 onChange={handleOnchange}
+                className="phone"
               />
             </div>
 

@@ -88,6 +88,8 @@ export const Register = () => {
                 name="name"
                 type="text"
                 onChange={handleOnchange}
+                className="info-input"
+                
               />
               <label className="label">User Name</label>
             </div>
@@ -97,6 +99,7 @@ export const Register = () => {
                 name="email"
                 type="text"
                 onChange={handleOnchange}
+                className="info-input"
               />
               <label className="label">Email</label>
             </div>
@@ -106,7 +109,8 @@ export const Register = () => {
                 name="password"
                 onChange={handleOnchange}
                 type={user.showPassword ? "text" : "password"}
-                autoComplete="off"
+                className="info-input"
+
               />
               <label className="label">Password</label>
               {user.showPassword ? (
@@ -128,6 +132,7 @@ export const Register = () => {
                 type={user.showConfirmPassword ? "text" : "password"}
                 onChange={handleOnchange}
                 autoComplete="off"
+                className="info-input"
               />
               <label className="label">Comfirm Password</label>
               {user.showConfirmPassword ? (

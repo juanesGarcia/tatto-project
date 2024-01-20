@@ -71,6 +71,7 @@ export const Login = () => {
                   value={user.password}
                   onChange={handleOnchange}
                   autoComplete="off"
+                  className="email"
                 />
                 {user.showPassword ? (
                   <VisibilityIcon
