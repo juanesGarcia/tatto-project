@@ -73,7 +73,7 @@
   @media (max-width: 800px) {
     .login-box{
         width: 80%; 
-        top: 42% !important;
+        top: 45% !important;
         margin-top: 0% !important;
     }
     .login-box p:last-child {
