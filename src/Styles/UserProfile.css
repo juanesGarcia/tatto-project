@@ -127,7 +127,7 @@
     .containerProfile{
   
       margin-top: 5%;
-      margin-left: 3%;
+      margin-left: 1%;
    
   }
   .buttonPerfil{
@@ -155,7 +155,8 @@
   }
   .containerInfo {
     margin-top: 2%;
-    margin-left: 2rem;
+    margin-left: 3%;
+    margin-right: 1%;
   }
   .iconmap{
     margin-top: 2%;
