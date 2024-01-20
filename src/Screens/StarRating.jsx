@@ -9,7 +9,7 @@ const StarRating = ({ rating }) => {
   if (Array.isArray(rating) && rating.length === 0) {
     // Render 5 empty stars
     const emptyStars = Array.from({ length: 5 }, (_, index) => (
-      <FaStar key={index} className="star2" style={{ outline: '1px solid black' }} />
+      <FaStar key={index} className="star2"  />
     ));
     
     return <div className="star2-container">{emptyStars}</div>;

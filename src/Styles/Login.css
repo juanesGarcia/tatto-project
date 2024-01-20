@@ -15,6 +15,9 @@ body, html {
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed;
 }
+.user-boxLogin{
+  font-family: 'Shadows Into Light', sans-serif;
+}
   
   
 .login-boxLogin {

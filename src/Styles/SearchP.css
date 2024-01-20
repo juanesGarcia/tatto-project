@@ -18,6 +18,11 @@
   margin-left: 5%;
   margin-bottom: 2%;
 }
+.titlemap{
+  font-family: 'Rock Salt', cursive !important;
+  margin-left: 25%;
+  margin-top: 10%;
+}
 .no-results{
   font-family: 'Rock Salt', cursive !important;
   margin-left: 5%;
@@ -53,17 +58,19 @@
   border-radius: 4%;
 }
 .user-info{
-  margin-left: 5%;
+  margin-left: 4%;
   display: block;
   font-family: 'Rock Salt', cursive !important;
 
 }
 .avatar{
   margin-left: 5%;
+  margin-top: 1%;
 }
 .user-name{
-  font-size: 80%;
+  font-size: 140%;
   font-weight: bold;
+  font-family: 'Shadows Into Light', sans-serif;
 }
 .user-location{
   font-size: 75%;
@@ -91,5 +98,15 @@ margin-right: 7%;
   .search-container{
   min-height: 10vh;
   margin-top: 20%;
+}
+.titlemap{
+  margin-left: 0%;
+  font-size: 85.2%;
+  margin-bottom: 8%;
+}
+.user-info{
+  margin-left: 8%;
+
+
 }
 }

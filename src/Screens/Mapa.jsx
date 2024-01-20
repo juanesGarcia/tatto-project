@@ -7,7 +7,7 @@ import '../Styles/Map.css';
 mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmVzLTEyMyIsImEiOiJjbHExM2E4ZzAwMXRxMmlueHA5ZnB4dXU4In0.KQFMVdrDUldzkKwXUIJP-w';
 const googleMapsApiKey = 'AIzaSyA-BAdaQ7CAlBniXGzQTmAfMbbwqYiWkkQ';
 
-export const Mapa = ({users}) => {
+export const Mapa = ({users,setcityUserM}) => {
   const mapContainerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [userLocation, setUserLocation] = useState(null);
@@ -41,6 +41,7 @@ export const Mapa = ({users}) => {
       getCityFromCoordinates(userLocation).then((cityUser) => {
         setCityUser(cityUser);
         console.log(cityUser);
+        setcityUserM(cityUser)
 
         if (cityUser) {
           console.log(`La ciudad correspondiente a las coordenadas es: ${cityUser}`);
@@ -76,6 +77,7 @@ export const Mapa = ({users}) => {
           const selectedCity = event.result.text;
           console.log(selectedCity, cityUser);
           setCity(selectedCity);
+          setcityUserM(selectedCity)
           if (selectedCity !== cityUser) {
             map.setCenter(event.result.center);
             updateMarkers(map, selectedCity,users);
@@ -187,7 +189,6 @@ export const Mapa = ({users}) => {
       <div className="mapt" ref={mapContainerRef} style={{ width: '100%' }}>
         {isLoading && <p>Cargando mapa...</p>}
       </div>
-      <p>City: {cityUser}</p>
     </div>
   );
 };

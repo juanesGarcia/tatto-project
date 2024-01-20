@@ -51,6 +51,13 @@
   .signup {
     width: 20vh;
   }
+  .profile-name{
+    font-size: 200%;
+
+  }
+  .profile-email{
+    font-size: 200%;
+  }
 }
 @media (min-width: 470px) and (max-width: 590px){
   .profile-info{
@@ -59,38 +66,14 @@
   .signup {
     width: 20vh;
   }
+    .profile-name{
+    font-size: 200%;
+
+  }
+  .profile-email{
+    font-size: 200%;
+  }
 }
-
-@media (min-width: 590px) and (max-width: 700px){
-  .profile-info{
-    width: 40% !important;
-  }
-  .signup {
-    width: 20vh;
-  }
-
-}
-@media (min-width: 701px) and (max-width: 900px){
-  .profile-info{
-    width: 33% !important;
-    right: 6% !important;
-  }
-  .signup {
-    width: 23vh;
-  }
-
-}
-@media (min-width: 900px) and (max-width: 1000px){
-  .profile-info{
-    width: 33% !important;
-    right: 5% !important;
-  }
-  .signup {
-    width: 25vh;
-  }
-
-}
-
 
 .login:hover {
   color: #917E41;
@@ -106,31 +89,34 @@
   text-align: center;
   width: 26%; 
   display: flex;
+  font-family: 'Shadows Into Light', sans-serif !important;
 }
 
 
 .left-div{
   margin-left: 12%;
   margin-top: 5%;
+  font-family: 'Shadows Into Light', sans-serif;
 }
 .right-div{ 
   margin-top: 5%;
   margin-left: 5%;
   width: 50%;
+  font-family: 'Shadows Into Light', sans-serif;
 }
 .profile-name{
       margin-left: 5%;
       font-size: 140%;
       width: 100%;
-      font-family: 'Rock Salt', cursive !important;
+      font-family: 'Shadows Into Light', sans-serif !important;
 
 }
 
 .profile-email {
   margin-left: 10%;
-  font-size: 75%;
+  font-size: 100%;
   width: 100%;
-  font-family: 'Rock Salt', cursive !important;
+  font-family: 'Shadows Into Light', sans-serif;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -143,6 +129,7 @@
   margin-bottom: 20%;
   border-radius: 5%;
   margin-left: 0%;
+  font-family: 'Rock Salt', cursive !important;
 }
 .bottom-component:hover{
   background-color: #3d361d;
@@ -186,24 +173,25 @@
     text-decoration: none;
     font-family: 'Rock Salt', cursive !important;
   }
-  @media (max-width: 590px) {
-    .profile-email {
-      font-size: 60%;
-    }
-  }
-  .profile-name {
-    margin-left: 5%;
-    font-size: 140%;
-    width: 100%;
-    font-family: 'Rock Salt', cursive !important;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  
-  @media (max-width: 590px) {
-    .profile-name {
+
+  @media (max-width: 800px) {
+    .profile-name{
+      margin-left: 5%;
       font-size: 100%;
-    }
+      width: 100%;
+      font-family: 'Shadows Into Light', sans-serif !important;
+
+}
+
+.profile-email {
+  margin-left: 10%;
+  font-size: 100%;
+  width: 100%;
+  font-family: 'Shadows Into Light', sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
   }
-  

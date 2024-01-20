@@ -388,7 +388,7 @@ const getRatingf = async() =>{
 
        
             <div className="containerInfo">
-              <h6 className="nameinfo"> {user[0].name} </h6>
+              <div className="nameinfo"> {user[0].name} </div>
               <h6>{user[0].rol}</h6>
               <h6>{user[0].city}</h6>
           

@@ -32,6 +32,7 @@
 
 .user-box{
   display:flex;
+  font-family: 'Shadows Into Light', sans-serif !important;
 }
 .flag{
   margin-top: 35%;

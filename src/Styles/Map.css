@@ -1,5 +1,5 @@
 .containermap{
-    margin-top: 10%;
+    margin-top: 5%;
     margin-right: 0%;
 
 }
@@ -35,6 +35,7 @@
 @media (max-width: 800px) {
     .containermap{
         padding-right: 0%;
+        margin-bottom: 15%;
     }
     
 

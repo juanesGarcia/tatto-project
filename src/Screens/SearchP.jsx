@@ -15,6 +15,7 @@ export const SearchP = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const searchRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [cityUserM, setcityUserM] = useState([])
 
 
   const handleArrowKeyPress = (event) => {
@@ -156,7 +157,8 @@ export const SearchP = () => {
            
           </div>
         ))}
-        <Mapa users={users}></Mapa>
+            <div className='titlemap'>mira los tataudores en la cuidad de {cityUserM} </div>
+        <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>
   );
 };
