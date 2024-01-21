@@ -36,7 +36,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
   const [description, setDescription] = useState("");
   const [showUploadSection, setShowUploadSection] = useState(true);
   const [imageCount, setImageCount] = useState(0);
-  const { isAuth, info } = useSelector((state) => state.auth);
+
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({

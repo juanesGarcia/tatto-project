@@ -97,17 +97,18 @@
   margin-bottom: 8%;
 }
 .textArea{
-  font-size: 10px;
   resize: "none";
-  width: 100%;
+  width: 120%;
   max-width: 700px ;
-  min-height: 200px;
+  min-height: 100px;
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 4px;
   background-color: black;
   color: white;
   margin-left:10%;
+  font-family: 'Shadows Into Light', sans-serif;
+  font-size: 13px;
 }
 
 .containerall.with-images {
@@ -160,6 +161,7 @@
       padding: 0px;
       border-radius: 4px;
       margin-left: 1%;
+      font-size: 15px;
   
       &::placeholder {
         text-align: left; /* Alinea el texto del placeholder a la izquierda */
