@@ -45,8 +45,8 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
           acceptedFiles.map(async (file) => {
             const resizedBlob = await resizeImage(
               file,
-              800,
-              600,
+              1000,
+              1000,
               resolutionMultiplier
             );
             return {
