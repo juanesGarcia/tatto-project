@@ -154,11 +154,11 @@ const ImagesProfileUpload = ({ onClose, id, user}) => {
             <div className="prue2">
               <div className="container-img">
                 <div className="img-comment">
-                  <div className="custom-image-gallery">
+                  <div className="custom-image-gallery2">
                     <ImageGallery items={images} />
                   </div>
                 </div>
-                <div className="but-upload">
+                <div className="but-upload2">
                   <button className="button">Subir</button>
                   <button className="button" onClick={onClose}>
                     Cerrar
