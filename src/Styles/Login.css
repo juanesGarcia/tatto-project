@@ -40,14 +40,14 @@ body, html {
     
   }
   
-  @media (max-width: 470px) {
+  @media (max-width: 800px) {
     .login-boxLogin{
         width: 80%; 
         margin-top: 10% !important;
     }
-    .login-boxLogin p:last-child {
-       margin-top: 10%;
-      }
+    .login-boxLogin .user-boxLogin input {
+      margin-top: 10%;      
+    }
   }
   .login-boxLogin p:first-child {
     margin: 0 0 30px;
