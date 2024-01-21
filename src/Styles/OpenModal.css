@@ -3,9 +3,7 @@
     grid-template-columns: repeat(3, 1fr); /* Ajusta la cuadrícula según sea necesario */
     gap: 0.5em; /* Elimina el espacio entre las columnas y filas */
     margin-left: 1%;
-    margin-top:3%;
     z-index: 1;
-    margin-bottom: 5%;
     margin-left: 8%;
     margin-right: 8%;
   

@@ -17,20 +17,25 @@
 
 .editardrop{
   font-family: 'Rock Salt', cursive !important;
-  padding-top: 5%;
   margin-top: 0% !important;
+  height: 100%;
+
 }
 
 
 .editardrop:hover{
   background-color: #917E41;
   color: beige;
+  padding-top: 10%;
+  padding-bottom: 5%;
 }
 
 
 .eliminar:hover{
   background-color: #917E41;
   color: beige;
+  padding-top: 10%;
+  padding-bottom: 5%;
 }
 
 .dropdown-menu{
