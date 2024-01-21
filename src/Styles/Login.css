@@ -45,9 +45,14 @@ body, html {
         width: 80%; 
         margin-top: 10% !important;
     }
-    .login-boxLogin .user-boxLogin input {
-      margin-top: 10%;      
+    .email{
+      margin-top: 15% !important;
     }
+    .visibility{
+      margin-top: 22% !important;
+      margin-left: 8%;
+    }
+    
   }
   .login-boxLogin p:first-child {
     margin: 0 0 30px;
@@ -256,7 +261,7 @@ input:-webkit-autofill {
 }
 
 .login-boxLogin .user-boxLogin input.email{
-  margin-top: 12%;
+  margin-top: 20%;
   font-size: 25px;
    
  }
