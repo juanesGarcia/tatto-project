@@ -1,7 +1,7 @@
 .containerUpdate{
     background-image: url("/images/update.jpg");
     background-size: cover;
-    height: 160vh;
+    height: 110vh;
     padding: 0;
 }
 .custom-swal-popup {
@@ -26,11 +26,14 @@
   background-color: #917E41;
 }
 
+.label{
+  margin-bottom: 10% !important;
+  margin-top: 3%; 
+}
 
-
-.login-box {
+.login-box{
     position: absolute;
-    top: 50%;
+    top: 40% !important;
     left: 50%;
     width: 400px;
     padding: 40px;
@@ -43,14 +46,25 @@
     margin-top: 15%;
   }
   
-  @media (max-width: 470px) {
-    .login-box{
-        width: 80%; 
-        margin-top: 40% !important;
-    }
-    .login-box p:last-child {
-       margin-top: 10%;
-      }
+  @media (max-width: 800px) {
+    .containerUpdate{
+      height: 80vh;
+      padding: 0;
+  }
+
+  .login-box{
+    top: 50% !important;
+    width: 80%;
+  }
+  .label{
+    margin-top: 3%; 
+  }
+  .login-box .user-box input {
+    margin-top: 30px !important;
+    font-size: 23px !important;
+  }
+  
+
   }
   .login-box p:first-child {
     margin: 0 0 30px;
@@ -69,14 +83,14 @@
   .login-box .user-box input {
     width: 100%;
     padding: 10px 0;
-    font-size: 16px;
     color: #fff;
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #917E41;
     outline: none;
     background: transparent;
-    margin-top: 5%;
+    padding-top: 13px !important;
+    font-size: 23px !important;
   }
   
   .login-box .user-box label {
