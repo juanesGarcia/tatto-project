@@ -1,6 +1,6 @@
 import logo from "/images/logofinal.jpg";
 import "../Styles/Navbar.css";
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -88,6 +88,7 @@ function Navbar() {
       console.log(error.reponse)
     }
   }
+
   
 
   return (
@@ -117,11 +118,11 @@ function Navbar() {
                 alt="User Avatar"
                 onClick={handleAvatarClick}
                 src={info.media_url}
-              > </Avatar>
+              > {info.name[0]}</Avatar>
               {showInfo && (
                 
                 <div className="profile-info" onClick={handleInfoClose}>
-                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }} src={info.media_url}></Avatar></div>
+                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }} src={info.media_url}>{info.name[0]}</Avatar></div>
                   <div className="right-div">
                   <div className="profile-name" onClick={perfilClick}>{info.name}</div>
                   <div className="profile-email">{info.email}</div>

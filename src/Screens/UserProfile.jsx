@@ -26,7 +26,7 @@ import RatingModal from "./RatingModal";
 import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
 import UploadImgProfile  from "./UploadImgProfile";
 import ShowImgProfile from "./ShowImgProfile";
-import { setInfo } from "../redux/slices/authSlice";
+
  
 
 
@@ -53,7 +53,7 @@ export const UserProfile = () => {
   const [yet, setYet] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
 
   const toggleFollowerModal = () => {
     setShowFollowerModal(!showFollowerModal);
@@ -69,10 +69,23 @@ export const UserProfile = () => {
 
   const toggleImages = () => {
     setShowImages(!showImages);
+  
+    /*if (user[0]) {
+      const newMediaUrl = user[0].avatar;
+      
+      console.log('Nuevo media_url:', newMediaUrl); // Agrega este log para verificar la nueva URL
+  
+      // Actualizar solo la propiedad media_url
+      dispatch(setInfo({ ...info, media_url: newMediaUrl }));
+      
+      console.log('Nuevo estado de info:', info.media_url); // Agrega este log para verificar el estado de info después de la actualización
+    }
+  
     showData();
+      */
+
   };
 
-  
 
 
   const moveToMap = () =>{
@@ -376,7 +389,7 @@ const getRatingf = async() =>{
             ></Avatar>
             {showImages && isAuth && (
   isOwnProfile ? (
-    <UploadImgProfile onClose={toggleImages} id={id}></UploadImgProfile>
+    <UploadImgProfile onClose={toggleImages} id={id} user={user[0].avatar}></UploadImgProfile>
   ) : (
     <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
   )
