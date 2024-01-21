@@ -34,7 +34,6 @@
 
   .but-upload{
     display: flex;
-    margin-top: 10px;
     margin-left: 17%;
   }
 
@@ -47,7 +46,6 @@
 .container-img{
     display: block;
     padding-left: 5%;
-    margin-top: 5%;
     padding-right: 5%;
 }
 
@@ -69,7 +67,6 @@
 .prue2{
     display: block;
     width: 95%;
-    margin-bottom: 5%;
     margin-left: 2%;
 
 }
@@ -120,7 +117,7 @@
 
 
   /* Estilos adicionales para mejorar la visualización en responsive */
-  @media (max-width: 480px) {
+  @media (max-width: 800px) {
     .react-image-gallery {
       max-height: 100vh; /* Limita la altura de la imagen en responsive */
     }
@@ -195,18 +192,17 @@
   height: 100%;
   padding-top: 10%;
   margin-left: 1%;
-
-
 }
 
 
 
 .but-upload{
-  margin-left: 3%;
-  padding-bottom: 5%;
+  margin-left: 7%;
+  margin-bottom: 8%;
+  margin-top: 5%;
 }
 .prue2{
-  margin-top: 3%;
+  margin-top: 0%;
   border-radius: 2%;
 }
 .comments-container{
