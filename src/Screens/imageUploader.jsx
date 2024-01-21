@@ -5,7 +5,6 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de importar los estilos de la galería
 import "../Styles/img.css";
 import { BsFillFileImageFill } from "react-icons/bs";
-import { useSelector } from 'react-redux';
 import TextareaAutosize from "react-textarea-autosize";
 
 const resizeImage = async (file, targetWidth, targetHeight) => {
