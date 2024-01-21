@@ -26,6 +26,8 @@ import RatingModal from "./RatingModal";
 import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
 import UploadImgProfile  from "./UploadImgProfile";
 import ShowImgProfile from "./ShowImgProfile";
+import {  setInfo } from "../redux/slices/authSlice";
+
 
  
 
@@ -53,6 +55,8 @@ export const UserProfile = () => {
   const [yet, setYet] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  
 
 
   const toggleFollowerModal = () => {
@@ -67,10 +71,9 @@ export const UserProfile = () => {
     setShowRatingModal(!showRatingModal);
   };
 
-  const toggleImages = () => {
-    setShowImages(!showImages);
-  
-    /*if (user[0]) {
+  const newimages =()=>{
+    
+    if (user[0]) {
       const newMediaUrl = user[0].avatar;
       
       console.log('Nuevo media_url:', newMediaUrl); // Agrega este log para verificar la nueva URL
@@ -80,9 +83,11 @@ export const UserProfile = () => {
       
       console.log('Nuevo estado de info:', info.media_url); // Agrega este log para verificar el estado de info después de la actualización
     }
-  
-    showData();
-      */
+  } 
+
+  const toggleImages = () => {
+    setShowImages(!showImages);
+    showData();   
 
   };
 
@@ -329,6 +334,7 @@ const getRatingf = async() =>{
 
   useEffect(() => {
     showData();
+
   }, []);
 
   const parseUserData = (data) => {
@@ -389,7 +395,7 @@ const getRatingf = async() =>{
             ></Avatar>
             {showImages && isAuth && (
   isOwnProfile ? (
-    <UploadImgProfile onClose={toggleImages} id={id} user={user[0].avatar}></UploadImgProfile>
+    <UploadImgProfile onClose={toggleImages} id={id} user={user[0].avatar} ></UploadImgProfile>
   ) : (
     <ShowImgProfile onClose={toggleImages} avatar={user[0].avatar}></ShowImgProfile>
   )

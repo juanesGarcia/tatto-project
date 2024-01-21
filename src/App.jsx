@@ -24,6 +24,7 @@ import { MapaUsers } from "./Screens/MapaUsers";
 
 
 
+
 const PrivateRoutes =()=>{
   const {isAuth}= useSelector((state)=>state.auth);
 
@@ -91,6 +92,7 @@ function App() {
     <div >
       
       <Router>
+   
         <NavBar></NavBar>
         <Routes>
           <Route element={<RestrictedRoutes></RestrictedRoutes>}>
@@ -111,9 +113,11 @@ function App() {
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
           <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
           <Route exact path="/MapaUser" element={<MapaUsers/>}></Route>
+  
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>
+   
       </Router>
       
     </div>

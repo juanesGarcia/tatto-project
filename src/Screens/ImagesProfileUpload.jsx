@@ -5,7 +5,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de importar los estilos de la galería
 import "../Styles/ImgProfile.css";
 import { BsFillFileImageFill } from "react-icons/bs";
-import { setInfo } from "../redux/slices/authSlice";
+
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -36,8 +36,7 @@ const ImagesProfileUpload = ({ onClose, id, user}) => {
   const [images, setImages] = useState([]);
   const [showUploadSection, setShowUploadSection] = useState(true);
   const [imageCount, setImageCount] = useState(0);
-  const dispatch = useDispatch();
-  const { info} = useSelector((state) => state.auth);
+
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
@@ -92,14 +91,6 @@ const ImagesProfileUpload = ({ onClose, id, user}) => {
             title: 'custom-swal-title',
           },
         });
-
-        console.log('Nuevo media_url:', user); // Agrega este log para verificar la nueva URL
-  
-        // Actualizar solo la propiedad media_url
-        dispatch(setInfo({ ...info, media_url: user }));
-        
-        console.log('Nuevo estado de info:', info.media_url);
-
   
         onClose();
 
