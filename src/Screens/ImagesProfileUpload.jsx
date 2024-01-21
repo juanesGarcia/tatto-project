@@ -6,8 +6,6 @@ import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de impo
 import "../Styles/ImgProfile.css";
 import { BsFillFileImageFill } from "react-icons/bs";
 
-import { useDispatch, useSelector } from "react-redux";
-
 
 const resizeImage = async (file, targetWidth, targetHeight) => {
   return new Promise((resolve) => {
@@ -81,6 +79,8 @@ const ImagesProfileUpload = ({ onClose, id, user}) => {
           `https://tatto-backend.onrender.com/uploadimg/${id}`,
           formData,
         );
+        console.log(response.data.mediaUrl)
+        console.log(response.data.result)
         Swal.fire({
           icon: 'success',
           title: response.data.message,

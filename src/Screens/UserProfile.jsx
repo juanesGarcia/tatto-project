@@ -410,7 +410,7 @@ const getRatingf = async() =>{
             <div className="containerInfo">
               <div className="nameinfo"> {user[0].name} </div>
               <h6>{user[0].rol}</h6>
-              <h6>{user[0].city}</h6>
+              <h6>{user[0].city.replace(/['"]/g, '')}</h6>
           
               {user.length > 0 && user[0].rol === "tatuador" && (
                  <h6><StarRating rating={avarage} /> {avarage} </h6>
