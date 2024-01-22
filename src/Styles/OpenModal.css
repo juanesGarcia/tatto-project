@@ -75,7 +75,7 @@
   }
 
   .img {
-    width: 70%; /* Ajusta el ancho de la imagen al 70% del contenedor */
+    width: 60%; /* Ajusta el ancho de la imagen al 70% del contenedor */
     margin-left: 5%;
     margin-bottom:auto;
     margin-top: auto;
@@ -90,14 +90,14 @@
     font-family: 'Shadows Into Light', sans-serif;
 
   }
-  
-  .custom-gallery{
-    width: 50%; /* Ajusta el ancho de la imagen al 70% del contenedor */
-    margin-left: 25%;
-    margin-bottom:auto;
-    margin-top: auto;
+  .custom-gallery {
+  width: 65%; /* Ajusta el ancho de la galería al 80% del contenedor */
+  margin-left: 16%; /* Ajusta el margen izquierdo según sea necesario */
+  margin-bottom: auto;
+  margin-top: auto;
 
-  }
+}
+
   .no-post{
     font-family: 'Rock Salt', cursive !important;
     font-size: medium;
