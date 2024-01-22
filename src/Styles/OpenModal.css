@@ -131,9 +131,6 @@
   color:#917E41;
 }
 
-
-
-
 @keyframes likeAnimation {
   0% {
     transform: scale(1);
@@ -148,6 +145,7 @@
 
 
   @media (max-width: 800px) {
+
     .custom-modal {
       width: 90%;
       height: auto;
@@ -190,9 +188,11 @@
       width: 80%;
       margin-right: 4%;
     }
+    
 
     .user-reactions-more{
       margin-left: 5%
     }
-  
+
+
   }

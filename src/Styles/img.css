@@ -130,7 +130,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh; /* Ajusta la altura al 100% de la pantalla en vista responsive */
-      margin-top: 55% !important;
+      margin-top: 20% !important;
     }
     .boxUpdate{
       width: 80%;
@@ -181,11 +181,7 @@
     margin-left: 0% !important; /* Ejemplo: márgenes de 10px */
   }
   
-.fullscreen {
-  align-items: center;
-  justify-content: center;
-  margin-top: 70%;
-}
+
 
 .custom-image-gallery {
   width: 100%;
