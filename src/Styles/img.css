@@ -130,7 +130,7 @@
       align-items: center;
       justify-content: center;
       height: 100vh; /* Ajusta la altura al 100% de la pantalla en vista responsive */
-      margin-top: 10%;
+      margin-top: 55% !important;
     }
     .boxUpdate{
       width: 80%;
