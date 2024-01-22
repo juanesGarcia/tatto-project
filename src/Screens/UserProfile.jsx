@@ -71,20 +71,6 @@ export const UserProfile = () => {
     setShowRatingModal(!showRatingModal);
   };
 
-  const newimages =()=>{
-    
-    if (user[0]) {
-      const newMediaUrl = user[0].avatar;
-      
-      console.log('Nuevo media_url:', newMediaUrl); // Agrega este log para verificar la nueva URL
-  
-      // Actualizar solo la propiedad media_url
-      dispatch(setInfo({ ...info, media_url: newMediaUrl }));
-      
-      console.log('Nuevo estado de info:', info.media_url); // Agrega este log para verificar el estado de info después de la actualización
-    }
-  } 
-
   const toggleImages = () => {
     setShowImages(!showImages);
     showData();   

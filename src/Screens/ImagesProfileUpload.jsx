@@ -5,6 +5,9 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css"; // Asegúrate de importar los estilos de la galería
 import "../Styles/ImgProfile.css";
 import { BsFillFileImageFill } from "react-icons/bs";
+import {  setInfo } from "../redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 const resizeImage = async (file, targetWidth, targetHeight) => {
@@ -30,10 +33,13 @@ const resizeImage = async (file, targetWidth, targetHeight) => {
 
 
 
-const ImagesProfileUpload = ({ onClose, id, user}) => {
+const ImagesProfileUpload = ({ onClose, id, users}) => {
   const [images, setImages] = useState([]);
   const [showUploadSection, setShowUploadSection] = useState(true);
   const [imageCount, setImageCount] = useState(0);
+  const {info} = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  
 
 
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
@@ -79,8 +85,11 @@ const ImagesProfileUpload = ({ onClose, id, user}) => {
           `https://tatto-backend.onrender.com/uploadimg/${id}`,
           formData,
         );
-        console.log(response.data.mediaUrl)
-        console.log(response.data.result)
+        console.log('la url nueva ',response.data.mediaUrl)
+        console.log('la anterior',users);
+        dispatch(setInfo({ ...info, media_url: response.data.mediaUrl }));
+        console.log('Nuevo estado de info:', info); 
+
         Swal.fire({
           icon: 'success',
           title: response.data.message,
@@ -91,6 +100,7 @@ const ImagesProfileUpload = ({ onClose, id, user}) => {
             title: 'custom-swal-title',
           },
         });
+
   
         onClose();
 
