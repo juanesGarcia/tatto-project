@@ -75,7 +75,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     console.log(acceptedFiles.length)
     
     console.log(description.length)
-    if (description.length <= 400) {
+    if (description.length <= 616) {
       formData.append("description", description);
       try {
         const response = await axios.post(

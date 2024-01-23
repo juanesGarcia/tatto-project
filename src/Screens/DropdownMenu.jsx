@@ -38,7 +38,7 @@ const now= new Date();
 console.log('La fecha actual es',now);
       console.log(newText.length)
 
-if(newText.length <= 500){
+if(newText.length <= 616){
 
   try {
     const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {

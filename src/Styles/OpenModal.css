@@ -81,10 +81,10 @@
     margin-top: auto;
   }
   .info{
-    font-size: 16px;
-    margin-left: 5%;
+    font-size: 14px;
+    margin-left: 3%;
     margin-right: 2%;
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 2%;
     color:beige ;
     font-family: 'Shadows Into Light', sans-serif;
@@ -177,7 +177,7 @@
     .info{
       margin-bottom: 8%;
       color:beige ;
-      font-size: 18px;
+      font-size: 15px;
 
     }
     .no-post{
