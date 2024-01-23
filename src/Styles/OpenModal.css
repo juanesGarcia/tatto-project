@@ -91,8 +91,8 @@
 
   }
   .custom-gallery {
-  width: 65%; /* Ajusta el ancho de la galería al 80% del contenedor */
-  margin-left: 16%; /* Ajusta el margen izquierdo según sea necesario */
+  width: 40%; /* Ajusta el ancho de la galería al 80% del contenedor */
+  margin-left: 28%; /* Ajusta el margen izquierdo según sea necesario */
   margin-bottom: auto;
   margin-top: auto;
 
