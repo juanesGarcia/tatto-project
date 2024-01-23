@@ -36,7 +36,7 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate ,title}) => {
       
 const now= new Date();
 console.log('La fecha actual es',now);
-      
+      console.log(newText.length)
 
 if(newText.length <= 500){
 

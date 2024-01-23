@@ -85,14 +85,14 @@
     margin-left: 5%;
     margin-right: 2%;
     margin-top: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
     color:beige ;
     font-family: 'Shadows Into Light', sans-serif;
 
   }
   .custom-gallery {
-  width: 40%; /* Ajusta el ancho de la galería al 80% del contenedor */
-  margin-left: 28%; /* Ajusta el margen izquierdo según sea necesario */
+  width: 50%; /* Ajusta el ancho de la galería al 80% del contenedor */
+  margin-left: 24%; /* Ajusta el margen izquierdo según sea necesario */
   margin-bottom: auto;
   margin-top: auto;
 
