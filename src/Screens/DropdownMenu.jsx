@@ -36,28 +36,56 @@ const DropdownMenu = ({ post_id, onDeleted, onUpdate ,title}) => {
       
 const now= new Date();
 console.log('La fecha actual es',now);
+      
 
-    try {
-      const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {
-        newDescription: newText,
-        currentTime: now,
-      });
-      console.log(response);
-      Swal.fire({
-        icon: 'success',
-        title: response.data.message,
-        showConfirmButton: false,
-        timer: 1500,
-        customClass: {
-          popup: 'custom-swal-popup',
-          title: 'custom-swal-title',
-        },
-      });
+if(newText.length <= 500){
 
-      onUpdate();
-    } catch (error) {
-      console.log(error);
-    }
+  try {
+    const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {
+      newDescription: newText,
+      currentTime: now,
+    });
+    console.log(response);
+    Swal.fire({
+      icon: 'success',
+      title: response.data.message,
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+      },
+    });
+
+    onUpdate();
+  } catch (error) {
+    Swal.fire({
+      icon: 'error',
+      title: error,
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+      },
+    });
+
+  }
+}else{
+  Swal.fire({
+    icon: 'error',
+    title: `la descripcion no puede ser mayor a 500 caracteres `,
+    showConfirmButton: false,
+    timer: 1500,
+    customClass: {
+      popup: 'custom-swal-popup',
+      title: 'custom-swal-title',
+    },
+  });
+
+}
+
+   
   };
 
   const handleEliminar = async () => {

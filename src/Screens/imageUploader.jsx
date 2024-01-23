@@ -95,10 +95,30 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
           onUploadSuccess();
         }
       } catch (error) {
-        console.error("Error en la carga:", error);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
+    
       }
     } else {
-      console.log("error descripcion muy grande");
+      Swal.fire({
+        icon: 'error',
+        title: `decripcion muy grande  `,
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: 'custom-swal-popup',
+          title: 'custom-swal-title',
+        },
+      });
+  
     }
   };
 
