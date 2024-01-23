@@ -10,9 +10,13 @@
   }
 
   .container-img {
-    display: flex;
-    
+    display: flex; 
   
+  }
+  .fullscreen {
+    align-items: center;
+    justify-content: center; /* Ajusta la altura al 100% de la pantalla en vista responsive */
+    margin-top: 3% !important;
   }
   /* Estilos específicos para la imagen ampliada en pantalla completa */
   .react-image-gallery-fullscreen {
