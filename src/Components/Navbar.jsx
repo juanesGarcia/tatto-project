@@ -21,6 +21,14 @@ import { unauthenticateUser } from "../redux/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
 
 const navlinks = [
+  
+  {
+    title: "About Us",
+    path: "/AboutMe",
+    icon: <ArticleIcon sx={{
+      color: "white"
+    }}></ArticleIcon>
+  },
 
   {
     title: "Blog",
@@ -141,6 +149,8 @@ function Navbar() {
               <CustomButton sx={{ borderBottom: "1px solid #917E41", marginRight: "10%" }} component={NavLink} to="/ChooseRegister" className="signup">
                 Sign up
               </CustomButton>
+              
+              
               <Avatar onClick={handleAvatarClick}></Avatar>
               {showInfo && (
                 <div className="profile-info" onClick={handleInfoClose}>

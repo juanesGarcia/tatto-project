@@ -19,6 +19,7 @@ import { useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
 import { MapaUsers } from "./Screens/MapaUsers";
+import { AboutMe } from "./Screens/AboutMe";
 
 
 
@@ -113,7 +114,7 @@ function App() {
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
           <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
           <Route exact path="/MapaUser" element={<MapaUsers/>}></Route>
-  
+          <Route exact path="/AboutMe" element={<AboutMe/>}></Route>
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>

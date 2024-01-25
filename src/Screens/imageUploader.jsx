@@ -110,7 +110,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     } else {
       Swal.fire({
         icon: 'error',
-        title: `decripcion muy grande  `,
+        title: `la descripcion no puede ser mayor a 616 caracteres`,
         showConfirmButton: false,
         timer: 1500,
         customClass: {

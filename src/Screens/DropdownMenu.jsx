@@ -74,7 +74,7 @@ if(newText.length <= 616){
 }else{
   Swal.fire({
     icon: 'error',
-    title: `la descripcion no puede ser mayor a 500 caracteres `,
+    title: `la descripcion no puede ser mayor a 616 caracteres `,
     showConfirmButton: false,
     timer: 1500,
     customClass: {
