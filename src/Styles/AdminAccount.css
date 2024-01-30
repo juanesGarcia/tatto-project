@@ -51,12 +51,12 @@
   
   @media (max-width: 800px) {
     .containerUpdate{
-      height: 100vh;
+      height: 90vh;
       padding: 0;
   }
 
   .login-box{
-    top: 60% !important;
+    top: 40% !important;
     width: 80%;
   }
   .label{
