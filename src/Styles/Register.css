@@ -1,7 +1,7 @@
 .containerRegister {
   background-image: url("/images/Default_I_am_looking_to_create_a_background_which_is_focused_o_2.jpg");
   width: 100%;
-  height: 150vh;
+  height: 160vh;
   padding: 0;
   background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
   background-position: center; /* Centra la imagen dentro del contenedor */
@@ -68,6 +68,8 @@
     font-family: 'Rock Salt', cursive !important;
     margin-top: 25% !important;
   }
+
+  
   .visibility-right{
     margin-top: 8%;
     margin-left: 3%;
@@ -88,7 +90,7 @@
     .login-box{
         width: 80% !important; 
         top: 50% ;
-        margin-top: 33% !important;
+        margin-top: 60% !important;
     }
     .login-box p:last-child {
        margin-top: 10%;
