@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
 import { MapaUsers } from "./Screens/MapaUsers";
 import { AboutMe } from "./Screens/AboutMe";
-
+import { TattoStyles } from "./Screens/TattoStyles";
 
 
 
@@ -98,12 +98,15 @@ function App() {
         <Routes>
           <Route element={<RestrictedRoutes></RestrictedRoutes>}>
             <Route exact path="/login" element={<Login />}></Route>
+
             
           </Route>
          
           <Route element={<PrivateRoutes></PrivateRoutes>}>
             <Route exact path="/HomeAuth" element={<HomeAuth></HomeAuth>}></Route> 
             <Route exact path="/AdminAccount" element={<AdminAccount />} />
+            <Route exact path="/TattoStyles" element={<TattoStyles />} />
+
           </Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/BestTattos" element={<BestTattos />}></Route>
@@ -115,6 +118,7 @@ function App() {
           <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
           <Route exact path="/MapaUser" element={<MapaUsers/>}></Route>
           <Route exact path="/AboutMe" element={<AboutMe/>}></Route>
+      
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>

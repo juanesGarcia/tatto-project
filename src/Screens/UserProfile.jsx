@@ -26,10 +26,6 @@ import RatingModal from "./RatingModal";
 import StarRating from "./StarRating"; // Ajusta la ruta según la ubicación de tu componente StarRating
 import UploadImgProfile  from "./UploadImgProfile";
 import ShowImgProfile from "./ShowImgProfile";
-import {  setInfo } from "../redux/slices/authSlice";
-
-
- 
 
 
 export const UserProfile = () => {
@@ -55,7 +51,7 @@ export const UserProfile = () => {
   const [yet, setYet] = useState(false);
   const [dataFetched, setDataFetched] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+
   
 
 
@@ -116,7 +112,6 @@ const getRatingf = async() =>{
 
       if (ratings.length > 0) {
         const averageRating = parseFloat(ratings[0].average_rating).toFixed(1) || 0;
-
         console.log('Average Rating:', averageRating);
         setAvarage(averageRating)
         console.log(ratings[0].rating_count)
@@ -399,7 +394,7 @@ const getRatingf = async() =>{
               <h6>{user[0].city.replace(/['"]/g, '')}</h6>
           
               {user.length > 0 && user[0].rol === "tatuador" && (
-                 <h6><StarRating rating={avarage} /> {avarage} </h6>
+                 <h6><StarRating rating={avarage} />{avarage} ({countAvarage})</h6>
               )
              
               }

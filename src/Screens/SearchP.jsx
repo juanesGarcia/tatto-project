@@ -57,11 +57,35 @@ export const SearchP = () => {
   // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
 
   const filterUsers = (allUsers, searchText) => {
-    return allUsers.filter((user) =>
+    // Filtrar usuarios por nombre que coincida con el texto de búsqueda
+    const filteredUsers = allUsers.filter((user) =>
       user.name.toLowerCase().includes(searchText.toLowerCase().trim()) ||
       user.id.toLowerCase().includes(searchText.toLowerCase().trim())
     );
+  
+    // Ordenar los usuarios filtrados por rating promedio y cantidad de ratings en orden descendente
+    filteredUsers.sort((a, b) => {
+      // Si no hay rating para alguno de los usuarios, colocamos el que sí lo tenga primero
+      if (!a.average_rating && b.average_rating) {
+        return 1;
+      } else if (a.average_rating && !b.average_rating) {
+        return -1;
+      }
+  
+      // Si los usuarios tienen el mismo rating promedio, priorizar por cantidad de ratings
+      if (b.average_rating === a.average_rating) {
+        return b.rating_count - a.rating_count;
+      }
+      
+      // Ordenar por rating promedio en orden descendente
+      return b.average_rating - a.average_rating;
+    });
+  
+    return filteredUsers;
   };
+  
+  
+  
 
   useEffect(() => {
     if (isSearchClicked) {
@@ -105,7 +129,8 @@ export const SearchP = () => {
         lat: item.lat,
         city: item.city,
         average_rating: parseFloat(item.average_rating).toFixed(1) || 0,
-        avatar: avatar
+        avatar: avatar,
+        rating_count:item.rating_count
       };
     });
   };
@@ -146,7 +171,7 @@ export const SearchP = () => {
               <div className="user-rol">{user.rol}</div>
               <div className="user-location">{user.city ? user.city.replace(/['"]/g, '') : ''}</div>
               {user.rol=='tatuador'&&(
-                <div><StarRating rating={user.average_rating} />{user.average_rating}</div>
+                <div><StarRating rating={user.average_rating} />{user.average_rating}{user.rating_count}</div>
               )
               }
               

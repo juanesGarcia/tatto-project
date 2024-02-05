@@ -169,7 +169,21 @@
   margin-left: 10%;
   text-decoration: none;
   font-family: "Rock Salt", cursive !important;
+  width: 100%;
 }
+.agg{
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 100%;  text-decoration: none;
+  color: aliceblue;
+  font-family: "Rock Salt", cursive !important;
+  font-size: 80%;
+  }
+
+  .agg:hover{
+    color: #3d361d !important;
+  }
+
 
 @media (max-width: 800px) {
   .profile-name {

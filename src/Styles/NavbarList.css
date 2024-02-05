@@ -3,6 +3,7 @@
     font-family: 'Rock Salt', cursive !important;
     margin-left: 2%;
     color: aliceblue !important;
+    text-decoration: none;
     
 }
 
@@ -16,4 +17,8 @@
     margin-left: 38%;
     margin-bottom: 5%;
   }
-  
+
+.wordsHome{
+    margin-left: 20%;
+    margin-bottom: 0%;
+  }
