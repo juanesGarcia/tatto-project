@@ -135,9 +135,6 @@ function Navbar() {
                   <div className="profile-name" onClick={perfilClick}>{info.name}</div>
                   <div className="profile-email">{info.email}</div>
                   <NavLink to="/AdminAccount" className='editarNav'>editar perfil</NavLink>
-                 <div> <NavLink to="/TattoStyles" className='agg'>agregar estilos</NavLink>
-
-                  </div>
                   <div className="bottom-component"  onClick={() => logout()}>logout</div>
                   </div>
                 </div>
