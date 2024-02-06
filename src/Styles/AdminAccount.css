@@ -1,7 +1,7 @@
 .containerUpdate{
     background-image: url("/images/update.jpg");
     background-size: cover;
-    height: 120vh;
+    height: 130vh;
     padding: 0;
 }
 .custom-swal-popup {
