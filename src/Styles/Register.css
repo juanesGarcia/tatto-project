@@ -90,14 +90,14 @@
     .login-box{
         width: 80% !important; 
         top: 60% !important;
-        margin-top: 60% !important;
+        margin-top: 10% !important;
     }
     .login-box p:last-child {
        margin-top: 10%;
       }
       .containerRegister {
 
-        height: 120vh !important;
+        height: 110vh !important;
 
       }
   }

@@ -168,7 +168,7 @@ export const AdminAccount = () => {
  }
   return (
     <div className="containerUpdate">
-    <div className="login-box">
+    <div className="login-box2">
       <p>Update info</p>
       <form onSubmit={handleSummit}>
         <div className="user-box">

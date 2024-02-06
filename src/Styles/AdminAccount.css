@@ -31,7 +31,7 @@
   margin-top: 3%; 
 }
 
-.login-box{
+.login-box2{
     position: absolute;
     top: 40% !important;
     left: 50%;
@@ -55,14 +55,14 @@
       padding: 0;
   }
 
-  .login-box{
+  .login-box2{
     width: 80%;
-    margin-top: 60% !important;
+    margin-top: 40% !important;
   }
   .label{
     margin-top: 3%; 
   }
-  .login-box .user-box input {
+  .login-box2 .user-box input {
     margin-top: 30px !important;
     font-size: 23px !important;
   }
@@ -71,7 +71,7 @@
   }
 
   }
-  .login-box p:first-child {
+  .login-box2 p:first-child {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
@@ -81,11 +81,11 @@
     letter-spacing: 1px;
   }
   
-  .login-box .user-box {
+  .login-box2 .user-box {
     position: relative;
   }
   
-  .login-box .user-box input {
+  .login-box2 .user-box input {
     width: 100%;
     padding: 10px 0;
     color: #fff;
@@ -98,7 +98,7 @@
     font-size: 23px !important;
   }
   
-  .login-box .user-box label {
+  .login-box2 .user-box label {
     position: absolute;
     top: 0;
     left: 0;
@@ -109,15 +109,15 @@
     transition: .5s;
   }
   
-  .login-box .user-box input:focus ~ label,
-  .login-box .user-box input:valid ~ label {
+  .login-box2 .user-box input:focus ~ label,
+  .login-box2 .user-box input:valid ~ label {
     top: -20px;
     left: 0;
     color: #fff;
     font-size: 12px;
   }
   
-  .login-box form button {
+  .login-box2 form button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -134,18 +134,18 @@
     margin-bottom: 6%;
   }
   
-  .login-box button:hover {
+  .login-box2 button:hover {
     background: #917E41 ;
     color: aliceblue;
     border-radius: 5px;
   }
   
-  .login-box button span {
+  .login-box2 button span {
     position: absolute;
     display: block;
   }
   
-  .login-box button span:nth-child(1) {
+  .login-box2 button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
@@ -164,7 +164,7 @@
     }
   }
   
-  .login-box button span:nth-child(2) {
+  .login-box2 button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
@@ -184,7 +184,7 @@
     }
   }
   
-  .login-box button span:nth-child(3) {
+  .login-box2 button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
@@ -204,7 +204,7 @@
     }
   }
   
-  .login-box button span:nth-child(4) {
+  .login-box2 button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
@@ -224,7 +224,7 @@
     }
   }
   
-  .login-box p:last-child {
+  .login-box2 p:last-child {
     color: #aaa;
     font-size: 14px;
   }
