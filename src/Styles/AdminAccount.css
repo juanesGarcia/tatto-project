@@ -1,7 +1,7 @@
 .containerUpdate{
     background-image: url("/images/update.jpg");
     background-size: cover;
-    height: 110vh;
+    height: 120vh;
     padding: 0;
 }
 .custom-swal-popup {
@@ -43,7 +43,7 @@
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
     font-family: 'Rock Salt', cursive !important;
-    margin-top: 15%;
+    margin-top: 18% !important;
   }
   .visibility-right{
     margin-top: 12%;
@@ -51,13 +51,13 @@
   
   @media (max-width: 800px) {
     .containerUpdate{
-      height: 90vh;
+      height: 125vh;
       padding: 0;
   }
 
   .login-box{
-    top: 44% !important;
     width: 80%;
+    margin-top: 78% !important;
   }
   .label{
     margin-top: 3%; 
