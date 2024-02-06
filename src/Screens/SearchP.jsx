@@ -171,7 +171,7 @@ export const SearchP = () => {
               <div className="user-rol">{user.rol}</div>
               <div className="user-location">{user.city ? user.city.replace(/['"]/g, '') : ''}</div>
               {user.rol=='tatuador'&&(
-                <div><StarRating rating={user.average_rating} />{user.average_rating}{user.rating_count}</div>
+                <div><StarRating rating={user.average_rating} />{user.average_rating}</div>
               )
               }
               
