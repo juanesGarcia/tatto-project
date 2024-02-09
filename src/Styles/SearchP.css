@@ -7,7 +7,12 @@
   min-height: 10vh;
   margin-top: 8%;
 }
-
+.title{
+  margin-left: 30%;
+  margin-bottom: 5%;
+  font-family: 'Rock Salt', cursive !important;
+  font-weight: bold;
+}
 .label-container {
   display: flex;
   align-items: center;
@@ -106,7 +111,9 @@ margin-right: 7%;
 }
 .user-info{
   margin-left: 8%;
-
-
+}
+.title{
+  margin-left: 6%;
+  margin-bottom: 10%;
 }
 }
