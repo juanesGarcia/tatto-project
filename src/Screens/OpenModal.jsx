@@ -298,6 +298,7 @@ const OpenModal = ({
               <Gallery
                 className={`${likeAnimation ? "like-animation" : ""}`}
                 items={selectedPost.photos}
+                onClick={() => handleStarClick(selectedPost.post_id)}
               />
               <div
                 onClick={() => handleStarClick(selectedPost.post_id)}

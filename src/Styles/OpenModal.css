@@ -164,8 +164,6 @@
       padding-bottom: 28%;
       min-height: 33vh;
   
-  
-    
     }
     .post-item {
       width: 100%; /* Ancho deseado */
@@ -178,9 +176,10 @@
     }
 
     .info{
-      margin-bottom: 8%;
+      margin-bottom: 5%;
       color:beige ;
       font-size: 14px;
+      margin-top: 3%;
 
     }
     .no-post{
