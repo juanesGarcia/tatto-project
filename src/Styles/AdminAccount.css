@@ -27,7 +27,6 @@
 }
 
 .label{
-  margin-bottom: 10% !important;
   margin-top: 3%; 
 }
 
@@ -87,14 +86,13 @@
   
   .login-box2 .user-box input {
     width: 100%;
-    padding: 10px 0;
     color: #fff;
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #917E41;
     outline: none;
     background: transparent;
-    padding-top: 13px !important;
+    padding-top: 24px !important;
     font-size: 23px !important;
   }
   

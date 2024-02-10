@@ -169,7 +169,7 @@ export const AdminAccount = () => {
   return (
     <div className="containerUpdate">
     <div className="login-box2">
-      <p>Update info</p>
+      <p>Actualizar</p>
       <form onSubmit={handleSummit}>
         <div className="user-box">
           <input
@@ -178,7 +178,7 @@ export const AdminAccount = () => {
             onChange={handleOnchange}
             value={user.name}
           />
-           <label className='label'>Name</label>
+           <label className='label'>Nombre De Usuario</label>
         </div>
         <div className="user-box">
           <input
@@ -198,7 +198,7 @@ export const AdminAccount = () => {
             onChange={handleOnchange}
             value={user.password}
           />
-          <label  className='label'>Password</label>
+          <label  className='label'>Contraseña</label>
           {user.showPassword ? (
             <VisibilityIcon
               onClick={toggleShowPassword}
@@ -219,7 +219,7 @@ export const AdminAccount = () => {
             onChange={handleOnchange}
             value={user.passwordConfirm}
           />
-          <label  className='label'>Confirm Password</label>
+          <label  className='label'>Confirma La Contraseña</label>
           {user.showConfirmPassword ? (
             <VisibilityIcon
               onClick={toggleShowConfirmPassword}
@@ -240,14 +240,14 @@ export const AdminAccount = () => {
               <span></span>
               <span></span>
               <span></span>
-              update
+              Actualiza
             </button>
             <button className='deletebut' onClick={handleDelete}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-              delete 
+              Elimina 
             </button>
 
           </div>
