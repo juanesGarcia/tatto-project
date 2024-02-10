@@ -1,12 +1,14 @@
 .about{
-    font-family: 'Rock Salt', cursive !important;
+    font-family: 'Roboto', sans-serif;
     margin-left: 40%;
     margin-top: 5%;
     margin-bottom: 5%;
 }
-
+.containerabout{
+    background-color: #F5F5DC;
+}
 .infoAbout{
-    font-family: 'Rock Salt', cursive !important;
+    font-family: 'Roboto', sans-serif;
     margin-left: 5%;
     margin-top: 2%;
     margin-right: 5%;
