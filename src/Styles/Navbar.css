@@ -25,6 +25,7 @@
   font-family: "Rock Salt", cursive !important;
   color: aliceblue !important;
   margin-right: 2%;
+  width: 100%;
 }
 
 .signup {
@@ -135,10 +136,11 @@
   color: #917e41;
 }
 .profile-No {
-  margin-left: 10%;
+  margin-left: 1%;
   font-size: 80%;
   width: 100%;
   margin-bottom: 20%;
+  margin-top: 2%;
   font-family: "Rock Salt", cursive !important;
 }
 .profile-nameNo {
@@ -193,8 +195,15 @@
     font-family: "Shadows Into Light", sans-serif !important;
   }
   .signup {
-    width: 16vh;
-    margin-left: 5%;
+    width: 21vh;
+    margin-left: 1%;
+    font-size: 60% !important;
+  }
+
+  .login{
+    width: 100% !important;
+    margin-left: 0% !important;
+    font-size: 60% !important;
   }
 
   .profile-email {

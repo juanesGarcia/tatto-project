@@ -23,7 +23,7 @@ import { useNavigate } from 'react-router-dom';
 const navlinks = [
   
   {
-    title: "About Us",
+    title: "Acerca De Nosotros",
     path: "/AboutMe",
     icon: <ArticleIcon sx={{
       color: "white"
@@ -135,7 +135,7 @@ function Navbar() {
                   <div className="profile-name" onClick={perfilClick}>{info.name}</div>
                   <div className="profile-email">{info.email}</div>
                   <NavLink to="/AdminAccount" className='editarNav'>editar perfil</NavLink>
-                  <div className="bottom-component"  onClick={() => logout()}>logout</div>
+                  <div className="bottom-component"  onClick={() => logout()}>Salir</div>
                   </div>
                 </div>
   
@@ -144,10 +144,10 @@ function Navbar() {
           ) : (
             <Box sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto', marginRight: "2%" }} >
               <CustomButton sx={{ marginRight: "10%", borderBottom: "1px solid #917E41" }} component={NavLink} to="/login" className="login">
-                login
+                Iniciar sesión
               </CustomButton>
               <CustomButton sx={{ borderBottom: "1px solid #917E41", marginRight: "10%" }} component={NavLink} to="/ChooseRegister" className="signup">
-                Sign up
+                Registrate
               </CustomButton>
               
               
@@ -156,8 +156,8 @@ function Navbar() {
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}></Avatar></div>
                   <div className="right-div">
-                  <div className="profile-nameNo">Create an account</div>
-                  <div className="profile-No"><NavLink className="profile-login" to='/login'>Login</NavLink>  </div>
+                  <div className="profile-nameNo">Crea una cuenta</div>
+                  <div className="profile-No"><NavLink className="profile-login" to='/login'>Iniciar Sessión</NavLink>  </div>
                   </div>
               
 

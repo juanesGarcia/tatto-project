@@ -113,7 +113,7 @@ export const RegisterTatto = () => {
   return (
     <div className="containerRegister">
       <div className="login-box">
-        <p>Register</p>
+        <p>Registro</p>
         <form onSubmit={handleSummit}>
           <div className="user-box">
             <input
@@ -123,7 +123,7 @@ export const RegisterTatto = () => {
               onChange={handleOnchange}
               className="info-input"
             />
-            <label className="label">User Name</label>
+            <label className="label">Nombre De Usuario</label>
           </div>
           <div className="user-box">
             <input
@@ -144,7 +144,7 @@ export const RegisterTatto = () => {
                 autoComplete="off"
                 className="info-input"
               />
-              <label className="label">Password</label>
+              <label className="label">Contraseña</label>
               {user.showPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowPassword}
@@ -166,7 +166,7 @@ export const RegisterTatto = () => {
                 autoComplete="off"
                 className="info-input"
               />
-              <label className="label">Comfirm Password</label>
+              <label className="label">Comfirma La Contraseña</label>
               {user.showConfirmPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowConfirmPassword}
@@ -197,11 +197,11 @@ export const RegisterTatto = () => {
               required=""
               name="countryName"
               type="text"
-              placeholder="Country Name"
+              placeholder="Nombre Del Pais"
               onChange={handleCountryCodeChange}
               className="phone"
             />
-            <label className="label">Phone</label>
+            <label className="label">Telefono</label>
           </div>
           <div className="user-box">
             {/* Campo de teléfono */}
@@ -210,7 +210,7 @@ export const RegisterTatto = () => {
                 required=""
                 name="phone"
                 type="text"
-                placeholder="code"
+                placeholder="codigo"
                 value={user.phone}
                 onChange={handleOnchange}
                 className="phone"
@@ -221,7 +221,7 @@ export const RegisterTatto = () => {
               required=""
               name="numberphone"
               type="text"
-              placeholder="Phone Number"
+              placeholder="Numero"
               onChange={handleOnchange}
               className="phone"
             />
@@ -232,7 +232,7 @@ export const RegisterTatto = () => {
             <span></span>
             <span></span>
             <span></span>
-            Submit
+            Enviar
           </button>
         </form>
       </div>

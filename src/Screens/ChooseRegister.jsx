@@ -10,12 +10,12 @@ export const ChooseRegister = () => {
       <div className="containerChoose ">
         <div className="btnUser">
           <NavLink to="/Register">
-            <button className="buttonC">User</button>
+            <button className="buttonC">Usuario</button>
           </NavLink>
         </div>
         <div className="btnTatto">
           <NavLink to="/RegisterTatto">
-            <button className="buttonC">Tatto Artist</button>
+            <button className="buttonC">Tatuador</button>
           </NavLink>
         </div>
       </div>

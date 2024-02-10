@@ -45,7 +45,7 @@ export const Login = () => {
     <>
       <div className="containerLogin">
         <div className="login-boxLogin">
-          <p>Login</p>
+          <p>Iniciar sesión</p>
           <form onSubmit={handleSummit}>
             <div className="user-boxLogin">
               <input
@@ -82,7 +82,7 @@ export const Login = () => {
                 )}
               </div>
               <label className="label" type="label">
-                Password
+                Contraseña
               </label>
             </div>
             <button type="submit">
@@ -90,14 +90,14 @@ export const Login = () => {
               <span></span>
               <span></span>
               <span></span>
-              Submit
+              Enviar
             </button>
             <div style={{ color: "red", margin: "10px 0" }}>{errores}</div>
           </form>
           <p>
-            Don't have an account?{" "}
+            No tienes una cuenta?{" "}
             <NavLink className="a2" to="/ChooseRegister">
-              Sign up!
+              registrate!
             </NavLink>{" "}
           </p>
         </div>

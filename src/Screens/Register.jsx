@@ -80,7 +80,7 @@ export const Register = () => {
     <>
       <div className="containerRegister">
         <div className="login-box">
-          <p>Register</p>
+          <p>Registro</p>
           <form onSubmit={handleSummit}>
             <div className="user-box">
               <input
@@ -91,7 +91,7 @@ export const Register = () => {
                 className="info-input"
                 
               />
-              <label className="label">User Name</label>
+              <label className="label">Nombre De Usuario</label>
             </div>
             <div className="user-box">
               <input
@@ -112,7 +112,7 @@ export const Register = () => {
                 className="info-input"
 
               />
-              <label className="label">Password</label>
+              <label className="label">Contraseña</label>
               {user.showPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowPassword}
@@ -134,7 +134,7 @@ export const Register = () => {
                 autoComplete="off"
                 className="info-input"
               />
-              <label className="label">Comfirm Password</label>
+              <label className="label">Comfirma La Contraseña</label>
               {user.showConfirmPassword ? (
                 <VisibilityIcon
                   onClick={toggleShowConfirmPassword}
@@ -153,7 +153,7 @@ export const Register = () => {
               <span></span>
               <span></span>
               <span></span>
-              Summit
+              Enviar
             </button>
           </form>
         </div>
