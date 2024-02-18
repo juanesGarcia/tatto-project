@@ -235,7 +235,7 @@ export const AdminAccount = () => {
 
 
           <div className='containerbut'>
-            <button type="submit">
+            <button type="submit" className='actualiza'>
               <span></span>
               <span></span>
               <span></span>

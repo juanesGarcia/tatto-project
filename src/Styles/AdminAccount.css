@@ -68,6 +68,13 @@
   .visibility-right{
     margin-top: 20%;
   }
+  .deletebut{
+    margin-left: 0%;
+    font-size: 50% !important
+  }
+  .actualiza{
+    font-size: 50% !important
+  }
 
   }
   .login-box2 p:first-child {
