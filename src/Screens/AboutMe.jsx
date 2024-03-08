@@ -4,7 +4,7 @@ import "../Styles/AboutMe.css";
 export const AboutMe = () => {
   return (
     <>
-      <div>
+      <div className="containerabout">
         <h3 className="about">¿Quienes somos?</h3>
         <div className="infoAbout">
           <div className="parrafo1">
@@ -82,10 +82,11 @@ export const AboutMe = () => {
             La cuenta de usuario requiere menos información, pero aún así, los
             usuarios pueden seguir otras cuentas, cargar imágenes y reaccionar a
             ellas. Pueden explorar el mapa para encontrar tatuadores en su
-            ciudad o si desea buscar en  otras cuidades, acceder a perfiles para ver el portafolio del tatuador y
-            contactarse para agendar citas. Además, los usuarios pueden
-            proporcionar calificaciones para ayudar a otros a tener una guía
-            completa sobre la calidad del arte de un tatuador.
+            ciudad o si desea buscar en otras cuidades, acceder a perfiles para
+            ver el portafolio del tatuador y contactarse para agendar citas.
+            Además, los usuarios pueden proporcionar calificaciones para ayudar
+            a otros a tener una guía completa sobre la calidad del arte de un
+            tatuador.
           </div>
         </div>
       </div>

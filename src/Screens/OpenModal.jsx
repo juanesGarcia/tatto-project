@@ -260,7 +260,10 @@ const OpenModal = ({
               onClick={() => openModal(post)}
             >
               {post.photos.length > 0 && (
-                <img src={post.photos[0].original} alt={post.photos[0].name} />
+                 <div className="image-container">
+                 <img src={post.photos[0].original} alt={post.photos[0].name} />
+               </div>
+        
               )}
             </div>
           ))

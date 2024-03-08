@@ -1,20 +1,26 @@
 .post-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Ajusta la cuadrícula según sea necesario */
+    grid-template-columns: repeat(2, 1fr); /* Ajusta la cuadrícula según sea necesario */
     gap: 0.5em; /* Elimina el espacio entre las columnas y filas */
     margin-left: 1%;
     z-index: 1;
-    margin-left: 8%;
+    margin-left: 12%;
     margin-right: 8%;
     margin-bottom: 10%;
     margin-top: 5%;
   
   }
   .post-item {
-    width: 100%; /* Ancho deseado */
+    width: 90%; /* Ancho deseado */
     overflow: hidden; /* Para asegurarte de que las imágenes no se desborden */
     display: flex; /* Usa flexbox para alinear elementos en el eje horizontal */ 
     border-radius: 2%;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .post-item:hover  {
+    transform: scale(1.1);
   }
   
   .post-item img {
