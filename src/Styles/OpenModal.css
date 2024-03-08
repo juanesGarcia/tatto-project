@@ -92,7 +92,7 @@
   .info{
     font-size: 14px;
     margin-left: 3%;
-    margin-right: 2%;
+    margin-right: 4%;
     margin-top: 2%;
     margin-bottom: 2%;
     color:beige ;
@@ -100,10 +100,10 @@
 
   }
   .custom-gallery {
-  width: 50%; /* Ajusta el ancho de la galería al 80% del contenedor */
-  margin-left: 24%; /* Ajusta el margen izquierdo según sea necesario */
+  width: 80% ; /* Ajusta el ancho de la galería al 80% del contenedor */
+  margin-left: 10%; /* Ajusta el margen izquierdo según sea necesario */
   margin-bottom: auto;
-  margin-top: auto;
+  margin-top: 5%;
 
 }
 
@@ -180,8 +180,9 @@
 
     }
     .custom-gallery{
-      width: 70%;
-      margin-left: 15%;
+      width: 100%;
+      margin-left: 0%;
+      padding-top: 5%;
     }
 
     .info{
@@ -189,6 +190,7 @@
       color:beige ;
       font-size: 14px;
       margin-top: 3%;
+      margin-right: 5%;
 
     }
     .no-post{
