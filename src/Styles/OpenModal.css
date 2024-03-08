@@ -17,6 +17,7 @@
     border-radius: 2%;
     cursor: pointer;
     transition: all 0.5s;
+    margin-top: 5%;
   }
 
   .post-item:hover  {
@@ -164,16 +165,18 @@
     }
 
     .post-grid {
-      margin-right: 1%;
-      margin-left: 1%;
+      margin-right: 5%;
+      margin-left: 5%;
       margin-top:8%;
       padding-bottom: 28%;
       min-height: 33vh;
+      gap: 0.8em; 
   
     }
     .post-item {
       width: 100%; /* Ancho deseado */
       height: auto;
+      margin-top: 0%;
 
     }
     .custom-gallery{
@@ -201,6 +204,10 @@
     .user-reactions-more{
       margin-left: 5%
     }
+    .post-item:hover  {
+      transform: scale(1.05);
+    }
+    
 
 
   }
