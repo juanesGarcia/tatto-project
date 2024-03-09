@@ -84,17 +84,17 @@ const OpenModal = ({
     try {
       if (!isAuthp) {
         // Si el usuario no está autenticado, muestra un mensaje o realiza alguna acción
-        
-    Swal.fire({
-      icon: 'error',
-      title: `no se puede reaccionar sin cuenta `,
-      showConfirmButton: false,
-      timer: 1500,
-      customClass: {
-        popup: 'custom-swal-popup',
-        title: 'custom-swal-title',
-      },
-    });
+
+        Swal.fire({
+          icon: "error",
+          title: `no se puede reaccionar sin cuenta `,
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: "custom-swal-popup",
+            title: "custom-swal-title",
+          },
+        });
         return;
       }
       if (reactionsMap[post_id]) {
@@ -260,10 +260,12 @@ const OpenModal = ({
               onClick={() => openModal(post)}
             >
               {post.photos.length > 0 && (
-                 <div className="image-container">
-                 <img src={post.photos[0].original} alt={post.photos[0].name} />
-               </div>
-        
+                <div className="image-container">
+                  <img
+                    src={post.photos[0].original}
+                    alt={post.photos[0].name}
+                  />
+                </div>
               )}
             </div>
           ))
@@ -292,7 +294,7 @@ const OpenModal = ({
                 </div>
               ) : null}
             </div>
-            <div className="info">{selectedPost.title}</div>
+            <div className="flexinfo">
             <div
               className={`custom-gallery ${
                 likeAnimation ? "like-animation" : ""
@@ -314,10 +316,22 @@ const OpenModal = ({
                 )}
               </div>
             </div>
+            {selectedPost.title.length > 0 ? (
+    <div className="info">
+      {selectedPost.title}
+    </div>
+  ) : null}
+
+
+            </div>
+ 
             <div className="info-users-reactions">
               {userReactions.length > 0 && (
                 <div className="user-reactions" key={userReactions[0].id}>
-                  <Avatar sx={{ width: 25, height: 25 }} src={userReactions[0].media_url}>
+                  <Avatar
+                    sx={{ width: 25, height: 25 }}
+                    src={userReactions[0].media_url}
+                  >
                     {userReactions[0].name[0]}
                   </Avatar>
                   <div className="nameuser">{userReactions[0].name}</div>

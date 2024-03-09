@@ -1,17 +1,16 @@
 .post-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Ajusta la cuadrícula según sea necesario */
+    display: block;
+    column-gap: 0.5em;
+    columns:auto 310px;
     gap: 0.5em; /* Elimina el espacio entre las columnas y filas */
-    margin-left: 1%;
     z-index: 1;
-    margin-left: 12%;
-    margin-right: 8%;
-    margin-bottom: 10%;
-    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
   
   }
   .post-item {
-    width: 90%; /* Ancho deseado */
+    width: 100%; /* Ancho deseado */
     overflow: hidden; /* Para asegurarte de que las imágenes no se desborden */
     display: flex; /* Usa flexbox para alinear elementos en el eje horizontal */ 
     border-radius: 2%;
@@ -20,8 +19,8 @@
     margin-top: 5%;
   }
 
-  .post-item:hover  {
-    transform: scale(1.1);
+  .post-item:hover img {
+    filter: brightness(50%); /* Aplica un filtro de brillo para oscurecer la imagen */
   }
   
   .post-item img {
@@ -91,21 +90,24 @@
   }
   .info{
     font-size: 14px;
-    margin-left: 3%;
+    margin-left: 5%;
     margin-right: 4%;
-    margin-top: 2%;
+    margin-top: 5%;
     margin-bottom: 2%;
     color:beige ;
     font-family: 'Shadows Into Light', sans-serif;
+    width: 40%;
 
   }
   .custom-gallery {
-  width: 80% ; /* Ajusta el ancho de la galería al 80% del contenedor */
-  margin-left: 10%; /* Ajusta el margen izquierdo según sea necesario */
+  width: 55% ; /* Ajusta el ancho de la galería al 80% del contenedor */
+  margin: auto;
   margin-bottom: auto;
   margin-top: 5%;
+  height: auto;
 
 }
+
 
   .no-post{
     font-family: 'Rock Salt', cursive !important;
@@ -114,6 +116,10 @@
     width: 100%;
     margin-top: 30%;
     margin-bottom: 35%;
+  }
+
+  .flexinfo{
+    display: flex;
   }
 
   /* Agregar esto a tu archivo de estilos CSS o en línea si estás utilizando styled-components */
@@ -163,20 +169,15 @@
       top: 17%;
       right: 2%;
     }
-
     .post-grid {
-      margin-right: 3%;
-      margin-left: 3%;
-      margin-top:8%;
-      padding-bottom: 28%;
-      min-height: 33vh;
-      gap: 0.8em; 
-  
+      columns: auto 120px;
+      margin-left: 1%;
+      margin-right: 1%;
     }
+    
     .post-item {
-      width: 100%; /* Ancho deseado */
-      height: auto;
-      margin-top: 0%;
+      margin-top: 6%;
+      margin-bottom: 2%;
 
     }
     .custom-gallery{
@@ -189,8 +190,9 @@
       margin-bottom: 5%;
       color:beige ;
       font-size: 14px;
-      margin-top: 3%;
+      margin-top: 10%;
       margin-right: 3%;
+      width: 45%;
 
     }
     .no-post{
