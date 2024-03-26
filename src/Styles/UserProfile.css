@@ -1,7 +1,7 @@
 .containerProfile {
   display: flex;
   padding-top: 3%;
-  padding-left: 30%;
+  padding-left: 35%;
   padding-bottom: 3%;
   font-family: 'Rock Salt', cursive !important;
   min-height: 20vh;
@@ -96,7 +96,7 @@
   .followInfo{
     display: flex;
     font-family: 'Rock Salt', cursive !important;
-    margin-left: 30%;
+    margin-left: 28%;
     margin-top: 1%;
   }
   .follow{
