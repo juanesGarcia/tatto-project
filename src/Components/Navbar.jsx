@@ -31,21 +31,21 @@ const navlinks = [
   },
 
   {
-    title: "Blog",
+    title: "Preguntas",
     path: "/Blog",
     icon: <ArticleIcon sx={{
       color: "white"
     }}></ArticleIcon>
   },
   {
-    title: "Best tattos",
+    title: "Mejores Tatuajes",
     path: "/BestTattos",
     icon: <ArticleIcon sx={{
       color: "white"
     }}></ArticleIcon>
   },
   {
-    title: "Tatto Artist",
+    title: "Mejores Artistas",
     path: "/Artist",
     icon: <ArticleIcon sx={{
       color: "white"
