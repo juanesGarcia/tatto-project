@@ -420,7 +420,7 @@ const getRatingf = async() =>{
             </div>
           </div>
           <div className="followInfo">
-            <h6>publicaciones {postsLength}</h6>
+            <h6 className="follow">publicaciones {postsLength}</h6>
             <h6 className="follow" onClick={() => getFollowershow()}>
               seguidores {followerLength}
             </h6>
