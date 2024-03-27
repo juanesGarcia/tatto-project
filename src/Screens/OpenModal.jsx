@@ -295,7 +295,27 @@ const OpenModal = ({
               ) : null}
             </div>
             <div className="flexinfo">
-            
+            <div
+              className={`custom-gallery ${
+                likeAnimation ? "like-animation" : ""
+              }`}
+            >
+              <Gallery
+                className={`${likeAnimation ? "like-animation" : ""}`}
+                items={selectedPost.photos}
+                onClick={() => handleStarClick(selectedPost.post_id)}
+              />
+              <div
+                onClick={() => handleStarClick(selectedPost.post_id)}
+                style={{ fontSize: "24px" }}
+              >
+                {reactionsMap[selectedPost.post_id] ? (
+                  <FaStar color="gold" />
+                ) : (
+                  <FaRegStar />
+                )}
+              </div>
+            </div>
             {selectedPost.title.length > 0 ? (
               
     <div className="info">
