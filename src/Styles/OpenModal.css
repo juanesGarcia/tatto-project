@@ -46,8 +46,8 @@
   }
   
   .custom-modal {
-    width: 50%;
-    height: auto;
+    width: auto;
+    height: 90%;
     background: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -83,7 +83,7 @@
   }
 
   .img {
-    width: 60%; /* Ajusta el ancho de la imagen al 70% del contenedor */
+    width: 50%; /* Ajusta el ancho de la imagen al 70% del contenedor */
     margin-left: 5%;
     margin-bottom:auto;
     margin-top: auto;
@@ -93,18 +93,30 @@
     margin-left: 5%;
     margin-right: 4%;
     margin-top: 5%;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
+    color:beige ;
+    font-family: 'Shadows Into Light', sans-serif;
+    width: 40%;
+
+  }
+  .infoc{
+    font-size: 14px;
+    margin-left: 5%;
+    margin-right: 4%;
+    margin-top: 2%;
+    margin-bottom: 5%;
     color:beige ;
     font-family: 'Shadows Into Light', sans-serif;
     width: 40%;
 
   }
   .custom-gallery {
-  width: 55% ; /* Ajusta el ancho de la galería al 80% del contenedor */
+  width: auto; /* Ajusta el ancho de la galería al 80% del contenedor */
   margin: auto;
   margin-bottom: auto;
-  margin-top: 5%;
+  margin-top: 1%;
   height: auto;
+  margin-left: 2%;
 
 }
 
@@ -127,6 +139,7 @@
   animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
 }
 .user-reactions{
+  margin-top: 1%;
   margin-left: 3%; 
   display: flex;
 }

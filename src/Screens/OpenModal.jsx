@@ -355,7 +355,7 @@ const OpenModal = ({
               />
             )}
 
-            <div className="info">
+            <div className="infoc">
               Creado hace {calcularDiferenciaEnDias(selectedPost.created_at)}
             </div>
           </div>
