@@ -461,12 +461,12 @@ const getRatingf = async() =>{
             {!isFollowing ? (
               isAuth && (
                 <button className="button" onClick={() => follow()}>
-                  Follow
+                  seguir
                 </button>
               )
             ) : (
               <button className="button" onClick={() => unfollow()}>
-                 unFollow
+                 siguiendo
               </button>
             )}
           </>
