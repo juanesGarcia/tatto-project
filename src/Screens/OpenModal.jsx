@@ -8,7 +8,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { useDispatch } from "react-redux";
 import { setPostsLength } from "../redux/slices/authSlice";
 import { FaStar, FaRegStar } from "react-icons/fa";
-
+import { useNavigate } from 'react-router-dom';
 import {
   onReaction,
   getStatusReactions,
@@ -33,6 +33,7 @@ const OpenModal = ({
   const [reactionsMap, setReactionsMap] = useState({});
   const [userReactions, setuserReactions] = useState([]);
   const [showReactionsModal, setShowReactionsModal] = useState(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -249,6 +250,11 @@ const OpenModal = ({
       : `${diasRedondeados} días`;
   };
 
+  const moveOnly = (id,name) =>{
+    navigate(`/profile/${encodeURIComponent(id)}/${encodeURIComponent(name)}`);
+    closeModal();
+  }
+
   return (
     <>
       <div className="post-grid">
@@ -284,6 +290,7 @@ const OpenModal = ({
                 <div>
                   {isOwnProfilep && (
                     <DropdownMenu
+                      className="dropmenu"
                       post_id={selectedPost.post_id}
                       onDeleted={handleDeleted}
                       onUpdate={handleUpdate}
@@ -327,15 +334,16 @@ const OpenModal = ({
             </div>
  
             <div className="info-users-reactions">
-              {userReactions.length > 0 && (
+              {userReactions.length == 1 && (
                 <div className="user-reactions" key={userReactions[0].id}>
                   <Avatar
                     sx={{ width: 25, height: 25 }}
                     src={userReactions[0].media_url}
+                    
                   >
                     {userReactions[0].name[0]}
                   </Avatar>
-                  <div className="nameuser">{userReactions[0].name}</div>
+                  <div className="nameuser" onClick={()=> moveOnly(userReactions[0].id,userReactions[0].name)}>{userReactions[0].name}</div>
                 </div>
               )}
               {userReactions.length > 1 && (

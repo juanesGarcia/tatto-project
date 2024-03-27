@@ -46,8 +46,8 @@
   }
   
   .custom-modal {
-    width: auto;
-    height: 90%;
+    width: 50%;
+    max-height: 90vh;
     background: #fff;
     border-radius: 8px;
     padding: 20px;
@@ -110,13 +110,13 @@
     width: 40%;
 
   }
+
   .custom-gallery {
-  width: auto; /* Ajusta el ancho de la galería al 80% del contenedor */
-  margin: auto;
-  margin-bottom: auto;
-  margin-top: 1%;
+  width: auto;
+  max-width: 40vh; /* Ajusta el ancho de la galería al 80% del contenedor */
+  margin-top: 5% !important;
   height: auto;
-  margin-left: 2%;
+  margin: auto;
 
 }
 
@@ -146,6 +146,9 @@
 .nameuser{
   color: aliceblue;
   margin-left: 10%;
+}
+.nameuser:hover{
+  color: #917E41;
 }
 .info-users-reactions{
   display: flex;
