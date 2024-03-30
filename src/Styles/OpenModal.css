@@ -152,7 +152,7 @@
 }
 .info-users-reactions{
   display: flex;
-  margin-left: 5%;
+  margin-left: 0%;
 }
 .user-reactions-more{
   margin-left: 3%;
@@ -205,10 +205,15 @@
     .info{
       margin-bottom: 5%;
       color:beige ;
-      font-size: 14px;
+      font-size: 10.5px;
       margin-top: 10%;
       margin-right: 3%;
-      width: 45%;
+      width: 80%;
+
+    }
+    .infoc{
+
+      margin-top: 5%;
 
     }
     .no-post{
@@ -226,6 +231,11 @@
     }
     .post-item:hover  {
       transform: scale(1.05);
+    }
+    .user-reactions{
+      margin-top: 4%;
+      margin-left: 0%; 
+      display: flex;
     }
     
 

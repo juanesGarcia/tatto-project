@@ -1,6 +1,7 @@
 .words {
   font-family: "Rock Salt", cursive !important;
   color: aliceblue !important;
+  font-size: large;
 }
 .toolbar-container {
   display: flex;

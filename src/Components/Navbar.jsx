@@ -38,14 +38,14 @@ const navlinks = [
     }}></ArticleIcon>
   },
   {
-    title: "Mejores Tatuajes",
+    title: "Tatuajes",
     path: "/BestTattos",
     icon: <ArticleIcon sx={{
       color: "white"
     }}></ArticleIcon>
   },
   {
-    title: "Mejores Artistas",
+    title: "Artistas",
     path: "/Artist",
     icon: <ArticleIcon sx={{
       color: "white"
