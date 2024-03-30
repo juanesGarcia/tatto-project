@@ -48,7 +48,7 @@
 }
 
 .custom-modal {
-  width: 50%;
+  width: 60%;
   max-height: 94vh;
   background: #fff;
   border-radius: 8px;
@@ -85,7 +85,7 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 }
 
 .img {
-  width: 50%; /* Ajusta el ancho de la imagen al 70% del contenedor */
+  width: 60%; /* Ajusta el ancho de la imagen al 70% del contenedor */
   margin-left: 5%;
   margin-bottom:auto;
   margin-top: auto;
@@ -115,7 +115,7 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 
 .custom-gallery {
 width: auto;
-max-width: 40vh; /* Ajusta el ancho de la galería al 80% del contenedor */
+max-width: 50vh; /* Ajusta el ancho de la galería al 80% del contenedor */
 margin-top: 5% !important;
 height: auto;
 margin: auto;
@@ -182,7 +182,7 @@ color:#917E41;
 @media (max-width: 800px) {
 
   .custom-modal {
-    width: 90%;
+    width: 92%;
     height: auto;
   }
   .close-button {
@@ -201,15 +201,16 @@ color:#917E41;
 
   }
   .custom-gallery{
-    width: 100%;
+    width: 120%;
     margin-left: 0%;
     padding-top: 5%;
+    max-width: 60vh; /* Ajusta el ancho de la galería al 80% del contenedor */
   }
 
   .info{
     margin-bottom: 5%;
     color:beige ;
-    font-size: 10px;
+    font-size: 11px;
     margin-top: 10%;
     margin-right: 2%;
     width: 80%;

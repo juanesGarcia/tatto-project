@@ -75,7 +75,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     console.log(acceptedFiles.length)
     
     console.log(description.length)
-    if (description.length <= 610) {
+    if (description.length <= 494) {
       formData.append("description", description);
       try {
         const response = await axios.post(
@@ -110,7 +110,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     } else {
       Swal.fire({
         icon: 'error',
-        title: `la descripcion no puede ser mayor a 610 caracteres`,
+        title: `la descripcion no puede ser mayor a 494 caracteres`,
         showConfirmButton: false,
         timer: 1500,
         customClass: {
