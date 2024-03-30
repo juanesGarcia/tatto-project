@@ -4,7 +4,6 @@ import Gallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../Styles/OpenModal.css";
 import DropdownMenu from "./DropdownMenu";
-import "react-image-gallery/styles/css/image-gallery.css";
 import { useDispatch } from "react-redux";
 import { setPostsLength } from "../redux/slices/authSlice";
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -310,6 +309,8 @@ const OpenModal = ({
               <Gallery
                 className={`${likeAnimation ? "like-animation" : ""}`}
                 items={selectedPost.photos}
+                fullscreen={true}
+                fullscreenClass="custom-fullscreenw"
                 onClick={() => handleStarClick(selectedPost.post_id)}
               />
               <div
