@@ -10,6 +10,7 @@
   
   }
 
+
   .post-item {
     width: 100%; /* Ancho deseado */
     overflow: hidden; /* Para asegurarte de que las imágenes no se desborden */
@@ -106,7 +107,6 @@
     margin-right: 4%;
     margin-top: 2%;
     margin-bottom: 2% !important;
-
     color:beige ;
     font-family: 'Shadows Into Light', sans-serif;
     width: 40%;
@@ -242,6 +242,11 @@
       margin-left: 0%; 
       display: flex;
     }
+
+
+    
+
+  
   
 
 
