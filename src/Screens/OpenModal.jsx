@@ -309,8 +309,6 @@ const OpenModal = ({
               <Gallery
                 className={`${likeAnimation ? "like-animation" : ""}`}
                 items={selectedPost.photos}
-                fullscreen={true}
-                fullscreenClass="custom-fullscreenw"
                 onClick={() => handleStarClick(selectedPost.post_id)}
               />
               <div

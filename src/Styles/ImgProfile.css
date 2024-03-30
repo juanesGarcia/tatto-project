@@ -35,7 +35,10 @@
       margin-bottom: 8%;
     }
     .fullscreen {
-      margin: auto;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      align-items: center;
     }
     
     
