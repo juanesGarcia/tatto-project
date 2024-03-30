@@ -31,11 +31,7 @@
     flex: 1; /* La imagen ocupa todo el espacio disponible en el contenedor flex */
   
   }
-   .react-image-gallery-fullscreen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   
   .custom-modal-overlay {
     position: fixed;
@@ -167,6 +163,8 @@
   color:#917E41;
 }
 
+
+
 @keyframes likeAnimation {
   0% {
     transform: scale(1);
@@ -181,6 +179,12 @@
 
 
   @media (max-width: 800px) {
+
+   
+    .fullscreen {
+
+      padding-bottom: 20% !important;
+    }
 
     .custom-modal {
       width: 90%;
@@ -242,7 +246,7 @@
       margin-left: 0%; 
       display: flex;
     }
-    
+  
 
 
   }
