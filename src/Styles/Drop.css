@@ -42,7 +42,7 @@
   height: auto;
 }
 .custom-swal-popup {
-  background-color: rgb(79, 72, 72);
+  background-color: rgb(30, 28, 28) !important;
   color: white;
   font-family: 'Rock Salt', cursive !important;
 }
