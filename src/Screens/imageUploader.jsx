@@ -75,7 +75,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     console.log(acceptedFiles.length)
     
     console.log(description.length)
-    if (description.length <= 520) {
+    if (description.length <= 323) {
       formData.append("description", description);
       try {
         const response = await axios.post(
@@ -110,7 +110,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     } else {
       Swal.fire({
         icon: 'error',
-        title: `no mas de 520 digitos y tiene ${newText.length}`,
+        title: `no mas de 323 digitos y tiene ${newText.length}`,
         showConfirmButton: false,
         timer: 1500,
         customClass: {
