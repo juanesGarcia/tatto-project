@@ -38,7 +38,7 @@ const now= new Date();
 console.log('La fecha actual es',now);
       console.log(newText.length)
 
-if(newText.length <= 610){
+if(newText.length <= 520){
 
   try {
     const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {
@@ -74,7 +74,7 @@ if(newText.length <= 610){
 }else{
   Swal.fire({
     icon: 'error',
-    title: `la descripcion no puede ser mayor a 610 caracteres `,
+    title: `no mas de 520 digitos y tiene ${newText.length}`,
     showConfirmButton: false,
     timer: 1500,
     customClass: {
