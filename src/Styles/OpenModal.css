@@ -5,7 +5,7 @@
   gap: 0.5em; /* Elimina el espacio entre las columnas y filas */
   z-index: 1;
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right: 5%; 
   margin-top: 2%;
 
 }
@@ -155,10 +155,13 @@ color: #917E41;
 .info-users-reactions{
 display: flex;
 margin-left: 0%;
+cursor: pointer;
 }
 .user-reactions-more{
 margin-left: 3%;
 color: aliceblue;
+cursor: pointer;
+display: flex;
 }
 .user-reactions-more:hover{
 color:#917E41;

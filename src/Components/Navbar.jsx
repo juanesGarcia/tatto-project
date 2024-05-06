@@ -126,6 +126,7 @@ function Navbar() {
                 alt="User Avatar"
                 onClick={handleAvatarClick}
                 src={info.media_url}
+                style={{ cursor: "pointer" }}
               > {info.name[0]}</Avatar>
               {showInfo && (
                 
@@ -151,7 +152,7 @@ function Navbar() {
               </CustomButton>
               
               
-              <Avatar onClick={handleAvatarClick}></Avatar>
+              <Avatar onClick={handleAvatarClick} style={{ cursor: "pointer" }}></Avatar>
               {showInfo && (
                 <div className="profile-info" onClick={handleInfoClose}>
                   <div className="left-div"><Avatar sx={{ width: 60, height: 60 }}></Avatar></div>

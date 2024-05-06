@@ -334,7 +334,7 @@ const OpenModal = ({
  
             <div className="info-users-reactions">
               {userReactions.length == 1 && (
-                <div className="user-reactions" key={userReactions[0].id}>
+                <div className="user-reactions" key={userReactions[0].id} onClick={()=> moveOnly(userReactions[0].id,userReactions[0].name)}>
                   <Avatar
                     sx={{ width: 25, height: 25 }}
                     src={userReactions[0].media_url}
@@ -342,7 +342,7 @@ const OpenModal = ({
                   >
                     {userReactions[0].name[0]}
                   </Avatar>
-                  <div className="nameuser" onClick={()=> moveOnly(userReactions[0].id,userReactions[0].name)}>{userReactions[0].name}</div>
+                  <div className="nameuser" >{userReactions[0].name}</div>
                 </div>
               )}
               {userReactions.length > 1 && (
@@ -350,7 +350,11 @@ const OpenModal = ({
                   className="user-reactions-more"
                   onClick={() => setShowReactionsModal(true)}
                 >
-                  y {userReactions.length - 1} personas más
+                      <Avatar
+                    sx={{ width: 25, height: 25 }}
+                    src={userReactions[0].media_url}
+                    
+                  ></Avatar>{userReactions[0].name}y {userReactions.length - 1} personas más
                 </div>
               )}
             </div>
