@@ -197,14 +197,15 @@ export const RegisterTatto = () => {
               required=""
               name="countryName"
               type="text"
-              placeholder="Nombre Del Pais"
+              placeholder="Nombre De Tu Pais"
               onChange={handleCountryCodeChange}
               className="phone"
             />
-            <label className="label">Telefono</label>
           </div>
+          <label className="label">Telefono</label>
           <div className="user-box">
             {/* Campo de teléfono */}
+             
             <div className="code">
               <input
                 required=""
@@ -216,7 +217,7 @@ export const RegisterTatto = () => {
                 className="phone"
               />
             </div>
-
+           
             <input
               required=""
               name="numberphone"

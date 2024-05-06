@@ -120,12 +120,12 @@
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important; 
     border: none;
     border-bottom: 1px solid #917E41;
     outline: none;
     background: transparent;
-    margin-top: 6% !important;
+
   }
   
   .login-box .user-box label {
@@ -137,6 +137,7 @@
     color: #fff;
     pointer-events: none;
     transition: .5s;
+    
   }
   
   .login-box .user-box input:focus ~ label,
@@ -276,3 +277,11 @@
   .deletebut{
     margin-left: 10%;
   }
+  
+  .label{
+    color: aliceblue;
+  }
+.info-input{
+
+margin-top: 5% !important;
+}
