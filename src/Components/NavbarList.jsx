@@ -33,7 +33,7 @@ export const NavbarList = ({ navlinks, setOpen }) => {
                   marginLeft: "4%"
                 }}><HomeIcon sx={{
                   color: "white"
-                }}></HomeIcon ><a className='words'>Casa</a></ListItemText>
+                }}></HomeIcon ><a className='words'>CasaP</a></ListItemText>
               </CustomList>
             </ListItem>
             {
