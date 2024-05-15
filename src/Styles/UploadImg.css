@@ -19,14 +19,7 @@
 
 
 @media (max-width: 800px) {
-    .upload-mesage2{
-        margin-left: 20%;
-        font-family: 'Rock Salt', cursive !important;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        font-size: 130%;
-        width: 100%;
-    }
+ 
     .upload-page{
         margin-left: 2%;
         margin-right: 2%;
