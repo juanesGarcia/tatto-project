@@ -1,7 +1,10 @@
 .option-container {
   display: flex;
   align-items: center;
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
 }
 .search-container{
   min-height: 10vh;
@@ -9,9 +12,13 @@
 
 }
 .title{
-  margin-left: 30%;
+  display: flex;
+  justify-content: center;
   margin-bottom: 5%;
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
   font-weight: bold;
 }
 .label-container {
@@ -20,17 +27,29 @@
   flex-grow: 1;
 }
 .titleinput{
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
+  font-weight: bold;
   margin-left: 5%;
   margin-bottom: 2%;
 }
 .titlemap{
-  font-family: 'Rock Salt', cursive !important;
-  margin-left: 25%;
-  margin-top: 10%;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  margin-top: 6%;
+  font-weight: bold;
 }
 .no-results{
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
   margin-left: 5%;
   padding-bottom: 2%;
   margin-top: 3%;
@@ -66,7 +85,10 @@
 .user-info{
   margin-left: 4%;
   display: block;
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
 
 }
 .avatar{
@@ -76,7 +98,10 @@
 .user-name{
   font-size: 140%;
   font-weight: bold;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 .user-location{
   font-size: 75%;
@@ -113,8 +138,5 @@ margin-right: 7%;
 .user-info{
   margin-left: 8%;
 }
-.title{
-  margin-left: 6%;
-  margin-bottom: 10%;
-}
+ 
 }

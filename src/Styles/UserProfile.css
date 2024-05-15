@@ -3,7 +3,10 @@
   padding-top: 3%;
   padding-left: 35%;
   padding-bottom: 1%;
-  font-family: 'Rock Salt', cursive !important;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   min-height: 20vh;
 }
 
@@ -21,7 +24,10 @@
 .nameinfo{
   font-size: 250%;
   margin-right: 3%;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .img-avatar{
@@ -50,7 +56,10 @@
     border-radius: 6px;
     font-weight: 500;
     color: var(--color);
-    font-family: 'Rock Salt', cursive !important;
+    font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
    }
    
    .button:before {
@@ -95,9 +104,13 @@
   }
   .followInfo{
     display: flex;
-    font-family: 'Rock Salt', cursive !important;
-    margin-left: 28%;
+    font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+    justify-content: center;
     margin-top: 1%;
+    margin-right: 5%;
   }
   .follow{
     margin-left: 5%;
@@ -112,7 +125,10 @@
     color: aliceblue;
   }
   .follow-mesage{
-    font-family: 'Rock Salt', cursive !important;
+     font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
     margin-top: 2%;
     font-size: 130%;
     margin-left: 5%;
