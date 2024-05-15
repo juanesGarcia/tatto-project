@@ -1,5 +1,6 @@
 .upload-mesage2{
-    margin-left: 28%;
+    display: flex;
+    justify-content: center;
     font-family: 'Rock Salt', cursive !important;
     font-size: 30px;
     width: 100%;

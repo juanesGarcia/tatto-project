@@ -1,10 +1,10 @@
 .icon-imgP{
-    margin-left: 3%;
   font-size: 1200%;
+  margin-bottom: 5%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 }  .custom-image-gallery2 {
-  width: 350px;
-  margin: 0 auto; /* Centra la galería horizontalmente */
-  margin-right: 3%;
   height: auto;
   margin-top: 5%;
   margin-bottom: 2%;
@@ -12,6 +12,17 @@
 .but-upload2{
   display: flex;
   margin-top: 10px;
+  justify-content:center ;
+}
+.text-imgp{
+ 
+    font-size: 15px;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+  
+}
+.prue2{
   margin-left: 0%;
 }
 

@@ -1,14 +1,13 @@
 
 .modal-contentshow{
-    width: 40% !important;
-    background-color: rgb(24, 23, 23);
+    width: auto;
+    background-color: transparent;
     border-radius: 2%;
     height: auto;
 }
 .image-avatar{
-    margin-left: 15%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    width: 90%;
+
 }
 
 

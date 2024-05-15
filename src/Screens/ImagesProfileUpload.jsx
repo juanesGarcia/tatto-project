@@ -150,7 +150,7 @@ const ImagesProfileUpload = ({ onClose, id, users}) => {
                 <p>Drop the files here ...</p>
               ) : (
                 <div>
-                  <h3 className="text-img">arrastre o click para subir imagenes</h3>
+                  <h3 className="text-imgp">arrastre o click para subir imagenes</h3>
                   <BsFillFileImageFill className="icon-imgP"></BsFillFileImageFill>
                 </div>
                   

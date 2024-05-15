@@ -354,7 +354,7 @@ const OpenModal = ({
                     sx={{ width: 25, height: 25 }}
                     src={userReactions[0].media_url}
                     
-                  ></Avatar>{userReactions[0].name}y {userReactions.length - 1} personas más
+                  ></Avatar><div className="namefirst">{userReactions[0].name} </div>  y {userReactions.length - 1} personas más
                 </div>
               )}
             </div>

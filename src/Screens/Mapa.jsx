@@ -53,12 +53,12 @@ export const Mapa = ({users,setcityUserM}) => {
   }, [userLocation]);
 
   useEffect(() => {
-    if (userLocation && cityUser) {
+    if (userLocation && cityUser && users && users.length > 0) {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: 'mapbox://styles/mapbox/streets-v12',
         center: userLocation,
-        zoom: 14,
+        zoom: 13,
       });
 
       map.on('load', () => {

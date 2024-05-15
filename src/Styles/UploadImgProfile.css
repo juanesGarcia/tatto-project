@@ -1,5 +1,6 @@
 .upload-mesageimg{
-    margin-left: 12%;
+    display: flex;
+    justify-content: center;
     font-family: 'Rock Salt', cursive !important;
     margin-top: 4%;
     margin-bottom: 3%;

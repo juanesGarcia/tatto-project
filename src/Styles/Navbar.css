@@ -97,8 +97,7 @@
 }
 .right-div {
   margin-top: 5%;
-  margin-left: 5%;
-  width: 50%;
+  width: 100%;
   font-family: "Shadows Into Light", sans-serif;
 }
 .profile-name {
@@ -127,8 +126,12 @@
   margin-top: 9%;
   margin-bottom: 20%;
   border-radius: 5%;
-  margin-left: 0%;
   font-family: "Rock Salt", cursive !important;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .bottom-component:hover {
   background-color: #3d361d;

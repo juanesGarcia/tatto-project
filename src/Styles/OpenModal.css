@@ -119,6 +119,7 @@ max-width: 50vh; /* Ajusta el ancho de la galería al 80% del contenedor */
 margin-top: 5% !important;
 height: auto;
 margin: auto;
+margin-left: 5%;
 
 }
 
@@ -142,7 +143,6 @@ animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la funci�
 }
 .user-reactions{
 margin-top: 1%;
-margin-left: 3%; 
 display: flex;
 }
 .nameuser{
@@ -159,14 +159,19 @@ cursor: pointer;
 }
 .user-reactions-more{
 margin-left: 3%;
+margin-top: 1%;
 color: aliceblue;
 cursor: pointer;
 display: flex;
+width: 60%;
 }
 .user-reactions-more:hover{
 color:#917E41;
 }
-
+.namefirst{
+  margin-left: 3%;
+  margin-right: 2%;
+}
 
 
 @keyframes likeAnimation {
@@ -236,7 +241,8 @@ color:#917E41;
   
 
   .user-reactions-more{
-    margin-left: 5%
+    margin-left: 5%;
+    width:100%;
   }
   .post-item:hover  {
     transform: scale(1.05);

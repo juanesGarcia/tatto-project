@@ -110,7 +110,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
     } else {
       Swal.fire({
         icon: 'error',
-        title: `no mas de 323 digitos y tiene ${newText.length}`,
+        title: `no mas de 323 digitos y tiene ${description.length}`,
         showConfirmButton: false,
         timer: 1500,
         customClass: {
@@ -135,7 +135,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
               {isDragActive ? (
                 <p>Drop the files here ...</p>
               ) : (
-                <div>
+                <div >
                   <h3 className="text-img">arrastre o click para subir imagenes</h3>
                   <BsFillFileImageFill className="icon-img"></BsFillFileImageFill>
                 </div>

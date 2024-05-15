@@ -125,6 +125,12 @@
     color:  #917E41;
   }
 
+  .location{
+    cursor: pointer;
+  }
+  .rating{
+    cursor: pointer;
+  }
   
   @media (max-width: 800px) {
     .containerProfile{

@@ -370,7 +370,7 @@ const getRatingf = async() =>{
           <div className="containerProfile">
             <Avatar
               src={user[0].avatar}
-              sx={{ width: 140, height: 140, border: '1px solid black'}}
+              sx={{ width: 140, height: 140, border: '1px solid black', cursor: 'pointer'}}
               className="img-avatar"
               onClick={() => getuploadImage()}
             ></Avatar>
