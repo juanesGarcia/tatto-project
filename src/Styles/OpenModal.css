@@ -97,7 +97,10 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
   margin-top: 5%;
   margin-bottom: 5%;
   color:beige ;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width: 40%;
 
 }
@@ -108,7 +111,10 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
   margin-top: 2%;
   margin-bottom: 2% !important;
   color:beige ;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width: 40%;
 
 }
@@ -213,16 +219,17 @@ color:#917E41;
 
   }
   .custom-gallery{
-    width: 120%;
-    margin-left: 0%;
-    padding-top: 5%;
+    width: 100%;
+    margin-left: auto;
+    padding-top: 0%;
     max-width: 60vh; /* Ajusta el ancho de la galería al 80% del contenedor */
+    max-width: 36vh;
   }
 
   .info{
     margin-bottom: 5%;
     color:beige ;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 10%;
     margin-right: 0%;
     width: 80%;
@@ -232,6 +239,7 @@ color:#917E41;
     font-size: 16px;
     margin-top: 5%;
     margin-bottom: 5%;
+    width: 100%;
 
   }
   .no-post{
@@ -257,6 +265,9 @@ color:#917E41;
     margin-top: 4%;
     margin-left: 0%; 
     display: flex;
+  }
+  .flexinfo{
+    display: block;
   }
 
 

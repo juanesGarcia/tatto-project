@@ -28,7 +28,7 @@
   .reactions-list {
     max-height: 378px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
-    margin-left: 30px;
+    margin-left: 0%;
     margin-top: 3%;
   }
 
@@ -62,7 +62,10 @@
 .name{
   margin-top: 2% !important;
   margin-left: 5%;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   font-size: 140%;
 }
 .name:hover{
