@@ -420,13 +420,13 @@ const getRatingf = async() =>{
             </div>
           </div>
           <div className="followInfo">
-            <h6 className="follow">publicaciones {postsLength}</h6>
-            <h6 className="follow" onClick={() => getFollowershow()}>
+            <h5 className="follow">publicaciones {postsLength}</h5>
+            <h5 className="follow" onClick={() => getFollowershow()}>
               seguidores {followerLength}
-            </h6>
-            <h6 className="follow" onClick={() => getFollowedshow()}>
+            </h5>
+            <h5 className="follow" onClick={() => getFollowedshow()}>
               seguidos {followedLength}
-            </h6>
+            </h5>
           </div>
           {/* Renderizar el modal de seguidores */}
           {showFollowerModal && (

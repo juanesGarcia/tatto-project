@@ -110,7 +110,7 @@
   font-style: normal;
     justify-content: center;
     margin-top: 1%;
-    margin-right: 5%;
+    margin-right: 3%;
   }
   .follow{
     margin-left: 5%;
@@ -143,6 +143,7 @@
 
   .location{
     cursor: pointer;
+    font-size: 40px;
   }
   .rating{
     cursor: pointer;
@@ -173,7 +174,7 @@
   }
 
   .location{
-  font-size: 75%;
+  font-size: 100%;
   }
   .iconmap{
     margin-left: 40%;

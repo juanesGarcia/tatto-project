@@ -182,6 +182,7 @@
   margin-left: 0%;
   font-size: 120%;
   width: 100%;
+  font-weight: bold;
 }
 .profile-login {
   color: #917e41 !important;
@@ -202,7 +203,7 @@
 
 .editarNav {
   color: aliceblue;
-  font-size: 80%;
+  font-size: 100%;
   margin-left: 10%;
   text-decoration: none;
   font-family: "Playfair Display", serif;

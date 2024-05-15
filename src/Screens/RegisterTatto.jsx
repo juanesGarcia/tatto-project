@@ -211,7 +211,6 @@ export const RegisterTatto = () => {
                 required=""
                 name="phone"
                 type="text"
-                placeholder="codigo"
                 value={user.phone}
                 onChange={handleOnchange}
                 className="phone"

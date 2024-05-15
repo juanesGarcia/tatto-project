@@ -11,29 +11,44 @@
 .custom-swal-popup {
   background-color: black;
   color: white;
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
 }
 
 .custom-swal-title {
   color: white;
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
 }
 
 .custom-swal-confirm-button {
   background-color: white;
   color: black;
-  font-family: 'Rock Salt', cursive !important;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
   padding: 13% 80%;
   border-radius: 15%;
 }
-
+input::placeholder {
+  font-size: 15px; /* Cambia este valor al tamaño que prefieras */
+  color: #999; /* Puedes también cambiar el color si deseas */
+}
 .custom-swal-confirm-button:hover{
   background-color: #917E41;
 }
 
 .user-box{
   display:flex;
-  font-family: 'Shadows Into Light', sans-serif !important;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
   font-size: 20px !important;
 }
 .flag{
@@ -65,7 +80,10 @@
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
-    font-family: 'Rock Salt', cursive !important;
+     font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
     margin-top: 25% !important;
   }
 
@@ -117,7 +135,7 @@
   
   .login-box .user-box input {
     width: 100%;
-    padding: 10px 0;
+    padding: 7px 0;
     font-size: 16px;
     color: #fff;
     margin-bottom: 30px !important; 
