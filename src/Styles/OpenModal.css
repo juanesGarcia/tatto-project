@@ -126,11 +126,12 @@ margin-left: 5%;
 
 .no-post{
   font-family: 'Rock Salt', cursive !important;
-  font-size: medium;
-  margin-left: 115%;
-  width: 100%;
+  display: flex !important; 
+  justify-content: center;
+  width: 150vh;
+  height: 100vh;
   margin-top: 30%;
-  margin-bottom: 35%;
+  margin-bottom: 10%;
 }
 
 .flexinfo{
@@ -231,8 +232,10 @@ color:#917E41;
 
   }
   .no-post{
-    margin-top: 100%;
-    margin-bottom: 5%;
+    margin-top: 70%;
+    width:300%;
+
+
   }
   .nameuser{
     width: 80%;
