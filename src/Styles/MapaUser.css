@@ -1,0 +1,38 @@
+.map{
+height: 400px;
+}
+.contmap{
+    margin-left: 11%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+.contbut{
+    margin-left: 32%;
+    margin-bottom: 6%;
+    margin-top: 6%;
+}
+.confirmubi{
+    margin-left:18%;
+    margin-top: 3%;
+    font-family: 'Rock Salt', cursive !important;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+  
+@media (max-width: 800px) {
+    .confirmubi{
+        margin-left: 5%;
+        margin-bottom: 10%;
+    }
+    .contbut{
+        margin-left: 18%;
+        margin-top: 10%;
+        padding-bottom: 10%;
+        }
+        .contmap{
+            margin-left: 5%;
+            margin-right: 5% !important;
+            margin-top: 10%;
+        }
+}

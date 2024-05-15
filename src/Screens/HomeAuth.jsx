@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fechProtectedInfo, onLogout } from '../api/auth';
-import { Loaders } from "./Loaders";
+
 import "../Styles/HomeAuth.css";
 
 export const HomeAuth = () => {
@@ -26,7 +26,7 @@ export const HomeAuth = () => {
       
   return loading ?(
     <div className='loader'>
-      <Loaders></Loaders>
+      <h1>cargando</h1>
     
     </div>
         
@@ -36,6 +36,7 @@ export const HomeAuth = () => {
     <h2>{protectedData}</h2>
  
     </div>
+  
   
   )
 }

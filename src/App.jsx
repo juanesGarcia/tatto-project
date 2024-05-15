@@ -15,9 +15,15 @@ import { UserProfile } from "./Screens/UserProfile";
 import { AdminAccount } from "./Screens/AdminAccount";
 import { Error } from "./Screens/Error";
 import { checkSession } from "./api/session";
-import { useEffect, useRef } from "react";
+import { useEffect} from "react";
 import { useDispatch } from 'react-redux';
 import { authenticateUser, setInfo ,unauthenticateUser} from './redux/slices/authSlice';
+import { MapaUsers } from "./Screens/MapaUsers";
+import { AboutMe } from "./Screens/AboutMe";
+import { TattoStyles } from "./Screens/TattoStyles";
+
+
+
 
 
 const PrivateRoutes =()=>{
@@ -36,9 +42,14 @@ function App() {
   const dispatch = useDispatch();
   const { isAuth, info } = useSelector((state) => state.auth);
 
+  
   useEffect(() => {
     const handleBeforeUnload = () => {
-      localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+      if (isAuth) {
+        localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
+
+
+      }
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -51,18 +62,21 @@ function App() {
   useEffect(() => {
     const handleLoad = () => {
       const authData = localStorage.getItem('authData');
+
       if (authData) {
         const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
         if (storedIsAuth) {
-          dispatch(authenticateUser());
+          dispatch(authenticateUser());  // Sin argumentos para que el slice use el estado almacenado
           dispatch(setInfo(storedInfo));
         } else {
           dispatch(unauthenticateUser());
         }
+
+   
       }
     };
 
-    handleLoad(); // Invocar handleLoad inmediatamente
+    handleLoad();
 
     window.addEventListener('load', handleLoad);
 
@@ -75,21 +89,24 @@ function App() {
     checkSession(dispatch);
   }, [dispatch]);
 
-
-
   return (
     <div >
+      
       <Router>
+   
         <NavBar></NavBar>
         <Routes>
           <Route element={<RestrictedRoutes></RestrictedRoutes>}>
             <Route exact path="/login" element={<Login />}></Route>
+
             
           </Route>
          
           <Route element={<PrivateRoutes></PrivateRoutes>}>
             <Route exact path="/HomeAuth" element={<HomeAuth></HomeAuth>}></Route> 
             <Route exact path="/AdminAccount" element={<AdminAccount />} />
+            <Route exact path="/TattoStyles" element={<TattoStyles />} />
+
           </Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/BestTattos" element={<BestTattos />}></Route>
@@ -98,10 +115,14 @@ function App() {
           <Route exact path="/Register" element={<Register/>}></Route>
           <Route exact path="/ChooseRegister" element={<ChooseRegister/>}></Route>
           <Route exact path="/RegisterTatto" element={<RegisterTatto/>}></Route>
-          <Route exact path="/profile/:name" element={<UserProfile />} />
+          <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
+          <Route exact path="/MapaUser" element={<MapaUsers/>}></Route>
+          <Route exact path="/AboutMe" element={<AboutMe/>}></Route>
+      
           <Route path="*" element={<Error/>}></Route>
         </Routes>
         <Footer></Footer>
+   
       </Router>
       
     </div>

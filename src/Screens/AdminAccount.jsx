@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setInfo } from '../redux/slices/authSlice';
 import { unauthenticateUser } from "../redux/slices/authSlice";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+
 export const AdminAccount = () => {
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.auth);
@@ -19,6 +23,7 @@ export const AdminAccount = () => {
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const data = localStorage.getItem('token');
   const parsedData = JSON.parse(data);
+  
 
   // Obtener el ID del usuario autenticado desde el token almacenado en localStorage
   const userId = parsedData?.info?.id || '';
@@ -34,11 +39,33 @@ export const AdminAccount = () => {
     }
   }, [parsedData.info, user]);
 
+  const handleOnchange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const toggleShowPassword = () => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      showPassword: !prevUser.showPassword,
+    }));
+  };
+
+  const toggleShowConfirmPassword = () => {
+    setUser((prevUser) => ({
+      ...prevUser,
+      showConfirmPassword: !prevUser.showConfirmPassword,
+    }));
+  };
+
   const handleSummit = async (e) => {
     e.preventDefault();
+    
+
     const dataToSend = {
       user,
       id: userId,
+
+
     };
     try {
       const response = await onUpdate(dataToSend); // Aquí accedemos a la respuesta del backend
@@ -76,9 +103,6 @@ export const AdminAccount = () => {
         navigate('/');
   }
 
-  const handleOnchange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
-  };
  const handleDelete = async (e)=>{
   e.preventDefault();
   const swalWithBootstrapButtons = Swal.mixin({
@@ -108,6 +132,7 @@ export const AdminAccount = () => {
     background: '#000',
   }).then(async (result) => {
     if (result.isConfirmed) {
+      console.log(userId)
       try {
         await onDelete(userId);
   
@@ -143,57 +168,86 @@ export const AdminAccount = () => {
  }
   return (
     <div className="containerUpdate">
-      <div className="login-box">
-        <p>Update info</p>
-        <form onSubmit={handleSummit}>
-          <div className="user-box">
-            <input
-              name="name"
-              type="text"
-              onChange={handleOnchange}
-              value={user.name}
+    <div className="login-box2">
+      <p>Actualizar</p>
+      <form onSubmit={handleSummit}>
+        <div className="user-box">
+          <input
+            name="name"
+            type="text"
+            onChange={handleOnchange}
+            value={user.name}
+          />
+           <label className='label'>Nombre De Usuario</label>
+        </div>
+        <div className="user-box">
+          <input
+            required=""
+            name="email"
+            type="text"
+            onChange={handleOnchange}
+            value={user.email}
+          />
+          <label  className='label'>Email</label>
+        </div>
+        <div className="user-box">
+          <input
+            required=""
+            name="password"
+            type={user.showPassword ? 'text' : 'password'}
+            onChange={handleOnchange}
+            value={user.password}
+          />
+          <label  className='label'>Contraseña</label>
+          {user.showPassword ? (
+            <VisibilityIcon
+              onClick={toggleShowPassword}
+              className="visibility-right"
             />
+          ) : (
+            <VisibilityOffIcon
+              onClick={toggleShowPassword}
+              className="visibility-right"
+            />
+          )}
+        </div>
+        <div className="user-box">
+          <input
+            required=""
+            name="passwordConfirm"
+            type={user.showConfirmPassword ? 'text' : 'password'}
+            onChange={handleOnchange}
+            value={user.passwordConfirm}
+          />
+          <label  className='label'>Confirma La Contraseña</label>
+          {user.showConfirmPassword ? (
+            <VisibilityIcon
+              onClick={toggleShowConfirmPassword}
+              className="visibility-right"
+            />
+          ) : (
+            <VisibilityOffIcon
+              onClick={toggleShowConfirmPassword}
+              className="visibility-right"
+            />
+          )}
+        </div>
 
-          </div>
-          <div className="user-box">
-            <input
-              required=""
-              name="email"
-              type="text"
-              onChange={handleOnchange}
-              value={user.email}
-            />
-            <label>Email</label>
-          </div>
-          <div className="user-box">
-            <input
-              required=""
-              name="password"
-              type="password"
-              onChange={handleOnchange}
-              value={user.password}
-            />
-            <label>Password</label>
-          </div>
-          <div className="user-box">
-            <input required="" name="passwordConfirm" type="password" onChange={handleOnchange} />
-            <label>Confirm Password</label>
-          </div>
 
           <div className='containerbut'>
-            <button type="submit">
+            <button type="submit" className='actualiza'>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-              update
+              Actualiza
             </button>
             <button className='deletebut' onClick={handleDelete}>
               <span></span>
               <span></span>
               <span></span>
               <span></span>
-              delete 
+              Elimina 
             </button>
 
           </div>

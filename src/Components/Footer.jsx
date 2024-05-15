@@ -44,4 +44,8 @@ export const Footer = () => {
       </div>
     </div>
   );
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab

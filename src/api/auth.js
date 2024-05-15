@@ -1,6 +1,8 @@
-
 import axios from 'axios';
 axios.defaults.withCredentials = true
+
+//https://tatto-backend.onrender.com
+
 
 export async function onUpdate(updateData) {
     console.log(updateData.user)
@@ -43,6 +45,14 @@ export async function fechProtectedInfo(){
 export async function getUsers(){
     return await axios.get(
         'https://tatto-backend.onrender.com/user'
+<<<<<<< HEAD
+=======
+    );
+}
+export async function getUsersWithRating(){
+    return await axios.get(
+        'https://tatto-backend.onrender.com/userwithrating'
+>>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab
     );
 }
 export async function getUser(id){
@@ -51,8 +61,100 @@ export async function getUser(id){
     );
 }
 
+
 export async function onDelete(id){
     return await axios.delete(
         `https://tatto-backend.onrender.com/user/${id}`
+<<<<<<< HEAD
+=======
+    );
+}
+
+export async function onFollow(data) {
+    return await axios.post(
+        'https://tatto-backend.onrender.com/followUser',
+         data
+    );
+}
+export async function onUnFollow(data) {
+    return await axios.post(
+        'https://tatto-backend.onrender.com/unFollowUser',
+         data
+    );
+}
+
+
+
+export async function getFollower(id){
+    return await axios.get(
+        `https://tatto-backend.onrender.com/follower/${id}`
+    );
+}
+export async function getFollowed(id){
+    return await axios.get(
+        `https://tatto-backend.onrender.com/followed/${id}`
+    );
+}
+
+export async function getStatusFollow(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/checkfollowing`,
+        data
+    );
+}
+
+export async function onReaction(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/reactions`,
+        data
+    );
+}
+
+export async function getStatusReactions(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/checkreactions`,
+        data
+    );
+}
+
+export async function unReaction(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/unreaction`,
+        data
+    );
+}
+
+export async function getReactions(post_id){
+    return await axios.get(
+        `https://tatto-backend.onrender.com/getreactions/${post_id}`
+    );
+}
+
+
+export async function updatelocation(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/updatelocation`,
+        data
+    );
+}
+
+export async function rating2(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/rating`,
+        data
+    );
+}
+
+export async function getRatingp(id){
+    return await axios.get(
+        `https://tatto-backend.onrender.com/getRating/${id}`
+    );
+}
+
+export async function yetRating(data){
+    return await axios.post(
+        `https://tatto-backend.onrender.com/yetrating`,
+        data
+>>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab
     );
 }

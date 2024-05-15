@@ -6,11 +6,21 @@ body, html {
   
   
 .containerLogin {
-    background-image: url("/images/fondo.jpg");
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    padding: 0;
+  background-image: url("/images/fondo.jpg");
+  width: 100%;
+  height: 110vh;
+  padding: 0;
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed;
+}
+.user-boxLogin{
+  font-family: 'Shadows Into Light', sans-serif;
+}
+
+.label{
+  font-family: 'Rock Salt', cursive !important;
 }
   
   
@@ -27,16 +37,22 @@ body, html {
     border-radius: 10px;
     font-family: 'Rock Salt', cursive !important;
     margin-top: 8%;
+    
   }
   
-  @media (max-width: 470px) {
+  @media (max-width: 800px) {
     .login-boxLogin{
         width: 80%; 
         margin-top: 10% !important;
     }
-    .login-boxLogin p:last-child {
-       margin-top: 10%;
-      }
+    .email{
+      margin-top: 15% !important;
+    }
+    .visibility{
+      margin-top: 22% !important;
+      margin-left: 8%;
+    }
+    
   }
   .login-boxLogin p:first-child {
     margin: 0 0 30px;
@@ -64,10 +80,11 @@ body, html {
     margin-top: 15%;
     color: #fff;
     
+    
   }
   .login-boxLogin .user-boxLogin input.email{
    margin-top: 10%;
-    
+   font-size: 25px;
   }
   
   .login-boxLogin .user-boxLogin label {
@@ -80,6 +97,7 @@ body, html {
     color: #fff;
     pointer-events: none;
     transition: .5s;
+
     
    
   }
@@ -89,7 +107,8 @@ body, html {
     top: -20px;
     left: 0;
     color: #fff;
-    font-size: 12px;
+    font-size: 18px;
+
   }
   
   .login-boxLogin form button {
@@ -231,9 +250,18 @@ input:-webkit-autofill::first-line {
   display: flex;
 }
 .visibility{
-  margin-top: 18%;
+  margin-top: 26%;
 }
 
 input:-webkit-autofill {
   -webkit-text-fill-color: white !important;
 }
+.email{
+  font-size: 500px;
+}
+
+.login-boxLogin .user-boxLogin input.email{
+  margin-top: 20%;
+  font-size: 25px;
+   
+ }

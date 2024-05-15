@@ -1,0 +1,30 @@
+/* StarRating.css */
+
+.star2-container {
+  display: inline-block;
+}
+
+.star2 {
+  color: #ffd700; /* Color amarillo para las estrellas */
+  text-shadow: 0 0 1px #000;
+}
+
+.active {
+  color: #ffd700; /* Color amarillo para las estrellas activas */
+}
+
+.half-star2 {
+  position: relative;
+  display: inline-block;
+  width: 1em; /* Tamaño de la estrella */
+  color: #ffd700; /* Color amarillo para las estrellas a la mitad */
+}
+
+.half-star2::before {
+  content: '\u2605'; /* Código Unicode para una estrella completa */
+  position: absolute;
+  overflow: hidden;
+  width: 50%; /* Mostrar solo la mitad de la estrella */
+  color: #fff; /* Hacer la mitad de la estrella transparente (cambiar a blanco) */
+}
+

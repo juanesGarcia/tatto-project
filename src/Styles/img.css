@@ -1,0 +1,216 @@
+
+  /* Estilos normales para la galería */
+  .custom-image-gallery {
+    margin-right: 0%;
+    height: auto;
+    margin-top: 5%;
+    margin-bottom: 2%;
+  }
+
+  .container-img {
+    display: flex; 
+  
+  }
+  .fullscreen {
+    align-items: center;
+    justify-content: center; /* Ajusta la altura al 100% de la pantalla en vista responsive */
+    margin-top: 3% !important;
+  }
+  /* Estilos específicos para la imagen ampliada en pantalla completa */
+  .react-image-gallery-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-gallery-thumbnail img {
+    width: 100px; /* ajusta el ancho según tus necesidades */
+    height: 80px; /* ajusta la altura según tus necesidades */
+  }
+  .comments-container{
+    padding-left: 2% ;
+    padding-top: 5%;
+    padding-right: 5%;
+    width: auto;
+    
+  }
+
+  .but-upload{
+    display: flex;
+    justify-content: center;
+    margin-right: 7%;
+  }
+
+  .but-up{
+    margin-left: 2%;
+  }
+  .but-close{
+    margin-left: 2%;
+  }
+.container-img{
+    display: block;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.description{
+    font-size: 100%;
+    margin-left: 20%;
+}
+
+.icon-img{
+  display: flex;
+  justify-content: center;
+  font-size: 1200%;
+  margin: auto;
+}
+
+.img-comment{
+    display: flex;
+}
+.containerall{
+    width: 90%;
+    margin-bottom: 10%;
+}
+
+
+.text-img{
+  font-size: 15px;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: center;
+}
+
+.boxUpdate{
+  background: #917E41;
+  padding: 20px;
+  width: 60%;
+  height: 60%;
+  margin-left: 20% ;
+  margin-bottom: 8%;
+}
+.textArea{
+  resize: "none";
+  width: 110%;
+  max-width: 700px ;
+  min-height: 100px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: black;
+  color: white;
+  margin-left:5%;
+  font-family: 'Shadows Into Light', sans-serif;
+  font-size: 13px;
+}
+
+.containerall.with-images {
+  /* Establece los márgenes que desees cuando hay imágenes */
+  margin-left: 20% !important; /* Ejemplo: márgenes de 10px */
+}
+.prue2{
+  margin-left: 2%;
+}
+
+
+
+
+  /* Estilos adicionales para mejorar la visualización en responsive */
+  @media (max-width: 800px) {
+    .react-image-gallery {
+      max-height: 100vh; /* Limita la altura de la imagen en responsive */
+    }
+    .image-gallery-thumbnail img {
+      width: 2%; /* ajusta el ancho según tus necesidades */
+      height: 2%; /* ajusta la altura según tus necesidades */
+    }
+  
+    .fullscreen {
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Ajusta la altura al 100% de la pantalla en vista responsive */
+
+    }
+    .boxUpdate{
+      width: 80%;
+      height: auto;
+      margin-left:10% ;
+    }
+    .text-img{
+      font-size: 12px;
+      margin-left:4%;
+      margin-bottom: 7%;
+      width: 100%;
+    }
+    .icon-img{
+      margin-left: 23%;
+      font-size: 700% !important;
+    }
+    .textArea{
+      font-size: 10px;
+      resize: "none";
+      width: 140%;
+      max-width:100%; 
+      max-height: 100px ;
+      min-height: 80px;
+      border: 1px solid #ccc;
+      padding: 0px;
+      border-radius: 4px;
+      margin-left: 0%;
+      font-size: 15px;
+  
+      &::placeholder {
+        text-align: left; /* Alinea el texto del placeholder a la izquierda */
+        padding-left: 7%; /* Ajusta el espacio entre el borde izquierdo y el texto del placeholder */
+        padding-right: 7%; /* Ajusta el espacio entre el borde derecho y el texto del placeholder */
+        padding-top: 5%;
+      }
+    
+      &:not(:placeholder-shown) {
+        padding-left: 7%; /* Ajusta el espacio entre el borde izquierdo y el texto cuando hay contenido */
+        padding-right: 7%; /* Ajusta el espacio entre el borde derecho y el texto cuando hay contenido */
+        padding-top: 5%;
+      }
+    }
+    .img-comment{
+      display: block;
+  }
+  .containerall.with-images {
+    /* Establece los márgenes que desees cuando hay imágenes */
+    margin-left: 0% !important; /* Ejemplo: márgenes de 10px */
+  }
+  
+
+
+.custom-image-gallery {
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+  margin-left: 0%;
+}
+
+
+
+.but-upload{
+  margin-left: 8%;
+  margin-bottom: 8%;
+  margin-top: 5%;
+}
+.prue2{
+  margin-top: 0%;
+  border-radius: 2%;
+}
+.comments-container{
+  padding-left: 5% !important;
+  padding-top: 5%;
+  width: 100%;
+  
+}
+.container-img{
+  padding-left: 0%;
+}
+
+
+
+  
+  }
+  

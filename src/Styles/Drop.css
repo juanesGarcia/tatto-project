@@ -1,0 +1,67 @@
+.drop{
+  display: flex;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+}
+
+
+.eliminar{
+  font-family: 'Rock Salt', cursive !important;
+}
+
+.editardrop{
+  font-family: 'Rock Salt', cursive !important;
+  margin-top: 0% !important;
+  height: 100%;
+
+}
+
+
+.editardrop:hover{
+  background-color: #917E41;
+  color: beige;
+  padding-top: 10%;
+  padding-bottom: 5%;
+}
+
+
+.eliminar:hover{
+  background-color: #917E41;
+  color: beige;
+  padding-top: 10%;
+  padding-bottom: 5%;
+}
+
+.dropdown-menu{
+  height: auto;
+}
+.custom-swal-popup {
+  background-color: rgb(30, 28, 28) !important;
+  color: white;
+  font-family: 'Rock Salt', cursive !important;
+}
+.input-editar{
+  font-family: 'Shadows Into Light', sans-serif;
+}
+.custom-swal-title {
+  color: #917E41 !important
+}
+.custom-swal-confirm{
+  background-color:  #917E41 !important;
+  
+}
+.custom-swal-cancel{
+  background-color:  #917E41 !important;
+}
+.custom-swal-confirm:hover{
+  background-color:  #372c06 !important;
+}
+.custom-swal-cancel:hover{
+  background-color:  #372c06 !important;
+}

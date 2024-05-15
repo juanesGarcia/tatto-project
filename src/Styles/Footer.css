@@ -3,8 +3,7 @@
     background-color: rgb(228, 224, 177);
     padding: 20px;
     font-family: 'Rock Salt', cursive !important;
-
-  }
+}
 .footer{
     margin-left: 10%;
 }
@@ -28,7 +27,15 @@
     color: black !important;
   
 }
+<<<<<<< HEAD
 .iconsT{
  height: 90%;
  width: 60%;
 }
+=======
+
+.iconsT{
+  height: 90%;
+  width: 60%;
+}
+>>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab

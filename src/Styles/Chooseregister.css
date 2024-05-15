@@ -1,15 +1,22 @@
 .containerChoose {
-    background-image: url("/images/choose.jpg");
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-    font-family: 'Rock Salt', cursive !important;
+  background-image: url("/images/choose.jpg");
+  width: 100%;
+  height: 90vh;
+  padding: 0;
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el contenedor */
+  background-position: center; /* Centra la imagen dentro del contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed;
+  font-family: 'Rock Salt', cursive !important;
+
 }
 .btnUser{
     padding-top: 15%;
+    text-decoration: none;
 }
 .btnTatto{
     padding-top: 5%;
+    text-decoration: none;
 }
 .buttonC {
   display: block;
@@ -31,6 +38,7 @@
   -moz-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
   margin-left: 33%;
+  text-decoration: none;
 }
 @media (max-width: 1000px){
   .btnUser{
@@ -42,54 +50,14 @@
 }
 @media (max-width: 800px){
   .btnUser{
-    padding-top: 30%;
+    padding-top: 55%;
 }
 .btnTatto{
-    padding-top: 8%;
+    padding-top: 20%;
 }
-}
-@media (max-width: 650px){
-  .buttonC {
-    width: 50%;
-    margin-left: 5%;
-    padding: 2% 4%;
-  }
-  .btnUser{
-    padding-top: 40%;
-}
-.btnTatto{
-    padding-top: 8%;
-}
-}
-@media (max-width: 650px){
-  .buttonC {
-    width: 50% !important;
-    margin-left: 25% !important;
-    padding: 2% 4%;
-  }
-  .btnUser{
-    padding-top: 40%;
-}
-.btnTatto{
-    padding-top: 8%;
-}
-}
-
-@media (max-width: 460px){
-
-  .buttonC {
-    width: 60% !important;
-    height: 5% !important;
-    margin-left: 25% !important;
-    margin-top: 5% !important;
-    padding: 0%;
-    position: absolute;
-  }
-  .btnUser{
-    padding-top: 50%;
-}
-.btnTatto{
-    padding-top: 30%;
+.buttonC {
+  width: 50%;
+  margin-left: 25%;
 }
 }
   

@@ -1,17 +1,37 @@
-.containerProfile{
-    display: flex;
-    margin-top: 5%;
-    margin-left: 20%;
-    font-family: 'Rock Salt', cursive !important;
+.containerProfile {
+  display: flex;
+  padding-top: 3%;
+  padding-left: 35%;
+  padding-bottom: 1%;
+  font-family: 'Rock Salt', cursive !important;
+  min-height: 20vh;
 }
-.containerInfo{
-    display: block;
-    margin-left: 12%;
-    margin-top: 2%;
+
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 4rem; /* Ajusta el margen izquierdo según sea necesario */
+  margin-top: 3%;
 }
-.buttonPerfil{
-    display: flex;
-    margin-left: 30%;
+
+.location:hover{
+  color: #917E41;
+
+}
+.nameinfo{
+  font-size: 250%;
+  margin-right: 3%;
+  font-family: 'Shadows Into Light', sans-serif;
+}
+
+.img-avatar{
+  margin-top: 5%;
+}
+
+.buttonPerfil {
+  display: flex;
+  justify-content: center; /* Esto centrará horizontalmente los elementos en el contenedor */
+  width: 100%; /* O el ancho deseado para el contenedor */
 }
 .button {
     --color: #917E41;
@@ -66,17 +86,97 @@
     margin-left: 19%;
     margin-top: 7%;
   }
-  .insta{
+  .whatsapp{
     color:  #917E41;
+    text-decoration: none;
   }
-  .insta:hover{
+  .whatsapp:hover{
     color: aliceblue;
   }
   .followInfo{
     display: flex;
     font-family: 'Rock Salt', cursive !important;
-    margin-left: 38%;
+    margin-left: 28%;
+    margin-top: 1%;
   }
   .follow{
     margin-left: 5%;
+    cursor: pointer;
   }
+
+  .uploadphoto-but{
+     color:  #917E41;
+    text-decoration: none;
+  }
+  .uploadphoto-but:hover{
+    color: aliceblue;
+  }
+  .follow-mesage{
+    font-family: 'Rock Salt', cursive !important;
+    margin-top: 2%;
+    font-size: 130%;
+    margin-left: 5%;
+  }
+
+  .rating:hover{
+    color:  #917E41;
+  }
+  .follow:hover{
+    color:  #917E41;
+  }
+
+  .location{
+    cursor: pointer;
+  }
+  .rating{
+    cursor: pointer;
+  }
+  
+  @media (max-width: 800px) {
+    .containerProfile{
+  
+      padding-top: 5%;
+      padding-left: 1%;
+   
+  }
+  .buttonPerfil{
+    margin-top: 3%;
+    margin-bottom: 5%;
+  }
+  .button {
+    width: 8em;
+    height: 2.6em;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 500;
+   }
+   .followInfo{
+    margin-left: 0%;
+    margin-top: 1%;
+  }
+
+  .location{
+  font-size: 75%;
+  }
+  .iconmap{
+    margin-left: 40%;
+    margin-bottom: 5%;
+  }
+  .containerInfo {
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-right: 1%;
+  }
+  .iconmap{
+    margin-top: 2%;
+    margin-left: 35%;
+  }
+  .nameinfo{
+    font-size: 180%;
+  }
+  .img-avatar{
+    margin-left: 2%;
+  }
+  }
+

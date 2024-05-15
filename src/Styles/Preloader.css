@@ -1,0 +1,64 @@
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161616;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.preloader-logo {
+  width: 500px;
+  height: auto;
+  animation: scaleAnimation 2s ease-in-out infinite, staticLogo 2s ease-in-out 2s forwards;
+}
+
+.container-load {
+  display: block;
+}
+
+.message {
+  margin-top: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typingAnimation 2s infinite;
+  color: #917E41;
+  font-family: 'Rock Salt', cursive !important;
+  text-align: center; /* Centra el texto horizontalmente */
+  font-size: 20px;
+}
+
+@keyframes typingAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes scaleAnimation {
+  0%, 100% {
+    transform: scale(0.6);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes staticLogo {
+  to {
+    animation: none;
+  }
+}
+
+@media (max-width: 800px){
+  .message {
+    font-size: 12px !important;
+  }
+}

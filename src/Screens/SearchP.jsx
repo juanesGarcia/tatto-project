@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/SearchP.css";
-import { getUsers } from '../api/auth';
+import { getUsers,getUsersWithRating} from '../api/auth';
 import { Avatar } from '@mui/material';
+import { Mapa } from "./Mapa";
+import StarRating from "./StarRating";
 
 export const SearchP = () => {
   const navigate = useNavigate();
@@ -13,6 +15,8 @@ export const SearchP = () => {
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const searchRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [cityUserM, setcityUserM] = useState([])
+
 
   const handleArrowKeyPress = (event) => {
     if (filteredUsers.length === 0) return;
@@ -30,29 +34,58 @@ export const SearchP = () => {
       }
     }
   };
-
-  const showData = async () => {
-    try {
-      const response = await getUsers();
-      const data = response.data;
-      const parsedUsers = parseUserData(data);
-      console.log(parsedUsers);
-      setUsers(parsedUsers);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+ 
 
   useEffect(() => {
-    showData();
-  }, []);
+    const showData = async () => {
+      try {
+        const response = await getUsersWithRating();
+        const data = response.data;
+        console.log(data)
+        const parsedUsers = parseUserData(data);
+        setUsers(parsedUsers);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (users.length === 0) {
+      showData();
+    }
+
+  }, [users]);
+  // Agregar users como dependencia para que se ejecute solo cuando cambie la lista de usuarios
 
   const filterUsers = (allUsers, searchText) => {
-    return allUsers.filter((user) =>
+    // Filtrar usuarios por nombre que coincida con el texto de búsqueda
+    const filteredUsers = allUsers.filter((user) =>
       user.name.toLowerCase().includes(searchText.toLowerCase().trim()) ||
       user.id.toLowerCase().includes(searchText.toLowerCase().trim())
     );
+  
+    // Ordenar los usuarios filtrados por rating promedio y cantidad de ratings en orden descendente
+    filteredUsers.sort((a, b) => {
+      // Si no hay rating para alguno de los usuarios, colocamos el que sí lo tenga primero
+      if (!a.average_rating && b.average_rating) {
+        return 1;
+      } else if (a.average_rating && !b.average_rating) {
+        return -1;
+      }
+  
+      // Si los usuarios tienen el mismo rating promedio, priorizar por cantidad de ratings
+      if (b.average_rating === a.average_rating) {
+        return b.rating_count - a.rating_count;
+      }
+      
+      // Ordenar por rating promedio en orden descendente
+      return b.average_rating - a.average_rating;
+    });
+  
+    return filteredUsers;
   };
+  
+  
+  
 
   useEffect(() => {
     if (isSearchClicked) {
@@ -81,24 +114,30 @@ export const SearchP = () => {
   const handleSelectUser = (user) => {
     setSelectedOption(user);
     setSearch(user.name);
-    localStorage.setItem("userId", user.id); // Almacena el userId en el almacenamiento local del navegador
-    navigate(`/profile/${encodeURIComponent(user.name)}`);
+    navigate(`/profile/${encodeURIComponent(user.id)}/${encodeURIComponent(user.name)}`);
   }; 
   
 
   const parseUserData = (data) => {
     return data.map((item) => {
-      const match = item.row.match(/\((.*?),(.*?)\)/);
+      const avatar = item.media_url || "/images/fondo.jpg";
       return {
-        id: match[1],
-        name: match[2],
-        avatar: "/images/fondo.jpg"
+        id: item.id,
+        name: item.name,
+        rol: item.rol,
+        lon: item.lon,
+        lat: item.lat,
+        city: item.city,
+        average_rating: parseFloat(item.average_rating).toFixed(1) || 0,
+        avatar: avatar,
+        rating_count:item.rating_count
       };
     });
   };
-
+  
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
+      <h6 className='title'>los mejores tatuadores con Tattopro 🎨🖼️ </h6>
       <div className='titleinput'>busca los tatuadores </div>
       <input
         type="text"
@@ -126,18 +165,25 @@ export const SearchP = () => {
           onMouseLeave={() => setSelectedIndex(-1)} 
         >
             <div className='userDetails'>
-              <div className='avatar' ><Avatar sx={{ width:60, height:60}} src={user.avatar} alt={user.name} /></div>
+              <div className='avatar' ><Avatar sx={{ width:60, height:60,border: '1px solid black'}} src={user.avatar} alt={user.name} /></div>
                
             <div className="user-info">
               <div className="user-name">{user.name}</div>
-              <div className="user-location">Colombia</div>
-              <div className="user-location">Bogota</div>
-            </div>                             
-            <div className='stars'>*******</div>
+              <div className="user-rol">{user.rol}</div>
+              <div className="user-location">{user.city ? user.city.replace(/['"]/g, '') : ''}</div>
+              {user.rol=='tatuador'&&(
+                <div><StarRating rating={user.average_rating} />{user.average_rating}</div>
+              )
+              }
+              
+            </div>                            
             </div>
            
           </div>
         ))}
+          <div className='titlemap'>mira los tataudores en la cuidad de {cityUserM} (busca por cuidades)</div>
+
+        <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>
   );
 };

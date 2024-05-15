@@ -3,7 +3,17 @@
   align-items: center;
   font-family: 'Rock Salt', cursive !important;
 }
+.search-container{
+  min-height: 10vh;
+  padding-top: 8%;
 
+}
+.title{
+  margin-left: 30%;
+  margin-bottom: 5%;
+  font-family: 'Rock Salt', cursive !important;
+  font-weight: bold;
+}
 .label-container {
   display: flex;
   align-items: center;
@@ -13,6 +23,11 @@
   font-family: 'Rock Salt', cursive !important;
   margin-left: 5%;
   margin-bottom: 2%;
+}
+.titlemap{
+  font-family: 'Rock Salt', cursive !important;
+  margin-left: 25%;
+  margin-top: 10%;
 }
 .no-results{
   font-family: 'Rock Salt', cursive !important;
@@ -45,23 +60,34 @@
   width: 90%;
   padding-top: 3%;
   padding-bottom: 2%;
+<<<<<<< HEAD
   padding-left: 5%;
   border-bottom: 1px solid black;
+=======
+  padding-left: 3%;
+>>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab
   border-radius: 4%;
 }
 .user-info{
-  margin-left: 5%;
-  display: block
+  margin-left: 4%;
+  display: block;
+  font-family: 'Rock Salt', cursive !important;
+
 }
 .avatar{
   margin-left: 5%;
+  margin-top: 1%;
 }
 .user-name{
   font-size: 140%;
   font-weight: bold;
+  font-family: 'Shadows Into Light', sans-serif;
 }
 .user-location{
   font-size: 75%;
+}
+.user-rol{
+  font-size: 80%;
 }
 .stars{
 margin-left: auto;
@@ -76,6 +102,30 @@ margin-right: 7%;
 .user-item{
   width: 85%;
   margin-left: 7%;
+<<<<<<< HEAD
 
 
 }
+=======
+  border-bottom: 1px solid black;
+
+}
+@media (max-width: 800px) {
+  .search-container{
+  min-height: 10vh;
+  margin-top: 6%;
+}
+.titlemap{
+  margin-left: 0%;
+  font-size: 85.2%;
+  margin-bottom: 8%;
+}
+.user-info{
+  margin-left: 8%;
+}
+.title{
+  margin-left: 6%;
+  margin-bottom: 10%;
+}
+}
+>>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab

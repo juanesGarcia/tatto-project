@@ -1,7 +1,17 @@
 .words {
-  font-family: 'Rock Salt', cursive !important;
+  font-family: "Rock Salt", cursive !important;
   color: aliceblue !important;
+  font-size: large;
+}
+.toolbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 .icon {
@@ -9,63 +19,62 @@
 }
 
 .icon:hover {
-  color: #917E41 !important;
+  color: #917e41 !important;
 }
 
 .login {
-  font-family: 'Rock Salt', cursive !important;
+  font-family: "Rock Salt", cursive !important;
   color: aliceblue !important;
   margin-right: 2%;
-
+  width: 100%;
 }
 
 .signup {
-  font-family: 'Rock Salt', cursive !important;
+  font-family: "Rock Salt", cursive !important;
   color: aliceblue !important;
-  padding-right: 40px;
+  margin-right: 2%;
   width: 20vh;
 }
 
-@media (min-width: 300px) and (max-width: 360px){
-  .profile-info{
+@media (min-width: 300px) and (max-width: 360px) {
+  .profile-info {
     width: 75% !important;
   }
+  .signup {
+    width: 20vh;
+  }
 }
-@media (min-width: 360px) and (max-width: 469px){
-  .profile-info{
+@media (min-width: 360px) and (max-width: 469px) {
+  .profile-info {
     width: 65% !important;
   }
+  .signup {
+    width: 20vh;
+  }
+  .profile-name {
+    font-size: 200%;
+  }
+  .profile-email {
+    font-size: 200%;
+  }
 }
-@media (min-width: 470px) and (max-width: 590px){
-  .profile-info{
+@media (min-width: 470px) and (max-width: 590px) {
+  .profile-info {
     width: 50% !important;
   }
-}
-
-@media (min-width: 590px) and (max-width: 700px){
-  .profile-info{
-    width: 40% !important;
+  .signup {
+    width: 20vh;
   }
-
-}
-@media (min-width: 701px) and (max-width: 900px){
-  .profile-info{
-    width: 33% !important;
-    right: 6% !important;
+  .profile-name {
+    font-size: 200%;
   }
-
-}
-@media (min-width: 900px) and (max-width: 1000px){
-  .profile-info{
-    width: 33% !important;
-    right: 5% !important;
+  .profile-email {
+    font-size: 200%;
   }
-
 }
-
 
 .login:hover {
-  color: #917E41;
+  color: #917e41;
 }
 
 .profile-info {
@@ -73,70 +82,150 @@
   border-radius: 5%;
   position: absolute;
   top: 90%;
-  right: 8%;
+  right: 6%;
   z-index: 999;
   text-align: center;
-  width: 25%; 
+  width: 26%;
   display: flex;
+  font-family: "Shadows Into Light", sans-serif !important;
 }
 
+.left-div {
+  margin-left: 12%;
+  margin-top: 5%;
+  font-family: "Shadows Into Light", sans-serif;
+}
+.right-div {
+  margin-top: 5%;
+  width: 100%;
+  font-family: "Shadows Into Light", sans-serif;
+}
+.profile-name {
+  margin-left: 5%;
+  font-size: 140%;
+  width: 100%;
+  font-family: "Shadows Into Light", sans-serif !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
 
-.left-div{
+.profile-email {
   margin-left: 10%;
-  margin-top: 5%;
+  font-size: 100%;
+  width: 100%;
+  font-family: "Shadows Into Light", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.right-div{
-  margin-top: 5%;
-  margin-left: 6%
-}
-.profile-name{
-      margin-left: 0%;
-      font-size: 140%;
-      width: 100%;
-}
-.profile-email{
-margin-left: 10%;
-font-size: 80%;
-width: 100%;
-}
-.bottom-component{
-  background-color: #917E41;
-  margin-top:20%;
+
+.bottom-component {
+  background-color: #917e41;
+  margin-top: 9%;
   margin-bottom: 20%;
   border-radius: 5%;
+  font-family: "Rock Salt", cursive !important;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-.bottom-component:hover{
+.bottom-component:hover {
   background-color: #3d361d;
 }
-.administrar{
-  font-size: 80%;
-  margin-left: 10%;
-  width: 100%;
-  
+
+.profile-name:hover {
+  color: #917e41;
 }
-.administrar:hover{
-   color: #917E41;
-}
-.profile-No{
-  margin-left: 10%;
+.profile-No {
+  margin-left: 1%;
   font-size: 80%;
   width: 100%;
   margin-bottom: 20%;
+  margin-top: 2%;
+  font-family: "Rock Salt", cursive !important;
+}
+.profile-nameNo {
+  margin-left: 0%;
+  font-size: 120%;
+  width: 100%;
+}
+.profile-login {
+  color: #917e41 !important;
+}
+.profile-login:hover {
+  color: #3d361d !important;
+}
+.adminCount {
+  color: #917e41 !important;
+}
+.adminCount:hover {
+  color: #3d361d !important;
+}
+
+.editarNav:hover {
+  color: #3d361d !important;
+}
+
+.editarNav {
+  color: aliceblue;
+  font-size: 80%;
+  margin-left: 10%;
+  text-decoration: none;
+  font-family: "Rock Salt", cursive !important;
+  width: 100%;
+}
+.agg{
+  margin-top: 5%;
+  margin-left: 10%;
+  width: 100%;  text-decoration: none;
+  color: aliceblue;
+  font-family: "Rock Salt", cursive !important;
+  font-size: 80%;
   }
-  .profile-nameNo{
-    margin-left: 0%;
-    font-size: 120%;
+
+  .agg:hover{
+    color: #3d361d !important;
+  }
+
+
+@media (max-width: 800px) {
+  .profile-name {
+    margin-left: 5%;
+    font-size: 160% !important;
     width: 100%;
+    font-family: "Shadows Into Light", sans-serif !important;
   }
-  .profile-login{
-    color: #917E41 !important;
+  .signup {
+    width: 21vh;
+    margin-left: 1%;
+    font-size: 60% !important;
   }
-  .profile-login:hover{
-    color: #3d361d !important;
+
+  .login{
+    width: 100% !important;
+    margin-left: 0% !important;
+    font-size: 60% !important;
   }
-  .adminCount{
-    color: #917E41 !important;
+
+  .profile-email {
+    margin-left: 10%;
+    font-size: 100%;
+    width: 100%;
+    font-family: "Shadows Into Light", sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
-  .adminCount:hover{
-    color: #3d361d !important;
+
+  .left-div {
+    margin-left: 5%;
   }
+
+  .right-div {
+    width: 60%;
+  }
+}

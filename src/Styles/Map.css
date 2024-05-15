@@ -1,0 +1,43 @@
+.containermap{
+    margin-top: 5%;
+    margin-right: 0%;
+
+}
+.mapt{
+    height: 400px;
+    margin-right: 0%;
+}
+/* styles.css */
+.popup-content {
+    font-size: 16px;
+    font-family: 'Shadows Into Light', sans-serif;
+
+  }
+
+  .popup-info{
+    display: flex;
+
+  }
+  
+  .popup-content a {
+    color: black;
+    text-decoration: none;
+  
+  }
+  
+.popup-content a:hover {
+    color: #917E41; /* Cambia el color al hacer hover */
+  }
+  
+
+
+  
+@media (max-width: 800px) {
+    .containermap{
+        padding-right: 0%;
+        margin-bottom: 15%;
+    }
+    
+
+
+}

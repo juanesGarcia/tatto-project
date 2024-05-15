@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isAuth: false,
   info: null, // Agrega el campo user para almacenar los datos del usuario
+  postsLength: 0, 
 };
 
 const authSlice = createSlice({
@@ -19,9 +20,12 @@ const authSlice = createSlice({
     setInfo: (state, action) => {
       state.info = action.payload; // Almacena los datos del usuario en el estado
     },
+    setPostsLength: (state, action) => {
+      state.postsLength = action.payload;  // Almacena la longitud de los posts en el estado
+    },
   },
 });
 
-export const { authenticateUser, unauthenticateUser, setInfo } = authSlice.actions;
+export const { authenticateUser, unauthenticateUser, setInfo ,setPostsLength } = authSlice.actions;
 
 export default authSlice.reducer;

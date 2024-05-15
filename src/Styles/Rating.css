@@ -1,0 +1,67 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegúrate de que el z-index sea mayor que el z-index de tus otros elementos */
+    font-family: 'Rock Salt', cursive !important;
+  }
+  
+  .modal-contentRating{
+    background:  #111010 !important;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50% !important;
+    height: auto;
+    color: aliceblue;
+
+  }
+  /* Rating.css */
+.star {
+    cursor: pointer;
+    transition: color 0.25s;
+  }
+  
+  .star.active {
+    color: gold;
+  }
+
+  .r{
+    display: inline;
+  }
+
+  .clasification{
+    margin-bottom: 5%;
+    margin-left: 33%;
+  }
+  .allStart{
+    margin-bottom: 3%;
+    margin-left: 37%;
+  }
+  #confirm{
+    margin-left: 38%;
+  }
+
+  @media (max-width: 800px) {
+    .modal-contentRating{
+        width: 80% !important;
+      }
+      .clasification{
+        margin-left: 20%;
+        margin-bottom: 8%;
+      }
+      .allStart{
+        margin-bottom: 8%;
+        margin-left: 24%;
+      }
+      #confirm{
+        margin-left: 30%;
+        margin-bottom: 3%;
+      }
+    
+  }
