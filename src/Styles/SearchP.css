@@ -20,6 +20,7 @@
   font-weight:  400;
   font-style: normal;
   font-weight: bold;
+  font-size: 30px;
 }
 .label-container {
   display: flex;
@@ -31,9 +32,10 @@
   font-optical-sizing: auto;
   font-weight:  400;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 100;
   margin-left: 5%;
   margin-bottom: 2%;
+  font-size: 20px;
 }
 .titlemap{
    font-family: "Playfair Display", serif;
@@ -43,7 +45,8 @@
   display: flex;
   justify-content: center;
   margin-top: 6%;
-  font-weight: bold;
+  font-weight: 100;
+  font-size: 20px;
 }
 .no-results{
    font-family: "Playfair Display", serif;
@@ -132,11 +135,17 @@ margin-right: 7%;
 }
 .titlemap{
   margin-left: 0%;
-  font-size: 85.2%;
+  font-size: 16px;
   margin-bottom: 8%;
 }
 .user-info{
   margin-left: 8%;
+}
+.title{
+  font-size: 16.5px;
+}
+.titleinput{
+  font-size: 16px;
 }
  
 }

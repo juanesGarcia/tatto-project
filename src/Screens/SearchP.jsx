@@ -137,7 +137,7 @@ export const SearchP = () => {
   
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
-      <h6 className='title'>los mejores tatuadores con Tattopro 🎨🖼️ </h6>
+      <div className='title'>los mejores tatuadores con Tattopro 🎨🖼️ </div>
       <div className='titleinput'>busca los tatuadores </div>
       <input
         type="text"
