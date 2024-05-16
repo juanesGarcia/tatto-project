@@ -86,7 +86,6 @@ export const AdminAccount = () => {
         navigate('/'); // Redirigir al inicio de sesión
       }
     } catch (error) {
-      setErrores(error.response.data.errors[0]);
       console.log(error.response.data.errors[0]);
       Swal.fire({
         title: 'Error',
