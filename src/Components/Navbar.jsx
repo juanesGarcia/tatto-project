@@ -127,11 +127,11 @@ function Navbar() {
                 onClick={handleAvatarClick}
                 src={info.media_url}
                 style={{ cursor: "pointer" }}
-              > {info.name[0]}</Avatar>
+              > {info.name}</Avatar>
               {showInfo && (
                 
                 <div className="profile-info" onClick={handleInfoClose}>
-                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }} src={info.media_url}>{info.name[0]}</Avatar></div>
+                  <div className="left-div"><Avatar sx={{ width: 60, height: 60 }} src={info.media_url}>{info.name}</Avatar></div>
                   <div className="right-div">
                   <div className="profile-name" onClick={perfilClick}>{info.name}</div>
                   <div className="profile-email">{info.email}</div>

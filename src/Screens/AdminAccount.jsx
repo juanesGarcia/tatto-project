@@ -16,7 +16,6 @@ export const AdminAccount = () => {
   const [errores, setErrores] = useState(false);
   const [user, setUser] = useState({
     name: '',
-    email: '',
     password: '',
   });
   const navigate = useNavigate();
@@ -33,7 +32,6 @@ export const AdminAccount = () => {
     if (info && Object.keys(user).every((key) => user[key] === '')) {
       setUser({
         name: info.name,
-        email: info.email,
         password: '',
       });
     }
@@ -67,11 +65,24 @@ export const AdminAccount = () => {
 
 
     };
+    console.log(dataToSend)
     try {
       const response = await onUpdate(dataToSend); // Aquí accedemos a la respuesta del backend
       console.log(response);
       if (response.success) {
         setUpdateSuccess(true);
+        Swal.fire({
+          icon: 'success',
+          title: response.message,
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
+    
+        console.log(info)
         navigate('/'); // Redirigir al inicio de sesión
       }
     } catch (error) {
@@ -79,7 +90,7 @@ export const AdminAccount = () => {
       console.log(error.response.data.errors[0]);
       Swal.fire({
         title: 'Error',
-        text: errores,
+        text: error.response.data.errors[0],
         icon: 'error',
         customClass: {
           popup: 'custom-swal-popup',
@@ -90,10 +101,15 @@ export const AdminAccount = () => {
       });
     }
     const response1 = await getUser(userId); // Aquí accedemos a la respuesta del backend
-    console.log(response1.data.info[0]);
-    dispatch(setInfo(response1.data.info[0]));
+
+
+    
+    console.log(response1.data[0].name)
+    dispatch(setInfo({ ...info, name: response1.data[0].name}));
 
   };
+
+
   
   const handleOnLogout = async () =>{
     await onLogout();
@@ -179,16 +195,6 @@ export const AdminAccount = () => {
             value={user.name}
           />
            <label className='label'>Nombre De Usuario</label>
-        </div>
-        <div className="user-box">
-          <input
-            required=""
-            name="email"
-            type="text"
-            onChange={handleOnchange}
-            value={user.email}
-          />
-          <label  className='label'>Email</label>
         </div>
         <div className="user-box">
           <input
