@@ -57,7 +57,11 @@ export async function getUser(id){
         `${tatu}/user/${id}`
     );
 }
-
+export async function getUserInfo(id){
+    return await axios.get(
+        `${tatu}/userInfo/${id}`
+    );
+}
 
 export async function onDelete(id){
     return await axios.delete(

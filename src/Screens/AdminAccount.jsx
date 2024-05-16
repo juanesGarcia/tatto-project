@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/AdminAccount.css';
 import Swal from 'sweetalert2';
-import { onUpdate, getUser, onDelete, onLogout } from '../api/auth';
+import { onUpdate, getUserInfo, onDelete, onLogout } from '../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setInfo } from '../redux/slices/authSlice';
@@ -100,7 +100,7 @@ export const AdminAccount = () => {
         buttonsStyling: false,
       });
     }
-    const response1 = await getUser(userId); // Aquí accedemos a la respuesta del backend
+    const response1 = await getUserInfo(userId); // Aquí accedemos a la respuesta del backend
 
 
     
