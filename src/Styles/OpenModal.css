@@ -138,10 +138,11 @@ margin-left: 5%;
   font-style: normal;
   display: flex !important; 
   justify-content: center;
-  width: 150vh;
-  height: 100vh;
-  margin-top: 30%;
-  margin-bottom: 10%;
+  margin-top: 40%;
+  margin-bottom: 5%;
+  width: 300%;
+  font-size: 20px;
+
 }
 
 .flexinfo{
@@ -245,8 +246,11 @@ color:#917E41;
 
   }
   .no-post{
-    margin-top: 70%;
-    width:300%;
+    display: flex;
+    margin-left: 10%;
+    width: 280%;
+    margin-top: 80%;
+ 
 
 
   }
