@@ -181,7 +181,7 @@ export const SearchP = () => {
            
           </div>
         ))}
-          <div className='titlemap'>mira los tataudores en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemap'>mira los tatuadores en la cuidad de {cityUserM} (busca por cuidades)</div>
 
         <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>
