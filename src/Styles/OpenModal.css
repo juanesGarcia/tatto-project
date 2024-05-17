@@ -123,9 +123,10 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 .custom-gallery {
 max-width: 33vh; /* Ajua el ancho de la galería al 80% del contenedor */
 height: auto;
-margin-top: 0% ;
+margin-top: 2% !important ;
 margin: auto;
 margin-left: auto;
+
 
 }
 
