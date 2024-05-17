@@ -5,6 +5,8 @@ import { getUsers,getUsersWithRating} from '../api/auth';
 import { Avatar } from '@mui/material';
 import { Mapa } from "./Mapa";
 import StarRating from "./StarRating";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+
 
 export const SearchP = () => {
   const navigate = useNavigate();
@@ -139,6 +141,7 @@ export const SearchP = () => {
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
       <div className='title'>los mejores tatuadores con Tattopro 🎨🖼️ </div>
       <div className='titleinput'>busca los tatuadores </div>
+      <FaMagnifyingGlass className='icones'/>
       <input
         type="text"
         value={search}

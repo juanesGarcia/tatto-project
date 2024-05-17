@@ -11,6 +11,9 @@
   padding-top: 8%;
 
 }
+.icones{
+  margin-left: 3%;
+}
 .title{
   display: flex;
   justify-content: center;
@@ -73,9 +76,13 @@
 
 .input{
   width: 90%;
-  border-radius: 2%;
-  border: 1px solid #917E41 !important;
-  margin-left: 5%;
+  border-radius: 1%;
+  margin-left: 1%;
+  padding: 8px 8px 8px 20px;
+}
+.input:focus {
+  outline: none;
+  border-color: #917E41;; /* Cambia el color del borde cuando se enfoca */
 }
 .userDetails{
   display:flex;

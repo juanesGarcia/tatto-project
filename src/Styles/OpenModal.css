@@ -19,7 +19,8 @@
   border-radius: 2%;
   cursor: pointer;
   transition: all 0.5s;
-  margin-top: 5%;
+  margin-top: 3%;
+
 }
 
 .post-item:hover img {
@@ -210,14 +211,15 @@ color:#917E41;
     right: 7%;
   }
   .post-grid {
-    columns: auto 120px;
+    columns: auto 140px;
     margin-left: 1%;
     margin-right: 1%;
     min-height: 33vh;
+    margin-bottom: 10%;
+    column-gap: 0.5em;
   }
   
   .post-item {
-    margin-top: 6%;
     margin-bottom: 2%;
 
   }
