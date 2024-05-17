@@ -185,6 +185,9 @@ color:#917E41;
   margin-left: 3%;
   margin-right: 2%;
 }
+.post-item:hover  {
+  transform: scale(1.03);
+}
 
 
 @keyframes likeAnimation {
