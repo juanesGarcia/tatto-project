@@ -92,10 +92,10 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
   margin-top: auto;
 }
 .info{
-  font-size: 17px;
-  margin-left: 5%;
-  margin-right: 4%;
-  margin-top: 5%;
+  font-size: 15px;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 2%;
   margin-bottom: 5%;
   color:beige ;
   font-family: "Playfair Display", serif;
@@ -106,7 +106,7 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 
 }
 .infoc{
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 5%;
   margin-right: 4%;
   margin-top: 2%;
@@ -121,15 +121,13 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 }
 
 .custom-gallery {
-width: auto;
-max-width: 50vh; /* Ajusta el ancho de la galería al 80% del contenedor */
-margin-top: 5% !important;
+max-width: 33vh; /* Ajua el ancho de la galería al 80% del contenedor */
 height: auto;
+margin-top: 0% ;
 margin: auto;
-margin-left: 5%;
+margin-left: auto;
 
 }
-
 
 .no-post{
    font-family: "Playfair Display", serif;
@@ -152,6 +150,7 @@ margin-left: 5%;
 /* Agregar esto a tu archivo de estilos CSS o en línea si estás utilizando styled-components */
 .like-animation {
 animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
+max-height: 50vh;
 }
 .user-reactions{
 margin-top: 1%;
@@ -225,8 +224,7 @@ color:#917E41;
     width: 100%;
     margin-left: auto;
     padding-top: 0%;
-    max-width: 60vh; /* Ajusta el ancho de la galería al 80% del contenedor */
-    max-width: 36vh;
+    max-width: 20vh; /* Ajusta el ancho de la galería al 80% del contenedor */
   }
 
   .info{
