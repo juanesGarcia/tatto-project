@@ -26,7 +26,7 @@ export const AdminAccount = () => {
 
   // Obtener el ID del usuario autenticado desde el token almacenado en localStorage
   const userId = parsedData?.info?.id || '';
-
+console.log(parsedData.token)
   useEffect(() => {
     // Actualizar el estado del usuario solo si parsedData.info existe y no hay datos en el estado user
     if (info && Object.keys(user).every((key) => user[key] === '')) {
@@ -62,10 +62,9 @@ export const AdminAccount = () => {
     const dataToSend = {
       user,
       id: userId,
-
-
+      token:parsedData.token
     };
-    console.log(dataToSend)
+    console.log(data)
     try {
       const response = await onUpdate(dataToSend); // Aquí accedemos a la respuesta del backend
       console.log(response);
@@ -207,12 +206,12 @@ export const AdminAccount = () => {
           {user.showPassword ? (
             <VisibilityIcon
               onClick={toggleShowPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           ) : (
             <VisibilityOffIcon
               onClick={toggleShowPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           )}
         </div>
@@ -228,12 +227,12 @@ export const AdminAccount = () => {
           {user.showConfirmPassword ? (
             <VisibilityIcon
               onClick={toggleShowConfirmPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           ) : (
             <VisibilityOffIcon
               onClick={toggleShowConfirmPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           )}
         </div>

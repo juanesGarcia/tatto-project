@@ -181,16 +181,17 @@
     margin-bottom: 5%;
   }
   .containerInfo {
-    margin-top: 2%;
-    margin-left: 4%;
-    margin-right: 1%;
+    margin-top: 8%;
+    margin-left: 3%;
+
   }
   .iconmap{
     margin-top: 2%;
     margin-left: 35%;
   }
   .nameinfo{
-    font-size: 180%;
+    font-size: 135%;
+    font-weight: 600;
   }
   .img-avatar{
     margin-left: 2%;

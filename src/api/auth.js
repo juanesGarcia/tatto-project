@@ -1,15 +1,20 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-const tatu='https://tatto-backend.onrender.com' //'http://localhost:4000'
-
+const tatu='http://localhost:4000' //'https://tatto-backend.onrender.com'
 
 export async function onUpdate(updateData) {
-    console.log(updateData.user)
+    console.log(updateData.token);
     try {
       const response = await axios.put(
         `${tatu}/user/${updateData.id}`,
-        updateData.user
+        updateData.user,
+        {
+          headers: {
+            'Authorization': `Bearer ${updateData.token}`,
+            'Content-Type': 'application/json'
+          }
+        }
       );
   
       return response.data;

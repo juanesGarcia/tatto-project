@@ -56,13 +56,13 @@
   font-style: normal;
     margin-top: 18% !important;
   }
-  .visibility-right{
+  .visibility-right2{
     margin-top: 12%;
   }
   
   @media (max-width: 800px) {
     .containerUpdate{
-      height: 90vh;
+      height: 100vh;
       padding: 0;
   }
 
@@ -74,11 +74,11 @@
     margin-top: 3%; 
   }
   .login-box2 .user-box input {
-    margin-top: 30px !important;
+    margin-top: 0px !important;
     font-size: 23px !important;
   }
-  .visibility-right{
-    margin-top: 20%;
+  .visibility-righ{
+    margin-top: 40% !important ;
   }
   .deletebut{
     margin-left: 0%;

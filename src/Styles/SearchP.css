@@ -136,6 +136,9 @@ margin-right: 7%;
 
 }
 @media (max-width: 800px) {
+  .user-name{
+    font-size: 16px !important;
+  }
   .search-container{
   min-height: 10vh;
   margin-top: 6%;
@@ -147,7 +150,7 @@ margin-right: 7%;
   font-weight: 600;
 }
 .user-info{
-  margin-left: 8%;
+  margin-left: 4%;
 }
 .title{
   font-size: 16.5px;
@@ -158,6 +161,17 @@ margin-right: 7%;
 }
 .input{
   margin-left: 2%;
+  width: 90%;
+}
+.user-item{
+  display: flex;
+  justify-content: center;
+  margin-left: 10%;
+
+}
+.avatar{
+  margin-left: 0%;
+  margin-top: 1%;
 }
  
 }
