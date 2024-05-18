@@ -5,6 +5,7 @@
   font-style: normal;
   display: flex;
   justify-content: center;
+  margin-top: 5%;
 
 }
 
@@ -33,6 +34,7 @@
 .how{
     display: flex;
     justify-content: center;
+    margin-top: 3%;
 }
 @media (max-width: 800px){
     .about{
