@@ -17,7 +17,11 @@ export const AdminAccount = () => {
   const [user, setUser] = useState({
     name: '',
     password: '',
+    passwordConfirm: '',
+    showPassword: false,
+    showConfirmPassword: false,
   });
+  
   const navigate = useNavigate();
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const data = localStorage.getItem('token');
@@ -57,7 +61,21 @@ console.log(parsedData.token)
 
   const handleSummit = async (e) => {
     e.preventDefault();
-    
+       // Validar que las contraseñas coinciden
+       if (user.password !== user.passwordConfirm) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Las contraseñas no coinciden',
+          icon: 'error',
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+            confirmButton: 'custom-swal-confirm-button',
+          },
+          buttonsStyling: false,
+        });
+        return; // Detener el envío si las contraseñas no coinciden
+      }
 
     const dataToSend = {
       user,

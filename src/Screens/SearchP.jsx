@@ -61,8 +61,7 @@ export const SearchP = () => {
   const filterUsers = (allUsers, searchText) => {
     // Filtrar usuarios por nombre que coincida con el texto de búsqueda
     const filteredUsers = allUsers.filter((user) =>
-      user.name.toLowerCase().includes(searchText.toLowerCase().trim()) ||
-      user.id.toLowerCase().includes(searchText.toLowerCase().trim())
+      user.name.toLowerCase().includes(searchText.toLowerCase().trim())
     );
   
     // Ordenar los usuarios filtrados por rating promedio y cantidad de ratings en orden descendente
