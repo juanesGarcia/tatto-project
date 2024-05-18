@@ -178,6 +178,13 @@
   font-weight: 400;
   font-style: normal;
 }
+.perfil{
+  color: aliceblue;
+}
+.perfil:hover{
+  color: #917e41;
+}
+
 .profile-nameNo {
   margin-left: 0%;
   font-size: 120%;

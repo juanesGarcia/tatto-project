@@ -19,9 +19,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { onLogout } from "../api/auth";
 import { unauthenticateUser } from "../redux/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
+import PersonIcon from '@mui/icons-material/Person';
 
 const navlinks = [
-  
+ 
   {
     title: "Acerca De Nosotros",
     path: "/AboutMe",
@@ -114,6 +115,12 @@ function Navbar() {
           </IconButton>
           <Box className="nav-links"   sx={{ display: { xs: "none", md: "block" }, flexGrow: 1 }}>
             <CustomButton component={NavLink} to="/"> <HomeIcon className="icon" ></HomeIcon></CustomButton>
+            {
+              isAuth &&(
+                <CustomButton onClick={perfilClick}> <PersonIcon className="icon" ></PersonIcon><div className="perfil">Perfil</div></CustomButton>
+              )
+            }
+            
             {navlinks.map((items) => (
               <CustomButton key={items.title} className="words" component={NavLink} to={items.path}>
                 {items.title}
@@ -175,7 +182,7 @@ function Navbar() {
       </StyledAppBar>
 
       <Drawer open={open} anchor="left" onClose={() => setOpen(false)} sx={{ display: { xs: "flex", md: "none" } }}>
-        <NavbarList navlinks={navlinks} setOpen={setOpen} />
+        <NavbarList navlinks={navlinks} setOpen={setOpen} perfilClick={perfilClick}/>
       </Drawer>
     </>
   );
