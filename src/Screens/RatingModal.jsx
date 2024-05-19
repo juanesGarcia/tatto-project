@@ -88,7 +88,7 @@ const RatingModal = ({ onClose, id, info , getRatingf}) => {
             ))}
           </div>
 
-          <div>
+          <div className="butrating">
             <button onClick={handleConfirmRating} className="button" id="confirm">
               Confirmar
             </button>

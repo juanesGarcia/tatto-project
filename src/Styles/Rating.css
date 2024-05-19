@@ -39,32 +39,25 @@
   }
 
   .clasification{
-    margin-bottom: 5%;
-    margin-left: 33%;
+    display: flex;
+    justify-content: center ;
+   margin-bottom: 5%;
   }
   .allStart{
-    margin-bottom: 3%;
-    margin-left: 37%;
+    display: flex;
+   justify-content: center ;
   }
-  #confirm{
-    margin-left: 38%;
+  .butrating{
+    display: flex;
+   justify-content: center ;
+   margin-top: 5%
   }
 
   @media (max-width: 800px) {
     .modal-contentRating{
         width: 80% !important;
       }
-      .clasification{
-        margin-left: 20%;
-        margin-bottom: 8%;
-      }
-      .allStart{
-        margin-bottom: 8%;
-        margin-left: 24%;
-      }
-      #confirm{
-        margin-left: 30%;
-        margin-bottom: 3%;
-      }
+  
+    
     
   }
