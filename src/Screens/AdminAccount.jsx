@@ -164,9 +164,12 @@ console.log(info)
     background: '#000',
   }).then(async (result) => {
     if (result.isConfirmed) {
-      console.log(userId)
+      const data = {
+        id: userId,
+        token:parsedData.token
+      };
       try {
-        await onDelete(userId);
+        await onDelete(data);
   
         swalWithBootstrapButtons.fire({
           background: '#000',
@@ -208,9 +211,9 @@ console.log(info)
             name="name"
             type="text"
             onChange={handleOnchange}
-            value={info.name}
+            value={user.name}
             className='input'
-           
+            placeholder={info.name}
 
           />
            <label className='label'>Nombre De Usuario</label>

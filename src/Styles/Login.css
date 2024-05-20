@@ -88,13 +88,14 @@ body, html {
     margin-bottom: 5%;
     margin-top: 15%;
     color: #fff;
-    margin-left: 5%;
+    margin-left: 2%;
     
     
   }
   .login-boxLogin .user-boxLogin input.email{
    margin-top: 10%;
    font-size: 25px;
+   padding-left: 3%;
   }
   
   .login-boxLogin .user-boxLogin label {

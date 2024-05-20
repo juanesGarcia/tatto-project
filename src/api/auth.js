@@ -67,9 +67,15 @@ export async function getUserInfo(id){
     );
 }
 
-export async function onDelete(id){
+export async function onDelete(data){
     return await axios.delete(
-        `${tatu}/user/${id}`
+        `${tatu}/user/${data.id}`,
+        {
+            headers: {
+              'Authorization': `Bearer ${data.token}`,
+              'Content-Type': 'application/json'
+            }
+          }
     );
 }
 
