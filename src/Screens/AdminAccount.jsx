@@ -30,6 +30,7 @@ export const AdminAccount = () => {
 
   // Obtener el ID del usuario autenticado desde el token almacenado en localStorage
   const userId = parsedData?.info?.id || '';
+console.log(info)
   useEffect(() => {
     // Actualizar el estado del usuario solo si parsedData.info existe y no hay datos en el estado user
     if (info && Object.keys(user).every((key) => user[key] === '')) {
@@ -207,7 +208,10 @@ export const AdminAccount = () => {
             name="name"
             type="text"
             onChange={handleOnchange}
-            value={user.name}
+            value={info.name}
+            className='input'
+           
+
           />
            <label className='label'>Nombre De Usuario</label>
         </div>
@@ -218,6 +222,7 @@ export const AdminAccount = () => {
             type={user.showPassword ? 'text' : 'password'}
             onChange={handleOnchange}
             value={user.password}
+            className='input'
           />
           <label  className='label'>Contraseña</label>
           {user.showPassword ? (
@@ -239,6 +244,7 @@ export const AdminAccount = () => {
             type={user.showConfirmPassword ? 'text' : 'password'}
             onChange={handleOnchange}
             value={user.passwordConfirm}
+            className='input'
           />
           <label  className='label'>Confirma La Contraseña</label>
           {user.showConfirmPassword ? (
