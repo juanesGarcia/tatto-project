@@ -1,3 +1,8 @@
+.entireProfile{
+  background-image: url("/images/profile3.jpg");
+  background-size: cover;
+    background-position: center;
+}
 .containerProfile {
   display: flex;
   padding-top: 3%;
@@ -8,6 +13,7 @@
   font-weight: 400;
   font-style: normal;
   min-height: 20vh;
+  
 }
 
 .containerInfo {
@@ -15,6 +21,9 @@
   flex-direction: column;
   margin-left: 4rem; /* Ajusta el margen izquierdo según sea necesario */
   margin-top: 3%;
+  color: #917E41;
+  
+
 }
 
 .location:hover{
@@ -111,6 +120,8 @@
     justify-content: center;
     margin-top: 1%;
     margin-right: 3%;
+    
+  color: #917E41;
   }
   .follow{
     margin-left: 5%;
@@ -135,10 +146,10 @@
   }
 
   .rating:hover{
-    color:  #917E41;
+    color:  beige;
   }
   .follow:hover{
-    color:  #917E41;
+    color:  beige;
   }
 
   .location{
@@ -150,6 +161,10 @@
   }
   
   @media (max-width: 800px) {
+    .entireProfile{
+    min-height: 150vh;
+        
+    }
     .containerProfile{
   
       padding-top: 5%;

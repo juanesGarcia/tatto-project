@@ -363,7 +363,7 @@ const getRatingf = async() =>{
   
   
   return (
-    <>
+    <div className="entireProfile">
       {isLoading && <LoaderLogo></LoaderLogo>}
       {user.length > 0 && (
         <div>
@@ -394,7 +394,7 @@ const getRatingf = async() =>{
               <h6>{user[0].city.replace(/['"]/g, '')}</h6>
           
               {user.length > 0 && user[0].rol === "tatuador" && (
-                 <h6><StarRating rating={avarage} />{avarage} ({countAvarage})</h6>
+                 <h6><StarRating rating={avarage} />   {avarage} ({countAvarage})</h6>
               )
              
               }
@@ -498,6 +498,6 @@ const getRatingf = async() =>{
         setUploadedPhoto={setUploadedPhoto}
       ></OpenModal>
       <h6>{userLocation[0]}</h6>
-    </>
+    </div>
   );
 };

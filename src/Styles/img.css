@@ -37,7 +37,8 @@
   .but-upload{
     display: flex;
     justify-content: center;
-    margin-right: 7%;
+    margin-left: auto;
+    
   }
 
   .but-up{
