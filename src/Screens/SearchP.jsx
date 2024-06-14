@@ -174,7 +174,12 @@ export const SearchP = () => {
               <div className="user-rol">{user.rol}</div>
               <div className="user-location">{user.city ? user.city.replace(/['"]/g, '') : ''}</div>
               {user.rol=='tatuador'&&(
-                <div><StarRating rating={user.average_rating} />{user.average_rating}</div>
+               
+                  <div className='user-start'>
+                  
+                    <StarRating rating={user.average_rating} />  {user.average_rating}</div>
+                
+                
               )
               }
               
@@ -183,7 +188,7 @@ export const SearchP = () => {
            
           </div>
         ))}
-          <div className='titlemap'>mira los tatuadores en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemap'>mira los  en la cuidad de {cityUserM} (busca por cuidades)</div>
 
         <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>

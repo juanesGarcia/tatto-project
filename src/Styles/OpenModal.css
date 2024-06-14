@@ -20,6 +20,7 @@
   cursor: pointer;
   transition: all 0.5s;
   margin-top: 3%;
+  
 
 }
 
@@ -32,7 +33,7 @@
   height: 100%;
   object-fit: cover; /* Para ajustar la imagen dentro del contenedor manteniendo su relación de aspecto */
   flex: 1; /* La imagen ocupa todo el espacio disponible en el contenedor flex */
-
+  border: solid rgb(164, 145, 145) 0.5px;
 }
 
 
