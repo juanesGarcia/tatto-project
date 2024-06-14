@@ -137,7 +137,7 @@ margin-right: 7%;
 
 /* Estilo para el cambio de fondo cuando navegas con las teclas de flecha */
 .user-item.highlighted {
-  background-color: rgb(228, 224, 177);
+  background-color: rgb(60, 51, 51);;
   border-radius: 8%;
 }
 .user-item{
