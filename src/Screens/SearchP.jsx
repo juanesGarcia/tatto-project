@@ -188,7 +188,7 @@ export const SearchP = () => {
            
           </div>
         ))}
-          <div className='titlemap'>mira los  en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemap'>mira cabron colombia falcao los  en la cuidad de {cityUserM} (busca por cuidades)</div>
 
         <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>
