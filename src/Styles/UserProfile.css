@@ -2,6 +2,7 @@
   background-image: url("/images/profile3.jpg");
   background-size: cover;
     background-position: center;
+
 }
 .containerProfile {
   display: flex;
@@ -121,7 +122,7 @@
     margin-top: 1%;
     margin-right: 3%;
     
-  color: #917E41;
+  color: #ae9b5c;
   }
   .follow{
     margin-left: 5%;
@@ -162,7 +163,7 @@
   
   @media (max-width: 800px) {
     .entireProfile{
-    min-height: 150vh;
+    min-height: 50vh;
         
     }
     .containerProfile{
