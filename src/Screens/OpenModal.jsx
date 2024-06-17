@@ -171,7 +171,7 @@ const OpenModal = ({
   const showData = async () => {
     try {
       const response = await axios.get(
-        `https://tatto-backend.onrender.com/getimages/${id}`
+        `https://backed-tatto.onrender.com/getimages/${id}`
       );
 
       const data = response.data.info;
