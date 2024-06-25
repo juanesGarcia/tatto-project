@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-const tatu='https://backed-tatto.onrender.com'// 'http://localhost:4000'
+const tatu='http://localhost:4000'// 'https://backed-tatto.onrender.com'
 
 export async function onUpdate(updateData) {
     try {
@@ -48,7 +48,7 @@ export async function fechProtectedInfo(){
 }
 export async function getUsers(){
     return await axios.get(
-        `${tatu}/user`
+        `${tatu}/users`
     );
 }
 export async function getUsersWithRating(){
@@ -59,8 +59,8 @@ export async function getUsersWithRating(){
 export async function getUser(id){
     return await axios.get(
         `${tatu}/user/${id}`
-    );
-}
+    );                                            
+}                                           
 export async function getUserInfo(id){
     return await axios.get(
         `${tatu}/userInfo/${id}`

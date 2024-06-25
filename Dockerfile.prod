@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 COPY  vite.config.js ./
 
-#ARG REACT_NAME
+#ARG REACT_NAME 
 #ENV REACT_NAME=$REACT_NAME       -------> CUANDO QUIERO PASAR UN ARGUMENTO ANTES DEL BUILD
 
 # Instalar dependencias
