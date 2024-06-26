@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-const tatu='http://localhost:4000'// 'https://backed-tatto.onrender.com'
+const tatu= 'https://backed-tatto.onrender.com' //http://localhost:4000'
 
 export async function onUpdate(updateData) {
     try {
@@ -114,7 +114,7 @@ export async function getStatusFollow(data){
 
 export async function onReaction(data){
     return await axios.post(
-        `${tatu}/reactions`,
+        `${tatu}/reaction`,
         data
     );
 }
