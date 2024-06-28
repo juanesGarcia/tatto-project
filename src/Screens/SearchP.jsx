@@ -47,13 +47,22 @@ export const SearchP = () => {
         console.log(data)
         const parsedUsers = parseUserData(data);
         setUsers(parsedUsers);
+        Swal.fire({
+          text: ' Próximamente Tattopro en Google Play y App Store 🚀📱',
+          showConfirmButton: false,
+          timer: 2000,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
       } catch (error) {
         Swal.fire({
           icon: 'error',
           title: error,
-          text: ' espera unos segundos a que responda el servidor gracias por tu paciencia ⏳',
+          text: ' Aguarda un instante, el servidor está respondiendo ⌛ ¡Gracias por tu paciencia! 🙏',
           showConfirmButton: false,
-          timer: 10000,
+          timer: 3000,
           customClass: {
             popup: 'custom-swal-popup',
             title: 'custom-swal-title',
