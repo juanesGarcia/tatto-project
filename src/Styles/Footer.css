@@ -1,6 +1,6 @@
 .containerFooter {
     width: 100%;
-    background-color: rgb(228, 224, 177);
+    background-color:  rgb(32, 32, 29);
     padding: 20px;
      font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -9,6 +9,7 @@
 }
 .footer{
     margin-left: 10%;
+    color: aliceblue;
 }
   .footer-contact {
     margin-right: 20px;
@@ -22,16 +23,13 @@
 .container-social{
     display: flex;
     padding-bottom: 1%;
+    
 }
 .container-icons{
     margin-left: 2% !important;
 }
 .icons{
-    color: black !important;
+    color: rgb(250, 247, 247) !important;
   
 }
 
-.iconsT{
-  height: 90%;
-  width: 60%;
-}

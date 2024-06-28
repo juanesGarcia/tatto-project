@@ -50,7 +50,6 @@
   width: 100%; /* O el ancho deseado para el contenedor */
 }
 .button {
-    --color: #917E41;
     font-family: inherit;
     display: inline-block;
     width: 8em;
@@ -65,48 +64,27 @@
     font-size: 17px;
     border-radius: 6px;
     font-weight: 500;
-    color: var(--color);
     font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  background-color: #917E41;
    }
    
-   .button:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background: var(--color);
-    height: 150px;
-    width: 200px;
-    border-radius: 50%;
-   }
+
    
-   .button:hover {
-    color: #fff;
+   .button:hover{
+    background-color: #50400b;
    }
+
    
-  .button:before {
-    top: 100%;
-    left: 100%;
-    transition: all .7s;
-   }
-   
-   .button:hover:before {
-    top: -30px;
-    left: -30px;
-   }
-   
-   .button:active:before {
-    background: #917E41;
-    transition: background 0s;
-   }
+
   .editar{
     margin-left: 19%;
     margin-top: 7%;
   }
   .whatsapp{
-    color:  #917E41;
+    color: aliceblue;
     text-decoration: none;
   }
   .whatsapp:hover{
@@ -130,12 +108,10 @@
   }
 
   .uploadphoto-but{
-     color:  #917E41;
+     color: beige;
     text-decoration: none;
   }
-  .uploadphoto-but:hover{
-    color: aliceblue;
-  }
+
   .follow-mesage{
      font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -157,6 +133,11 @@
     cursor: pointer;
     font-size: 20px;
   }
+
+  .location:hover{
+    color: aliceblue;
+  }
+
   .rating{
     cursor: pointer;
   }

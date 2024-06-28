@@ -116,9 +116,10 @@ console.log(info)
         buttonsStyling: false,
       });
     }
-    const response1 = await getUserInfo(userId); // Aquí accedemos a la respuesta del backend
 
+    console.log(userId)
 
+    const response1 = await getUserInfo(userId); // Aquí accedemos a la respuesta del backen
     
     console.log(response1.data[0].name)
     dispatch(setInfo({ ...info, name: response1.data[0].name}));

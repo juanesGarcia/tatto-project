@@ -6,6 +6,7 @@ import { Avatar } from '@mui/material';
 import { Mapa } from "./Mapa";
 import StarRating from "./StarRating";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import Swal from 'sweetalert2';
 
 
 export const SearchP = () => {
@@ -47,7 +48,17 @@ export const SearchP = () => {
         const parsedUsers = parseUserData(data);
         setUsers(parsedUsers);
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          text: ' espera unos segundos a que responda el servidor gracias por tu paciencia ⏳',
+          showConfirmButton: false,
+          timer: 10000,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
       }
     };
 
@@ -138,7 +149,7 @@ export const SearchP = () => {
   
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
-      <div className='title'>los mejores tatuadores con Tattopro 🎨🖼️ </div>
+      <div className='title'>los mejores tatuadores con Tattopro 🎨 🌍 </div>
       <div className='titleinput'>busca los tatuadores </div>
       <FaMagnifyingGlass className='icones'/>
       <input

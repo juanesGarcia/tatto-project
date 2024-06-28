@@ -124,15 +124,17 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 
 }
 
+
 .custom-gallery {
-max-width: 33vh; /* Ajua el ancho de la galería al 80% del contenedor */
-height: auto;
-margin-top: 2% !important ;
-margin: auto;
-margin-left: auto;
-
-
+    width: 100%; 
+    max-width: 40%; 
+    height: auto;
+    margin-top: 2% !important;
+    margin: auto;
+    margin-left: auto;
+    
 }
+
 
 .no-post{
    font-family: "Playfair Display", serif;
@@ -172,7 +174,7 @@ color: #917E41;
 }
 .info-users-reactions{
 display: flex;
-margin-left: 0%;
+margin-left: 5%;
 cursor: pointer;
 }
 .user-reactions-more{
