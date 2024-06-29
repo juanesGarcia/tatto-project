@@ -165,12 +165,13 @@ export const MapaUsers = () => {
       <div className="map" ref={mapContainerRef} style={{ width: '100%'}}>
         {isLoading && <p>Cargando mapa...</p>}
       </div>
+      <h4 className='city'>la cuidad es : {cityUser}</h4>
        <div className='contbut'>
         <button className='button' onClick={updateLocation}>confirmar</button>
 
         <button className='button' onClick={backToPerfil}>denegar</button>
       </div>
-      <h4>la cuidad es : {cityUser}</h4>
+      
     </div>
   );
 };
