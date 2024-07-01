@@ -158,8 +158,8 @@ export const SearchP = () => {
   
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
-      <div className='title'>los mejores tatuadores con Tattopro 🎨 🌍 </div>
-      <div className='titleinput'>busca los tatuadores </div>
+      <div className='title'>Los mejores tatuadores con Tattopro 🎨 🌍 </div>
+      <div className='titleinput'>Busca los tatuadores </div>
       <FaMagnifyingGlass className='icones'/>
       <input
         type="text"
@@ -208,7 +208,8 @@ export const SearchP = () => {
            
           </div>
         ))}
-          <div className='titlemap'>mira los tatuadores mas cercanos a ti en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemap'>Mira los tatuadores mas cercanos a ti en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemapprovisional'>Por ahora solo tenemos tatuadores de prueba en Bogota y Santa Marta </div>
 
         <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>
