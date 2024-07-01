@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-const tatu= 'https://backed-tatto-2.onrender.com'// 'http://localhost:4000' 
+const tatu= 'https://backed-tatto-2.onrender.com' // 'http://localhost:4000'
 
 export async function onUpdate(updateData) {
     try {
