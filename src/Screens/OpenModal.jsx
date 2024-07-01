@@ -313,7 +313,7 @@ const OpenModal = ({
               />
               <div
                 onClick={() => handleStarClick(selectedPost.post_id)}
-                style={{ fontSize: "24px" }}
+                style={{ fontSize: "24px" ,cursor: "pointer" }}
               >
                 {reactionsMap[selectedPost.post_id] ? (
                   <FaStar color="gold" />

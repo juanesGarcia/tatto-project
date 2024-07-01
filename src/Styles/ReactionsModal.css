@@ -58,6 +58,7 @@
 .namereactions{
   margin-bottom: 3%;
   display: flex;
+  cursor: pointer;
 }
 .name{
   margin-top: 2% !important;
