@@ -7,7 +7,7 @@
 .containerProfile {
   display: flex;
   padding-top: 3%;
-  padding-left: 35%;
+  padding-left: 25%;
   padding-bottom: 1%;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -26,6 +26,7 @@
   
 
 }
+
 
 .location:hover{
   color: #917E41;

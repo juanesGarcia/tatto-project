@@ -482,6 +482,7 @@ const getRatingf = async() =>{
           </div>
         ) : null}
       </div>
+      
       {showUploadPage && (
         <UploadImagesPage
           onUploadSuccess={handleUploadSuccess}
