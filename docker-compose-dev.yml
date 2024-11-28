@@ -1,7 +1,7 @@
-
-name: 
+version: '3.8'
 services:
   react-app:
+    container_name: mi-contenedor-react
     stdin_open: true
     tty: true
     build:
@@ -15,5 +15,4 @@ services:
       - "3009:5173"
     volumes:
       - ./src:/usr/src/app/src
-
-images: backendMicro-compose:1.0
+    image: juanes07/frontend:lastest
