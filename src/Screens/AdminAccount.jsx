@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/AdminAccount.css';
 import Swal from 'sweetalert2';
-import { onUpdate, getUser, onDelete, onLogout } from '../api/auth';
+import { onUpdate, getUserInfo, onDelete, onLogout } from '../api/auth';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setInfo } from '../redux/slices/authSlice';
@@ -16,9 +16,12 @@ export const AdminAccount = () => {
   const [errores, setErrores] = useState(false);
   const [user, setUser] = useState({
     name: '',
-    email: '',
     password: '',
+    passwordConfirm: '',
+    showPassword: false,
+    showConfirmPassword: false,
   });
+  
   const navigate = useNavigate();
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const data = localStorage.getItem('token');
@@ -27,13 +30,12 @@ export const AdminAccount = () => {
 
   // Obtener el ID del usuario autenticado desde el token almacenado en localStorage
   const userId = parsedData?.info?.id || '';
-
+console.log(info)
   useEffect(() => {
     // Actualizar el estado del usuario solo si parsedData.info existe y no hay datos en el estado user
     if (info && Object.keys(user).every((key) => user[key] === '')) {
       setUser({
         name: info.name,
-        email: info.email,
         password: '',
       });
     }
@@ -59,27 +61,52 @@ export const AdminAccount = () => {
 
   const handleSummit = async (e) => {
     e.preventDefault();
-    
+       // Validar que las contraseñas coinciden
+       if (user.password !== user.passwordConfirm) {
+        Swal.fire({
+          title: 'Error',
+          text: 'Las contraseñas no coinciden',
+          icon: 'error',
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+            confirmButton: 'custom-swal-confirm-button',
+          },
+          buttonsStyling: false,
+        });
+        return; // Detener el envío si las contraseñas no coinciden
+      }
 
     const dataToSend = {
       user,
       id: userId,
-
-
+      token:parsedData.token
     };
+  
     try {
       const response = await onUpdate(dataToSend); // Aquí accedemos a la respuesta del backend
       console.log(response);
       if (response.success) {
         setUpdateSuccess(true);
+        Swal.fire({
+          icon: 'success',
+          title: response.message,
+          showConfirmButton: false,
+          timer: 1500,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
+    
+        console.log(info)
         navigate('/'); // Redirigir al inicio de sesión
       }
     } catch (error) {
-      setErrores(error.response.data.errors[0]);
       console.log(error.response.data.errors[0]);
       Swal.fire({
         title: 'Error',
-        text: errores,
+        text: error.response.data.errors[0],
         icon: 'error',
         customClass: {
           popup: 'custom-swal-popup',
@@ -89,11 +116,17 @@ export const AdminAccount = () => {
         buttonsStyling: false,
       });
     }
-    const response1 = await getUser(userId); // Aquí accedemos a la respuesta del backend
-    console.log(response1.data.info[0]);
-    dispatch(setInfo(response1.data.info[0]));
+
+    console.log(userId)
+
+    const response1 = await getUserInfo(userId); // Aquí accedemos a la respuesta del backen
+    
+    console.log(response1.data[0].name)
+    dispatch(setInfo({ ...info, name: response1.data[0].name}));
 
   };
+
+
   
   const handleOnLogout = async () =>{
     await onLogout();
@@ -132,9 +165,12 @@ export const AdminAccount = () => {
     background: '#000',
   }).then(async (result) => {
     if (result.isConfirmed) {
-      console.log(userId)
+      const data = {
+        id: userId,
+        token:parsedData.token
+      };
       try {
-        await onDelete(userId);
+        await onDelete(data);
   
         swalWithBootstrapButtons.fire({
           background: '#000',
@@ -177,18 +213,11 @@ export const AdminAccount = () => {
             type="text"
             onChange={handleOnchange}
             value={user.name}
+            className='input'
+            placeholder={info.name}
+
           />
            <label className='label'>Nombre De Usuario</label>
-        </div>
-        <div className="user-box">
-          <input
-            required=""
-            name="email"
-            type="text"
-            onChange={handleOnchange}
-            value={user.email}
-          />
-          <label  className='label'>Email</label>
         </div>
         <div className="user-box">
           <input
@@ -197,17 +226,18 @@ export const AdminAccount = () => {
             type={user.showPassword ? 'text' : 'password'}
             onChange={handleOnchange}
             value={user.password}
+            className='input'
           />
           <label  className='label'>Contraseña</label>
           {user.showPassword ? (
             <VisibilityIcon
               onClick={toggleShowPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           ) : (
             <VisibilityOffIcon
               onClick={toggleShowPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           )}
         </div>
@@ -218,17 +248,18 @@ export const AdminAccount = () => {
             type={user.showConfirmPassword ? 'text' : 'password'}
             onChange={handleOnchange}
             value={user.passwordConfirm}
+            className='input'
           />
           <label  className='label'>Confirma La Contraseña</label>
           {user.showConfirmPassword ? (
             <VisibilityIcon
               onClick={toggleShowConfirmPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           ) : (
             <VisibilityOffIcon
               onClick={toggleShowConfirmPassword}
-              className="visibility-right"
+              className="visibility-right2"
             />
           )}
         </div>

@@ -171,7 +171,7 @@ const OpenModal = ({
   const showData = async () => {
     try {
       const response = await axios.get(
-        `https://tatto-backend.onrender.com/getimages/${id}`
+        `https://backed-tatto-2.onrender.com/getimages/${id}`
       );
 
       const data = response.data.info;
@@ -313,7 +313,7 @@ const OpenModal = ({
               />
               <div
                 onClick={() => handleStarClick(selectedPost.post_id)}
-                style={{ fontSize: "24px" }}
+                style={{ fontSize: "24px" ,cursor: "pointer" }}
               >
                 {reactionsMap[selectedPost.post_id] ? (
                   <FaStar color="gold" />
@@ -354,7 +354,10 @@ const OpenModal = ({
                     sx={{ width: 25, height: 25 }}
                     src={userReactions[0].media_url}
                     
-                  ></Avatar><div className="namefirst">{userReactions[0].name} </div>  y {userReactions.length - 1} personas más
+                  ></Avatar><div className="namefirst">{userReactions[0].name} </div>  y {userReactions.length - 1} {
+                    userReactions.length-1 == 1 ? 'persona ' : 'personas '
+                  }
+                  más
                 </div>
               )}
             </div>

@@ -7,6 +7,8 @@
   margin-left: 5%;
   margin-right: 5%; 
   margin-top: 2%;
+  min-height: 70vh;
+  padding-bottom: 8%;
 
 }
 
@@ -18,7 +20,10 @@
   border-radius: 2%;
   cursor: pointer;
   transition: all 0.5s;
-  margin-top: 5%;
+  margin-top: 3%;
+
+  
+
 }
 
 .post-item:hover img {
@@ -30,7 +35,7 @@
   height: 100%;
   object-fit: cover; /* Para ajustar la imagen dentro del contenedor manteniendo su relación de aspecto */
   flex: 1; /* La imagen ocupa todo el espacio disponible en el contenedor flex */
-
+  border: solid beige 0.5px;
 }
 
 
@@ -40,7 +45,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,7 +58,7 @@
   background: #fff;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
   overflow: hidden;
   background-color: #111010;
   z-index: 3; /* Asegúrate de que el z-index sea mayor que el de .custom-modal-overlay */
@@ -91,46 +96,59 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
   margin-top: auto;
 }
 .info{
-  font-size: 17px;
-  margin-left: 5%;
-  margin-right: 4%;
-  margin-top: 5%;
+  font-size: 15px;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-top: 4%;
   margin-bottom: 5%;
   color:beige ;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width: 40%;
 
 }
 .infoc{
-  font-size: 16px;
+  font-size: 15px;
   margin-left: 5%;
   margin-right: 4%;
   margin-top: 2%;
   margin-bottom: 2% !important;
   color:beige ;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   width: 40%;
 
 }
 
-.custom-gallery {
-width: auto;
-max-width: 50vh; /* Ajusta el ancho de la galería al 80% del contenedor */
-margin-top: 5% !important;
-height: auto;
-margin: auto;
-margin-left: 5%;
 
+.custom-gallery {
+    width: 100%; 
+    max-width: 40%; 
+    height: auto;
+    margin-top: 2% !important;
+    margin: auto;
+    margin-left: auto;
+    
 }
 
 
 .no-post{
-  font-family: 'Rock Salt', cursive !important;
-  font-size: medium;
-  margin-left: 115%;
-  width: 100%;
-  margin-top: 30%;
-  margin-bottom: 35%;
+   font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
+  display: flex !important; 
+  justify-content: center;
+  margin-top: 40%;
+  margin-bottom: 5%;
+  width: 300%;
+  font-size: 20px;
+  color: #917E41;
+
 }
 
 .flexinfo{
@@ -140,6 +158,7 @@ margin-left: 5%;
 /* Agregar esto a tu archivo de estilos CSS o en línea si estás utilizando styled-components */
 .like-animation {
 animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
+max-height: 50vh;
 }
 .user-reactions{
 margin-top: 1%;
@@ -154,7 +173,7 @@ color: #917E41;
 }
 .info-users-reactions{
 display: flex;
-margin-left: 0%;
+margin-left: 5%;
 cursor: pointer;
 }
 .user-reactions-more{
@@ -171,6 +190,9 @@ color:#917E41;
 .namefirst{
   margin-left: 3%;
   margin-right: 2%;
+}
+.post-item:hover  {
+  transform: scale(1.03);
 }
 
 
@@ -194,31 +216,33 @@ color:#917E41;
     height: auto;
   }
   .close-button {
-    top: 12%;
+    top: 3%;
     right: 7%;
   }
   .post-grid {
-    columns: auto 120px;
+    columns: auto 140px;
     margin-left: 1%;
     margin-right: 1%;
+    min-height: 33vh;
+    padding-bottom: 10%;
+    column-gap: 0.5em;
   }
   
   .post-item {
-    margin-top: 6%;
     margin-bottom: 2%;
 
   }
   .custom-gallery{
-    width: 120%;
-    margin-left: 0%;
-    padding-top: 5%;
-    max-width: 60vh; /* Ajusta el ancho de la galería al 80% del contenedor */
+    width: 100%;
+    margin-left: auto;
+    padding-top: 0%;
+    max-width: 22vh; /* Ajusta el ancho de la galería al 80% del contenedor */
   }
 
   .info{
     margin-bottom: 5%;
     color:beige ;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 10%;
     margin-right: 0%;
     width: 80%;
@@ -228,11 +252,17 @@ color:#917E41;
     font-size: 16px;
     margin-top: 5%;
     margin-bottom: 5%;
+    width: 100%;
 
   }
   .no-post{
-    margin-top: 100%;
-    margin-bottom: 5%;
+    display: flex;
+    margin-left: 0%;
+    width: 200%;
+    margin-top: 50%;
+ 
+
+
   }
   .nameuser{
     width: 80%;
@@ -245,12 +275,15 @@ color:#917E41;
     width:100%;
   }
   .post-item:hover  {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   .user-reactions{
     margin-top: 4%;
     margin-left: 0%; 
     display: flex;
+  }
+  .flexinfo{
+    display: block;
   }
 
 

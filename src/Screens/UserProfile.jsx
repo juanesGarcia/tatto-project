@@ -363,7 +363,7 @@ const getRatingf = async() =>{
   
   
   return (
-    <>
+    <div className="entireProfile">
       {isLoading && <LoaderLogo></LoaderLogo>}
       {user.length > 0 && (
         <div>
@@ -394,7 +394,7 @@ const getRatingf = async() =>{
               <h6>{user[0].city.replace(/['"]/g, '')}</h6>
           
               {user.length > 0 && user[0].rol === "tatuador" && (
-                 <h6><StarRating rating={avarage} />{avarage} ({countAvarage})</h6>
+                 <h6><StarRating rating={avarage} />   {avarage} ({countAvarage})</h6>
               )
              
               }
@@ -420,13 +420,13 @@ const getRatingf = async() =>{
             </div>
           </div>
           <div className="followInfo">
-            <h6 className="follow">publicaciones {postsLength}</h6>
-            <h6 className="follow" onClick={() => getFollowershow()}>
+            <h5 className="follow">publicaciones {postsLength}</h5>
+            <h5 className="follow" onClick={() => getFollowershow()}>
               seguidores {followerLength}
-            </h6>
-            <h6 className="follow" onClick={() => getFollowedshow()}>
+            </h5>
+            <h5 className="follow" onClick={() => getFollowedshow()}>
               seguidos {followedLength}
-            </h6>
+            </h5>
           </div>
           {/* Renderizar el modal de seguidores */}
           {showFollowerModal && (
@@ -482,6 +482,7 @@ const getRatingf = async() =>{
           </div>
         ) : null}
       </div>
+      
       {showUploadPage && (
         <UploadImagesPage
           onUploadSuccess={handleUploadSuccess}
@@ -498,6 +499,6 @@ const getRatingf = async() =>{
         setUploadedPhoto={setUploadedPhoto}
       ></OpenModal>
       <h6>{userLocation[0]}</h6>
-    </>
+    </div>
   );
 };

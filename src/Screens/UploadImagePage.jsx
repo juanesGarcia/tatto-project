@@ -6,7 +6,7 @@ const UploadImagesPage = ({ onUploadSuccess, onClose ,id}) => {
   
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay2" onClick={onClose}>
       <div className="modal-contentp" onClick={(e) => e.stopPropagation()}>
       <div className="upload-page">
       <div className='upload-mesage2'>Subir Imágenes</div>

@@ -9,7 +9,7 @@ export const Footer = () => {
     <div className="containerFooter">
       <div className="footer">
         <div className="contact">
-          <h1>Contact us</h1>
+          <h1>Contacta con nosotros</h1>
         </div>
         <div className="footer-contact">
           <p>Correo: juanesgym2018@gmail.com</p>
@@ -32,14 +32,7 @@ export const Footer = () => {
           >
             <InstagramIcon className="icons" sx={{ marginLeft: '5% !important' }} />
           </a>
-          <a
-            className="container-icons"
-            href="https://www.threads.net/@tattoproart"
-            target="_blank" // Abre el enlace en una nueva pestaña o ventana
-            title="Threads"
-          >
-            <img src={MiImagen} alt="Descripción de la imagen" className="iconsT" sx={{ marginLeft: '5% !important' }} />
-          </a>
+          
         </div>
       </div>
     </div>

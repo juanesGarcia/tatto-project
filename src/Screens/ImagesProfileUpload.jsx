@@ -82,7 +82,7 @@ const ImagesProfileUpload = ({ onClose, id, users}) => {
     if(acceptedFiles.length==1){
       try {
         const response = await axios.post(
-          `https://tatto-backend.onrender.com/uploadimg/${id}`,
+          `https://backed-tatto-2.onrender.com/uploadimg/${id}`,
           formData,
         );
         console.log('la url nueva ',response.data.mediaUrl)

@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  react-app:
+    container_name: mi-contenedor-react
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    env_file:
+      - ./.env
+    ports:
+      - "3009:5173"
+    volumes:
+      - ./src:/usr/src/app/src
+    image: juanes07/frontend:lastest

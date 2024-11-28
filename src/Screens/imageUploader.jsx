@@ -79,7 +79,7 @@ const ImageUploader = ({ onUploadSuccess, onClose, id}) => {
       formData.append("description", description);
       try {
         const response = await axios.post(
-          `https://tatto-backend.onrender.com/upload/${id}`,
+          `https://backed-tatto-2.onrender.com/upload/${id}`,
           formData,
           {
             headers: {

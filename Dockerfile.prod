@@ -1,0 +1,30 @@
+# Usar la imagen oficial de Node.js como base
+FROM node:20-alpine as build
+
+
+# Establecer el directorio de trabajo
+WORKDIR /usr/src/app
+
+# Copiar package.json y package-lock.json al directorio de trabajo
+COPY package*.json ./
+COPY  vite.config.js ./
+
+#ARG REACT_NAME 
+#ENV REACT_NAME=$REACT_NAME       -------> CUANDO QUIERO PASAR UN ARGUMENTO ANTES DEL BUILD
+
+# Instalar dependencias
+RUN npm install
+
+# Copiar el resto del código de la aplicación al directorio de trabajo
+COPY . .
+
+
+RUN npm run build
+
+
+FROM nginx
+
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+
+

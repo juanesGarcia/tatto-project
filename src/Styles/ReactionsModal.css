@@ -10,7 +10,10 @@
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Asegúrate de que el z-index sea mayor que el z-index de tus otros elementos */
-    font-family: 'Rock Salt', cursive !important;
+     font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
   }
   
   .modal-content {
@@ -25,7 +28,7 @@
   .reactions-list {
     max-height: 378px; /* Establece la altura máxima según tus necesidades */
     overflow-y: auto; /* Habilita el desplazamiento vertical si se supera la altura máxima */
-    margin-left: 30px;
+    margin-left: 0%;
     margin-top: 3%;
   }
 
@@ -55,11 +58,15 @@
 .namereactions{
   margin-bottom: 3%;
   display: flex;
+  cursor: pointer;
 }
 .name{
   margin-top: 2% !important;
   margin-left: 5%;
-  font-family: 'Shadows Into Light', sans-serif;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   font-size: 140%;
 }
 .name:hover{

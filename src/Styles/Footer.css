@@ -1,11 +1,15 @@
 .containerFooter {
     width: 100%;
-    background-color: rgb(228, 224, 177);
+    background-color:  rgb(32, 32, 29);
     padding: 20px;
-    font-family: 'Rock Salt', cursive !important;
+     font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight:  400;
+  font-style: normal;
 }
 .footer{
     margin-left: 10%;
+    color: aliceblue;
 }
   .footer-contact {
     margin-right: 20px;
@@ -19,12 +23,13 @@
 .container-social{
     display: flex;
     padding-bottom: 1%;
+    
 }
 .container-icons{
     margin-left: 2% !important;
 }
 .icons{
-    color: black !important;
+    color: rgb(250, 247, 247) !important;
   
 }
 <<<<<<< HEAD
@@ -34,8 +39,11 @@
 }
 =======
 
+<<<<<<< HEAD
 .iconsT{
   height: 90%;
   width: 60%;
 }
 >>>>>>> a90a205f6638e3abea8ea55e3eca46620fdd5eab
+=======
+>>>>>>> d7c7c0252f73a11937b1e0235a4af15ec147da35

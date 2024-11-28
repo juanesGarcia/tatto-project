@@ -41,7 +41,7 @@ console.log('La fecha actual es',now);
 if(newText.length <= 323){
 
   try {
-    const response = await axios.put(`https://tatto-backend.onrender.com/editar/${post_id}`, {
+    const response = await axios.put(`https://backed-tatto-2.onrender.com/editar/${post_id}`, {
       newDescription: newText,
       currentTime: now,
     });
@@ -90,7 +90,7 @@ if(newText.length <= 323){
 
   const handleEliminar = async () => {
     try {
-      const response = await axios.delete(`https://tatto-backend.onrender.com/deleteimages/${post_id}`);
+      const response = await axios.delete(`https://backed-tatto-2.onrender.com/deleteimages/${post_id}`);
       console.log(response);
       Swal.fire({
         icon: 'success',

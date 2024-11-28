@@ -5,6 +5,9 @@ import { getUsers,getUsersWithRating} from '../api/auth';
 import { Avatar } from '@mui/material';
 import { Mapa } from "./Mapa";
 import StarRating from "./StarRating";
+import { FaMagnifyingGlass } from "react-icons/fa6";
+import Swal from 'sweetalert2';
+
 
 export const SearchP = () => {
   const navigate = useNavigate();
@@ -44,8 +47,27 @@ export const SearchP = () => {
         console.log(data)
         const parsedUsers = parseUserData(data);
         setUsers(parsedUsers);
+        Swal.fire({
+          text: ' Próximamente Tattopro en Google Play y App Store 🚀📱',
+          showConfirmButton: false,
+          timer: 2000,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
       } catch (error) {
-        console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          text: ' Aguarda un instante, el servidor está respondiendo ⌛ ¡Gracias por tu paciencia! 🙏',
+          showConfirmButton: false,
+          timer: 3000,
+          customClass: {
+            popup: 'custom-swal-popup',
+            title: 'custom-swal-title',
+          },
+        });
       }
     };
 
@@ -59,8 +81,7 @@ export const SearchP = () => {
   const filterUsers = (allUsers, searchText) => {
     // Filtrar usuarios por nombre que coincida con el texto de búsqueda
     const filteredUsers = allUsers.filter((user) =>
-      user.name.toLowerCase().includes(searchText.toLowerCase().trim()) ||
-      user.id.toLowerCase().includes(searchText.toLowerCase().trim())
+      user.name.toLowerCase().includes(searchText.toLowerCase().trim())
     );
   
     // Ordenar los usuarios filtrados por rating promedio y cantidad de ratings en orden descendente
@@ -137,8 +158,9 @@ export const SearchP = () => {
   
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
-      <h6 className='title'>los mejores tatuadores con Tattopro 🎨🖼️ </h6>
-      <div className='titleinput'>busca los tatuadores </div>
+      <div className='title'>Los mejores tatuadores con Tattopro 🎨 🌍 </div>
+      <div className='titleinput'>Busca los tatuadores </div>
+      <FaMagnifyingGlass className='icones'/>
       <input
         type="text"
         value={search}
@@ -172,7 +194,12 @@ export const SearchP = () => {
               <div className="user-rol">{user.rol}</div>
               <div className="user-location">{user.city ? user.city.replace(/['"]/g, '') : ''}</div>
               {user.rol=='tatuador'&&(
-                <div><StarRating rating={user.average_rating} />{user.average_rating}</div>
+               
+                  <div className='user-start'>
+                  
+                    <StarRating rating={user.average_rating} />  {user.average_rating}</div>
+                
+                
               )
               }
               
@@ -181,7 +208,8 @@ export const SearchP = () => {
            
           </div>
         ))}
-          <div className='titlemap'>mira los tataudores en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemap'>Mira los tatuadores mas cercanos a ti en la cuidad de {cityUserM} (busca por cuidades)</div>
+          <div className='titlemapprovisional'>Por ahora solo tenemos tatuadores de prueba en Bogota y Santa Marta </div>
 
         <Mapa users={users} setcityUserM={setcityUserM}></Mapa>
     </div>
