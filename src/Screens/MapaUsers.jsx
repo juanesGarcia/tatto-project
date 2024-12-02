@@ -1,11 +1,12 @@
 import mapboxgl from 'mapbox-gl';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import '../Styles/MapaUser.css';
 import { updatelocation } from '../api/auth';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import mapboxglGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoianVhbmVzLTEyMyIsImEiOiJjbHExM2E4ZzAwMXRxMmlueHA5ZnB4dXU4In0.KQFMVdrDUldzkKwXUIJP-w';
 const googleMapsApiKey = 'AIzaSyA-BAdaQ7CAlBniXGzQTmAfMbbwqYiWkkQ';
@@ -14,11 +15,11 @@ export const MapaUsers = () => {
   const mapContainerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [userLocation, setUserLocation] = useState(null);
-  const [cityUser, setcityUser] = useState('');
-  const {info} = useSelector((state) => state.auth);
+  const [cityUser, setCityUser] = useState('');
+  const [newLocation, setNewLocation] = useState([]);  // Asegúrate de que esté vacío inicialmente
+  const { info } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     const getUserLocation = () => {
       if (navigator.geolocation) {
@@ -42,14 +43,8 @@ export const MapaUsers = () => {
   useEffect(() => {
     if (userLocation) {
       getCityFromCoordinates(userLocation).then((cityUser) => {
-        setcityUser(cityUser);
+        setCityUser(cityUser);
         console.log(cityUser);
-
-        if (cityUser) {
-          console.log(`La ciudad correspondiente a las coordenadas es: ${cityUser}`);
-        } else {
-          console.log('No se pudo obtener la información de la ciudad.');
-        }
       });
     }
   }, [userLocation]);
@@ -63,17 +58,33 @@ export const MapaUsers = () => {
         zoom: 14,
       });
 
+      const geocoder = new mapboxglGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+      });
+
+      map.addControl(geocoder);
+
+      geocoder.on('result', (event) => {
+        setNewLocation(event.result.geometry.coordinates)
+
+        new mapboxgl.Marker()
+          .setLngLat(newLocation)
+          .setPopup(new mapboxgl.Popup().setHTML('<h3>Ubicación seleccionada</h3>'))
+          .addTo(map);
+      });
+
       map.on('load', () => {
         setIsLoading(false);
         const userPopup = new mapboxgl.Popup().setHTML('<h3>Tu ubicación</h3>');
         new mapboxgl.Marker().setLngLat(userLocation).setPopup(userPopup).addTo(map);
-
       });
 
       return () => map.remove();
     }
   }, [userLocation, cityUser]);
 
+  // Función para obtener la ciudad basada en las coordenadas
   const getCityFromCoordinates = async (userLocation) => {
     try {
       const response = await fetch(
@@ -85,13 +96,10 @@ export const MapaUsers = () => {
       if (data.results && data.results.length > 0) {
         for (const component of data.results[0].address_components) {
           if (component.types.includes('locality')) {
-            const cityUser = component.long_name;
-            return cityUser;
+            return component.long_name;
           }
         }
       }
-  
-      console.error('No se pudo obtener la información de la ciudad.');
       return null;
     } catch (error) {
       console.error('Error al obtener la ciudad:', error);
@@ -99,80 +107,70 @@ export const MapaUsers = () => {
     }
   };
 
+  // useEffect para imprimir newLocation después de que se actualice
+  useEffect(() => {
+    if (newLocation.length > 0) {
+      console.log('Ubicación seleccionada:', newLocation);
+    }
+  }, [newLocation]); // Este efecto se ejecutará cada vez que newLocation cambie
 
+  // Función para actualizar la ubicación en la base de datos
   const updateLocation = async () => {
-    const id = info.id;
+    const locationToUse = newLocation.length > 0 ? newLocation : userLocation; // Si no hay selección, usa la ubicación del usuario
+    if (locationToUse.length === 0) {
+      console.error('No se ha seleccionado una ubicación válida');
+      return;
+    }
+
+    console.log('Coordenadas para actualizar:', newLocation);  // Aquí ya debería estar actualizado
+
     const datalo = {
-      id,
-      lon: userLocation[0],
-      lat: userLocation[1],
-      cityUser: cityUser, // Actualiza el objeto de datos con el pueblo o la ciudad
+      id: info.id,
+      lon: locationToUse[0],
+      lat: locationToUse[1],
+      cityUser: cityUser,
     };
+
     try {
       const response = await updatelocation(datalo);
-      console.log(response.data.success);
       if (response.data.success) {
         Swal.fire({
           icon: 'success',
-          title: `la cuidad actulizada es ${cityUser}`,
+          title: `La ciudad actualizada es ${cityUser}`,
           showConfirmButton: false,
           timer: 1500,
-          customClass: {
-            popup: 'custom-swal-popup',
-            title: 'custom-swal-title',
-          },
         });
-  
-        // Esperar un segundo antes de navegar a la otra página
-        setTimeout(() => {
-          navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
-        }, 2000);
+        setTimeout(() => navigate(`/`), 1000);
       }
     } catch (error) {
-      return error;
+      console.error('Error al actualizar la ubicación:', error);
     }
   };
 
-  const backToPerfil = () =>{
-
+  const backToPerfil = () => {
     Swal.fire({
-        icon: 'error',
-        title: `no se ha actulizado tu ubicacion `,
-        showConfirmButton: false,
-        timer: 1500,
-        customClass: {
-          popup: 'custom-swal-popup',
-          title: 'custom-swal-title',
-        },
-      });
-  
+      icon: 'error',
+      title: `No se ha actualizado tu ubicación`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
 
-       // Esperar un segundo antes de navegar a la otra página
-       setTimeout(() => {
-        navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
-      }, 2000);
-
-
-  }
-  
-
-
-
+    setTimeout(() => {
+      navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
+    }, 2000);
+  };
 
   return (
     <div className="contmap">
-        <h2 className='confirmubi'>agrega la ubicacion de tu local </h2>
-      <div className="map" ref={mapContainerRef} style={{ width: '100%'}}>
+      <h2 className='confirmubi'>Agrega la ubicación de tu local</h2>
+      <div className="map" ref={mapContainerRef} style={{ width: '100%' }}>
         {isLoading && <p>Cargando mapa...</p>}
       </div>
-      <h4 className='city'>la cuidad es : {cityUser}</h4>
-       <div className='contbut'>
-        <button className='button' onClick={updateLocation}>confirmar</button>
-
-        <button className='button' onClick={backToPerfil}>denegar</button>
+      <h4 className='city'>La ciudad es: {cityUser}</h4>
+      <div className='contbut'>
+        <button className='button' onClick={updateLocation}>Confirmar</button>
+        <button className='button' onClick={backToPerfil}>Denegar</button>
       </div>
-      
     </div>
   );
 };
-
