@@ -1,10 +1,9 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true
 
-const tatu= 'http://localhost:4000' // 'http://localhost:4000'https://backed-tatto-2.onrender.co' 
+const tatu= 'https://backed-tatto-2.onrender.co'  // 'http://localhost:4000'
 
 export async function onUpdate(updateData) {
-    try {
       const response = await axios.put(
         `${tatu}/user/${updateData.id}`,
         updateData.user,
@@ -17,9 +16,7 @@ export async function onUpdate(updateData) {
       );
   
       return response.data;
-    } catch (error) {
-      throw error;
-    }
+ 
   }
 export async function onRegistration(registrationData){
     return await axios.post(
