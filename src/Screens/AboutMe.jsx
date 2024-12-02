@@ -5,7 +5,7 @@ export const AboutMe = () => {
   return (
     <>
       <div className="containerabout">
-        <h3 className="about">¿Quienes somos?</h3>
+        <h3 className="about">¿Quienes somos nosotros ?</h3>
         <div className="infoAbout">
           <div className="parrafo1">
             Es una plataforma innovadora diseñada para conectar tatuadores

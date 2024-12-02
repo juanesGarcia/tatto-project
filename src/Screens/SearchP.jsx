@@ -40,22 +40,33 @@ export const SearchP = () => {
  
 
   useEffect(() => {
+    Swal.fire({
+      text: ' Próximamente Tattopro en Google Play y App Store 🚀📱',
+      showConfirmButton: false,
+      timer: 2000,
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+      },
+    });
     const showData = async () => {
       try {
+        // Registrar el tiempo antes de hacer la solicitud
+        const startTime = Date.now();
+    
         const response = await getUsersWithRating();
         const data = response.data;
-        console.log(data)
+        console.log(data);
+    
+        // Calcular el tiempo de respuesta
+        const endTime = Date.now();
+        const responseTime = endTime - startTime;
+    
+        console.log(`Tiempo de respuesta: ${responseTime} ms`);
+    
         const parsedUsers = parseUserData(data);
         setUsers(parsedUsers);
-        Swal.fire({
-          text: ' Próximamente Tattopro en Google Play y App Store 🚀📱',
-          showConfirmButton: false,
-          timer: 2000,
-          customClass: {
-            popup: 'custom-swal-popup',
-            title: 'custom-swal-title',
-          },
-        });
+    
       } catch (error) {
         Swal.fire({
           icon: 'error',
@@ -70,6 +81,7 @@ export const SearchP = () => {
         });
       }
     };
+    
 
     if (users.length === 0) {
       showData();
@@ -158,7 +170,7 @@ export const SearchP = () => {
   
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
-      <div className='title'>Los mejores tatuadores con Tattopro 🎨 🌍 </div>
+      <div className='title'>Los mejores tatuadores con Tattopro 🎨 🌍prueba  </div>
       <div className='titleinput'>Busca los tatuadores </div>
       <FaMagnifyingGlass className='icones'/>
       <input
