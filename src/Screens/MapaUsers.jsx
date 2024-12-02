@@ -16,7 +16,7 @@ export const MapaUsers = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [userLocation, setUserLocation] = useState(null);
   const [cityUser, setCityUser] = useState('');
-  const [newLocation, setNewLocation] = useState([]);  // Asegúrate de que esté vacío inicialmente
+  const [newLocation, setNewLocation] = useState(null); // Solo inicializa como null
   const { info } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
@@ -66,14 +66,21 @@ export const MapaUsers = () => {
       map.addControl(geocoder);
 
       geocoder.on('result', (event) => {
-        setNewLocation(event.result.geometry.coordinates)
+        // Extraer las coordenadas del evento
+        
+          setNewLocation(event.result.geometry.coordinates);
 
-        new mapboxgl.Marker()
-          .setLngLat(newLocation)
-          .setPopup(new mapboxgl.Popup().setHTML('<h3>Ubicación seleccionada</h3>'))
-          .addTo(map);
+          // Coloca el marcador en la ubicación seleccionada
+          new mapboxgl.Marker()
+            .setLngLat(newLocation)
+            .setPopup(new mapboxgl.Popup().setHTML('<h3>Ubicación seleccionada</h3>'))
+            .addTo(map);
+       
+         
+        
       });
 
+      // Mostrar la ubicación del usuario
       map.on('load', () => {
         setIsLoading(false);
         const userPopup = new mapboxgl.Popup().setHTML('<h3>Tu ubicación</h3>');
@@ -107,22 +114,15 @@ export const MapaUsers = () => {
     }
   };
 
-  // useEffect para imprimir newLocation después de que se actualice
-  useEffect(() => {
-    if (newLocation.length > 0) {
-      console.log('Ubicación seleccionada:', newLocation);
-    }
-  }, [newLocation]); // Este efecto se ejecutará cada vez que newLocation cambie
-
   // Función para actualizar la ubicación en la base de datos
   const updateLocation = async () => {
-    const locationToUse = newLocation.length > 0 ? newLocation : userLocation; // Si no hay selección, usa la ubicación del usuario
-    if (locationToUse.length === 0) {
+
+    const locationToUse = newLocation != null ? newLocation : userLocation;
+
+    if (!locationToUse || locationToUse.length === 0) {
       console.error('No se ha seleccionado una ubicación válida');
       return;
     }
-
-    console.log('Coordenadas para actualizar:', newLocation);  // Aquí ya debería estar actualizado
 
     const datalo = {
       id: info.id,
@@ -140,7 +140,9 @@ export const MapaUsers = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setTimeout(() => navigate(`/`), 1000);
+        setTimeout(() => {
+          navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
+        }, 2000);
       }
     } catch (error) {
       console.error('Error al actualizar la ubicación:', error);

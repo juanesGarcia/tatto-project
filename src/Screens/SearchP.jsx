@@ -170,7 +170,7 @@ export const SearchP = () => {
   
   return (
     <div className="search-container" onKeyDown={handleArrowKeyPress}>
-      <div className='title'>Los mejores tatuadores con Tattopro 🎨🌍 pp  </div>
+      <div className='title'>Los mejores tatuadores con Tattopro 🎨🌍</div>
       <div className='titleinput'>Busca los tatuadores </div>
       <FaMagnifyingGlass className='icones'/>
       <input
