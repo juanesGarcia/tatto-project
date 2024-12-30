@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import {useState } from "react";
 import "../Styles/Login.css";
 import { NavLink } from "react-router-dom";
 import { onLogin } from "../api/auth";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { authenticateUser, setInfo } from "../redux/slices/authSlice";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -48,11 +47,11 @@ export const Login = () => {
   };
 
   return (
-    <>
+    <div>
       <div className="containerLogin">
         <div className="login-boxLogin">
           <p>Iniciar sesión</p>
-          <form onSubmit={handleSummit}>
+          <form onSubmit={handleSummit}  autoComplete="off">
             <div className="user-boxLogin">
               <input
                 required=""
@@ -100,7 +99,7 @@ export const Login = () => {
             </button>
             <div style={{ color: "red", margin: "10px 0" }}>{errores}</div>
           </form>
-          <p>
+          <p> 
             No tienes una cuenta?{" "}
             <NavLink className="a2" to="/ChooseRegister">
               registrate!
@@ -108,6 +107,6 @@ export const Login = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
