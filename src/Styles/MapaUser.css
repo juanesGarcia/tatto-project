@@ -1,5 +1,32 @@
+.containerUserMap{
+    background-image: url("/public/images/luxa.org-opacity-changed-Default_Create_an_artistic_black_and_white_background_related_1.jpg") !important;
+    background-size: cover;
+      background-position: center;
+}
+.confirmButton{
+    padding-bottom: 5%;
+}
 .map{
 height: 600px;
+width: 80%;
+display: flex;
+align-items: center;
+border-radius: 5%;
+}
+.containerBuscar{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.elementosBuscar{
+display: block;
+width: 80%;
+color: #917E41;
+}
+.containerMap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .button {
     font-family: inherit;
@@ -34,52 +61,48 @@ height: 600px;
 }
 
 .titulo{
-    margin-top: 5%;
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #917E41;
 }
 
 .list-group-item{
     border: 1px solid black;
+    border-radius: 3%;
+    padding-bottom: 2%;
+    margin-bottom: 1%;
 }
 .list-group-item:hover{
-    background-color: #50400b;
+    background-color: #917E41;
 }
-.contmap{
-    margin-left: 11%;
-    margin-right: 10%;
-    margin-top: 5%;
+
+.digitar{
+    margin-top: 0.5%;
+    margin-bottom: 2%;
 }
-.contbut{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 5%;
-}
-.confirmubi{
-    margin-top: 3%;
-     font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight:  400;
-  font-style: normal;
-    width: 100%;
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: center;
-}
-.city{
-    margin-top: 3%;
-}
-  
+
 @media (max-width: 800px) {
-    .confirmubi{
-        margin-bottom: 10%;
+    .buscarUbicacion{
+        font-size: 8px ;
     }
-    .contbut{
-        display: flex;
-        margin-top: 10%;
-        padding-bottom: 10%;
-        }
-        .contmap{
-            margin-left: 5%;
-            margin-right: 5% !important;
-            margin-top: 10%;
-        }
+    .digitar{
+        font-size: 65%;
+        margin-top: 2%;
+        margin-bottom: 5%;
+    }
+    .form-control{
+        width: 100%;
+    }
+    .titulo{
+        padding-top: 10%;
+
+    }
+    .seleccionUbicacion{
+        font-size: 100%;
+    }
+    
+
+
 }

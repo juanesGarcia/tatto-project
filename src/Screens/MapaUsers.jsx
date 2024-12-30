@@ -117,7 +117,16 @@ export const MapaUsers = () => {
 
   const updateLocation = async () => {
     if (!newLocation) {
-      alert('No se ha seleccionado una ubicación válida');
+      Swal.fire({
+        icon: "error",
+        title: "Error al ingresar la clasificación",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: "custom-swal-popup",
+          title: "custom-swal-title",
+        },
+      });
       return;
     }
 
@@ -137,10 +146,14 @@ export const MapaUsers = () => {
         const response = await updatelocation(datalo);
         if (response.data.success) {
           Swal.fire({
-            icon: 'success',
-            title: `La ciudad actualizada es ${cityUser}`,
+            icon: "success",
+            title: "Se ha actualiuzado la ubicacion correctamente",
             showConfirmButton: false,
             timer: 1500,
+            customClass: {
+              popup: "custom-swal-popup",
+              title: "custom-swal-title",
+            },
           });
           setTimeout(() => {
             navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
@@ -150,8 +163,17 @@ export const MapaUsers = () => {
         alert('Error al obtener los datos de ubicación o ciudad');
       }
     } catch (error) {
-      console.error('Error al actualizar la ubicación:', error);
-      alert('Hubo un error al intentar actualizar tu ubicación');
+
+      Swal.fire({
+        icon: "error",
+        title: "Error al ingresar la ubicacion ",
+        showConfirmButton: false,
+        timer: 1500,
+        customClass: {
+          popup: "custom-swal-popup",
+          title: "custom-swal-title",
+        },
+      });
     }
   };
 
@@ -181,17 +203,29 @@ export const MapaUsers = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className='titulo'> Agrega la ubicación de tu local</h2>
+    <div className="containerUserMap">
 
-      <div className="map mb-4 mt-4" ref={mapContainerRef} >
+        <h2 className='titulo'> Agrega la ubicación de tu local</h2>
+
+      
+
+      <div className='containerMap'>
+           <div className="map mb-4 mt-4" ref={mapContainerRef} >
         {isLoading && <p>Cargando mapa...</p>}
       </div>
+      </div>
 
-      {/* Solo mostrar el campo de búsqueda si showSearch es true */}
+   
+      <div className='containerBuscar'>
+
+        <div className='elementosBuscar'>
+                {/* Solo mostrar el campo de búsqueda si showSearch es true */}
       {showSearch && (
         <div className="form-group mb-4">
-          <h4>Buscar ubicacion <h6>(seleccionar una sugerencia de abajo)</h6></h4>
+          <div className='buscarUbicacion'>
+            <h3>Buscar ubicacion <h6 className='digitar'>Digitar (direccion y cuidad) o (Lugar y cuidad)</h6></h3>
+          </div>
+          
           <input
             type="text"
             className="form-control"
@@ -205,7 +239,12 @@ export const MapaUsers = () => {
       {/* Mostrar sugerencias */}
       <div className="mt-3 mb-4">
         {suggestions.length > 0 && showSearch && (
-          <ul className="list-group">
+
+          <div>  
+            <ul>
+            <h5 className='seleccionUbicacion'>Seleccione una sugerencia de ubicacion </h5>
+          </ul>
+            <ul className="list-group">
             {suggestions.map((location, index) => {
               return (
                 <li key={index} className="list-group-item" onClick={() => handleSuggestionClick(location)}>
@@ -216,6 +255,9 @@ export const MapaUsers = () => {
               );
             })}
           </ul>
+        
+          </div>
+          
         )}
 
         {userTyped && suggestions.length === 0 && address && showSearch && (
@@ -223,7 +265,17 @@ export const MapaUsers = () => {
         )}
       </div>
 
-      <div className="mt-4 text-center mb-4">
+
+
+
+        </div>
+        
+
+
+      </div>
+
+
+      <div className="confirmButton mt-4 text-center ">
         <button className="button" onClick={updateLocation}>
           Confirmar ubicación
         </button>

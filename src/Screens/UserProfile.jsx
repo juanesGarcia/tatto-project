@@ -402,7 +402,7 @@ const getRatingf = async() =>{
               {user.length > 0 && user[0].rol === "tatuador" && isOwnProfile && (
       
       <div className="location" onClick={() => moveToMap()}>
-      agregar ubicacion de tu local<FaMapMarkerAlt  className="iconmap" size={30} color="red" style={{marginBottom:"4px"}}></FaMapMarkerAlt>
+      agregar o modificar ubicacion de tu local<FaMapMarkerAlt  className="iconmap" size={30} color="red" style={{marginBottom:"4px"}}></FaMapMarkerAlt>
      </div>
 
         )}
