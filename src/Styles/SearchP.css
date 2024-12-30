@@ -22,7 +22,6 @@
   font-optical-sizing: auto;
   font-weight:  400;
   font-style: normal;
-  font-weight: bold;
   font-size: 30px;
   color: #917E41;
   margin-top: 3%;
@@ -35,7 +34,6 @@
 .titleinput{
    font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight:  400;
   font-style: normal;
   font-weight: 600;
   margin-left: 5%;
@@ -68,7 +66,6 @@
   font-optical-sizing: auto;
   font-weight:  600;
   font-style: normal;
-  margin-left: 5%;
   padding-bottom: 2%;
   margin-top: 3%;
   border-bottom: 1px solid beige;

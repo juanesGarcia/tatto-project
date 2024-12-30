@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import logo from "/images/logofinal.jpg";
 import Avatar from "@mui/material/Avatar";
 import { FaMapMarkerAlt } from 'react-icons/fa';
@@ -45,11 +45,11 @@ export const UserProfile = () => {
   const [showRatingModal, setShowRatingModal] = useState(false);
   const [showImages, setShowImages] = useState(false);
   const [uploadedPhoto, setUploadedPhoto] = useState(false);
-  const [userLocation, setuserLocation] = useState([]);
+  const [userLocation] = useState([]);
   const [avarage, setAvarage] = useState([]);
   const [countAvarage, setCountAvarage] = useState([]);
   const [yet, setYet] = useState(false);
-  const [dataFetched, setDataFetched] = useState(false);
+  const [setDataFetched] = useState(false);
   const navigate = useNavigate();
 
   
@@ -316,7 +316,7 @@ const getRatingf = async() =>{
   useEffect(() => {
     showData();
 
-  }, []);
+  });
 
   const parseUserData = (data) => {
     return data.map((item) => {

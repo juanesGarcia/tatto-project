@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { SearchP } from "./SearchP";
 import "../Styles/Home.css";
 import LoaderLogo from "./LoaderLogo";

@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../Styles/AboutMe.css";
 
 export const AboutMe = () => {
