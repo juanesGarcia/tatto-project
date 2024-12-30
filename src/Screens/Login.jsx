@@ -19,16 +19,22 @@ export const Login = () => {
 
   const handleSummit = async (e) => {
     e.preventDefault();
-    try {
-      const infoUser = await onLogin(user);
-      dispatch(authenticateUser());
-      dispatch(setInfo(infoUser.data.info));
-      localStorage.setItem("token", JSON.stringify(infoUser.data));
-    } catch (error) {
-      setErrores(error.response.data.errors[0]);
-      console.log(error.response.data.errors[0]);
-    }
-  };
+        try {
+          const infoUser = await onLogin(user);
+          dispatch(authenticateUser());
+          dispatch(setInfo(infoUser.data.info));
+          console.log('Token:', infoUser.data.token);  // Verifica si el token está presente
+          console.log('Info:', infoUser.data.info)
+          // Guarda tanto el token como la info en 'authData'
+          localStorage.setItem('authData', JSON.stringify(
+            infoUser.data
+          ));
+      
+        } catch (error) {
+          setErrores(error.response.data.errors[0]);
+          console.log(error.response.data.errors[0]);
+        }
+      };
 
   const handleOnchange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -85,7 +91,7 @@ export const Login = () => {
                 Contraseña
               </label>
             </div>
-            <button type="submit">
+            <button onClick={handleSummit}>
               <span></span>
               <span></span>
               <span></span>

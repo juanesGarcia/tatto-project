@@ -33,34 +33,19 @@ const RestrictedRoutes = () => {
 
 function App() {
   const dispatch = useDispatch();
-  const { isAuth, info } = useSelector((state) => state.auth);
-
-  // Guardar estado de autenticación en localStorage cada vez que cambia
-  useEffect(() => {
-    if (isAuth) {
-      localStorage.setItem('authData', JSON.stringify({ isAuth, info }));
-    } else {
-      localStorage.removeItem('authData');
-    }
-  }, [isAuth, info]);
 
   // Restaurar estado de autenticación desde localStorage cuando la aplicación se carga
   useEffect(() => {
     const authData = localStorage.getItem('authData');
     if (authData) {
-      const { isAuth: storedIsAuth, info: storedInfo } = JSON.parse(authData);
-      if (storedIsAuth) {
+      const { token, info } = JSON.parse(authData);
+      if (token) {
         dispatch(authenticateUser());
-        dispatch(setInfo(storedInfo));
+        dispatch(setInfo(info));
       } else {
         dispatch(unauthenticateUser());
       }
     }
-  }, [dispatch]);
-
-  // Verificar la sesión del usuario
-  useEffect(() => {
-    checkSession(dispatch);
   }, [dispatch]);
 
   return (
@@ -69,23 +54,25 @@ function App() {
         <NavBar />
         <Routes>
           <Route element={<RestrictedRoutes />}>
-            <Route exact path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
           </Route>
+
           <Route element={<PrivateRoutes />}>
-            <Route exact path="/HomeAuth" element={<HomeAuth />} />
-            <Route exact path="/AdminAccount" element={<AdminAccount />} />
-            <Route exact path="/TattoStyles" element={<TattoStyles />} />
+            <Route path="/HomeAuth" element={<HomeAuth />} />
+            <Route path="/AdminAccount" element={<AdminAccount />} />
+            <Route path="/TattoStyles" element={<TattoStyles />} />
           </Route>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/BestTattos" element={<BestTattos />} />
-          <Route exact path="/Artist" element={<Artist />} />
-          <Route exact path="/Blog" element={<Blog />} />
-          <Route exact path="/Register" element={<Register />} />
-          <Route exact path="/ChooseRegister" element={<ChooseRegister />} />
-          <Route exact path="/RegisterTatto" element={<RegisterTatto />} />
-          <Route exact path="/profile/:id/:name" element={<UserProfile />} info={info} />
-          <Route exact path="/MapaUser" element={<MapaUsers />} />
-          <Route exact path="/AboutMe" element={<AboutMe />} />
+
+          <Route path="/" element={<Home />} />
+          <Route path="/BestTattos" element={<BestTattos />} />
+          <Route path="/Artist" element={<Artist />} />
+          <Route path="/Blog" element={<Blog />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/ChooseRegister" element={<ChooseRegister />} />
+          <Route path="/RegisterTatto" element={<RegisterTatto />} />
+          <Route path="/profile/:id/:name" element={<UserProfile />} />
+          <Route path="/MapaUser" element={<MapaUsers />} />
+          <Route path="/AboutMe" element={<AboutMe />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
