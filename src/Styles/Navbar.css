@@ -45,6 +45,20 @@
   width: 30vh;
 }
 
+.editarNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0%;
+}
+
+.profile-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10% !important;
+}
+
 @media (min-width: 300px) and (max-width: 360px) {
   .profile-info {
     width: 75% !important;
@@ -178,10 +192,10 @@
   font-weight: 400;
   font-style: normal;
 }
-.perfil{
+.perfil {
   color: aliceblue;
 }
-.perfil:hover{
+.perfil:hover {
   color: #917e41;
 }
 
@@ -219,22 +233,22 @@
   font-style: normal;
   width: 100%;
 }
-.agg{
+.agg {
   margin-top: 5%;
   margin-left: 10%;
-  width: 100%;  text-decoration: none;
+  width: 100%;
+  text-decoration: none;
   color: aliceblue;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   font-size: 80%;
-  }
+}
 
-  .agg:hover{
-    color: #3d361d !important;
-  }
-
+.agg:hover {
+  color: #3d361d !important;
+}
 
 @media (max-width: 800px) {
   .profile-name {
@@ -242,9 +256,9 @@
     font-size: 160% !important;
     width: 100%;
     font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
   .signup {
     width: 21vh;
@@ -252,7 +266,7 @@
     font-size: 60% !important;
   }
 
-  .login{
+  .login {
     width: 100% !important;
     margin-left: 0% !important;
     font-size: 60% !important;
@@ -263,9 +277,9 @@
     font-size: 100%;
     width: 100%;
     font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

@@ -89,18 +89,18 @@ console.log('joda',parsedData.token)
         setUpdateSuccess(true);
         Swal.fire({
           icon: 'success',
-          title: response.message,
-          showConfirmButton: true,
-          timer: 2500,
+          title: 'Se guardó la actualización de los datos correctamente 😊',
+          showConfirmButton: false,
+          timer: 1500,
           customClass: {
             popup: 'custom-swal-popup',
             title: 'custom-swal-title',
           },
+        }).then(() => {
+          navigate('/'); // Espera a que el Swal se cierre antes de navegar
         });
-    
-        console.log(info)
-        navigate('/'); // Redirigir al inicio de sesión
       }
+      
     } catch (error) {
     
       Swal.fire({

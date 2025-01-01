@@ -1,4 +1,4 @@
-import React from "react";
+
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import '../Styles/StarRating.css'; // Ajusta la ruta según la ubicación de tu archivo de estilo
 
@@ -14,7 +14,6 @@ const StarRating = ({ rating }) => {
     return <div className="star2-container">{emptyStars}</div>;
   }
 
-  // Proceed with the regular rating rendering logic
   const stars = [];
   const roundedRating = Math.floor(rating);
 
