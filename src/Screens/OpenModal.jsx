@@ -16,6 +16,7 @@ import {
 } from "../api/auth";
 import Avatar from "@mui/material/Avatar";
 import { ReactionsModal } from "./ReactionsModal";
+import Swal from 'sweetalert2';
 
 const OpenModal = ({
   isAuthp,
@@ -32,6 +33,7 @@ const OpenModal = ({
   const [reactionsMap, setReactionsMap] = useState({});
   const [userReactions, setuserReactions] = useState([]);
   const [showReactionsModal, setShowReactionsModal] = useState(false);
+  
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -52,7 +54,9 @@ const OpenModal = ({
       const followersArray = response.data.info || [];
       console.log(followersArray);
       setuserReactions(followersArray);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const checkreactions = async () => {
@@ -275,7 +279,10 @@ const OpenModal = ({
             </div>
           ))
         ) : (
-          <div className="no-post">No hay posts disponibles.</div>
+
+            <div className="no-post">No hay posts disponibles.</div>
+
+          
         )}
       </div>
       {selectedPost && (

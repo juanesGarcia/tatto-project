@@ -77,8 +77,8 @@ export const Register = () => {
   };
 
   return (
-    <>
-      <div className="containerRegister">
+    <div>
+      <div className="containerRegister" autoComplete="off">
         <div className="login-box">
           <p>Registro</p>
           <form onSubmit={handleSummit}>
@@ -158,6 +158,6 @@ export const Register = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };

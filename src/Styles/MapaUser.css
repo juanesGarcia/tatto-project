@@ -3,8 +3,11 @@
     background-size: cover;
       background-position: center;
 }
-.confirmButton{
-    padding-bottom: 5%;
+.botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3%;
 }
 .map{
 height: 500px;

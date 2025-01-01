@@ -202,6 +202,10 @@ export const MapaUsers = () => {
     setShowSearch(false); // Ocultar el buscador y las sugerencias después de seleccionar una sugerencia
   };
 
+  const handleVolver = async () =>{
+    navigate(`/profile/${encodeURIComponent(info.id)}/${encodeURIComponent(info.name)}`);
+  }
+
   return (
     <div className="containerUserMap">
 
@@ -274,12 +278,20 @@ export const MapaUsers = () => {
 
       </div>
 
-
-      <div className="confirmButton mt-4 text-center ">
+<div className='botones'>
+      <div className="confirmButton  ">
         <button className="button" onClick={updateLocation}>
           Confirmar ubicación
         </button>
       </div>
+      <div className="volver">
+        <button className="button" onClick={handleVolver}>
+          Ir al perfil
+        </button>
+      </div>
+
+</div>
+
     </div>
   );
 };

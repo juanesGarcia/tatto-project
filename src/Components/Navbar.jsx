@@ -70,7 +70,10 @@ function Navbar() {
     const { id, name } = tempUserInfo || info;
     navigate(`/profile/${encodeURIComponent(id)}/${encodeURIComponent(name)}`);
   };
-
+  const editarClick = () => {
+  
+    navigate('/AdminAccount')
+  };
   const handleAvatarClick = () => {
     setShowInfo((prevShowInfo) => !prevShowInfo);
   };
@@ -140,7 +143,7 @@ function Navbar() {
                   <div className="right-div">
                     <div className="profile-name" onClick={perfilClick}>{info.name}</div>
                     <div className="profile-email">{info.email}</div>
-                    <NavLink to="/AdminAccount" className='editarNav'>editar perfil</NavLink>
+                    <div className="editarNav" onClick={editarClick}>Editar perfil</div>
                     <div className="bottom-component" onClick={() => logout()}>Salir</div>
                   </div>
                 </div>

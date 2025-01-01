@@ -1,33 +1,30 @@
 .post-grid {
   display: block;
   column-gap: 0.5em;
-  columns:auto 310px;
+  columns: auto 310px;
   gap: 0.5em; /* Elimina el espacio entre las columnas y filas */
   z-index: 1;
   margin-left: 5%;
-  margin-right: 5%; 
+  margin-right: 5%;
   margin-top: 2%;
   min-height: 70vh;
   padding-bottom: 8%;
-
 }
-
 
 .post-item {
   width: 100%; /* Ancho deseado */
   overflow: hidden; /* Para asegurarte de que las imágenes no se desborden */
-  display: flex; /* Usa flexbox para alinear elementos en el eje horizontal */ 
+  display: flex; /* Usa flexbox para alinear elementos en el eje horizontal */
   border-radius: 2%;
   cursor: pointer;
   transition: all 0.5s;
   margin-top: 3%;
-
-  
-
 }
 
 .post-item:hover img {
-  filter: brightness(50%); /* Aplica un filtro de brillo para oscurecer la imagen */
+  filter: brightness(
+    50%
+  ); /* Aplica un filtro de brillo para oscurecer la imagen */
 }
 
 .post-item img {
@@ -37,7 +34,6 @@
   flex: 1; /* La imagen ocupa todo el espacio disponible en el contenedor flex */
   border: solid beige 0.5px;
 }
-
 
 .custom-modal-overlay {
   position: fixed;
@@ -65,19 +61,19 @@
 }
 /* Ajusta la posición del botón de cierre */
 .close-button {
-display: flex;
-position: absolute;
-top: 1%;
-right: 18%;
-font-size: 40px;
-cursor: pointer;
-background: none;
-border: none;
-padding: 5px;
-color: #fff;
+  display: flex;
+  position: absolute;
+  top: 1%;
+  right: 18%;
+  font-size: 40px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 5px;
+  color: #fff;
 
-/* Añade margen para aumentar el área de clic */
-margin: -15px; /* Experimenta con el valor según sea necesario */
+  /* Añade margen para aumentar el área de clic */
+  margin: -15px; /* Experimenta con el valor según sea necesario */
 }
 
 .post-modal {
@@ -92,125 +88,116 @@ margin: -15px; /* Experimenta con el valor según sea necesario */
 .img {
   width: 60%; /* Ajusta el ancho de la imagen al 70% del contenedor */
   margin-left: 5%;
-  margin-bottom:auto;
+  margin-bottom: auto;
   margin-top: auto;
 }
-.info{
+.info {
   font-size: 15px;
   margin-left: 0%;
   margin-right: 0%;
   margin-top: 4%;
   margin-bottom: 5%;
-  color:beige ;
+  color: beige;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   width: 40%;
-
 }
-.infoc{
+.infoc {
   font-size: 15px;
   margin-left: 5%;
   margin-right: 4%;
   margin-top: 2%;
   margin-bottom: 2% !important;
-  color:beige ;
+  color: beige;
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   width: 40%;
-
 }
-
 
 .custom-gallery {
-    width: 100%; 
-    max-width: 40%; 
-    height: auto;
-    margin-top: 2% !important;
-    margin: auto;
-    margin-left: auto;
-    
+  width: 100%;
+  max-width: 40%;
+  height: auto;
+  margin-top: 2% !important;
+  margin: auto;
+  margin-left: auto;
 }
-
-
-.no-post{
-   font-family: "Playfair Display", serif;
+.no-post {
+  font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
-  font-weight:  400;
+  font-weight: 400;
   font-style: normal;
-  display: flex !important; 
-  justify-content: center;
   margin-top: 40%;
   margin-bottom: 5%;
-  width: 300%;
   font-size: 20px;
-  color: #917E41;
-
+  color: #917e41;
+  display: flex;
+  justify-content: center;
+  margin-left: 0%;
+  width: 400%;
 }
 
-.flexinfo{
+.flexinfo {
   display: flex;
 }
 
 /* Agregar esto a tu archivo de estilos CSS o en línea si estás utilizando styled-components */
 .like-animation {
-animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
-max-height: 50vh;
+  animation: likeAnimation 1s ease-out; /* Puedes ajustar la duración y la función de temporización según tus necesidades */
+  max-height: 50vh;
 }
-.user-reactions{
-margin-top: 1%;
-display: flex;
+.user-reactions {
+  margin-top: 1%;
+  display: flex;
 }
-.nameuser{
-color: aliceblue;
-margin-left: 10%;
+.nameuser {
+  color: aliceblue;
+  margin-left: 10%;
 }
-.nameuser:hover{
-color: #917E41;
+.nameuser:hover {
+  color: #917e41;
 }
-.info-users-reactions{
-display: flex;
-margin-left: 5%;
-cursor: pointer;
+.info-users-reactions {
+  display: flex;
+  margin-left: 5%;
+  cursor: pointer;
 }
-.user-reactions-more{
-margin-left: 3%;
-margin-top: 1%;
-color: aliceblue;
-cursor: pointer;
-display: flex;
-width: 60%;
+.user-reactions-more {
+  margin-left: 3%;
+  margin-top: 1%;
+  color: aliceblue;
+  cursor: pointer;
+  display: flex;
+  width: 60%;
 }
-.user-reactions-more:hover{
-color:#917E41;
+.user-reactions-more:hover {
+  color: #917e41;
 }
-.namefirst{
+.namefirst {
   margin-left: 3%;
   margin-right: 2%;
 }
-.post-item:hover  {
+.post-item:hover {
   transform: scale(1.03);
 }
 
-
 @keyframes likeAnimation {
-0% {
-  transform: scale(1);
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-50% {
-  transform: scale(1.5);
-}
-100% {
-  transform: scale(1);
-}
-}
-
 
 @media (max-width: 800px) {
-
   .custom-modal {
     width: 92%;
     height: auto;
@@ -227,67 +214,55 @@ color:#917E41;
     padding-bottom: 10%;
     column-gap: 0.5em;
   }
-  
+
   .post-item {
     margin-bottom: 2%;
-
   }
-  .custom-gallery{
+  .custom-gallery {
     width: 100%;
     margin-left: auto;
     padding-top: 0%;
     max-width: 22vh; /* Ajusta el ancho de la galería al 80% del contenedor */
   }
 
-  .info{
+  .info {
     margin-bottom: 5%;
-    color:beige ;
+    color: beige;
     font-size: 12px;
     margin-top: 10%;
     margin-right: 0%;
     width: 80%;
-
   }
-  .infoc{
+  .infoc {
     font-size: 16px;
     margin-top: 5%;
     margin-bottom: 5%;
     width: 100%;
-
   }
-  .no-post{
+  .no-post {
     display: flex;
     margin-left: 0%;
     width: 200%;
     margin-top: 50%;
- 
-
-
   }
-  .nameuser{
+  .nameuser {
     width: 80%;
     margin-right: 4%;
   }
-  
 
-  .user-reactions-more{
+  .user-reactions-more {
     margin-left: 5%;
-    width:100%;
+    width: 100%;
   }
-  .post-item:hover  {
+  .post-item:hover {
     transform: scale(1.03);
   }
-  .user-reactions{
+  .user-reactions {
     margin-top: 4%;
-    margin-left: 0%; 
+    margin-left: 0%;
     display: flex;
   }
-  .flexinfo{
+  .flexinfo {
     display: block;
   }
-
-
-
-
-
 }

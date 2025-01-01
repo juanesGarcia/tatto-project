@@ -7,7 +7,7 @@ import "../Styles/ImgProfile.css";
 import { BsFillFileImageFill } from "react-icons/bs";
 import {  setInfo } from "../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
-
+import Swal from 'sweetalert2';
 
 
 const resizeImage = async (file, targetWidth, targetHeight) => {

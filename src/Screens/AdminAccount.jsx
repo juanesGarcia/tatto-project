@@ -10,10 +10,9 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 
-export const AdminAccount = () => {
+export const AdminAccount = () => { 
   const dispatch = useDispatch();
   const { info } = useSelector((state) => state.auth);
-  const [errores, setErrores] = useState(false);
   const [user, setUser] = useState({
     name: '',
     password: '',
@@ -23,8 +22,8 @@ export const AdminAccount = () => {
   });
   
   const navigate = useNavigate();
-  const [updateSuccess, setUpdateSuccess] = useState(false);
-  const data = localStorage.getItem('token');
+  const [ UpdateSuccess ,setUpdateSuccess] = useState(false);
+  const data = localStorage.getItem('authData');
   const parsedData = JSON.parse(data);
   
 
@@ -76,7 +75,7 @@ console.log(info)
         });
         return; // Detener el envío si las contraseñas no coinciden
       }
-
+console.log('joda',parsedData.token)
     const dataToSend = {
       user,
       id: userId,
@@ -91,8 +90,8 @@ console.log(info)
         Swal.fire({
           icon: 'success',
           title: response.message,
-          showConfirmButton: false,
-          timer: 1500,
+          showConfirmButton: true,
+          timer: 2500,
           customClass: {
             popup: 'custom-swal-popup',
             title: 'custom-swal-title',
@@ -103,11 +102,12 @@ console.log(info)
         navigate('/'); // Redirigir al inicio de sesión
       }
     } catch (error) {
-      console.log(error.response.data.errors[0]);
+    
       Swal.fire({
         title: 'Error',
-        text: error.response.data.errors[0],
+        text: "error",
         icon: 'error',
+        timer: 2500,
         customClass: {
           popup: 'custom-swal-popup',
           title: 'custom-swal-title',
